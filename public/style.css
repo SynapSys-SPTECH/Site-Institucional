@@ -75,7 +75,7 @@ nav button{
 }
 
 .caixa-inicio{
-    background: #AFAFAF;
+    background: url("/public/images/img-fundo-banner.png");
     margin-top: 8vh;
     width: 90%;
     height: 80%;
