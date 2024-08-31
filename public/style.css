@@ -27,7 +27,7 @@ nav{
     width: 100%;
     
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     border-bottom: 2px solid black;
 }
 
@@ -142,7 +142,96 @@ nav button{
 .main-infos{
     background-color: rgb(107, 107, 107);
     height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
 }
+
+.box-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    
+    height: 20em;
+    width: 60%;
+    
+}
+
+.img-card-info{
+    width: 20em;
+    height: 20em;
+    position: relative;
+    z-index: 1;
+    
+    border-radius: 100%;
+}
+
+.card-info{
+    background-color: var(--whiteSynapSys);
+    width: 100%;
+    flex-wrap: wrap;
+    height: 100%;
+    position: relative;
+    padding-left: 12em;
+    padding-right: 5em;
+    right: 10em;
+    border-radius: 20px;
+
+    text-align: start;
+}
+
+
+
+.card-info h1, .card-info p{
+    flex-wrap: wrap; 
+    margin-top: 1em;
+}
+
+#card-info2{
+    padding-left: 2em;
+    padding-right: 12em;
+    left: 10em;
+}
+
+#card-info2 h1, #card-info2 p{
+    border: 0;
+    
+}
+
+.btn-saibamais{
+    margin-top: 1em;
+    width: 10em;
+    height: 48px;
+    border-radius: 14px;
+    border: none;
+    background: #7fb1f7;
+    font-size: 1.5em;
+    flex-shrink: 0;
+
+    transition: 0.2s ease-in-out;
+}
+
+
+
+.btn-saibamais:hover{
+    cursor: pointer;
+    background: #599bf7;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .main-detalhes{
     background-color: rgb(60, 60, 60);
@@ -152,4 +241,8 @@ nav button{
 footer{
     background-color: rgb(26, 26, 26);
     height: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
