@@ -1,55 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-:root{
+:root {
     --whiteSynapSys: #eee;
     --whiteFundo: #DADADA;
 }
 
 
-*{
+* {
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
     font-family: Inter;
 }
 
-
-nav{
+nav {
     background-color: var(--whiteSynapSys);
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: space-evenly;
     align-items: center;
 
-    
+
 
     height: 6em;
     width: 100%;
-    
+
     position: fixed;
     z-index: 1000;
     border-bottom: 2px solid black;
 }
 
-nav img{
+nav img {
     height: 4em;
     margin: 0.5em;
 
 }
 
-nav ul{
+nav ul {
     display: flex;
     width: auto;
     justify-content: space-between;
 }
-nav ul a{
+
+nav ul a {
     text-decoration: none;
+    font-size: 18px;
     color: black;
 }
 
-nav ul li{
+nav ul a:hover{
+    transition: 0.4s;
+    color: rgb(98, 211, 211);
+   
+}
+
+nav ul li {
     list-style: none;
-    background-color: #C6C6C6;
+    /* background-color: #C6C6C6; */
     margin: 0.5em;
     padding: 0.5em 3em;
     font-size: 1em;
@@ -57,7 +65,7 @@ nav ul li{
     text-decoration: none;
 }
 
-nav button{
+nav button {
     background-color: rgb(132, 132, 132);
     border: none;
     padding: 0.5em 2em;
@@ -65,34 +73,47 @@ nav button{
     font-size: 1.6em;
 }
 
-.main-inicio{
+
+.logo-nav{
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-nav:hover{
+    transform: scale(1.1);
+}
+
+.main-inicio {
     background-color: var(--whiteFundo);
     height: 100vh;
-    
+
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.caixa-inicio{
+.caixa-inicio {
     background: url("/public/images/img-fundo-banner.png");
-    margin-top: 8vh;
+    margin-top: 12vh;
     width: 90%;
     height: 80%;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
 }
 
-.card-inicio{
-    background-color: var(--whiteSynapSys);
-    
-    
+.caixa-inicio h1{
+    text-align: center;
+}
+
+.card-inicio {
+    /* background-color: var(--whiteSynapSys); */
+
+    background-color: rgb(98, 211, 211);
     width: 60%;
     margin-top: 10vh;
-    
+
     border-radius: 1em;
 
     display: flex;
@@ -101,17 +122,17 @@ nav button{
     align-items: center;
 
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    
+
 }
 
-.card-inicio h1{
+.card-inicio h1 {
     margin-top: 2em;
     font-size: 2.5em;
     font-weight: 600;
     max-width: 80%;
 }
 
-.card-inicio p{
+.card-inicio p {
     font-size: 2rem;
     font-weight: 300;
     max-width: 70%;
@@ -119,7 +140,7 @@ nav button{
     margin-bottom: 10%;
 }
 
-.btn-ingressar{
+.btn-ingressar {
     margin-top: 10vh;
     margin-bottom: 5vh;
     width: 403px;
@@ -133,13 +154,15 @@ nav button{
     transition: 0.2s ease-in-out;
 }
 
-.btn-ingressar:hover{
+.btn-ingressar:hover {
     cursor: pointer;
-    background: #838383;
+    /* background: #838383; */
+    background-color: rgb(98, 211, 211);
+    
 }
 
 
-.main-infos{
+.main-infos {
     background-color: rgb(107, 107, 107);
     height: 100vh;
     width: 100%;
@@ -147,30 +170,30 @@ nav button{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    
+
 }
 
-.box-info{
+.box-info {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
-    
+
     height: 20em;
     width: 60%;
-    
+
 }
 
-.img-card-info{
+.img-card-info {
     width: 20em;
     height: 20em;
     position: relative;
     z-index: 1;
-    
+
     border-radius: 100%;
 }
 
-.card-info{
+.card-info {
     background-color: var(--whiteSynapSys);
     width: 100%;
     flex-wrap: wrap;
@@ -186,23 +209,25 @@ nav button{
 
 
 
-.card-info h1, .card-info p{
-    flex-wrap: wrap; 
+.card-info h1,
+.card-info p {
+    flex-wrap: wrap;
     margin-top: 1em;
 }
 
-#card-info2{
+#card-info2 {
     padding-left: 2em;
     padding-right: 12em;
     left: 10em;
 }
 
-#card-info2 h1, #card-info2 p{
+#card-info2 h1,
+#card-info2 p {
     border: 0;
-    
+
 }
 
-.btn-saibamais{
+.btn-saibamais {
     margin-top: 1em;
     width: 10em;
     height: 48px;
@@ -217,28 +242,42 @@ nav button{
 
 
 
-.btn-saibamais:hover{
+.btn-saibamais:hover {
     cursor: pointer;
     background: #599bf7;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.main-detalhes{
-    background-color: rgb(60, 60, 60);
+/* PARTE DO SITE DIRECIONADA PARA OS DETALHES INFORMATIVOS */
+.main-detalhes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     height: 100vh;
+
+    background-color: rgb(98, 211, 211);
 }
 
-footer{
+.container-detalhes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 90vw;
+    height: 80vh;
+}
+
+.article-detalhes {
+    width: 25vw;
+    height: 85vh;
+}
+
+.img-detalhes{
+    border-radius: 1rem;
+    width: 25vw;
+    height: 85vh;
+}
+
+footer {
     background-color: rgb(26, 26, 26);
     height: 20vh;
     display: flex;
