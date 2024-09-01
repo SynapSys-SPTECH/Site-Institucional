@@ -51,8 +51,8 @@ nav ul a {
 
 nav ul a:hover{
     transition: 0.4s;
-    color: rgb(98, 211, 211);
-   
+    /* color: rgb(98, 211, 211); */
+    color: rgb(133, 212, 224);
 }
 
 nav ul li {
@@ -110,7 +110,7 @@ nav button {
 .card-inicio {
     /* background-color: var(--whiteSynapSys); */
 
-    background-color: rgb(98, 211, 211);
+    background-color: rgb(133, 212, 224);
     width: 60%;
     margin-top: 10vh;
 
@@ -157,7 +157,7 @@ nav button {
 .btn-ingressar:hover {
     cursor: pointer;
     /* background: #838383; */
-    background-color: rgb(98, 211, 211);
+    background-color: rgb(133, 212, 224);
     
 }
 
@@ -254,7 +254,7 @@ nav button {
     align-items: center;
     height: 100vh;
 
-    background-color: rgb(98, 211, 211);
+    background-color: rgb(133, 212, 224);
 }
 
 .container-detalhes {
