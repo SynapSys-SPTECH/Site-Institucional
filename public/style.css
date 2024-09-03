@@ -3,6 +3,7 @@
 :root {
     --whiteSynapSys: #eee;
     --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #85d4e0;
 }
 
 
@@ -110,7 +111,7 @@ nav button {
 .card-inicio {
     /* background-color: var(--whiteSynapSys); */
 
-    background-color: rgb(133, 212, 224);
+    background-color: #85d4e0;
     width: 60%;
     margin-top: 10vh;
 
@@ -163,7 +164,7 @@ nav button {
 
 
 .main-infos {
-    background-color: rgb(107, 107, 107);
+    background-color: var(--lightBlueSynapSys);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -254,7 +255,7 @@ nav button {
     align-items: center;
     height: 100vh;
 
-    background-color: rgb(133, 212, 224);
+    background-color: rgb(0, 70, 132);
 }
 
 .container-detalhes {
@@ -267,8 +268,57 @@ nav button {
 }
 
 .article-detalhes {
-    width: 25vw;
-    height: 85vh;
+    width: 20vw;
+    height: 70vh;
+    background-image: url(images/img-turbinas.png);
+    border-radius: 1rem;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: ease-in-out 0.3s;
+    border: #599bf7 3px solid;
+}
+
+.article-detalhes:hover{
+    border: var(--whiteSynapSys) 3px solid;
+}
+
+.article-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    justify-content: center;
+    background-color: var(--lightBlueSynapSys);
+    border-radius: 1rem;
+    align-items: center;
+    text-align: center;
+    transition: opacity ease-in-out 0.3s;
+}
+
+
+
+.article-detalhes a{
+    border: none;
+    background-color: #599bf7;
+    height: 10%;
+    width: 90%;
+    font-size: 24px;
+    color: var(--whiteSynapSys);
+    font-weight: 400;
+    border-radius: 1rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-detalhes a:hover{
+    height: 10%;
+    width: 100%;
 }
 
 .img-detalhes{

@@ -16,10 +16,10 @@
                 <li>Página Inicial</li>
             </a>
             <a href="#main-infos">
-                <li>Botão 2</li>
+                <li>Informações</li>
             </a>
             <a href="#main-detalhes">
-                <li>Botão 3</li>
+                <li>Detalhes</li>
             </a>
         </ul>
         <a href="#"><img src="images/Entrar.svg" alt=""></a>
@@ -82,16 +82,44 @@
         <section class="main-detalhes" id="main-detalhes">
 
             <main class="container-detalhes">
-                <article class="article-detalhes">
-                    <img class="img-detalhes" src="images/img-turbinas.png">
+                <article class="article-detalhes" onmouseenter="apareceInfos('article1')"
+                    onmouseleave="someInfos('article1')">
+                    <div class="article-content" id="article1" style="display: none;">
+                        <div>
+                            <h1>TITULO INFO</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sunt quaerat asperiores
+                                commodi explicabo possimus, error dolorem, nam maiores consequuntur officiis nobis
+                                reprehenderit dolores eligendi! Officia cum quo alias dignissimos.</p>
+                        </div>
+                        
+                    </div>
+                    <a href="">Saiba mais</a>
+
+                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
                 </article>
 
-                <article class="article-detalhes">
-                    <img class="img-detalhes" src="images/img-turbinas.png">
+                <article class="article-detalhes" onmouseenter="apareceInfos('article2')"
+                    onmouseleave="someInfos('article2')">
+                    <div class="article-content" id="article2" style="display: none;">
+                        <h1>TITULO INFO</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sunt quaerat asperiores commodi
+                            explicabo possimus, error dolorem, nam maiores consequuntur officiis nobis reprehenderit
+                            dolores eligendi! Officia cum quo alias dignissimos.</p>
+                    </div>
+                    <a href="">Saiba mais</a>
+                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
                 </article>
 
-                <article class="article-detalhes">
-                    <img class="img-detalhes" src="images/img-turbinas.png">
+                <article class="article-detalhes" onmouseenter="apareceInfos('article3')"
+                    onmouseleave="someInfos('article3')">
+                    <div class="article-content" id="article3" style="display: none;">
+                        <h1>TITULO INFO</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sunt quaerat asperiores commodi
+                            explicabo possimus, error dolorem, nam maiores consequuntur officiis nobis reprehenderit
+                            dolores eligendi! Officia cum quo alias dignissimos.</p>
+                    </div>
+                    <a href="">Saiba mais</a>
+                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
                 </article>
             </main>
 
@@ -105,3 +133,19 @@
 </body>
 
 </html>
+
+<script>
+
+
+
+    function apareceInfos(id) {
+        document.getElementById(id).style.display = "flex";
+        document.getElementById(id).style.opacity = 1;
+    }
+
+    function someInfos(id) {
+        document.getElementById(id).style.display = "none";
+        document.getElementById(id).style.opacity = 0;
+    }
+
+</script>
