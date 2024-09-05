@@ -1,151 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>SynapSys</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <img class="logo-nav" src="images/logo-synapsys.svg" alt="Logo da SynapSys">
-        <ul>
-            <a href="#main-inicio">
-                <li>Página Inicial</li>
-            </a>
-            <a href="#main-infos">
-                <li>Informações</li>
-            </a>
-            <a href="#main-detalhes">
-                <li>Detalhes</li>
-            </a>
-        </ul>
-        <a href="#"><img src="images/Entrar.svg" alt=""></a>
-
+      <img
+        class="logo-nav"
+        src="images/logo-synapsys.svg"
+        alt="Logo da SynapSys"
+      />
+      <ul>
+        <a href="#main-inicio">
+          <li>Página Inicial</li>
+        </a>
+        <a href="#main-infos">
+          <li>Informações</li>
+        </a>
+        <a href="#main-detalhes">
+          <li>Detalhes</li>
+        </a>
+      </ul>
+      <a href="#"><img src="images/Entrar.svg" alt="" /></a>
     </nav>
 
     <!-- INICIO - Seção Inicial -->
 
     <main>
-        <section class="main-inicio" id="main-inicio">
-            <div class="caixa-inicio">
-                <div class="card-inicio">
-                    <h1>Transforme vento em poder: Energize o futuro com a força eólica.</h1>
-                    <p>Texto descritivo sobre a solução para chamar atenção do cliente ao problema que solucionamos.</p>
-                </div>
-                <button class="btn-ingressar">INGRESSAR</button>
+      <section class="main-inicio" id="main-inicio">
+        <div class="caixa-inicio">
+          <div class="card-inicio">
+            <h1>
+              Transforme vento em poder: Energize o futuro com a força eólica.
+            </h1>
+            <p>
+              Descubra se você esta realmente explorando todos os seus recursos
+              disponíveis,ou há oportunidades de expandir sua visão.
+            </p>
+          </div>
+          <button class="btn-ingressar">INGRESSAR</button>
+        </div>
+      </section>
+
+      <!-- FIM - Seção Inicial -->
+
+      <!-- INICIO - Seção de Informações -->
+
+      <section class="main-infos" id="main-infos">
+        <div class="box-info">
+          <img class="img-card-info" src="images/img-turbinas.png" alt="" />
+          <div class="card-info">
+            <h1>PROPRIETÁRIOS</h1>
+            <p>
+              Quer descobrir quais são as fronteiras para seus objetivos, aqui
+              te oferemos as melhores opções para sua expansão e nossa
+              felicidade. Veja o que nossa IA tem a te dizer...
+            </p>
+            <button class="btn-saibamais">Saiba mais</button>
+          </div>
+        </div>
+        <div class="box-info">
+          <div class="card-info" id="card-info2">
+            <h1>INVESTIDORES</h1>
+            <p>
+              Se você procura mais opções para investir, navegue por
+              nossos parques eólicos cadastrados e se tiver interesse entre em
+              contato direto com o proprietário.
+            </p>
+            <button class="btn-saibamais">Saiba mais</button>
+          </div>
+          <img class="img-card-info" src="images/img-turbinas.png" alt="" />
+        </div>
+      </section>
+
+      <!-- FIM - Seção de Informações -->
+
+      <!-- INICIO - Seção de Detalhes -->
+
+      <section class="main-detalhes" id="main-detalhes">
+        <main class="container-detalhes">
+          <article
+            class="article-detalhes"
+            onmouseenter="apareceInfos('article1')"
+            onmouseleave="someInfos('article1')"
+          >
+            <div class="article-content" id="article1" style="display: none">
+              <div>
+                <h1>FONTE RENOVÁVEL</h1>
+                <br />
+                <p>
+                  Priorizando os caminhos que nos levam a um mundo mais
+                  sustentável, as fontes renováveis são responsáveis por pegar
+                  um recurso natural e transformá-lo em energia. Como a energia
+                  eólica onde a força dos ventos irá nos proporcionar os
+                  resultados.
+                </p>
+              </div>
             </div>
-        </section>
+            <a href="">Saiba mais</a>
 
-        <!-- FIM - Seção Inicial -->
+            <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
+          </article>
 
-        <!-- INICIO - Seção de Informações -->
-
-        <section class="main-infos" id="main-infos">
-            <div class="box-info">
-                <img class="img-card-info" src="images/img-turbinas.png" alt="">
-                <div class="card-info">
-                    <h1>TITULO DA MENSAGEM</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ab soluta enim reprehenderit
-                        expedita nulla error harum eligendi unde omnis. Odio fuga, minus adipisci quaerat fugiat unde
-                        mollitia? Ullam, soluta.
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus ab beatae, minima quos
-                        aperiam iusto incidunt nostrum magnam nemo ipsa neque autem rem, placeat officiis praesentium
-                        ipsum quisquam molestias recusandae.
-                    </p>
-                    <button class="btn-saibamais">Saiba mais</button>
-                </div>
+          <article
+            class="article-detalhes"
+            onmouseenter="apareceInfos('article2')"
+            onmouseleave="someInfos('article2')"
+          >
+            <div class="article-content" id="article2" style="display: none">
+              <h1>VALORIZAÇÃO NACIONAL</h1>
+              <br />
+              <p>
+                Sendo o Brasil, o 6º maior país do ranking mundial em energia
+                eólica desde 2021, a fonte representa uma oportunidade de
+                investir em uma energia limpa e valorizar uma fonte desenvolvida
+                nacionalmente.
+              </p>
             </div>
-            <div class="box-info">
+            <a href="">Saiba mais</a>
+            <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
+          </article>
 
-                <div class="card-info" id="card-info2">
-                    <h1>TITULO DA MENSAGEM</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique qui, officiis ipsum impedit
-                        maxime ad vel alias sint libero mollitia placeat dolor enim illo. Quas quo assumenda eos nostrum
-                        laudantium.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis architecto ut deserunt eos sequi
-                        voluptatem ea corrupti! Adipisci consectetur in delectus libero, placeat tempora, ad culpa
-                        architecto sequi non repudiandae.
-                    </p>
-                    <button class="btn-saibamais">Saiba mais</button>
-                </div>
-                <img class="img-card-info" src="images/img-turbinas.png" alt="">
+          <article
+            class="article-detalhes"
+            onmouseenter="apareceInfos('article3')"
+            onmouseleave="someInfos('article3')"
+          >
+            <div class="article-content" id="article3" style="display: none">
+              <h1>BAIXO CUSTO A LONGO PRAZO</h1>
+              <br />
+              <p>
+                Atualmente os custos de instalação e de manutenção de parques
+                eólicos estão relativamente baixos, além de poder ser gerada em escala
+                residencial, onde miniturbinas pode crescer o acesso ao mesmo.
+              </p>
             </div>
-        </section>
+            <a href="">Saiba mais</a>
+            <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
+          </article>
+        </main>
+      </section>
 
-        <!-- FIM - Seção de Informações -->
-
-        <!-- INICIO - Seção de Detalhes -->
-
-        <section class="main-detalhes" id="main-detalhes">
-
-            <main class="container-detalhes">
-                <article class="article-detalhes" onmouseenter="apareceInfos('article1')"
-                    onmouseleave="someInfos('article1')">
-                    <div class="article-content" id="article1" style="display: none;">
-                        <div>
-                            <h1>TITULO INFO</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sunt quaerat asperiores
-                                commodi explicabo possimus, error dolorem, nam maiores consequuntur officiis nobis
-                                reprehenderit dolores eligendi! Officia cum quo alias dignissimos.</p>
-                        </div>
-                        
-                    </div>
-                    <a href="">Saiba mais</a>
-
-                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-                </article>
-
-                <article class="article-detalhes" onmouseenter="apareceInfos('article2')"
-                    onmouseleave="someInfos('article2')">
-                    <div class="article-content" id="article2" style="display: none;">
-                        <h1>TITULO INFO</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sunt quaerat asperiores commodi
-                            explicabo possimus, error dolorem, nam maiores consequuntur officiis nobis reprehenderit
-                            dolores eligendi! Officia cum quo alias dignissimos.</p>
-                    </div>
-                    <a href="">Saiba mais</a>
-                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-                </article>
-
-                <article class="article-detalhes" onmouseenter="apareceInfos('article3')"
-                    onmouseleave="someInfos('article3')">
-                    <div class="article-content" id="article3" style="display: none;">
-                        <h1>TITULO INFO</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sunt quaerat asperiores commodi
-                            explicabo possimus, error dolorem, nam maiores consequuntur officiis nobis reprehenderit
-                            dolores eligendi! Officia cum quo alias dignissimos.</p>
-                    </div>
-                    <a href="">Saiba mais</a>
-                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-                </article>
-            </main>
-
-        </section>
-
-        <!-- FIM - Seção de Detalhes -->
+      <!-- FIM - Seção de Detalhes -->
     </main>
     <footer>
-        <img src="images/logo-branca.svg" alt="">
+      <img src="images/logo-branca.svg" alt="" />
     </footer>
-</body>
-
+  </body>
 </html>
 
 <script>
+  function apareceInfos(id) {
+    document.getElementById(id).style.display = "flex";
+    document.getElementById(id).style.opacity = 1;
+  }
 
-
-
-    function apareceInfos(id) {
-        document.getElementById(id).style.display = "flex";
-        document.getElementById(id).style.opacity = 1;
-    }
-
-    function someInfos(id) {
-        document.getElementById(id).style.display = "none";
-        document.getElementById(id).style.opacity = 0;
-    }
-
+  function someInfos(id) {
+    document.getElementById(id).style.display = "none";
+    document.getElementById(id).style.opacity = 0;
+  }
 </script>
