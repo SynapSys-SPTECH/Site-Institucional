@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>SynapSys | Cadastro</title>
+</head>
+<body>
+
+   <!--NAVBAR-->
+
+    <nav>
+        <img
+          class="logo-nav"
+          src="images/logo-synapsys.svg"
+          alt="Logo da SynapSys"
+        />
+        <ul>
+          <a href="">
+            <li>Item</li>
+          </a>
+          <a href="">
+            <li>Item</li>
+          </a>
+          <a href="">
+            <li>Item</li>
+          </a>
+        </ul>
+        <a href="#"><img src="images/Entrar.svg" alt="" /></a>
+      </nav>
+
+
+
+<br><br>
+    <div id="blocos">
+        <div class="itens">
+            <img class="img-turbina" src="images/img-turbinas.png" alt="">
+        </div>
+        
+      <div class="cad" >
+        <h1>CADASTRO</h1>
+
+        Nome Fantasia(empresa):<br />
+        <input
+          type="text"
+          id="input_nome"
+          class="info"
+          placeholder="ex: "
+        />
+        <br /><br />
+
+       
+        E-mail:<br />
+        <input
+          type="text"
+          id="input_cpf"
+          class="info"
+          placeholder="ex: "
+        />
+        <br /><br />
+
+        Senha:<br />
+        <input type="password" id="input_senha" class="info" />
+
+        <br /><br />
+        Confimação da senha:<br />
+        <input
+          type="password"
+          id="input_confirmacao"
+          class="info"
+          placeholder=""
+        />
+        <br /><br />
+        Já possui conta? <a href="login.html"><b>Entrar</b></a> <br /><br />
+        <button class="botao" onclick="cadastrar()">Cadastrar</button>
+      </div>
+    </div>
+
+
+</body>
+</html>
