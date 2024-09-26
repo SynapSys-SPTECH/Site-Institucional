@@ -164,22 +164,32 @@
         <div class="conteudoLogin" id="login">
           <h2>Login</h2>
           <p>Email</p>
-          <input type="text" id="emailCliente">
+          <input type="text" id="emailLogin">
           <p>Senha</p>
-          <input type="password" id="senhaCliente">
+          <input type="password" id="senhaLogin">
           <button id="entrarLogin">Entrar</button>
           <p id="abrirCadastro"> <a href="">Ainda não é cadastrado?</a></p>
         </div>
         
-        <!--<div class="conteudoCadastro" id="cadastro" style="display: none;"></div>
+        <div class="conteudoCadastro" id="cadastro" style="display: none;">
           <h2>Cadastro</h2>
-          <p>oi</p>
-          <input type="text" id="emailCliente">
+          <p>Usuário</p>
+          <input type="text" id="userCadastro">
+          <p>Email</p>
+          <input type="text" id="emailCadastro">
           <p>Senha</p>
-          <input type="password" id="senhaCliente">
-          <button id="entrarLogin">Entrar</button>
-          <p> <a href="">Ainda não é cadastrado?</a></p>
-        </div>!-->
+          <input type="password" id="senhaCadastro">
+          <p>Confirme sua senha</p>
+          <input type="password" id="confirmacaoCadastro">
+          <p>Tipo de Usuário</p>
+          <select id="tipoUserCadastro">
+              <option value="/">Selecione o Usuario</option>
+              <option value="empresario">Dono de Empresa</option>
+              <option value="investidor">Investidor</option>
+          </select>
+          <button id="cadastrar">Cadastrar</button>
+          <p id="abrirLogin"><a href="">Já é cadastrado?</a></p>
+        </div>
       </div>
     </div>
   </body>
@@ -204,6 +214,8 @@
 
   const login = document.getElementById("login");
 
+  const abrirLogin = document.getElementById("abrirLogin");
+
   const abrirCadastro = document.getElementById("abrirCadastro");
   
   const cadastro = document.getElementById("cadastro");
@@ -211,6 +223,8 @@
   btn.onclick = function () {
     event.preventDefault();
     modal.style.display = "block";
+    login.style.display = "block";
+    cadastro.style.display = "none"
   };
 
   span.onclick = function () {
@@ -221,6 +235,12 @@
     event.preventDefault();
     login.style.display = "none";
     cadastro.style.display = "block";
+  };
+
+  abrirLogin.onclick = function(){
+    event.preventDefault();
+    login.style.display = "block";
+    cadastro.style.display = "none";
   };
 
   window.onclick = function (event) {
