@@ -370,13 +370,22 @@ footer {
 .modalEspaco {
     background-color: #fefefe;
     margin: 15% auto;
-    /* padding: 20px; */
-    border: 1px solid #888;
-    width: 60%;
-    min-height: 50%;
     
+    border-radius: 20px;
+
+    width: 60vw;
+    min-height: 50%;
+    align-content: center;
     justify-content: center;
     align-items: center;
+}
+
+.img-modal{
+    width: 28vw;
+    height: 100%;
+    z-index: 1;
+    float: left;
+    border-radius: 20px;
 }
 
 .conteudoLogin {
@@ -384,27 +393,32 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 50%;
-    width: 50%;
-    height: 80%;
-    border: red 2px solid;
+    float: right;
+    width: 30vw;
+    border-radius: 20px;
+    height: 100%;
+   
+    
 }
 
 .conteudoCadastro {
     display: flex;
     flex-direction: column;
-    
     align-items: center;
     justify-content: center;
-    width: 50%;
+    float: left;
+    width: 30vw;
+    border-radius: 20px;
     height: 100%;
-    border: red 2px solid;
+    
 }
 
 .close {
     color: #aaa;
-    float: right;
-    position: static;
+    float: inline-start;
+    
+    margin: 10px;
+    position: absolute;
     z-index: 1;
     font-size: 28px;
     font-weight: bold;

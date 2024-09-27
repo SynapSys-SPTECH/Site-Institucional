@@ -141,7 +141,10 @@
   <!-- INICIO - Modais Login e Cadastro-->
   <div id="myModal" class="modal" style="display: flex;">
     <div class="modalEspaco">
+
+      
       <span class="close">&times;</span>
+      <img class="img-modal" src="images/img-turbinas.png" alt="" id="imgModal">
       <div class="conteudoLogin" id="login">
         <h2>Login</h2>
         <div>
@@ -208,11 +211,14 @@
 
   const cadastro = document.getElementById("cadastro");
 
+  const imgModal = document.getElementById("imgModal");
+
   btn.onclick = function () {
     event.preventDefault();
     modal.style.display = "flex";
     login.style.display = "flex";
-    cadastro.style.display = "none"
+    cadastro.style.display = "none";
+    imgModal.style.float= "left";
   };
 
   span.onclick = function () {
@@ -223,12 +229,14 @@
     event.preventDefault();
     login.style.display = "none";
     cadastro.style.display = "flex";
+    imgModal.style.float= "right";
   };
 
   abrirLogin.onclick = function () {
     event.preventDefault();
     login.style.display = "flex";
     cadastro.style.display = "none";
+    imgModal.style.float= "left";
   };
 
   window.onclick = function (event) {
