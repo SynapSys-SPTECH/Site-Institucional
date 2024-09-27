@@ -3,8 +3,7 @@
 :root {
     --whiteSynapSys: #eee;
     --whiteFundo: #DADADA;
-    --bluePrimarySynapSys: #204B74;
-    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys: #85d4e0;
 }
 
 
@@ -52,7 +51,7 @@ nav ul a {
     border-bottom: transparent 4px solid;
 }
 
-nav ul a:hover {
+nav ul a:hover{
     transition: 0.4s;
     /* color: rgb(98, 211, 211); */
     color: rgb(0, 110, 126);
@@ -79,16 +78,16 @@ nav button {
 }
 
 
-.logo-nav {
+.logo-nav{
     transition: all 0.3s ease-in-out;
 }
 
-.logo-nav:hover {
+.logo-nav:hover{
     transform: scale(1.1);
 }
 
 .main-inicio {
-    background-color: var(--bluePrimarySynapSys);
+    background-color: var(--whiteFundo);
     height: 100vh;
 
     display: flex;
@@ -97,26 +96,25 @@ nav button {
 }
 
 .caixa-inicio {
-    background: url("images/img-turbinas.png");
-    background-size: contain;
+    background: url("images/img-fundo-banner.png");
     margin-top: 12vh;
     width: 90%;
     height: 80%;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
 }
 
-.caixa-inicio h1 {
+.caixa-inicio h1{
     text-align: center;
 }
 
 .card-inicio {
     /* background-color: var(--whiteSynapSys); */
 
-    background-color: var(--whiteSynapSys);
+    background-color: #85d4e0;
     width: 60%;
     margin-top: 10vh;
 
@@ -126,7 +124,7 @@ nav button {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    text-align: center;
+   text-align: center;
 
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
@@ -165,23 +163,12 @@ nav button {
     cursor: pointer;
     /* background: #838383; */
     background-color: rgb(133, 212, 224);
-
+    
 }
 
 
-.main-infos01 {
-    background-color: var(--blueSecondarySynapSys);
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-
-}
-
-.main-infos02 {
-    background-color: var(--bluePrimarySynapSys);
+.main-infos {
+    background-color: var(--lightBlueSynapSys);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -197,37 +184,15 @@ nav button {
     align-items: center;
     justify-content: start;
 
-    height: 24em;
-    width: 90%;
-
-}
-
-.box-info02 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-
-    height: 24em;
-    width: 90%;
+    height: 20em;
+    width: 60%;
 
 }
 
 .img-card-info {
-    width: 26em;
-    height: 26em;
+    width: 20em;
+    height: 20em;
     position: relative;
-    left: 3rem;
-    z-index: 1;
-
-    border-radius: 100%;
-}
-
-.img-card-info02 {
-    width: 26em;
-    height: 26em;
-    position: relative;
-    right: 2rem;
     z-index: 1;
 
     border-radius: 100%;
@@ -244,36 +209,14 @@ nav button {
     right: 10em;
     border-radius: 20px;
 
-
+    
     text-align: start;
-}
-
-.card-info02 {
-    background-color: var(--whiteSynapSys);
-    width: 100%;
-    flex-wrap: wrap;
-    height: 100%;
-    position: relative;
-    padding-left: 12em;
-    padding-right: 5em;
-    right: 10em;
-    border-radius: 20px;
-
-
-    text-align: end;
 }
 
 
 
 .card-info h1,
 .card-info p {
-    flex-wrap: wrap;
-    font-size: 20px;
-    margin-top: 2em;
-}
-
-.card-info02 h1,
-.card-info02 p {
     flex-wrap: wrap;
     font-size: 20px;
     margin-top: 2em;
@@ -318,7 +261,7 @@ nav button {
     align-items: center;
     height: 100vh;
 
-    background-color: var(--blueSecondarySynapSys);
+    background-color: rgb(87, 121, 150);
 }
 
 .container-detalhes {
@@ -330,10 +273,10 @@ nav button {
     height: 80vh;
 }
 
-.article-detalhes01 {
+.article-detalhes {
     width: 20vw;
     height: 70vh;
-    background-image: url(imgs/Detalhes-direita.png);
+    background-image: url(images/img-turbinas.png);
     background-size: cover;
     border-radius: 1rem;
     padding: 1em;
@@ -346,43 +289,11 @@ nav button {
     border: #599bf7 3px solid;
 }
 
-.article-detalhes02 {
-    width: 20vw;
-    height: 70vh;
-    background-image: url(imgs/Detalhes-meio.png);
-    background-size: cover;
-    border-radius: 1rem;
-    padding: 1em;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    transition: ease-in-out 0.3s;
-    border: #599bf7 3px solid;
-}
-
-.article-detalhes03 {
-    width: 20vw;
-    height: 70vh;
-    background-image: url(imgs/Detalhes-esquerda.png);
-    background-size: cover;
-    border-radius: 1rem;
-    padding: 1em;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    transition: ease-in-out 0.3s;
-    border: #599bf7 3px solid;
-}
-
-.article-detalhes:hover {
+.article-detalhes:hover{
     border: var(--whiteSynapSys) 3px solid;
 }
 
-.article-content {
+.article-content{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -398,9 +309,7 @@ nav button {
 
 
 
-.article-detalhes01 a,
-.article-detalhes02 a,
-.article-detalhes03 a {
+.article-detalhes a{
     border: none;
     background-color: #599bf7;
     height: 10%;
@@ -415,132 +324,16 @@ nav button {
     align-items: center;
 }
 
-.article-detalhes a:hover {
+.article-detalhes a:hover{
     height: 10%;
     width: 100%;
 }
 
-.img-detalhes {
+.img-detalhes{
     border-radius: 1rem;
     width: 25vw;
     height: 85vh;
 }
-
-/* INICIO - Section Desenvolvedores */
-.section-teamDev {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 1rem;
-
-    width: 100%;
-    height: 100%;
-    background-color: var(--whiteSynapSys);
-}
-
-.div-tituloTeamDev {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-    width: 90vw;
-    height: 20vh;
-}
-
-.div-tituloTeamDev h1 {
-    font-size: 15px;
-    color: #001D6C;
-}
-
-.div-tituloTeamDev p {
-    text-align: center;
-    font-size: 35px;
-    font-weight: bold;
-
-
-}
-
-.main-teamDev {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-    width: 90vw;
-    height: 80vh;
-}
-
-.article-devPhotos {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 1rem;
-
-    width: 100%;
-    height: 90%;
-    gap: 1rem;
-}
-
-
-.dev-photo {
-    width: 15vw;
-    height: 35vh;
-
-    border-radius: 5px;
-    border: 3px solid #183E63;
-}
-
-.dev-name {
-    font-weight: bold;
-}
-
-.dev-function {
-    color: #697077;
-}
-
-.bnt-contact {
-    width: 180px;
-    height: 48px;
-    border: 3px solid #0F62FE;
-    border-radius: 5px;
-
-    color: #0F62FE;
-    font-weight: bold;
-}
-
-
-
-.section-empresas {
-    display: flex;
-    width: 100%;
-    height: 10vh;
-    justify-content: space-evenly;
-
-}
-
-.div-empresa {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-}
-
-.logo-empresas {
-
-    width: 35px;
-    height: 35px;
-}
-
-.section-empresas p {
-    font-family: 'Roboto';
-    font-size: 24px;
-    font-weight: bold;
-
-    color: #697077;
-}
-
-
-
 
 footer {
     background-color: rgb(26, 26, 26);
@@ -549,47 +342,4 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.modal {
-    display: none; /* Oculto por padrão */
-    position: fixed; /* Fica fixo na tela */
-    z-index: 1; /* Fica acima de outros elementos */
-    left: 0;
-    top: 0;
-    width: 100%; /* Largura total */
-    height: 100%; /* Altura total */
-    overflow: auto; /* Adiciona scroll se necessário */
-    background-color: rgb(0, 0, 0); /* Cor de fundo */
-    background-color: rgba(0, 0, 0, 0.4); /* Fundo escuro com transparência */
-}
-
-.modalEspaco {
-    background-color: #fefefe;
-    margin: 15% auto; /* Centraliza o modal */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Largura do modal */
-}
-
-.conteudoLogin {
-  
-}
-
-.conteudoCadastro{
-    display: none;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
 }
