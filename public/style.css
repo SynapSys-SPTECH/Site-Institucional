@@ -98,10 +98,11 @@ nav button {
 
 .caixa-inicio {
     background: url("images/img-turbinas.png");
+    background-size: contain;
     margin-top: 12vh;
     width: 90%;
     height: 80%;
-
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
