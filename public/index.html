@@ -1,198 +1,186 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="images/Icon-SynapSysBranco.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>SynapSys</title>
-  </head>
 
-  <body>
-    <nav>
-      <img
-        class="logo-nav"
-        src="images/logo-synapsys.svg"
-        alt="Logo da SynapSys"
-      />
-      <ul>
-        <a href="#main-inicio">
-          <li>Página Inicial</li>
-        </a>
-        <a href="#main-infos">
-          <li>Informações</li>
-        </a>
-        <a href="#main-detalhes">
-          <li>Detalhes</li>
-        </a>
-      </ul>
-      <a href="" id="openModal"><img src="images/Entrar.svg" alt="" /></a>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="images/Icon-SynapSysBranco.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <title>SynapSys</title>
+</head>
 
-    <!-- INICIO - Seção Inicial -->
+<body>
+  <nav>
+    <img class="logo-nav" src="images/logo-synapsys.svg" alt="Logo da SynapSys" />
+    <ul>
+      <a href="#main-inicio">
+        <li>Página Inicial</li>
+      </a>
+      <a href="#main-infos">
+        <li>Informações</li>
+      </a>
+      <a href="#main-detalhes">
+        <li>Detalhes</li>
+      </a>
+    </ul>
+    <a href="" id="openModal"><img src="images/Entrar.svg" alt="" /></a>
+  </nav>
 
-    <main>
-      <section class="main-inicio" id="main-inicio">
-        <div class="caixa-inicio">
-          <div class="card-inicio">
-            <h1>
-              Transforme vento em poder: Energize o futuro com a força eólica.
-            </h1>
-            <p>
-              Descubra se você esta realmente explorando todos os seus recursos
-              disponíveis,ou há oportunidades de expandir sua visão.
-            </p>
-          </div>
-          <button class="btn-ingressar">INGRESSAR</button>
+  <!-- INICIO - Seção Inicial -->
+
+  <main>
+    <section class="main-inicio" id="main-inicio">
+      <div class="caixa-inicio">
+        <div class="card-inicio">
+          <h1>
+            Transforme vento em poder: Energize o futuro com a força eólica.
+          </h1>
+          <p>
+            Descubra se você esta realmente explorando todos os seus recursos
+            disponíveis,ou há oportunidades de expandir sua visão.
+          </p>
         </div>
-      </section>
+        <button class="btn-ingressar">INGRESSAR</button>
+      </div>
+    </section>
 
-      <!-- FIM - Seção Inicial -->
+    <!-- FIM - Seção Inicial -->
 
-      <!-- INICIO - Seção de Informações -->
+    <!-- INICIO - Seção de Informações -->
 
-      <section class="main-infos" id="main-infos">
-        <div class="box-info">
-          <img class="img-card-info" src="images/img-turbinas.png" alt="" />
-          <div class="card-info">
-            <h1>PROPRIETÁRIOS</h1>
-            <p>
-              Quer descobrir quais são as fronteiras para seus objetivos, aqui
-              te oferemos as melhores opções para sua expansão e nossa
-              felicidade. Veja o que nossa IA tem a te dizer...
-            </p>
-            <button class="btn-saibamais">Saiba mais</button>
-          </div>
-        </div>
-        <div class="box-info">
-          <div class="card-info" id="card-info2">
-            <h1>INVESTIDORES</h1>
-            <p>
-              Se você procura mais opções para investir, navegue por nossos
-              parques eólicos cadastrados e se tiver interesse entre em contato
-              direto com o proprietário.
-            </p>
-            <button class="btn-saibamais">Saiba mais</button>
-          </div>
-          <img class="img-card-info" src="images/img-turbinas.png" alt="" />
-        </div>
-      </section>
-
-      <!-- FIM - Seção de Informações -->
-
-      <!-- INICIO - Seção de Detalhes -->
-
-      <section class="main-detalhes" id="main-detalhes">
-        <main class="container-detalhes">
-          <article
-            class="article-detalhes"
-            onmouseenter="apareceInfos('article1')"
-            onmouseleave="someInfos('article1')"
-          >
-            <div class="article-content" id="article1" style="display: flex">
-              <div>
-                <h1>FONTE RENOVÁVEL</h1>
-                <br />
-                <p>
-                  Priorizando os caminhos que nos levam a um mundo mais
-                  sustentável, as fontes renováveis são responsáveis por pegar
-                  um recurso natural e transformá-lo em energia. Como a energia
-                  eólica onde a força dos ventos irá nos proporcionar os
-                  resultados.
-                </p>
-              </div>
-            </div>
-            <a href="">Saiba mais</a>
-
-            <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-          </article>
-
-          <article
-            class="article-detalhes"
-            onmouseenter="apareceInfos('article2')"
-            onmouseleave="someInfos('article2')"
-          >
-            <div class="article-content" id="article2" style="display: none">
-              <h1>VALORIZAÇÃO NACIONAL</h1>
-              <br />
-              <p>
-                Sendo o Brasil, o 6º maior país do ranking mundial em energia
-                eólica desde 2021, a fonte representa uma oportunidade de
-                investir em uma energia limpa e valorizar uma fonte desenvolvida
-                nacionalmente.
-              </p>
-            </div>
-            <a href="">Saiba mais</a>
-            <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-          </article>
-
-          <article
-            class="article-detalhes"
-            onmouseenter="apareceInfos('article3')"
-            onmouseleave="someInfos('article3')"
-          >
-            <div class="article-content" id="article3" style="display: none">
-              <h1>BAIXO CUSTO A LONGO PRAZO</h1>
-              <br />
-              <p>
-                Atualmente os custos de instalação e de manutenção de parques
-                eólicos estão relativamente baixos, além de poder ser gerada em
-                escala residencial, onde miniturbinas pode crescer o acesso ao
-                mesmo.
-              </p>
-            </div>
-            <a href="">Saiba mais</a>
-            <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-          </article>
-        </main>
-      </section>
-
-      <!-- FIM - Seção de Detalhes -->
-    </main>
-    <footer>
-      <img src="images/logo-branca.svg" alt="" />
-    </footer>
-
-    <!-- INICIO - Modais Login e Cadastro-->
-    <div id="myModal" class="modal">
-      <div class="modalEspaco">
-        <span class="close">&times;</span>
-        <div class="conteudoLogin" id="login">
-          <h2>Login</h2>
-          <p>Email</p>
-          <input type="text" id="emailLogin">
-          <p>Senha</p>
-          <input type="password" id="senhaLogin">
-          <button id="entrarLogin">Entrar</button>
-          <p id="abrirCadastro"> <a href="">Ainda não é cadastrado?</a></p>
-        </div>
-        
-        <div class="conteudoCadastro" id="cadastro" style="display: none;">
-          <h2>Cadastro</h2>
-          <p>Usuário</p>
-          <input type="text" id="userCadastro">
-          <p>Email</p>
-          <input type="text" id="emailCadastro">
-          <p>Senha</p>
-          <input type="password" id="senhaCadastro">
-          <p>Confirme sua senha</p>
-          <input type="password" id="confirmacaoCadastro">
-          <p>Tipo de Usuário</p>
-          <select id="tipoUserCadastro">
-              <option value="/">Selecione o Usuario</option>
-              <option value="empresario">Dono de Empresa</option>
-              <option value="investidor">Investidor</option>
-          </select>
-          <button id="cadastrar">Cadastrar</button>
-          <p id="abrirLogin"><a href="">Já é cadastrado?</a></p>
+    <section class="main-infos" id="main-infos">
+      <div class="box-info">
+        <img class="img-card-info" src="images/img-turbinas.png" alt="" />
+        <div class="card-info">
+          <h1>PROPRIETÁRIOS</h1>
+          <p>
+            Quer descobrir quais são as fronteiras para seus objetivos, aqui
+            te oferemos as melhores opções para sua expansão e nossa
+            felicidade. Veja o que nossa IA tem a te dizer...
+          </p>
+          <button class="btn-saibamais">Saiba mais</button>
         </div>
       </div>
+      <div class="box-info">
+        <div class="card-info" id="card-info2">
+          <h1>INVESTIDORES</h1>
+          <p>
+            Se você procura mais opções para investir, navegue por nossos
+            parques eólicos cadastrados e se tiver interesse entre em contato
+            direto com o proprietário.
+          </p>
+          <button class="btn-saibamais">Saiba mais</button>
+        </div>
+        <img class="img-card-info" src="images/img-turbinas.png" alt="" />
+      </div>
+    </section>
+
+    <!-- FIM - Seção de Informações -->
+
+    <!-- INICIO - Seção de Detalhes -->
+
+    <section class="main-detalhes" id="main-detalhes">
+      <main class="container-detalhes">
+        <article class="article-detalhes" onmouseenter="apareceInfos('article1')" onmouseleave="someInfos('article1')">
+          <div class="article-content" id="article1" style="display: flex">
+            <div>
+              <h1>FONTE RENOVÁVEL</h1>
+              <br />
+              <p>
+                Priorizando os caminhos que nos levam a um mundo mais
+                sustentável, as fontes renováveis são responsáveis por pegar
+                um recurso natural e transformá-lo em energia. Como a energia
+                eólica onde a força dos ventos irá nos proporcionar os
+                resultados.
+              </p>
+            </div>
+          </div>
+          <a href="">Saiba mais</a>
+
+          <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
+        </article>
+
+        <article class="article-detalhes" onmouseenter="apareceInfos('article2')" onmouseleave="someInfos('article2')">
+          <div class="article-content" id="article2" style="display: none">
+            <h1>VALORIZAÇÃO NACIONAL</h1>
+            <br />
+            <p>
+              Sendo o Brasil, o 6º maior país do ranking mundial em energia
+              eólica desde 2021, a fonte representa uma oportunidade de
+              investir em uma energia limpa e valorizar uma fonte desenvolvida
+              nacionalmente.
+            </p>
+          </div>
+          <a href="">Saiba mais</a>
+          <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
+        </article>
+
+        <article class="article-detalhes" onmouseenter="apareceInfos('article3')" onmouseleave="someInfos('article3')">
+          <div class="article-content" id="article3" style="display: none">
+            <h1>BAIXO CUSTO A LONGO PRAZO</h1>
+            <br />
+            <p>
+              Atualmente os custos de instalação e de manutenção de parques
+              eólicos estão relativamente baixos, além de poder ser gerada em
+              escala residencial, onde miniturbinas pode crescer o acesso ao
+              mesmo.
+            </p>
+          </div>
+          <a href="">Saiba mais</a>
+          <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
+        </article>
+      </main>
+    </section>
+
+    <!-- FIM - Seção de Detalhes -->
+  </main>
+  <footer>
+    <img src="images/logo-branca.svg" alt="" />
+  </footer>
+
+  <!-- INICIO - Modais Login e Cadastro-->
+  <div id="myModal" class="modal" style="display: flex;">
+    <div class="modalEspaco">
+      <span class="close">&times;</span>
+      <div class="conteudoLogin" id="login">
+        <h2>Login</h2>
+        <div>
+          <p>Email</p>
+          <input type="text" id="emailLogin">
+        </div>
+
+        <div>
+          <p>Senha</p>
+          <input type="password" id="senhaLogin">
+        </div>
+
+        <button id="entrarLogin">Entrar</button>
+        <p id="abrirCadastro"> <a href="">Ainda não é cadastrado?</a></p>
+      </div>
+
+      <div class="conteudoCadastro" id="cadastro" style="display: none;">
+        <h2>Cadastro</h2>
+        <p>Usuário</p>
+        <input type="text" id="userCadastro">
+        <p>Email</p>
+        <input type="text" id="emailCadastro">
+        <p>Senha</p>
+        <input type="password" id="senhaCadastro">
+        <p>Confirme sua senha</p>
+        <input type="password" id="confirmacaoCadastro">
+        <p>Tipo de Usuário</p>
+        <select id="tipoUserCadastro">
+          <option value="/">Selecione o Usuario</option>
+          <option value="empresario">Dono de Empresa</option>
+          <option value="investidor">Investidor</option>
+        </select>
+        <button id="cadastrar">Cadastrar</button>
+        <p id="abrirLogin"><a href="">Já é cadastrado?</a></p>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 
 <script>
@@ -217,13 +205,13 @@
   const abrirLogin = document.getElementById("abrirLogin");
 
   const abrirCadastro = document.getElementById("abrirCadastro");
-  
+
   const cadastro = document.getElementById("cadastro");
 
   btn.onclick = function () {
     event.preventDefault();
-    modal.style.display = "block";
-    login.style.display = "block";
+    modal.style.display = "flex";
+    login.style.display = "flex";
     cadastro.style.display = "none"
   };
 
@@ -231,15 +219,15 @@
     modal.style.display = "none";
   };
 
-  abrirCadastro.onclick = function(){
+  abrirCadastro.onclick = function () {
     event.preventDefault();
     login.style.display = "none";
-    cadastro.style.display = "block";
+    cadastro.style.display = "flex";
   };
 
-  abrirLogin.onclick = function(){
+  abrirLogin.onclick = function () {
     event.preventDefault();
-    login.style.display = "block";
+    login.style.display = "flex";
     cadastro.style.display = "none";
   };
 
