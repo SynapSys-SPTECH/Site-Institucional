@@ -4,6 +4,8 @@
     --whiteSynapSys: #eee;
     --whiteFundo: #DADADA;
     --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
 }
 
 
@@ -364,20 +366,22 @@ footer {
     background-color: rgba(0, 0, 0, 0.4);
     /* Fundo escuro com transparência */
     justify-content: center;
+    align-items: center;
     
 }
 
 .modalEspaco {
     background-color: #fefefe;
-    margin: 15% auto;
+    
     
     border-radius: 20px;
 
     width: 60vw;
-    min-height: 50%;
+    height: 70vh;
     align-content: center;
     justify-content: center;
     align-items: center;
+    
 }
 
 .img-modal{
@@ -386,6 +390,7 @@ footer {
     z-index: 1;
     float: left;
     border-radius: 20px;
+    transition: ease-in-out 2s;
 }
 
 .conteudoLogin {
@@ -394,12 +399,28 @@ footer {
     align-items: center;
     justify-content: center;
     float: right;
-    width: 30vw;
+    width: 50%;
     border-radius: 20px;
     height: 100%;
-   
+    gap: 20px;
     
 }
+
+.conteudoLogin button{
+    background-color: var(--blueSkySynapSys);
+    border: none;
+    border-radius: 20px;
+    color: var(--whiteSynapSys);
+    font-weight: 600;
+    font-size: large;
+    padding: 10px 30px;
+}
+
+.conteudoLogin a{
+    text-decoration: none;
+    color: var(--blueSkySynapSys);
+}
+
 
 .conteudoCadastro {
     display: flex;
@@ -408,9 +429,49 @@ footer {
     justify-content: center;
     float: left;
     width: 30vw;
-    border-radius: 20px;
+    border-radius: 10px;
     height: 100%;
-    
+    gap: 10px;
+}
+
+.conteudoCadastro button{
+    background-color: var(--blueSkySynapSys);
+    border: none;
+    border-radius: 10px;
+    color: var(--whiteSynapSys);
+    font-weight: 600;
+    font-size: large;
+    padding: 10px 30px;
+}
+
+.conteudoCadastro a{
+    text-decoration: none;
+    color: var(--blueSkySynapSys);
+}
+
+.conteudoCadastro select{
+    background-color: var(--greySynapSys);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+.div_input {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.div_input input{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--greySynapSys);
+}
+
+.div_input p{
+    margin-left: 20px;
 }
 
 .close {

@@ -142,17 +142,17 @@
   <div id="myModal" class="modal" style="display: flex;">
     <div class="modalEspaco">
 
-      
+
       <span class="close">&times;</span>
       <img class="img-modal" src="images/img-turbinas.png" alt="" id="imgModal">
       <div class="conteudoLogin" id="login">
-        <h2>Login</h2>
-        <div>
+        <h1>Login</h1>
+        <div class="div_input">
           <p>Email</p>
           <input type="text" id="emailLogin">
         </div>
 
-        <div>
+        <div class="div_input">
           <p>Senha</p>
           <input type="password" id="senhaLogin">
         </div>
@@ -163,20 +163,32 @@
 
       <div class="conteudoCadastro" id="cadastro" style="display: none;">
         <h2>Cadastro</h2>
-        <p>Usuário</p>
-        <input type="text" id="userCadastro">
-        <p>Email</p>
-        <input type="text" id="emailCadastro">
-        <p>Senha</p>
-        <input type="password" id="senhaCadastro">
-        <p>Confirme sua senha</p>
-        <input type="password" id="confirmacaoCadastro">
-        <p>Tipo de Usuário</p>
-        <select id="tipoUserCadastro">
-          <option value="/">Selecione o Usuario</option>
-          <option value="empresario">Dono de Empresa</option>
-          <option value="investidor">Investidor</option>
-        </select>
+        <div class="div_input">
+          <p>Usuário</p>
+          <input type="text" id="userCadastro">
+        </div>
+        <div class="div_input">
+          <p>Email</p>
+          <input type="text" id="emailCadastro">
+        </div>
+        <div class="div_input">
+          <p>Senha</p>
+          <input type="password" id="senhaCadastro">
+        </div>
+        <div class="div_input">
+          <p>Confirme sua senha</p>
+          <input type="password" id="confirmacaoCadastro">
+        </div>
+        <div class="div_input">
+          <p>Tipo de Usuário</p>
+          <select id="tipoUserCadastro">
+            <option value="/">Selecione o Usuario</option>
+            <option value="empresario">Dono de Empresa</option>
+            <option value="investidor">Investidor</option>
+          </select>
+        </div>
+
+
         <button id="cadastrar">Cadastrar</button>
         <p id="abrirLogin"><a href="">Já é cadastrado?</a></p>
       </div>
@@ -218,7 +230,7 @@
     modal.style.display = "flex";
     login.style.display = "flex";
     cadastro.style.display = "none";
-    imgModal.style.float= "left";
+    imgModal.style.float = "left";
   };
 
   span.onclick = function () {
@@ -229,14 +241,14 @@
     event.preventDefault();
     login.style.display = "none";
     cadastro.style.display = "flex";
-    imgModal.style.float= "right";
+    imgModal.style.float = "right";
   };
 
   abrirLogin.onclick = function () {
     event.preventDefault();
     login.style.display = "flex";
     cadastro.style.display = "none";
-    imgModal.style.float= "left";
+    imgModal.style.float = "left";
   };
 
   window.onclick = function (event) {
