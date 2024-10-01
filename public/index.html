@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="images/Icon-SynapSysBranco.svg"
-      type="image/x-icon"
-    />
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css" />
-    <title>SynapSys</title>
-  </head>
 
-  <body>
-    <nav>
-      <img
-        class="logo-nav"
-        src="images/logo-synapsys.svg"
-        alt="Logo da SynapSys"
-      />
-      <ul>
-        <a href="#main-inicio">
-          <li>Página Inicial</li>
-        </a>
-        <a href="#main-infos">
-          <li>Informações</li>
-        </a>
-        <a href="#main-detalhes">
-          <li>Detalhes</li>
-        </a>
-      </ul>
-      <a href="" id="openModal"><img src="images/Entrar.svg" alt="" /></a>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="images/Icon-SynapSysBranco.svg" type="image/x-icon" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css" />
+  <title>SynapSys</title>
+</head>
 
-    <!-- INICIO - Seção Inicial -->
+<body>
+  <nav>
+    <img class="logo-nav" src="images/logo-synapsys.svg" alt="Logo da SynapSys" />
+    <div class="menu-icon" onclick="toggleMenu()">
+      <img src="images/navbar/menu.svg" alt="Menu" />
+    </div>
+    <ul id="menu">
+      <a href="#main-inicio">
+        <li>Página Inicial</li>
+      </a>
+      <a href="#main-infos">
+        <li>Informações</li>
+      </a>
+      <a href="#main-detalhes">
+        <li>Detalhes</li>
+      </a>
+      <!-- <a href="" id="openModal"><img src="images/Entrar.svg" alt="" /></a> -->
+      <a href="" id="openModal"><Button>Login</Button></a>
+      
+    </ul>
 
-    <main>
-      <section class="main-inicio" id="main-inicio">
-        <div class="caixa-inicio">
+  </nav>
 
-          <div class="container-inicio">
+  <!-- INICIO - Seção Inicial -->
 
-            <img class="image-inicio" src="imgs/undraw_wind_turbine_x2k4-removebg-preview.png" alt="">
+  <main>
+    <section class="main-inicio" id="main-inicio">
+      <div class="caixa-inicio">
 
-            <div class="card-inicio">
-              <h1>
-                Transforme vento em poder: Energize o futuro com a força eólica.
-              </h1>
-              <p>
-                Descubra se você esta realmente explorando todos os seus recursos
-                disponíveis,ou há oportunidades de expandir sua visão.
-              </p>
-            </div>
+        <div class="container-inicio">
+
+          <img class="image-inicio" src="imgs/undraw_wind_turbine_x2k4-removebg-preview.png" alt="">
+
+          <div class="card-inicio">
+            <h1>
+              Transforme vento em poder: Energize o futuro com a força eólica.
+            </h1>
+            <p>
+              Descubra se você esta realmente explorando todos os seus recursos
+              disponíveis,ou há oportunidades de expandir sua visão.
+            </p>
           </div>
-
-          
-          <button class="btn-ingressar">INGRESSAR</button>
-
         </div>
-        
+
+
+        <button class="btn-ingressar">INGRESSAR</button>
+
+      </div>
+
       </div>
     </section>
 
@@ -340,46 +339,55 @@
 
 
 
-    <!-- INICIO - Modais Login e Cadastro-->
-    <div id="myModal" class="modal">
-      <div class="modalEspaco">
-        <span class="close">&times;</span>
-        <div class="conteudoLogin" id="login">
-          <h2>Login</h2>
-          <p>Email</p>
-          <input type="text" id="emailLogin">
-          <p>Senha</p>
-          <input type="password" id="senhaLogin">
-          <button id="entrarLogin">Entrar</button>
-          <p id="abrirCadastro"> <a href="">Ainda não é cadastrado?</a></p>
-        </div>
-        
-        <div class="conteudoCadastro" id="cadastro" style="display: none;">
-          <h2>Cadastro</h2>
-          <p>Usuário</p>
-          <input type="text" id="userCadastro">
-          <p>Email</p>
-          <input type="text" id="emailCadastro">
-          <p>Senha</p>
-          <input type="password" id="senhaCadastro">
-          <p>Confirme sua senha</p>
-          <input type="password" id="confirmacaoCadastro">
-          <p>Tipo de Usuário</p>
-          <select id="tipoUserCadastro">
-              <option value="/">Selecione o Usuario</option>
-              <option value="empresario">Dono de Empresa</option>
-              <option value="investidor">Investidor</option>
-          </select>
-          <button id="cadastrar">Cadastrar</button>
-          <p id="abrirLogin"><a href="">Já é cadastrado?</a></p>
-        </div>
+  <!-- INICIO - Modais Login e Cadastro-->
+  <div id="myModal" class="modal">
+    <div class="modalEspaco">
+      <span class="close">&times;</span>
+      <div class="conteudoLogin" id="login">
+        <h2>Login</h2>
+        <p>Email</p>
+        <input type="text" id="emailLogin">
+        <p>Senha</p>
+        <input type="password" id="senhaLogin">
+        <button id="entrarLogin">Entrar</button>
+        <p id="abrirCadastro"> <a href="">Ainda não é cadastrado?</a></p>
+      </div>
+
+      <div class="conteudoCadastro" id="cadastro" style="display: none;">
+        <h2>Cadastro</h2>
+        <p>Usuário</p>
+        <input type="text" id="userCadastro">
+        <p>Email</p>
+        <input type="text" id="emailCadastro">
+        <p>Senha</p>
+        <input type="password" id="senhaCadastro">
+        <p>Confirme sua senha</p>
+        <input type="password" id="confirmacaoCadastro">
+        <p>Tipo de Usuário</p>
+        <select id="tipoUserCadastro">
+          <option value="/">Selecione o Usuario</option>
+          <option value="empresario">Dono de Empresa</option>
+          <option value="investidor">Investidor</option>
+        </select>
+        <button id="cadastrar">Cadastrar</button>
+        <p id="abrirLogin"><a href="">Já é cadastrado?</a></p>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 
 </html>
 
 <script>
+
+
+  function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("show-menu");
+  }
+
+
+
   function apareceInfos(id) {
     document.getElementById(id).style.display = "flex";
     document.getElementById(id).style.opacity = 1;
@@ -397,6 +405,7 @@
 
   const btn = document.getElementById("openModal");
 
+
   const span = document.getElementsByClassName("close")[0];
 
   const login = document.getElementById("login");
@@ -404,27 +413,29 @@
   const abrirLogin = document.getElementById("abrirLogin");
 
   const abrirCadastro = document.getElementById("abrirCadastro");
-  
+
   const cadastro = document.getElementById("cadastro");
 
-  btn.onclick = function () {
+  btnLogin.onclick = function () {
     event.preventDefault();
     modal.style.display = "block";
     login.style.display = "block";
     cadastro.style.display = "none"
   };
 
+ 
+
   span.onclick = function () {
     modal.style.display = "none";
   };
 
-  abrirCadastro.onclick = function(){
+  abrirCadastro.onclick = function () {
     event.preventDefault();
     login.style.display = "none";
     cadastro.style.display = "block";
   };
 
-  abrirLogin.onclick = function(){
+  abrirLogin.onclick = function () {
     event.preventDefault();
     login.style.display = "block";
     cadastro.style.display = "none";
@@ -436,4 +447,3 @@
     }
   };
 </script>
-
