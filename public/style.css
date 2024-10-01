@@ -4,6 +4,8 @@
     --whiteSynapSys: #eee;
     --whiteFundo: #DADADA;
     --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
 }
 
 
@@ -51,7 +53,7 @@ nav ul a {
     border-bottom: transparent 4px solid;
 }
 
-nav ul a:hover{
+nav ul a:hover {
     transition: 0.4s;
     /* color: rgb(98, 211, 211); */
     color: rgb(0, 110, 126);
@@ -78,11 +80,11 @@ nav button {
 }
 
 
-.logo-nav{
+.logo-nav {
     transition: all 0.3s ease-in-out;
 }
 
-.logo-nav:hover{
+.logo-nav:hover {
     transform: scale(1.1);
 }
 
@@ -107,7 +109,7 @@ nav button {
     align-items: center;
 }
 
-.caixa-inicio h1{
+.caixa-inicio h1 {
     text-align: center;
 }
 
@@ -124,7 +126,7 @@ nav button {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-   text-align: center;
+    text-align: center;
 
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
@@ -163,7 +165,7 @@ nav button {
     cursor: pointer;
     /* background: #838383; */
     background-color: rgb(133, 212, 224);
-    
+
 }
 
 
@@ -209,7 +211,7 @@ nav button {
     right: 10em;
     border-radius: 20px;
 
-    
+
     text-align: start;
 }
 
@@ -289,11 +291,11 @@ nav button {
     border: #599bf7 3px solid;
 }
 
-.article-detalhes:hover{
+.article-detalhes:hover {
     border: var(--whiteSynapSys) 3px solid;
 }
 
-.article-content{
+.article-content {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -309,7 +311,7 @@ nav button {
 
 
 
-.article-detalhes a{
+.article-detalhes a {
     border: none;
     background-color: #599bf7;
     height: 10%;
@@ -324,12 +326,12 @@ nav button {
     align-items: center;
 }
 
-.article-detalhes a:hover{
+.article-detalhes a:hover {
     height: 10%;
     width: 100%;
 }
 
-.img-detalhes{
+.img-detalhes {
     border-radius: 1rem;
     width: 25vw;
     height: 85vh;
@@ -345,37 +347,140 @@ footer {
 }
 
 .modal {
-    display: none; /* Oculto por padrão */
-    position: fixed; /* Fica fixo na tela */
-    z-index: 1; /* Fica acima de outros elementos */
+    display: none;
+    /* Oculto por padrão */
+    position: fixed;
+    /* Fica fixo na tela */
+    z-index: 1;
+    /* Fica acima de outros elementos */
     left: 0;
     top: 0;
-    width: 100%; /* Largura total */
-    height: 100%; /* Altura total */
-    overflow: auto; /* Adiciona scroll se necessário */
-    background-color: rgb(0, 0, 0); /* Cor de fundo */
-    background-color: rgba(0, 0, 0, 0.4); /* Fundo escuro com transparência */
+    width: 100%;
+    /* Largura total */
+    height: 100%;
+    /* Altura total */
+    overflow: auto;
+    /* Adiciona scroll se necessário */
+    background-color: rgb(0, 0, 0);
+    /* Cor de fundo */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fundo escuro com transparência */
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .modalEspaco {
     background-color: #fefefe;
-    margin: 15% auto; /* Centraliza o modal */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Largura do modal */
+    
+    
+    border-radius: 20px;
+
+    width: 60vw;
+    height: 70vh;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img-modal{
+    width: 28vw;
+    height: 100%;
+    z-index: 1;
+    float: left;
+    border-radius: 20px;
+    transition: ease-in-out 2s;
 }
 
 .conteudoLogin {
-  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    width: 50%;
+    border-radius: 20px;
+    height: 100%;
+    gap: 20px;
+    
 }
 
-.conteudoCadastro{
-    display: none;
+.conteudoLogin button{
+    background-color: var(--blueSkySynapSys);
+    border: none;
+    border-radius: 20px;
+    color: var(--whiteSynapSys);
+    font-weight: 600;
+    font-size: large;
+    padding: 10px 30px;
+}
+
+.conteudoLogin a{
+    text-decoration: none;
+    color: var(--blueSkySynapSys);
+}
+
+
+.conteudoCadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 30vw;
+    border-radius: 10px;
+    height: 100%;
+    gap: 10px;
+}
+
+.conteudoCadastro button{
+    background-color: var(--blueSkySynapSys);
+    border: none;
+    border-radius: 10px;
+    color: var(--whiteSynapSys);
+    font-weight: 600;
+    font-size: large;
+    padding: 10px 30px;
+}
+
+.conteudoCadastro a{
+    text-decoration: none;
+    color: var(--blueSkySynapSys);
+}
+
+.conteudoCadastro select{
+    background-color: var(--greySynapSys);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+.div_input {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.div_input input{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--greySynapSys);
+}
+
+.div_input p{
+    margin-left: 20px;
 }
 
 .close {
     color: #aaa;
-    float: right;
+    float: inline-start;
+    
+    margin: 10px;
+    position: absolute;
+    z-index: 1;
     font-size: 28px;
     font-weight: bold;
 }
