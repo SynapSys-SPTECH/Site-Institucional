@@ -15,6 +15,12 @@
     font-family: Inter;
 }
 
+body{
+    overflow-x: hidden;
+}
+
+
+
 /* Estilos gerais para a navbar */
 nav {
     background-color: var(--whiteSynapSys);
@@ -190,6 +196,8 @@ nav ul li {
 
 }
 
+/* SEÇÂO INFOS */
+
 
 .main-infos01 {
     background-color: var(--blueSecondarySynapSys);
@@ -210,29 +218,16 @@ nav ul li {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-
 }
 
 .box-info {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
 
     height: 24em;
     width: 90%;
-
-}
-
-.box-info02 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-
-    height: 24em;
-    width: 90%;
-
 }
 
 .img-card-info {
@@ -264,53 +259,36 @@ nav ul li {
     padding-left: 12em;
     padding-right: 5em;
     right: 10em;
-    border-radius: 20px;
-
-
+    border-radius: 0 20px 20px 0;
     text-align: start;
-}
-
-.card-info02 {
-    background-color: var(--whiteSynapSys);
-    width: 100%;
-    flex-wrap: wrap;
-    height: 100%;
-    position: relative;
-    padding-left: 12em;
-    padding-right: 5em;
-    right: 10em;
-    border-radius: 20px;
-
-
-    text-align: end;
-}
-
-
-
-.card-info h1,
-.card-info p {
-    flex-wrap: wrap;
-    font-size: 20px;
-    margin-top: 2em;
-}
-
-.card-info02 h1,
-.card-info02 p {
-    flex-wrap: wrap;
-    font-size: 20px;
-    margin-top: 2em;
+    padding-left: 16em;
 }
 
 #card-info2 {
+    text-align: end;
     padding-left: 2em;
-    padding-right: 12em;
+    padding-right: 16em;
     left: 10em;
+    border-radius:20px 0 0 20px;
 }
+
+.card-info h1, .card-info02 h1{
+    flex-wrap: wrap;
+    font-size: 36px;
+    margin-top: 1em;
+    
+}
+
+.card-info p, .card-info02 p{
+    flex-wrap: wrap;
+    font-size: 24px;
+    margin-top: 2em;
+}
+
 
 #card-info2 h1,
 #card-info2 p {
     border: 0;
-
 }
 
 .btn-saibamais {
@@ -635,9 +613,6 @@ footer {
 
 
 @media (max-width: 1366px) {
-
-
-
     .card-inicio {
         background-color: var(--whiteSynapSys);
         width: 45%;
@@ -651,21 +626,36 @@ footer {
     .card-inicio p {
         font-size: larger;
     }
+
+    .card-info h1, .card-info02 h1{
+        flex-wrap: wrap;
+        font-size: 36px;
+        margin-top: 2em;
+        
+    }
+    
+    .card-info p, .card-info02 p{
+        flex-wrap: wrap;
+        font-size: 20px;
+        margin-top: 2em;
+    }
+
+    .card-info h1, .card-info02 h1{
+        font-size: 26px;
+        margin-top: 1em;
+    }
 }
 
 
-
-
-/* Responsividade */
 @media (max-width: 1200px) {
 
-    /* Ajusta o layout da navbar */
+   
     nav {
         flex-direction: row;
         justify-content: space-between;
     }
 
-    /* Esconde o menu em telas pequenas */
+    
     nav ul {
         flex-direction: column;
         display: none;
@@ -674,37 +664,34 @@ footer {
         right: 0;
         background-color: var(--whiteSynapSys);
         width: 50%;
-        /* Limita o menu à metade direita da tela */
+        
         height: 100vh;
-        /* Para ocupar a altura total da tela */
+        
         text-align: center;
         border-left: 2px solid black;
-        /* Pode adicionar uma borda para destacar */
+        
     }
 
-    /* Exibe o menu quando a classe 'show-menu' é adicionada */
+    
     nav ul.show-menu {
         display: block;
     }
 
-    /* Estilo para links no menu hamburguer */
+    
     nav ul a {
         padding: 1em;
         display: block;
         border-bottom: 1px solid #ccc;
     }
 
-    /* Botão do menu hamburguer */
+    
     .menu-icon {
         display: block;
         cursor: pointer;
         margin-right: 3em;
     }
 
-    /* Esconde o botão de entrar no layout principal em telas pequenas */
-
-
-    /* Estilos adicionais */
+    
     .logo-nav {
         transition: all 0.3s ease-in-out;
     }
@@ -716,7 +703,7 @@ footer {
 
     #openModal {
         margin-right: 0;
-        /* Espaçamento extra no lado direito */
+        
     }
 
 
@@ -751,6 +738,32 @@ footer {
     .card-inicio p {
         font-size: medium;
     }
+
+
+
+    .box-info {
+        height: 22em;
+
+    }
+    
+    .img-card-info {
+        width: 24em;
+        height: 24em;
+    }
+    
+    .img-card-info02 {
+        width: 24em;
+        height: 24em;
+    }
+    
+    .card-info h1, .card-info02 h1{
+        font-size: 26px;
+        margin-top: 1em;
+    }
+    
+    .card-info p, .card-info02 p{
+        font-size: 14px;
+    }
 }
 
 
@@ -767,6 +780,38 @@ footer {
 
     .card-inicio p {
         font-size: medium;
+    }
+
+    .main-infos01{
+        height: 45vh;
+        
+    }
+    .main-infos02{
+        height: 45vh;
+    }
+
+    .box-info {
+        height: 20em;
+
+    }
+    
+    .img-card-info {
+        width: 22em;
+        height: 22em;
+    }
+    
+    .img-card-info02 {
+        width: 22em;
+        height: 22em;
+    }
+    
+    .card-info h1, .card-info02 h1{
+        font-size: 26px;
+        margin-top: 0.5em;
+    }
+    
+    .card-info p, .card-info02 p{
+        font-size: 14px;
     }
 }
 
@@ -809,6 +854,52 @@ footer {
         height: 38px;
         font-size: 1.2em;
     }
+
+    
+
+    .box-info {
+        height: 16em;
+
+    }
+    
+    .img-card-info {
+        width: 18em;
+        height: 18em;
+    }
+    
+    .img-card-info02 {
+        width: 18em;
+        height: 18em;
+    }
+    
+    .card-info h1, .card-info02 h1{
+        font-size: 26px;
+        margin-top: 0.5em;
+    }
+    
+    .card-info p, .card-info02 p{
+        font-size: 14px;
+    }
+    .card-info {
+        background-color: var(--whiteSynapSys);
+        width: 100%;
+        flex-wrap: wrap;
+        height: 100%;
+        position: relative;
+        padding-right: 1em;
+        right: 5em;
+        border-radius: 0 20px 20px 0;
+        text-align: start;
+        padding-left: 8em;
+    }
+    
+    #card-info2 {
+        text-align: end;
+        padding-left: 2em;
+        padding-right: 8em;
+        left: 5em;
+        border-radius:20px 0 0 20px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -831,7 +922,6 @@ footer {
     }
 
     .card-inicio {
-        
         width: 80%;
         margin-top: 2vh;
     }
@@ -849,6 +939,66 @@ footer {
         width: 300px;
         height: 38px;
         font-size: 1.2em;
+    }
+
+    
+
+    .box-info {
+        height: 12em;
+        width: 100%;
+        margin-left: 1em;
+    }
+    #box-info2{
+        margin-left: 0em;
+        margin-right: 2em;
+    }
+    .img-card-info {
+        width: 14em;
+        height: 14em;
+    }
+    
+    .img-card-info02 {
+        width: 13em;
+        height: 13em;
+    }
+    
+    .card-info h1, .card-info02 h1{
+        font-size: 18px;
+        margin-top: 0.5em;
+    }
+    
+    .card-info p, .card-info02 p{
+        font-size: 14px;
+        width: 20em;
+        margin-top: 0.5em;
+    }
+
+    .btn-saibamais {
+        margin-top: 0.5em;
+        width: 8em;
+        height: 2em;
+    }
+
+    .card-info {
+        background-color: var(--whiteSynapSys);
+        width: 100%;
+        flex-wrap: wrap;
+        height: 100%;
+        position: relative;
+        padding-right: 0em;
+        right: 5em;
+        border-radius: 20px;
+        text-align: start;
+        padding-left: 10em;
+    }
+    
+    #card-info2 {
+        text-align: end;
+        padding-left: 2em;
+        padding-right: 8em;
+        left: 5em;
+        border-radius:20px;
+        justify-content: center;
     }
 }
 
@@ -890,5 +1040,31 @@ footer {
         width: 300px;
         height: 38px;
         font-size: 1.2em;
+    }
+
+    .box-info {
+        height: 12em;
+        width: 100%;
+    }
+
+    .card-info h1, .card-info02 h1{
+        font-size: 14px;
+        margin-top: 0.5em;
+    }
+    
+    .card-info p, .card-info02 p{
+        font-size: 11px;
+        width: 20em;
+        margin-top: 0.5em;
+    }
+
+    .img-card-info {
+        width: 10em;
+        height: 10em;
+    }
+    
+    .img-card-info02 {
+        width: 10em;
+        height: 10em;
     }
 }
