@@ -37,17 +37,13 @@ function irDash() {
             resposta.json().then(json => {
               console.log("Dentro do resposta.json")
                 console.log(json);
-                console.log(JSON.stringify(json));
-                json.forEach(element => {
-                  console.log(element.nome)                
-                
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.TIPO_USUARIO = json.tipo
+                console.log(JSON.stringify(json));   
+                            
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.TIPO_USUARIO = json.tipo
                 // sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
                 // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
-              });
                 irDash();
 
             });

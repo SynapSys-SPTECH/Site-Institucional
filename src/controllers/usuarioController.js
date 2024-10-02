@@ -15,7 +15,12 @@ function autenticar(req, res) {
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
+                    res.json({
+                        idUsuario: resultadoAutenticar[0].idUsuario,
+                        email: resultadoAutenticar[0].email,
+                        senha: resultadoAutenticar[0].senha,
+                        tipo: resultadoAutenticar[0].tipo
+                    });
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
                     } else if (resultadoAutenticar.length == 0) {
@@ -23,6 +28,8 @@ function autenticar(req, res) {
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
+
+
                 }
             ).catch(
                 function (erro) {
@@ -43,16 +50,16 @@ function cadastrar(req, res) {
     // var fkEmpresa = req.body.idEmpresaVincularServer;
 
     // Faça as validações dos valores
-     if (email == undefined) {
+    if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else if (tipo == undefined) {
-         res.status(400).send("Seu tipoUser está undefined!");
+        res.status(400).send("Seu tipoUser está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(email, senha , tipo)
+        usuarioModel.cadastrar(email, senha, tipo)
             .then(
                 function (resultado) {
                     res.json(resultado);
