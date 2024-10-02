@@ -286,10 +286,7 @@ nav ul li {
 }
 
 
-#card-info2 h1,
-#card-info2 p {
-    border: 0;
-}
+
 
 .btn-saibamais {
     margin-top: 1em;
@@ -298,6 +295,8 @@ nav ul li {
     border-radius: 14px;
     border: none;
     background: #7fb1f7;
+    color: var(--whiteSynapSys);
+    font-weight: bold;
     font-size: 1.5em;
     flex-shrink: 0;
 
@@ -653,6 +652,7 @@ footer {
     nav {
         flex-direction: row;
         justify-content: space-between;
+        height: 4em;
     }
 
     
@@ -684,11 +684,19 @@ footer {
         border-bottom: 1px solid #ccc;
     }
 
+    nav img{
+        height: 3em;
+    }
+
     
     .menu-icon {
         display: block;
         cursor: pointer;
         margin-right: 3em;
+    }
+
+    #menu{
+        margin-top: -2em;
     }
 
     
@@ -703,10 +711,7 @@ footer {
 
     #openModal {
         margin-right: 0;
-        
     }
-
-
 
     .main-inicio {
         background-color: var(--bluePrimarySynapSys);
@@ -740,7 +745,6 @@ footer {
     }
 
 
-
     .box-info {
         height: 22em;
 
@@ -768,6 +772,20 @@ footer {
 
 
 @media (max-width: 1024px) {
+
+    nav {
+     height: 4em;
+    }
+
+    nav img {
+        height: 3em;
+    }
+
+    #menu{
+        margin-top: -2em;
+    }
+
+
     .card-inicio {
         
         width: 45%;
@@ -783,11 +801,10 @@ footer {
     }
 
     .main-infos01{
-        height: 45vh;
-        
+        height: 100vh;
     }
     .main-infos02{
-        height: 45vh;
+        height: 100vh;
     }
 
     .box-info {
@@ -822,7 +839,7 @@ footer {
 
     .container-inicio {
         display: flex;
-        gap: 1rem;
+        gap: 0.5rem;
         justify-content: center;
         flex-direction: column;
         align-items: center;
@@ -835,9 +852,9 @@ footer {
     }
 
     .card-inicio {
-        
         width: 80%;
-        margin-top: 2vh;
+        height: 32vh;
+        margin-top: 1vh;
     }
 
     .card-inicio h1 {
@@ -855,31 +872,41 @@ footer {
         font-size: 1.2em;
     }
 
+    .main-infos01{
+        height: 45vh;
+    }
+    .main-infos02{
+        height: 45vh;
+    }
     
 
     .box-info {
-        height: 16em;
-
+        height: 12em;
+    }
+    .box-info2 {
+        height: 12em;
     }
     
     .img-card-info {
-        width: 18em;
-        height: 18em;
+        width: 14em;
+        height: 14em;
     }
     
     .img-card-info02 {
-        width: 18em;
-        height: 18em;
+        width: 14em;
+        height: 14em;
     }
     
-    .card-info h1, .card-info02 h1{
-        font-size: 26px;
+    .card-info h1, #card-info02 h1{
+        font-size: 14px;
         margin-top: 0.5em;
     }
     
-    .card-info p, .card-info02 p{
-        font-size: 14px;
+    .card-info p, #card-info02 p{
+        font-size: 11px;
+        margin-top: 0.5em;
     }
+
     .card-info {
         background-color: var(--whiteSynapSys);
         width: 100%;
@@ -918,12 +945,14 @@ footer {
 
     .image-inicio {
         margin-top: 30vh;
-        width: 14em;
+        width: 10em;
     }
 
+    
     .card-inicio {
         width: 80%;
-        margin-top: 2vh;
+        height: 36vh;
+        margin-top: 1vh;
     }
 
     .card-inicio h1 {
@@ -944,39 +973,40 @@ footer {
     
 
     .box-info {
-        height: 12em;
+        height: 10em;
         width: 100%;
         margin-left: 1em;
     }
     #box-info2{
         margin-left: 0em;
-        margin-right: 2em;
+        margin-right: 1em;
     }
-    .img-card-info {
-        width: 14em;
-        height: 14em;
-    }
-    
-    .img-card-info02 {
-        width: 13em;
-        height: 13em;
-    }
-    
+
     .card-info h1, .card-info02 h1{
-        font-size: 18px;
+        font-size: 14px;
         margin-top: 0.5em;
     }
     
     .card-info p, .card-info02 p{
-        font-size: 14px;
+        font-size: 11px;
         width: 20em;
         margin-top: 0.5em;
+    }
+
+    .img-card-info {
+        width: 16em;
+        height: 12em;
+    }
+    
+    .img-card-info02 {
+        width: 16em;
+        height: 12em;
     }
 
     .btn-saibamais {
         margin-top: 0.5em;
         width: 8em;
-        height: 2em;
+        height: 1.5em;
     }
 
     .card-info {
@@ -985,7 +1015,7 @@ footer {
         flex-wrap: wrap;
         height: 100%;
         position: relative;
-        padding-right: 0em;
+        padding-right: 2em;
         right: 5em;
         border-radius: 20px;
         text-align: start;
