@@ -436,7 +436,7 @@ nav ul li {
     padding-bottom: 1rem;
 
     width: 100%;
-    height: 100%;
+    height: fit-content;
     background-color: var(--whiteSynapSys);
 }
 
@@ -465,11 +465,12 @@ nav ul li {
 
 .main-teamDev {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
 
     width: 90vw;
-    height: 80vh;
+    height: 100%;
 }
 
 .article-devPhotos {
@@ -477,18 +478,18 @@ nav ul li {
     align-items: center;
     flex-direction: column;
     padding: 1rem;
-
-    width: 100%;
+    width:  fit-content;
     height: 90%;
     gap: 1rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 
 .dev-photo {
-    width: 15vw;
-    height: 35vh;
+    width: 20vh;
+    height: 30vh;
     object-fit: cover;
-
     border-radius: 5px;
     border: 3px solid #183E63;
 }
@@ -536,9 +537,8 @@ nav ul li {
 }
 
 .logo-empresas {
-
-    width: 30px;
-    height: 30px;
+    width: 2em;
+    height: 2em;
 }
 
 .section-empresas p {
@@ -612,6 +612,18 @@ footer {
     cursor: pointer;
 }
 
+@media (max-width: 1490px){
+    .dev-photo {
+        width: 16vh;
+        height: 30vh;
+    }
+
+    .dev-name {
+        font-size: larger;
+        font-weight: bold;
+    }
+}
+
 
 @media (max-width: 1367px) {
     .card-inicio {
@@ -649,6 +661,7 @@ footer {
         margin-top: 1em;
     }
 
+
     
     .main-detalhes {
         height: fit-content;
@@ -679,8 +692,24 @@ footer {
         font-size: 30px;
     }
 
+
 }
 
+@media (max-width: 1240px){
+    .dev-photo {
+        width: 24vh;
+        height: 30vh;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 3px solid #183E63;
+    }
+  
+  .dev-name {
+        font-size: x-large;
+        font-weight: bold;
+    }
+    
+}
 
 @media (max-width: 1201px) {
 
@@ -807,6 +836,7 @@ footer {
         font-size: 14px;
     }
 
+
     
     .main-detalhes {
         height: fit-content;
@@ -835,6 +865,18 @@ footer {
     }
     .article-content p {
         font-size: 30px;
+    }
+
+   
+}
+
+@media (max-width: 1090px){
+    .dev-photo {
+        width: 32vh;
+        height: 30vh;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 3px solid #183E63;
     }
 
 }
@@ -931,7 +973,21 @@ footer {
     .article-content p {
         font-size: 20px;
     }
+}
 
+@media (max-width: 930px){
+    .dev-photo {
+        width: 40vh;
+        height: 30vh;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 3px solid #183E63;
+    }
+
+    .dev-name {
+        font-size: xx-large;
+        font-weight: bold;
+    }
 
 }
 
