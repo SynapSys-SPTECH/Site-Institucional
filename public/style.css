@@ -16,6 +16,7 @@
 }
 
 body {
+    width: 100vw;
     overflow-x: hidden;
 }
 
@@ -994,7 +995,7 @@ footer {
 @media (max-width: 769px) {
 
     body {
-        width: 768px;
+        width: 100vw;
         overflow-x: hidden;
     }
 
@@ -1139,6 +1140,12 @@ footer {
 }
 
 @media (max-width: 576px) {
+
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
     .caixa-inicio {
         margin-top: 10vh;
     }
@@ -1245,6 +1252,12 @@ footer {
 }
 
 @media (max-width: 480px) {
+
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
     .caixa-inicio {
         margin-top: 10vh;
     }
@@ -1311,4 +1324,8 @@ footer {
         width: 10em;
         height: 10em;
     }
+}
+
+@media (max-width: 344px){
+
 }
