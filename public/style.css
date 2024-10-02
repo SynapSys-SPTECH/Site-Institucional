@@ -478,18 +478,18 @@ nav ul li {
     align-items: center;
     flex-direction: column;
     padding: 1rem;
-
-    width: 40vw;
+    width:  fit-content;
     height: 90%;
     gap: 1rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 
 .dev-photo {
-    width: 40%;
-    height: 35vh;
+    width: 20vh;
+    height: 30vh;
     object-fit: cover;
-
     border-radius: 5px;
     border: 3px solid #183E63;
 }
@@ -537,9 +537,8 @@ nav ul li {
 }
 
 .logo-empresas {
-
-    width: 30px;
-    height: 30px;
+    width: 2em;
+    height: 2em;
 }
 
 .section-empresas p {
@@ -613,6 +612,18 @@ footer {
     cursor: pointer;
 }
 
+@media (max-width: 1490px){
+    .dev-photo {
+        width: 16vh;
+        height: 30vh;
+    }
+
+    .dev-name {
+        font-size: larger;
+        font-weight: bold;
+    }
+}
+
 
 @media (max-width: 1366px) {
     .card-inicio {
@@ -649,8 +660,22 @@ footer {
         font-size: 26px;
         margin-top: 1em;
     }
+
+    .dev-photo {
+        width: 16vh;
+        height: 30vh;
+    }
 }
 
+@media (max-width: 1240px){
+    .dev-photo {
+        width: 24vh;
+        height: 30vh;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 3px solid #183E63;
+    }
+}
 
 @media (max-width: 1200px) {
 
@@ -776,6 +801,31 @@ footer {
     .card-info02 p {
         font-size: 14px;
     }
+
+
+
+    .dev-photo {
+        width: 24vh;
+        height: 30vh;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 3px solid #183E63;
+    }
+
+    .dev-name {
+        font-size: x-large;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 1090px){
+    .dev-photo {
+        width: 32vh;
+        height: 30vh;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 3px solid #183E63;
+    }
 }
 
 
@@ -840,6 +890,25 @@ footer {
     .card-info p,
     .card-info02 p {
         font-size: 14px;
+    }
+
+    
+
+    
+}
+
+@media (max-width: 930px){
+    .dev-photo {
+        width: 40vh;
+        height: 30vh;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 3px solid #183E63;
+    }
+
+    .dev-name {
+        font-size: xx-large;
+        font-weight: bold;
     }
 }
 
