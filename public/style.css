@@ -42,8 +42,9 @@ nav ul {
 }
 
 #openModal {
-    margin-right: 2em; /* Espaçamento extra no lado direito */
-}   
+    margin-right: 2em;
+    /* Espaçamento extra no lado direito */
+}
 
 nav ul a {
     text-decoration: none;
@@ -58,19 +59,19 @@ nav ul a li:hover {
     background-color: #d8e2f6;
 }
 
-nav ul button {
+nav ul a img {
     margin: 0.5em;
-    padding: 0.5em 3em;
+    padding: 0 2em;
     font-size: 1em;
     color: var(--whiteSynapSys);
-    background-color: #599bf7;
+
     border-radius: 0.5em;
     border: none;
     transition: ease-in-out 0.2s;
 }
 
-nav ul button:hover {
-    background-color: #1275ff;
+nav ul a img:hover {
+
     cursor: pointer;
 }
 
@@ -82,66 +83,11 @@ nav ul li {
 }
 
 .menu-icon {
-    display: none; /* Escondido em telas grandes */
+    display: none;
+    /* Escondido em telas grandes */
 }
 
-/* Responsividade */
-@media (max-width: 1024px) {
-    /* Ajusta o layout da navbar */
-    nav {
-        flex-direction: row;
-        justify-content: space-between;
-    }
 
-    /* Esconde o menu em telas pequenas */
-    nav ul {
-        flex-direction: column;
-        display: none;
-        position: absolute;
-        top: 6em;
-        right: 0;
-        background-color: var(--whiteSynapSys);
-        width: 50%; /* Limita o menu à metade direita da tela */
-        height: 100vh; /* Para ocupar a altura total da tela */
-        text-align: center;
-        border-left: 2px solid black; /* Pode adicionar uma borda para destacar */
-    }
-
-    /* Exibe o menu quando a classe 'show-menu' é adicionada */
-    nav ul.show-menu {
-        display: block;
-    }
-
-    /* Estilo para links no menu hamburguer */
-    nav ul a {
-        padding: 1em;
-        display: block;
-        border-bottom: 1px solid #ccc;
-    }
-
-    /* Botão do menu hamburguer */
-    .menu-icon {
-        display: block;
-        cursor: pointer;
-    }
-
-    /* Esconde o botão de entrar no layout principal em telas pequenas */
-    
-
-    /* Estilos adicionais */
-    .logo-nav {
-        transition: all 0.3s ease-in-out;
-    }
-
-    .logo-nav:hover {
-        transform: scale(1.1);
-    }
-
-
-    #openModal {
-        margin-right: 0; /* Espaçamento extra no lado direito */
-    }  
-}
 
 
 
@@ -177,7 +123,7 @@ nav ul li {
     gap: 2rem;
     justify-content: center;
     flex-direction: row;
-    align-items: end;
+    align-items: center;
 }
 
 .image-inicio {
@@ -208,13 +154,13 @@ nav ul li {
 
 .card-inicio h1 {
     margin-top: 1.5em;
-    font-size: 1.5rem;
+    font-size: x-large;
     font-weight: 500;
     max-width: 80%;
 }
 
 .card-inicio p {
-    font-size: 1.5rem;
+    font-size: large;
     font-weight: 300;
     max-width: 70%;
     margin-top: 2em;
@@ -585,11 +531,11 @@ nav ul li {
     color: white;
     background: #7fb1f7;
     font-weight: bold;
-    
-    
+
+
 }
 
-.bnt-contact:hover{
+.bnt-contact:hover {
     cursor: pointer;
     background: #599bf7;
 }
@@ -667,7 +613,7 @@ footer {
     /* Largura do modal */
 }
 
-.conteudoLogin {}
+
 
 .conteudoCadastro {
     display: none;
@@ -688,13 +634,261 @@ footer {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1366px) {
+
+
+
+    .card-inicio {
+        background-color: var(--whiteSynapSys);
+        width: 45%;
+        margin-top: 10vh;
+    }
+
+    .card-inicio h1 {
+        font-size: larger;
+    }
+
+    .card-inicio p {
+        font-size: larger;
+    }
+}
+
+
+
+
+/* Responsividade */
+@media (max-width: 1200px) {
+
+    /* Ajusta o layout da navbar */
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Esconde o menu em telas pequenas */
     nav ul {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 6em;
+        right: 0;
+        background-color: var(--whiteSynapSys);
+        width: 50%;
+        /* Limita o menu à metade direita da tela */
+        height: 100vh;
+        /* Para ocupar a altura total da tela */
+        text-align: center;
+        border-left: 2px solid black;
+        /* Pode adicionar uma borda para destacar */
     }
-  
+
+    /* Exibe o menu quando a classe 'show-menu' é adicionada */
+    nav ul.show-menu {
+        display: block;
+    }
+
+    /* Estilo para links no menu hamburguer */
+    nav ul a {
+        padding: 1em;
+        display: block;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* Botão do menu hamburguer */
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        margin-right: 3em;
+    }
+
+    /* Esconde o botão de entrar no layout principal em telas pequenas */
+
+
+    /* Estilos adicionais */
     .logo-nav {
-      width: 150px; 
+        transition: all 0.3s ease-in-out;
     }
-  }
+
+    .logo-nav:hover {
+        transform: scale(1.1);
+    }
+
+
+    #openModal {
+        margin-right: 0;
+        /* Espaçamento extra no lado direito */
+    }
+
+
+
+    .main-inicio {
+        background-color: var(--bluePrimarySynapSys);
+        height: 100vh;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .caixa-inicio {
+        background-color: #C7E4FF;
+        margin-top: 12vh;
+        width: 90%;
+        height: 80%;
+    }
+
+
+    .card-inicio {
+        background-color: var(--whiteSynapSys);
+        width: 45%;
+        margin-top: 10vh;
+    }
+
+    .card-inicio h1 {
+        font-size: larger;
+    }
+
+    .card-inicio p {
+        font-size: medium;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .card-inicio {
+        
+        width: 45%;
+        margin-top: 10vh;
+    }
+
+    .card-inicio h1 {
+        font-size: larger;
+    }
+
+    .card-inicio p {
+        font-size: medium;
+    }
+}
+
+@media (max-width: 768px) {
+    .caixa-inicio{
+        margin-top: 10vh;
+    }
+
+    .container-inicio {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .image-inicio {
+        margin-top: 30vh;
+        width: 14em;
+    }
+
+    .card-inicio {
+        
+        width: 80%;
+        margin-top: 2vh;
+    }
+
+    .card-inicio h1 {
+        font-size: large;
+    }
+
+    .card-inicio p {
+        font-size: small;
+    }
+
+    .btn-ingressar {
+        margin-top: 5vh;
+        width: 300px;
+        height: 38px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 576px) {
+    .caixa-inicio{
+        margin-top: 10vh;
+    }
+
+    .container-inicio {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .image-inicio {
+        margin-top: 30vh;
+        width: 14em;
+    }
+
+    .card-inicio {
+        
+        width: 80%;
+        margin-top: 2vh;
+    }
+
+    .card-inicio h1 {
+        font-size: large;
+    }
+
+    .card-inicio p {
+        font-size: small;
+    }
+
+    .btn-ingressar {
+        margin-top: 5vh;
+        width: 300px;
+        height: 38px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .caixa-inicio{
+        margin-top: 10vh;
+    }
+
+    .container-inicio {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .image-inicio {
+        margin-top: 30vh;
+        width: 14em;
+    }
+
+    .card-inicio {
+        
+        width: 80%;
+        margin-top: 2vh;
+    }
+
+    .card-inicio h1 {
+        font-size: large;
+    }
+
+    .card-inicio p {
+        font-size: small;
+    }
+
+    .btn-ingressar {
+        margin-top: 5vh;
+        width: 300px;
+        height: 38px;
+        font-size: 1.2em;
+    }
+}
