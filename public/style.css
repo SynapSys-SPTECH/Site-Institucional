@@ -6,6 +6,9 @@
     --lightBlueSynapSys: #85d4e0;
     --blueSkySynapSys: #00B2FF;
     --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #204B74;
+    --blueSecondarySynapSys: #183E63;
+
 }
 
 
@@ -89,7 +92,7 @@ nav button {
 }
 
 .main-inicio {
-    background-color: var(--whiteFundo);
+    background-color: var(--bluePrimarySynapSys);
     height: 100vh;
 
     display: flex;
@@ -98,11 +101,12 @@ nav button {
 }
 
 .caixa-inicio {
-    background: url("images/img-fundo-banner.png");
+    background: url("images/img-turbinas.png");
+    background-size: contain;
     margin-top: 12vh;
     width: 90%;
     height: 80%;
-
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -116,7 +120,7 @@ nav button {
 .card-inicio {
     /* background-color: var(--whiteSynapSys); */
 
-    background-color: #85d4e0;
+    background-color: var(--whiteSynapSys);
     width: 60%;
     margin-top: 10vh;
 
@@ -169,8 +173,19 @@ nav button {
 }
 
 
-.main-infos {
-    background-color: var(--lightBlueSynapSys);
+.main-infos01 {
+    background-color: var(--blueSecondarySynapSys);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.main-infos02 {
+    background-color: var(--bluePrimarySynapSys);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -186,15 +201,37 @@ nav button {
     align-items: center;
     justify-content: start;
 
-    height: 20em;
-    width: 60%;
+    height: 24em;
+    width: 90%;
+
+}
+
+.box-info02 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+
+    height: 24em;
+    width: 90%;
 
 }
 
 .img-card-info {
-    width: 20em;
-    height: 20em;
+    width: 26em;
+    height: 26em;
     position: relative;
+    left: 3rem;
+    z-index: 1;
+
+    border-radius: 100%;
+}
+
+.img-card-info02 {
+    width: 26em;
+    height: 26em;
+    position: relative;
+    right: 2rem;
     z-index: 1;
 
     border-radius: 100%;
@@ -215,10 +252,32 @@ nav button {
     text-align: start;
 }
 
+.card-info02 {
+    background-color: var(--whiteSynapSys);
+    width: 100%;
+    flex-wrap: wrap;
+    height: 100%;
+    position: relative;
+    padding-left: 12em;
+    padding-right: 5em;
+    right: 10em;
+    border-radius: 20px;
+
+
+    text-align: end;
+}
+
 
 
 .card-info h1,
 .card-info p {
+    flex-wrap: wrap;
+    font-size: 20px;
+    margin-top: 2em;
+}
+
+.card-info02 h1,
+.card-info02 p {
     flex-wrap: wrap;
     font-size: 20px;
     margin-top: 2em;
@@ -263,7 +322,7 @@ nav button {
     align-items: center;
     height: 100vh;
 
-    background-color: rgb(87, 121, 150);
+    background-color: var(--blueSecondarySynapSys);
 }
 
 .container-detalhes {
@@ -275,10 +334,42 @@ nav button {
     height: 80vh;
 }
 
-.article-detalhes {
+.article-detalhes01 {
     width: 20vw;
     height: 70vh;
-    background-image: url(images/img-turbinas.png);
+    background-image: url(imgs/Detalhes-direita.png);
+    background-size: cover;
+    border-radius: 1rem;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: ease-in-out 0.3s;
+    border: #599bf7 3px solid;
+}
+
+.article-detalhes02 {
+    width: 20vw;
+    height: 70vh;
+    background-image: url(imgs/Detalhes-meio.png);
+    background-size: cover;
+    border-radius: 1rem;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: ease-in-out 0.3s;
+    border: #599bf7 3px solid;
+}
+
+.article-detalhes03 {
+    width: 20vw;
+    height: 70vh;
+    background-image: url(imgs/Detalhes-esquerda.png);
     background-size: cover;
     border-radius: 1rem;
     padding: 1em;
@@ -311,7 +402,10 @@ nav button {
 
 
 
-.article-detalhes a {
+
+.article-detalhes01 a,
+.article-detalhes02 a,
+.article-detalhes03 a {
     border: none;
     background-color: #599bf7;
     height: 10%;
@@ -336,6 +430,122 @@ nav button {
     width: 25vw;
     height: 85vh;
 }
+
+/* INICIO - Section Desenvolvedores */
+.section-teamDev {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 1rem;
+
+    width: 100%;
+    height: 100%;
+    background-color: var(--whiteSynapSys);
+}
+
+.div-tituloTeamDev {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    width: 90vw;
+    height: 20vh;
+}
+
+.div-tituloTeamDev h1 {
+    font-size: 15px;
+    color: #001D6C;
+}
+
+.div-tituloTeamDev p {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+
+
+}
+
+.main-teamDev {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 90vw;
+    height: 80vh;
+}
+
+.article-devPhotos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+
+    width: 100%;
+    height: 90%;
+    gap: 1rem;
+}
+
+
+.dev-photo {
+    width: 15vw;
+    height: 35vh;
+
+    border-radius: 5px;
+    border: 3px solid #183E63;
+}
+
+.dev-name {
+    font-weight: bold;
+}
+
+.dev-function {
+    color: #697077;
+}
+
+.bnt-contact {
+    width: 180px;
+    height: 48px;
+    border: 3px solid #0F62FE;
+    border-radius: 5px;
+
+    color: #0F62FE;
+    font-weight: bold;
+}
+
+
+
+.section-empresas {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: space-evenly;
+
+}
+
+.div-empresa {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.logo-empresas {
+
+    width: 35px;
+    height: 35px;
+}
+
+.section-empresas p {
+    font-family: 'Roboto';
+    font-size: 24px;
+    font-weight: bold;
+
+    color: #697077;
+}
+
+
+
 
 footer {
     background-color: rgb(26, 26, 26);
