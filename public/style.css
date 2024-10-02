@@ -429,7 +429,7 @@ nav ul li {
 
 /* INICIO - Section Desenvolvedores */
 .section-teamDev {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
