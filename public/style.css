@@ -3,8 +3,12 @@
 :root {
     --whiteSynapSys: #eee;
     --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
     --bluePrimarySynapSys: #204B74;
     --blueSecondarySynapSys: #183E63;
+
 }
 
 
@@ -398,6 +402,7 @@ nav button {
 
 
 
+
 .article-detalhes01 a,
 .article-detalhes02 a,
 .article-detalhes03 a {
@@ -552,37 +557,140 @@ footer {
 }
 
 .modal {
-    display: none; /* Oculto por padrão */
-    position: fixed; /* Fica fixo na tela */
-    z-index: 1; /* Fica acima de outros elementos */
+    display: none;
+    /* Oculto por padrão */
+    position: fixed;
+    /* Fica fixo na tela */
+    z-index: 1;
+    /* Fica acima de outros elementos */
     left: 0;
     top: 0;
-    width: 100%; /* Largura total */
-    height: 100%; /* Altura total */
-    overflow: auto; /* Adiciona scroll se necessário */
-    background-color: rgb(0, 0, 0); /* Cor de fundo */
-    background-color: rgba(0, 0, 0, 0.4); /* Fundo escuro com transparência */
+    width: 100%;
+    /* Largura total */
+    height: 100%;
+    /* Altura total */
+    overflow: auto;
+    /* Adiciona scroll se necessário */
+    background-color: rgb(0, 0, 0);
+    /* Cor de fundo */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fundo escuro com transparência */
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .modalEspaco {
     background-color: #fefefe;
-    margin: 15% auto; /* Centraliza o modal */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Largura do modal */
+    
+    
+    border-radius: 20px;
+
+    width: 60vw;
+    height: 70vh;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img-modal{
+    width: 28vw;
+    height: 100%;
+    z-index: 1;
+    float: left;
+    border-radius: 20px;
+    transition: ease-in-out 2s;
 }
 
 .conteudoLogin {
-  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    width: 50%;
+    border-radius: 20px;
+    height: 100%;
+    gap: 20px;
+    
 }
 
-.conteudoCadastro{
-    display: none;
+.conteudoLogin button{
+    background-color: var(--blueSkySynapSys);
+    border: none;
+    border-radius: 20px;
+    color: var(--whiteSynapSys);
+    font-weight: 600;
+    font-size: large;
+    padding: 10px 30px;
+}
+
+.conteudoLogin a{
+    text-decoration: none;
+    color: var(--blueSkySynapSys);
+}
+
+
+.conteudoCadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 30vw;
+    border-radius: 10px;
+    height: 100%;
+    gap: 10px;
+}
+
+.conteudoCadastro button{
+    background-color: var(--blueSkySynapSys);
+    border: none;
+    border-radius: 10px;
+    color: var(--whiteSynapSys);
+    font-weight: 600;
+    font-size: large;
+    padding: 10px 30px;
+}
+
+.conteudoCadastro a{
+    text-decoration: none;
+    color: var(--blueSkySynapSys);
+}
+
+.conteudoCadastro select{
+    background-color: var(--greySynapSys);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+.div_input {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.div_input input{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--greySynapSys);
+}
+
+.div_input p{
+    margin-left: 20px;
 }
 
 .close {
     color: #aaa;
-    float: right;
+    float: inline-start;
+    
+    margin: 10px;
+    position: absolute;
+    z-index: 1;
     font-size: 28px;
     font-weight: bold;
 }
