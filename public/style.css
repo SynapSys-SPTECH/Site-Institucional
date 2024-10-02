@@ -15,7 +15,7 @@
     font-family: Inter;
 }
 
-body{
+body {
     overflow-x: hidden;
 }
 
@@ -28,11 +28,11 @@ nav {
     align-items: center;
     justify-content: space-between;
     height: 6em;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     z-index: 1000;
     border-bottom: 2px solid black;
-    padding: 0 1em;
+    padding: 0;
 }
 
 nav img {
@@ -269,17 +269,19 @@ nav ul li {
     padding-left: 2em;
     padding-right: 16em;
     left: 10em;
-    border-radius:20px 0 0 20px;
+    border-radius: 20px 0 0 20px;
 }
 
-.card-info h1, .card-info02 h1{
+.card-info h1,
+.card-info02 h1 {
     flex-wrap: wrap;
     font-size: 36px;
     margin-top: 1em;
-    
+
 }
 
-.card-info p, .card-info02 p{
+.card-info p,
+.card-info02 p {
     flex-wrap: wrap;
     font-size: 24px;
     margin-top: 2em;
@@ -626,20 +628,23 @@ footer {
         font-size: larger;
     }
 
-    .card-info h1, .card-info02 h1{
+    .card-info h1,
+    .card-info02 h1 {
         flex-wrap: wrap;
         font-size: 36px;
         margin-top: 2em;
-        
+
     }
-    
-    .card-info p, .card-info02 p{
+
+    .card-info p,
+    .card-info02 p {
         flex-wrap: wrap;
         font-size: 20px;
         margin-top: 2em;
     }
 
-    .card-info h1, .card-info02 h1{
+    .card-info h1,
+    .card-info02 h1 {
         font-size: 26px;
         margin-top: 1em;
     }
@@ -648,14 +653,14 @@ footer {
 
 @media (max-width: 1200px) {
 
-   
+
     nav {
         flex-direction: row;
         justify-content: space-between;
         height: 4em;
     }
 
-    
+
     nav ul {
         flex-direction: column;
         display: none;
@@ -664,42 +669,42 @@ footer {
         right: 0;
         background-color: var(--whiteSynapSys);
         width: 50%;
-        
+
         height: 100vh;
-        
+
         text-align: center;
         border-left: 2px solid black;
-        
+
     }
 
-    
+
     nav ul.show-menu {
         display: block;
     }
 
-    
+
     nav ul a {
         padding: 1em;
         display: block;
         border-bottom: 1px solid #ccc;
     }
 
-    nav img{
+    nav img {
         height: 3em;
     }
 
-    
+
     .menu-icon {
         display: block;
         cursor: pointer;
         margin-right: 3em;
     }
 
-    #menu{
+    #menu {
         margin-top: -2em;
     }
 
-    
+
     .logo-nav {
         transition: all 0.3s ease-in-out;
     }
@@ -749,23 +754,25 @@ footer {
         height: 22em;
 
     }
-    
+
     .img-card-info {
         width: 24em;
         height: 24em;
     }
-    
+
     .img-card-info02 {
         width: 24em;
         height: 24em;
     }
-    
-    .card-info h1, .card-info02 h1{
+
+    .card-info h1,
+    .card-info02 h1 {
         font-size: 26px;
         margin-top: 1em;
     }
-    
-    .card-info p, .card-info02 p{
+
+    .card-info p,
+    .card-info02 p {
         font-size: 14px;
     }
 }
@@ -774,20 +781,20 @@ footer {
 @media (max-width: 1024px) {
 
     nav {
-     height: 4em;
+        height: 4em;
     }
 
     nav img {
         height: 3em;
     }
 
-    #menu{
+    #menu {
         margin-top: -2em;
     }
 
 
     .card-inicio {
-        
+
         width: 45%;
         margin-top: 10vh;
     }
@@ -800,10 +807,11 @@ footer {
         font-size: medium;
     }
 
-    .main-infos01{
+    .main-infos01 {
         height: 100vh;
     }
-    .main-infos02{
+
+    .main-infos02 {
         height: 100vh;
     }
 
@@ -811,30 +819,48 @@ footer {
         height: 20em;
 
     }
-    
+
     .img-card-info {
         width: 22em;
         height: 22em;
     }
-    
+
     .img-card-info02 {
         width: 22em;
         height: 22em;
     }
-    
-    .card-info h1, .card-info02 h1{
+
+    .card-info h1,
+    .card-info02 h1 {
         font-size: 26px;
         margin-top: 0.5em;
     }
-    
-    .card-info p, .card-info02 p{
+
+    .card-info p,
+    .card-info02 p {
         font-size: 14px;
     }
 }
 
 @media (max-width: 768px) {
-    .caixa-inicio{
+
+    body{
+        width: 768px;
+        overflow-x: hidden;
+    }
+
+    .section-teamDev{
+        /* display: none; */
+    }
+
+
+    nav {
+        height: 4em;
+    }
+
+    .caixa-inicio {
         margin-top: 10vh;
+
     }
 
     .container-inicio {
@@ -843,7 +869,7 @@ footer {
         justify-content: center;
         flex-direction: column;
         align-items: center;
-
+        width: 100vw;
     }
 
     .image-inicio {
@@ -872,37 +898,41 @@ footer {
         font-size: 1.2em;
     }
 
-    .main-infos01{
+    .main-infos01 {
         height: 45vh;
     }
-    .main-infos02{
+
+    .main-infos02 {
         height: 45vh;
     }
-    
+
 
     .box-info {
         height: 12em;
     }
+
     .box-info2 {
         height: 12em;
     }
-    
+
     .img-card-info {
         width: 14em;
         height: 14em;
     }
-    
+
     .img-card-info02 {
         width: 14em;
         height: 14em;
     }
-    
-    .card-info h1, #card-info02 h1{
+
+    .card-info h1,
+    #card-info02 h1 {
         font-size: 14px;
         margin-top: 0.5em;
     }
-    
-    .card-info p, #card-info02 p{
+
+    .card-info p,
+    #card-info02 p {
         font-size: 11px;
         margin-top: 0.5em;
     }
@@ -919,18 +949,18 @@ footer {
         text-align: start;
         padding-left: 8em;
     }
-    
+
     #card-info2 {
         text-align: end;
         padding-left: 2em;
         padding-right: 8em;
         left: 5em;
-        border-radius:20px 0 0 20px;
+        border-radius: 20px 0 0 20px;
     }
 }
 
 @media (max-width: 576px) {
-    .caixa-inicio{
+    .caixa-inicio {
         margin-top: 10vh;
     }
 
@@ -948,7 +978,7 @@ footer {
         width: 10em;
     }
 
-    
+
     .card-inicio {
         width: 80%;
         height: 36vh;
@@ -970,24 +1000,27 @@ footer {
         font-size: 1.2em;
     }
 
-    
+
 
     .box-info {
         height: 10em;
         width: 100%;
         margin-left: 1em;
     }
-    #box-info2{
+
+    #box-info2 {
         margin-left: 0em;
         margin-right: 1em;
     }
 
-    .card-info h1, .card-info02 h1{
+    .card-info h1,
+    .card-info02 h1 {
         font-size: 14px;
         margin-top: 0.5em;
     }
-    
-    .card-info p, .card-info02 p{
+
+    .card-info p,
+    .card-info02 p {
         font-size: 11px;
         width: 20em;
         margin-top: 0.5em;
@@ -997,7 +1030,7 @@ footer {
         width: 16em;
         height: 12em;
     }
-    
+
     .img-card-info02 {
         width: 16em;
         height: 12em;
@@ -1021,19 +1054,19 @@ footer {
         text-align: start;
         padding-left: 10em;
     }
-    
+
     #card-info2 {
         text-align: end;
         padding-left: 2em;
         padding-right: 8em;
         left: 5em;
-        border-radius:20px;
+        border-radius: 20px;
         justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
-    .caixa-inicio{
+    .caixa-inicio {
         margin-top: 10vh;
     }
 
@@ -1052,7 +1085,7 @@ footer {
     }
 
     .card-inicio {
-        
+
         width: 80%;
         margin-top: 2vh;
     }
@@ -1077,12 +1110,14 @@ footer {
         width: 100%;
     }
 
-    .card-info h1, .card-info02 h1{
+    .card-info h1,
+    .card-info02 h1 {
         font-size: 14px;
         margin-top: 0.5em;
     }
-    
-    .card-info p, .card-info02 p{
+
+    .card-info p,
+    .card-info02 p {
         font-size: 11px;
         width: 20em;
         margin-top: 0.5em;
@@ -1092,7 +1127,7 @@ footer {
         width: 10em;
         height: 10em;
     }
-    
+
     .img-card-info02 {
         width: 10em;
         height: 10em;
