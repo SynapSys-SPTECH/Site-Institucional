@@ -64,64 +64,77 @@ function irDash() {
     return false;
 }
 
+
+function abrirLogon() {
+  login.style.display = "flex";
+  cadastro.style.display = "none";
+  imgModal.style.float = "left";
+};
+
 function cadastrar() {
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    let emailVar = emailCadastro.value
-    let senhaVar = senhaCadastro.value
-    let confirmacaoSenhaVar = confirmacaoCadastro.value
-    let tipoVar = tipoUserCadastro.value
-    // var idEmpresaVincular
+//Recupere o valor da nova input pelo nome do id
+// Agora vá para o método fetch logo abaixo
+let nomeVar = nomeCadastro.value
+let telefoneVar = telefoneCadastro.value
+let emailVar = emailCadastro.value
+let senhaVar = senhaCadastro.value
+let confirmacaoSenhaVar = confirmacaoCadastro.value
+let tipoVar = tipoUserCadastro.value
+// var idEmpresaVincular
 
-    // Verificando se há algum campo em branco
-    if (
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      tipoVar == ""
-    ) {
-      console.log("Mensagem de erro para todos os campos em branco")
-    } else {
-      console.log("Campos Preenchidos.")
-    }
-        // finalizarAguardar();
+// Verificando se há algum campo em branco
+if (
+emailVar == "" ||
+senhaVar == "" ||
+confirmacaoSenhaVar == "" ||
+tipoVar == "" ||
+telefoneVar == ""|| 
+nomeVar == ""
+) {
+console.log("Mensagem de erro para todos os campos em branco")
+} else {
+console.log("Campos Preenchidos.")
+}
+  // finalizarAguardar();
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        tipoServer: tipoVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
+// Enviando o valor da nova input
+fetch("/usuarios/cadastrar", {
+method: "POST",
+headers: {
+  "Content-Type": "application/json",
+},
+body: JSON.stringify({
+  // crie um atributo que recebe o valor recuperado aqui
+  // Agora vá para o arquivo routes/usuario.js
+  nomeServer: nomeVar,
+  telefoneServer: telefoneVar,
+  emailServer: emailVar,
+  senhaServer: senhaVar,
+  tipoServer: tipoVar
+}),
+})
+.then(function (resposta) {
+  console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
+  if (resposta.ok) {
 
-          console.log(
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+    console.log(
+      "Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
-          setTimeout(() => {
-            window.location = "./index.html";
-          }, "2000");
+    setTimeout(() => {
+      abrirLogon();
+    }, "2000");
 
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-
-    return false;
+  } else {
+    throw "Houve um erro ao tentar realizar o cadastro!";
   }
+})
+.catch(function (resposta) {
+  console.log(`#ERRO: ${resposta}`);
+});
+
+return false;
+}
 
    // Listando empresas cadastradas 
    
