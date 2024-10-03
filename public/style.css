@@ -37,7 +37,8 @@ nav {
 }
 
 nav img {
-    height: 4em;
+    height: 3vh;
+    margin-left: 3vh;
 }
 
 nav ul {
@@ -135,7 +136,7 @@ nav ul li {
 
 .image-inicio {
     width: 40%;
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 .caixa-inicio h1 {
@@ -482,7 +483,7 @@ nav ul li {
     align-items: center;
     flex-direction: column;
     padding: 1rem;
-    width:  fit-content;
+    width: fit-content;
     height: 90%;
     gap: 1rem;
     margin-top: 1em;
@@ -616,7 +617,7 @@ footer {
     cursor: pointer;
 }
 
-@media (max-width: 1490px){
+@media (max-width: 1490px) {
     .dev-photo {
         width: 16vh;
         height: 30vh;
@@ -671,7 +672,7 @@ footer {
     }
 
 
-    
+
     .main-detalhes {
         height: fit-content;
     }
@@ -694,9 +695,10 @@ footer {
         height: 50vh;
     }
 
-    .article-content h1{
+    .article-content h1 {
         font-size: 40px;
     }
+
     .article-content p {
         font-size: 30px;
     }
@@ -704,7 +706,7 @@ footer {
 
 }
 
-@media (max-width: 1240px){
+@media (max-width: 1240px) {
     .dev-photo {
         width: 24vh;
         height: 30vh;
@@ -712,12 +714,12 @@ footer {
         border-radius: 5px;
         border: 3px solid #183E63;
     }
-  
-  .dev-name {
+
+    .dev-name {
         font-size: x-large;
         font-weight: bold;
     }
-    
+
 }
 
 @media (max-width: 1201px) {
@@ -759,7 +761,7 @@ footer {
     }
 
     nav img {
-        height: 3em;
+        height: 3vh;
     }
 
 
@@ -807,7 +809,7 @@ footer {
 
     .image-inicio {
         margin-top: 30vh;
-        width: 2    0em;
+        width: 30vw;
     }
 
     .caixa-inicio {
@@ -861,7 +863,7 @@ footer {
     }
 
 
-    
+
     .main-detalhes {
         height: fit-content;
     }
@@ -884,17 +886,18 @@ footer {
         height: 50vh;
     }
 
-    .article-content h1{
+    .article-content h1 {
         font-size: 30px;
     }
+
     .article-content p {
         font-size: 30px;
     }
 
-   
+
 }
 
-@media (max-width: 1090px){
+@media (max-width: 1090px) {
     .dev-photo {
         width: 32vh;
         height: 30vh;
@@ -913,7 +916,8 @@ footer {
     }
 
     nav img {
-        height: 3em;
+        height: 3vh;
+        margin-left: 3vh;
     }
 
     #menu {
@@ -996,17 +1000,18 @@ footer {
         height: 50vh;
     }
 
-    .article-content h1{
+    .article-content h1 {
         font-size: 25px;
     }
+
     .article-content p {
         font-size: 20px;
     }
 }
 
-@media (max-width: 930px){
+@media (max-width: 930px) {
     .dev-photo {
-        width: 40vh;
+        width: 34vh;
         height: 30vh;
         object-fit: cover;
         border-radius: 5px;
@@ -1158,9 +1163,10 @@ footer {
         height: 50vh;
     }
 
-    .article-content h1{
+    .article-content h1 {
         font-size: 20px;
     }
+
     .article-content p {
         font-size: 18px;
     }
@@ -1279,116 +1285,6 @@ footer {
     }
 
     .dev-photo {
-        width: 40vh;
-        height: 30vh;
-        object-fit: cover;
-        border-radius: 5px;
-        border: 3px solid #183E63;
-    }
-
-    .dev-name {
-        font-size: xx-large;
-        font-weight: bold;
-    }
-}
-
-@media (max-width: 480px) {
-
-    body {
-        width: 100vw;
-        overflow-x: hidden;
-    }
-
-    .caixa-inicio {
-        margin-top: 10vh;
-    }
-
-    .container-inicio {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-
-    }
-
-    .image-inicio {
-        margin-top: 30vh;
-        width: 20em;
-    }
-
-    .card-inicio {
-
-        width: 80%;
-        margin-top: 2vh;
-    }
-
-    .card-inicio h1 {
-        font-size: large;
-    }
-
-    .card-inicio p {
-        font-size: large;
-    }
-
-    .btn-ingressar {
-        margin-top: 5vh;
-        width: 300px;
-        height: 38px;
-        font-size: 1.2em;
-    }
-
-    .box-info {
-        height: 12em;
-        width: 100%;
-    }
-
-    .card-info {
-        
-        width: 100%;
-        flex-wrap: wrap;
-        height: 100%;
-        position: relative;
-        padding-right: 2em;
-        right: 5em;
-        border-radius: 20px;
-        text-align: start;
-        padding-left: 10em;
-    }
-
-    #card-info2 {
-        text-align: end;
-        padding-left: 2em;
-        padding-right: 8em;
-        left: 5em;
-        border-radius: 20px;
-        justify-content: center;
-    }
-
-    .card-info h1,
-    .card-info02 h1 {
-        font-size: 14px;
-        margin-top: 0.5em;
-    }
-
-    .card-info p,
-    .card-info02 p {
-        font-size: 11px;
-        width: 20em;
-        margin-top: 0.5em;
-    }
-
-    .img-card-info {
-        width: 10em;
-        height: 10em;
-    }
-
-    .img-card-info02 {
-        width: 10em;
-        height: 10em;
-    }
-
-    .dev-photo {
         width: 26vh;
         height: 30vh;
         object-fit: cover;
@@ -1402,76 +1298,186 @@ footer {
     }
 }
 
+    @media (max-width: 480px) {
 
+        body {
+            width: 100vw;
+            overflow-x: hidden;
+        }
 
-@media (max-width: 344px){
-    body {
-        width: 100vw;
-        overflow-x: hidden;
+        .caixa-inicio {
+            margin-top: 10vh;
+        }
+
+        .container-inicio {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .image-inicio {
+            margin-top: 30vh;
+            width: 20em;
+        }
+
+        .card-inicio {
+
+            width: 80%;
+            margin-top: 2vh;
+        }
+
+        .card-inicio h1 {
+            font-size: large;
+        }
+
+        .card-inicio p {
+            font-size: large;
+        }
+
+        .btn-ingressar {
+            margin-top: 5vh;
+            width: 300px;
+            height: 38px;
+            font-size: 1.2em;
+        }
+
+        .box-info {
+            height: 12em;
+            width: 100%;
+        }
+
+        .card-info {
+
+            width: 100%;
+            flex-wrap: wrap;
+            height: 100%;
+            position: relative;
+            padding-right: 2em;
+            right: 5em;
+            border-radius: 20px;
+            text-align: start;
+            padding-left: 10em;
+        }
+
+        #card-info2 {
+            text-align: end;
+            padding-left: 2em;
+            padding-right: 8em;
+            left: 5em;
+            border-radius: 20px;
+            justify-content: center;
+        }
+
+        .card-info h1,
+        .card-info02 h1 {
+            font-size: 14px;
+            margin-top: 0.5em;
+        }
+
+        .card-info p,
+        .card-info02 p {
+            font-size: 11px;
+            width: 20em;
+            margin-top: 0.5em;
+        }
+
+        .img-card-info {
+            width: 10em;
+            height: 10em;
+        }
+
+        .img-card-info02 {
+            width: 10em;
+            height: 10em;
+        }
+
+        .dev-photo {
+            width: 26vh;
+            height: 30vh;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 3px solid #183E63;
+        }
+
+        .dev-name {
+            font-size: xx-large;
+            font-weight: bold;
+        }
     }
 
-    .dev-photo {
-        width: 24vh;
-        height: 30vh;
-        object-fit: cover;
-        border-radius: 5px;
-        border: 3px solid #183E63;
+
+
+    @media (max-width: 344px) {
+        body {
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .dev-photo {
+            width: 24vh;
+            height: 30vh;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 3px solid #183E63;
+        }
+
+        .dev-name {
+            font-size: large;
+            font-weight: bold;
+        }
+
+
+        .card-info {
+            width: 30%;
+            flex-wrap: wrap;
+            height: 100%;
+            padding-right: 2em;
+            right: 5em;
+            border-radius: 20px;
+            padding-left: 10em;
+        }
+
+        #card-info2 {
+            text-align: end;
+            padding-left: 2em;
+            padding-right: 8em;
+            left: 5em;
+            border-radius: 20px;
+            justify-content: center;
+        }
+
+        .card-info h1,
+        .card-info02 h1 {
+            font-size: x-small;
+            margin-top: 0.5em;
+        }
+
+        .card-info p,
+        .card-info02 p {
+            font-size: xx-small;
+            flex-wrap: wrap;
+            width: 12em;
+            margin-top: 0.5em;
+        }
+
+        .img-card-info {
+            width: 8em;
+            height: 8em;
+        }
+
+        .img-card-info02 {
+            width: 8em;
+            height: 8em;
+        }
+
+        .btn-saibamais {
+            margin-top: 0.5em;
+            width: 8em;
+            height: 1.5em;
+            font-size: 1em;
+        }
+
     }
-
-    .dev-name {
-        font-size: large;
-        font-weight: bold;
-    }
-
-
-    .card-info {
-        width: 30%;
-        flex-wrap: wrap;
-        height: 100%;
-        padding-right: 2em;
-        right: 5em;
-        border-radius: 20px;
-        padding-left: 10em;
-    }
-
-    #card-info2 {
-        text-align: end;
-        padding-left: 2em;
-        padding-right: 8em;
-        left: 5em;
-        border-radius: 20px;
-        justify-content: center;
-    }
-
-    .card-info h1,
-    .card-info02 h1 {
-        font-size: x-small;
-        margin-top: 0.5em;
-    }
-
-    .card-info p,
-    .card-info02 p {
-        font-size: xx-small;
-        flex-wrap: wrap;
-        width: 12em;
-        margin-top: 0.5em;
-    }
-
-    .img-card-info {
-        width: 8em;
-        height: 8em;
-    }
-
-    .img-card-info02 {
-        width: 8em;
-        height: 8em;
-    }
-
-    .btn-saibamais {
-        margin-top: 0.5em;
-        width: 8em;
-        height: 1.5em;
-        font-size: 1em;
-    }
-
-}
