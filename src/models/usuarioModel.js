@@ -16,10 +16,10 @@ function cadastrar(nome, telefone ,email, senha, tipo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO usuario (nome , telefoneContato , email , senha, tipo) VALUES ( '${nome}', '${telefone}', '${email}', '${senha}', '${tipo}');
+        INSERT INTO usuario (nome , telefoneContato , email , senha, fktipo) VALUES ( '${nome}', '${telefone}', '${email}', '${senha}', '${tipo}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+    return database.executar(instrucaoSql); 
 }
 
 module.exports = {
