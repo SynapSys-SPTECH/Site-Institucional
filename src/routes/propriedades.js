@@ -3,7 +3,8 @@ var router = express.Router();
 
 var propriedadeController = require("../controllers/propriedadeController");
 
-router.post("/cadastrarPropriedade", function (req, res) {
+router.post("/cadastrar", function (req, res) {
+    console.log("Rota cadastrar atiginda")
     propriedadeController.cadastrar(req, res);
 })
 
@@ -11,4 +12,4 @@ router.post("/cadastrarPropriedade", function (req, res) {
 //     propriedadeController.autenticar(req, res);
 // });
 
-module.exports = router;
+module.exports = router;    
