@@ -5,6 +5,7 @@
     --whiteFundo: #DADADA;
     --bluePrimarySynapSys: #204B74;
     --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys: #00B2FF;
 }
 
 
@@ -37,8 +38,8 @@ nav {
 }
 
 nav img {
-    height: 3vh;
-    margin-left: 3vh;
+    height: 6vh;
+    margin-left: 3vw;
 }
 
 nav ul {
@@ -50,8 +51,9 @@ nav ul {
 }
 
 #openModal {
-    margin-right: 2em;
-    /* Espaçamento extra no lado direito */
+    height: fit-content;
+    margin-right: 3vw;
+    
 }
 
 nav ul a {
@@ -63,7 +65,7 @@ nav ul a {
 nav ul a li:hover {
     transition: 0.4s;
     color: rgb(0, 110, 126);
-    border-bottom: #599bf7 4px solid;
+    border-bottom: var(--lightBlueSynapSys) 4px solid;
     background-color: #d8e2f6;
 }
 
@@ -72,7 +74,7 @@ nav ul a img {
     padding: 0 2em;
     font-size: 1em;
     color: var(--whiteSynapSys);
-
+    height: 8vh;
     border-radius: 0.5em;
     border: none;
     transition: ease-in-out 0.2s;
@@ -212,6 +214,11 @@ nav ul li {
 
 }
 
+.main-infos01 h1, .main-infos02 h1 {
+    font-size: xx-large;
+    color: var(--whiteSynapSys);
+}
+
 .main-infos02 {
     background-color: var(--bluePrimarySynapSys);
     height: 100vh;
@@ -294,15 +301,13 @@ nav ul li {
     height: 48px;
     border-radius: 14px;
     border: none;
-    background: #7fb1f7;
+    background: var(--lightBlueSynapSys);
     color: var(--whiteSynapSys);
     font-weight: bolder;
     font-size: large;
     flex-shrink: 0;
     transition: 0.2s ease-in-out;
 }
-
-
 
 .btn-saibamais:hover {
     cursor: pointer;
@@ -417,7 +422,7 @@ nav ul li {
 .article-detalhes02 a,
 .article-detalhes03 a {
     border: none;
-    background-color: #599bf7;
+    background-color: var(--lightBlueSynapSys);
     height: 10%;
     width: 90%;
     font-size: large;
@@ -496,6 +501,9 @@ nav ul li {
     gap: 1rem;
     margin-top: 1em;
     margin-bottom: 1em;
+    /* background-color: var(--bluePrimarySynapSys); */
+    color: var(--whiteSynapSys);
+    border-radius: 1em;
 }
 
 
@@ -518,14 +526,11 @@ nav ul li {
 .bnt-contact {
     width: 180px;
     height: 48px;
-    border: 3px solid #4272ca;
+    border: none;
     border-radius: 5px;
-
-    color: white;
-    background: #7fb1f7;
+    color: var(--whiteSynapSys);
+    background: var(--lightBlueSynapSys);
     font-weight: bold;
-
-
 }
 
 .bnt-contact:hover {
@@ -547,11 +552,13 @@ nav ul li {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-.logo-empresas {
-    width: 2em;
-    height: 2em;
+.div-empresa img {
+    height: 5vh;
 }
 
 .section-empresas p {
@@ -895,7 +902,7 @@ footer {
     }
 
     .article-content h1 {
-        font-size: 30px;
+        font-size: large;
     }
 
     .article-content p {
@@ -1040,7 +1047,7 @@ footer {
         overflow-x: hidden;
     }
 
-    
+
 
 
     nav {
@@ -1307,6 +1314,18 @@ footer {
         justify-content: center;
     }
 
+    .article-content p {
+        margin: 0.2rem;
+        font-size: small;
+        color: var(--whiteSynapSys);
+    }
+
+    .article-content h1 {
+        margin: 0.2rem;
+        font-size: small;
+        color: var(--whiteSynapSys);
+    }
+
     .dev-photo {
         width: 26vh;
         height: 30vh;
@@ -1428,6 +1447,18 @@ footer {
     .dev-name {
         font-size: xx-large;
         font-weight: bold;
+    }
+
+    .article-content p {
+        margin: 0.2rem;
+        font-size: small;
+        color: var(--whiteSynapSys);
+    }
+
+    .article-content h1 {
+        margin: 0.2rem;
+        font-size: small;
+        color: var(--whiteSynapSys);
     }
 }
 
