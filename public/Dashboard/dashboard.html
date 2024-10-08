@@ -74,6 +74,18 @@
         
         <section id= 'empresas'>
           <h1>empresas</h1>
+          <!-- <input type="text" id="cnpj" placeholder="cnpj">
+          <input type="text" id="nomeFantasia" placeholder="nomeFantasia">
+          <input type="text" id="cidade" placeholder="cidade">
+          <input type="text" id="uf" placeholder="uf">
+          <input type="text" id="cep" placeholder="cep">
+          <input type="text" id="numero" placeholder="numero">
+          <input type="text" id="bairro" placeholder="bairro">
+          <input type="text" id="razaoSocial" placeholder="razaoSocial">
+          <input type="text" id="ie" placeholder="ie">
+          <input type="text" id="logradouro" placeholder="logradouro">
+          <input type="text" id="complemento" placeholder="complemento">
+          <button id="cadastrarBtn">Cadastrar</button> -->
         </section>
         
        <section id= 'propriedades'>
@@ -96,3 +108,9 @@
 </body>
 
 </html> 
+
+<script type="module">
+    import { cadastrarEmpresa } from '../empresaFetch.js';
+    
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+  </script>
