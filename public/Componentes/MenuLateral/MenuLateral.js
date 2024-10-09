@@ -33,35 +33,33 @@ function createNavbar() {
     // Adiciona a linha horizontal
     botoesDiv.appendChild(document.createElement('hr'));
 
-    // Função para criar cada botão
+    // Função para criar cada botão como um link <a>
     function createButton(id, imgSrc, imgAlt, href, text) {
-        const buttonDiv = document.createElement('div');
-        buttonDiv.id = id;
-        buttonDiv.classList.add('hover');
+        const link = document.createElement('a');
+        link.id = id;
+        link.href = href;
+        link.classList.add('buttom-navbar', 'hover');
 
         const img = document.createElement('img');
         img.src = imgSrc;
         img.alt = imgAlt;
 
-        const link = document.createElement('a');
-        link.href = href;
-        link.classList.add('buttom-navbar');
-        link.textContent = text;
+        const linkText = document.createTextNode(text);
 
-        // Adiciona a imagem e o link ao div do botão
-        buttonDiv.appendChild(img);
-        buttonDiv.appendChild(link);
+        // Adiciona a imagem e o texto ao link
+        link.appendChild(img);
+        link.appendChild(linkText);
 
-        return buttonDiv;
+        return link;
     }
 
-    // Criação dos botões
+    // Criação dos botões como links <a>
     const dashboardButton = createButton('dashboard-button', '../images/chart-line-svgrepo-com.svg', 'Cnpj', '../Dashboard/dashboard.html', 'Dashboard');
     const empresaButton = createButton('cadastro-empresa', '../images/company-svgrepo-com.svg', 'Cnpj', '../Empresas/empresas.html', 'Empresas');
     const propriedadeButton = createButton('cadastro-propriedade', '../images/brazil-svgrepo-com.svg', 'territorio', '../Propriedades/propriedades.html', 'Propriedades');
     const contaButton = createButton('config-conta', '../images/account-svgrepo-com.svg', 'Account', '../Conta/conta.html', 'Conta');
 
-    // Adiciona os botões ao div botoesDiv
+    // Adiciona os links ao div botoesDiv
     botoesDiv.appendChild(dashboardButton);
     botoesDiv.appendChild(empresaButton);
     botoesDiv.appendChild(propriedadeButton);

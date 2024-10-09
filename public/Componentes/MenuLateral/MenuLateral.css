@@ -68,7 +68,7 @@ a.buttom-navbar {
     width: fit-content;
 }
 
-.botoes div {
+.botoes a {
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     display: flex;
@@ -77,7 +77,7 @@ a.buttom-navbar {
     width: 100%;
 }
 
-.botoes div a:hover {
+.botoes a:hover {
     color: rgb(255, 0, 0);
 }
 
