@@ -659,6 +659,12 @@ footer img{
     font-weight: 600;
     font-size: large;
     padding: 10px 30px;
+    transition: ease-in-out 0.2s;
+}
+
+.conteudoLogin button:hover{
+    background-color: var(--bluePrimarySynapSys);
+    cursor: pointer;
 }
 
 .conteudoLogin a{
@@ -687,6 +693,12 @@ footer img{
     font-weight: 600;
     font-size: large;
     padding: 10px 30px;
+    transition: ease-in-out 0.2s;
+}
+
+.conteudoCadastro button:hover{
+    background-color: var(--bluePrimarySynapSys);
+    cursor: pointer;
 }
 
 .conteudoCadastro a{
