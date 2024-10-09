@@ -12,10 +12,11 @@
 }
 
 section{
-    position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 0;
     height: 100vh;
-    width: 100%;
+    width: 85vw;
     opacity: 1;
     transition: all ease-in .5s;
     display: flex;
@@ -38,13 +39,11 @@ section{
     --light-color: #D2A9D9;
     --lol-color: #000000;
     }
-    
     .container {
-      background: #191919;
-      min-height: 100vh;
+      background: #d58080;
+      height: 100vh;
       font-family: Montserrat, sans-serif;
     }
-    
     section h1 {
         color: #fff;
         font-size: 50px;
@@ -52,13 +51,3 @@ section{
         opacity: 0;
     }
     
-    
-    #conta {
-        background: var(--lol-color);
-        display: flex;
-        flex-direction: column;
-    }
-    
-    @keyframes fadeIn {
-        100% { opacity:1 }
-    }

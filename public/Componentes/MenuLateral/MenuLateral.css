@@ -1,5 +1,17 @@
+:root {
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #204B74;
+    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys: #00B2FF;
+
+}
+
 .nav-bar-lateral {
-    width: fit-content;
+    width: 15vw;
     background-color: rgb(224, 240, 255);
     border-color: black;
     border: 1px;
@@ -9,13 +21,14 @@
     z-index: 50;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     flex-direction: column;
     height: 100vh;
-    padding: 2vw 6vh;
+    padding: 0 4em;
 }
 
+
 .logo-synapsys {
-    margin-top: 10%;
     display: flex;
     flex-direction: column;
     align-items: center
@@ -28,7 +41,6 @@
 }
 
 .nav-bar-lateral .botoes {
-    margin-top: 30%;
     display: flex;
     height: fit-content;
     gap: 1em;
@@ -46,10 +58,8 @@ a.buttom-navbar {
 }
 
 .nav-bar-lateral .titulo {
-    background-color: aliceblue;
     border-radius: 10px;
-    font-size: large;
-    padding: 5px;
+    font-size: largrer;
     display: flex;
     justify-content: center;
 }
@@ -73,16 +83,17 @@ a.buttom-navbar {
     border-radius: 5px;
     display: flex;
     align-items: center;
-    padding: 0.3em 2em;
+    padding: 1em 2em;
     width: 100%;
+    transition: ease-out 0.3s;
 }
 
 .botoes a:hover {
-    color: rgb(255, 0, 0);
+    color: var(--whiteSynapSys);
 }
 
 .botoes .hover:hover {
-    background-color: grey;
+    background-color: var(--bluePrimarySynapSys);
 }
 
 .botoes hr {
@@ -90,8 +101,7 @@ a.buttom-navbar {
     color: rebeccapurple;
 }
 
-
-
 .sair {
     margin-top: 18vh;
+    background-color: red;
 }

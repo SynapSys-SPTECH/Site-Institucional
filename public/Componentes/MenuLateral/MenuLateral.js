@@ -11,13 +11,13 @@ function createNavbar() {
     logoImg.src = '../images/Icon-SynapSys.svg';
     logoImg.alt = 'Logo';
 
-    const titulo = document.createElement('p');
+    const titulo = document.createElement('h1');
     titulo.classList.add('titulo');
-    titulo.textContent = 'SynapSYS';
+    titulo.textContent = 'Empresa';
 
     const nome = document.createElement('p');
     nome.classList.add('nome');
-    nome.textContent = 'Seu nome?';
+    nome.textContent = 'Usuário';
 
     // Adiciona os elementos ao div logoDiv
     logoDiv.appendChild(logoImg);
