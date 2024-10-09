@@ -1,0 +1,220 @@
+*{
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: Inter;
+}
+
+.nav-bar-lateral{
+    width: 12vw;
+    background-color: rgb(0, 0, 0);
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    border-color: black;
+    border: 1px;
+    border-style: solid; 
+    position: fixed;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.logo-synapsys{
+    margin-top: 10%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+
+.nav-bar-lateral .logo-synapsys img{
+    height: 80px;
+    width: 80px;
+}
+.nav-bar-lateral .botoes{
+    margin-top: 30%;
+    display: flex;
+    height: 590px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a.buttom-navbar {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-bar-lateral .titulo{
+    background-color: aliceblue;
+    border-radius: 10px;
+    font-size: large;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar-lateral .nome{
+    color: blue;
+    border-radius: 5px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+
+}
+.buttom-navbar{
+    height: 50px;
+    width: 80px;
+    
+}
+
+.botoes div{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.botoes div a:hover{
+    color: rgb(255, 0, 0);
+}
+.botoes .hover:hover{
+    background-color: grey;
+}
+
+.botoes hr{
+    width: 100%;
+    color: rebeccapurple;
+}
+.sair{
+    margin-top: 18vh ;
+}
+
+/* .botoes button{;} */
+
+.botoes img{
+    height: 30px;
+    width: 30px;
+    padding: 10px;
+}
+
+section{
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 0;
+    opacity: 0;
+    transition: all ease-in .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dash{
+    width: 88vw;
+    height: 100vh;
+    background-color: red;
+}
+
+
+:root {
+    --primary-color: #D96AA7;
+    --secondary-color: #422C73;
+    --complimentary-color: #88BFB5;
+    --contrast-color: #F2E527;
+    --light-color: #D2A9D9;
+    --lol-color: #000000;
+    }
+    
+    .container {
+      background: #191919;
+      min-height: 100vh;
+      font-family: Montserrat, sans-serif;
+    }
+    
+    /* nav a {
+        font-size: 40px;
+        color: #fff;
+        text-decoration: none;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    nav {
+        position: fixed;
+        left: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 100vh;
+        background: var(--secondary-color);
+    } */
+/*     
+    section {
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        width: 0;
+        opacity: 0;
+        transition: all ease-in .5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }  */
+    
+    section h1 {
+        color: #fff;
+        font-size: 50px;
+        text-transform: uppercase;
+        opacity: 0;
+    }
+    
+    /* Styles applied on trigger */
+    section:target {
+        opacity: 1;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+    }
+    
+    section:target h1 {
+        opacity: 0;
+        animation: 2s fadeIn forwards .5s;
+    }
+    
+    #dashboard {
+      background:var(--primary-color);
+    }
+    #empresas {
+        background: var(--complimentary-color);
+    }
+    
+    #propriedades {
+        background: var(--light-color);
+    }
+    
+    #notificacao {
+        background: var(--contrast-color);
+    }
+    
+    #conta {
+        background: var(--lol-color);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    @keyframes fadeIn {
+        100% { opacity:1 }
+    }

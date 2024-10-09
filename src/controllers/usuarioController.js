@@ -14,12 +14,13 @@ function autenticar(req, res) {
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
                     res.json({
                         idUsuario: resultadoAutenticar[0].idUsuario,
                         email: resultadoAutenticar[0].email,
                         senha: resultadoAutenticar[0].senha,
-                        tipo: resultadoAutenticar[0].tipo
+                        fktipo: resultadoAutenticar[0].fkTipo,
+                        nome: resultadoAutenticar[0].nome
                     });
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
@@ -43,13 +44,13 @@ function autenticar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var tipo = req.body.tipoServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    // var fkEmpresa = req.body.idEmpresaVincularServer;
+    var tipo = req.body.tipoServer;
+    var telefone = req.body.telefoneServer;
+    var nome = req.body.nomeServer;
 
-    // Faça as validações dos valores
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
@@ -58,8 +59,7 @@ function cadastrar(req, res) {
         res.status(400).send("Seu tipoUser está undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(email, senha, tipo)
+        usuarioModel.cadastrar(nome, telefone , email, senha, tipo)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -77,7 +77,49 @@ function cadastrar(req, res) {
     }
 }
 
+function deletar(req, res) {
+    var idUsuario = req.params.idUsuario;
+    var novaCampo = req.body.descricao;
+
+    usuarioModel.deletar(idUsuario, novaCampo)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function editar(req, res) {
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.editar(nome , email, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    deletar,
+    editar
 }

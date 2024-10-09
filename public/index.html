@@ -362,6 +362,14 @@
             <div class="conteudoCadastro" id="cadastro" style="display: none;">
                 <h2>Cadastro</h2>
                 <div class="div_input">
+                    <p>Nome</p>
+                    <input type="text" id="nomeCadastro">
+                </div>
+                <div class="div_input">
+                    <p>Telefone</p>
+                    <input type="text" id="telefoneCadastro">
+                </div>
+                <div class="div_input">
                     <p>Email</p>
                     <input type="text" id="emailCadastro">
                 </div>
@@ -377,8 +385,9 @@
                     <p>Tipo de Usuário</p>
                     <select id="tipoUserCadastro">
                         <option value="/">Selecione o Usuario</option>
-                        <option value="empresario">Dono de Empresa</option>
-                        <option value="investidor">Investidor</option>
+                        <option value="1">Dono de Empresa</option>
+                        <option value="2">Investidor</option>
+                        <option value="3">Dono e Investidor</option>
                     </select>
                 </div>
                 <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
