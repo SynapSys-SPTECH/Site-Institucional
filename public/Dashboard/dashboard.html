@@ -11,95 +11,13 @@
 </head> 
 
 <body>
-
-
-    <nav>
-    <div class="nav-bar-lateral">
-        <div class="logo-synapsys"><img src="../images/Icon-SynapSys.svg" alt="">
-            <br>
-            <p class="titulo">
-                SynapSYS
-            </p>
-            <br>
-            <p class="nome">
-                Seu nome?
-            </p>
-        </div>
-        <div class="botoes">
-            <hr>
-            <div id="dashboard-button" class="hover">
-                <img src="../images/chart-line-svgrepo-com.svg" alt="Cnpj">
-                <a href="#dashboard" class="buttom-navbar">
-                    Dashboard
-                </a>
-            </div>
-            <div id="cadastro-empresa" class="hover">
-                <img src="../images/company-svgrepo-com.svg" alt="Cnpj">
-                <a href="#empresas" class="buttom-navbar">
-                    Empresas
-                </a>
-            </div>
-            <div id="cadastro-propriedade"  class="hover">
-                <img src="../images/brazil-svgrepo-com.svg" alt="territorio">
-                <a href='#propriedades' class="buttom-navbar">
-                    Propriedades
-                </a>
-            </div>
-            <div id="notificacao-button" class="hover">
-                <img src="../images/notification-12-svgrepo-com.svg" alt="Alert">
-                <a href="#notificacao" class="buttom-navbar">
-                    Notificações
-                </a>
-            </div>
-            <div id="config-conta" class="hover">
-                <img src="../images/account-svgrepo-com.svg" alt="Account">
-                <a href="#conta" class="buttom-navbar">
-                    Conta
-                </a>
-            </div>
-            <hr>
-            <div id="sair" class="hover" class="sair">
-                <img src="../images/exit-svgrepo-com.svg" alt="Sair">
-                <a class="buttom-navbar">
-                    Sair
-                </a>
-            </div>
-        </div>
-    </div>
-    </nav>
-
-    
+    <!-- INICIO Navbar -->
+    <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
+<!-- FIM Navbar -->
     <div class= 'container'> 
-        <section id= 'dashboard'>
+        <section id='dashboard'>
           <h1>dashboard</h1>
-        </section>
-        
-        <section id= 'empresas'>
-          <h1>empresas</h1>
-        </section>
-        
-       <section id= 'propriedades'>
-         <h1>propriedades</h1>
-        </section>
-
-        <section id= 'notificacao'>
-            <h1>notificacao</h1>
-            <div
-            style="background-color: red; width: 100px; height: 120vh;"></div>
-        </section>
-
-       <section id= 'conta'>
-         <h1>Conta</h1>
-         <button style="background-color: aqua; border: 2px solid blue; width: 100px; height: 100px;" id="button_deletar" onclick="deletar(idUsuario)">Excluir Usuario</button>
-
-         <input type="text" placeholder="MudarNomeUsuario" id="nomeUsuarioConta">
-        <br>
-         <input type="text" placeholder="MudarEmailUsuario" id="emailUsuarioConta">
-
-         <button onclick="atualizar()">Confirmar</button>
-        </section>
-
-        
+        </section>       
     </div>
     
 </body>
@@ -110,4 +28,8 @@
 
 </html> 
 
-
+<script type="module">
+    import { cadastrarEmpresa } from '../empresaFetch.js';
+    
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+  </script>
