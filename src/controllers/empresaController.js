@@ -10,7 +10,9 @@ function buscarPorCnpj(req, res) {
 }
 
 function listar(req, res) {
-  empresaModel.listar().then((resultado) => {
+  var idUserVar = sessionStorage.ID_USUARIO
+  
+  empresaModel.listar(idUserVar).then((resultado) => {
     res.status(200).json(resultado);
   });
 }

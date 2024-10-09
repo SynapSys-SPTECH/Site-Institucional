@@ -17,8 +17,6 @@ export function cadastrarEmpresa() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      // crie um atributo que recebe o valor recuperado aqui
-      // Agora vá para o arquivo routes/usuario.js
       cnpjServer: cnpjVar,
       nomeFantasiaServer: nomeFantasiaVar,
       cidadeServer: cidadeVar,
@@ -49,4 +47,26 @@ export function cadastrarEmpresa() {
     });
 
   return false;
+}
+
+export function buscarEmpresas(){
+  
+  fetch("/empresas/listar", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição: ' + response.status);
+    }
+    return response.json()
+  })
+  .then(empresas => {
+    console.log(empresas);  
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
 }
