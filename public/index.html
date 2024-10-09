@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="style.css" />
+    <script src="./fetchs.js"></script>
     <title>SynapSys</title>
 </head>
 
@@ -167,7 +169,11 @@
 
 
         <div class="div-tituloTeamDev">
+        <div class="div-tituloTeamDev">
 
+            <h1>
+                EQUIPE DESENVOLVEDORA
+            </h1>
             <h1>
                 EQUIPE DESENVOLVEDORA
             </h1>
@@ -179,11 +185,18 @@
         <main class="main-teamDev" >
 
             <article class="article-devPhotos">
+            <article class="article-devPhotos">
 
                 <figure>
                     <img class="dev-photo" src="imgs/Foto Bianca.jpg" alt="">
                 </figure>
+                <figure>
+                    <img class="dev-photo" src="imgs/Foto Bianca.jpg" alt="">
+                </figure>
 
+                <p class="dev-name">
+                    Bianca Alves
+                </p>
                 <p class="dev-name">
                     Bianca Alves
                 </p>
@@ -200,15 +213,26 @@
                 <a href="">
                     <button class="bnt-contact">Contate Bianca</button>
                 </a>
+                <a href="">
+                    <button class="bnt-contact">Contate Bianca</button>
+                </a>
 
             </article>
+            </article>
 
+            <article class="article-devPhotos">
             <article class="article-devPhotos">
 
                 <figure>
                     <img class="dev-photo" src="imgs/Foto Bryan.jpg" alt="">
                 </figure>
+                <figure>
+                    <img class="dev-photo" src="imgs/Foto Bryan.jpg" alt="">
+                </figure>
 
+                <p class="dev-name">
+                    Bryan Henrique
+                </p>
                 <p class="dev-name">
                     Bryan Henrique
                 </p>
@@ -253,11 +277,18 @@
           </article>
 
             <article class="article-devPhotos">
+            <article class="article-devPhotos">
 
                 <figure>
                     <img class="dev-photo" src="imgs/Foto Gabriel Felix.jpg" alt="">
                 </figure>
+                <figure>
+                    <img class="dev-photo" src="imgs/Foto Gabriel Felix.jpg" alt="">
+                </figure>
 
+                <p class="dev-name">
+                    Gabriel Felix
+                </p>
                 <p class="dev-name">
                     Gabriel Felix
                 </p>
@@ -274,16 +305,27 @@
                 <a href="">
                     <button class="bnt-contact">Contate Gabriel</button>
                 </a>
+                <a href="">
+                    <button class="bnt-contact">Contate Gabriel</button>
+                </a>
 
 
             </article>
+            </article>
 
+            <article class="article-devPhotos">
             <article class="article-devPhotos">
 
                 <figure>
                     <img class="dev-photo" src="imgs/Foto Gavassa.jpg" alt="">
                 </figure>
+                <figure>
+                    <img class="dev-photo" src="imgs/Foto Gavassa.jpg" alt="">
+                </figure>
 
+                <p class="dev-name">
+                    Guilherme Gavassa
+                </p>
                 <p class="dev-name">
                     Guilherme Gavassa
                 </p>
@@ -300,11 +342,16 @@
                 <a href="">
                     <button class="bnt-contact">Contate Guilherme</button>
                 </a>
+                <a href="">
+                    <button class="bnt-contact">Contate Guilherme</button>
+                </a>
 
+            </article>
             </article>
 
             
 
+        </main>
         </main>
 
     </section>
@@ -319,38 +366,56 @@
     <div id="myModal" class="modal">
         <div class="modalEspaco">
             <span class="close">&times;</span>
+            <img class="img-modal" src="images/img-turbinas.png" alt="" id="imgModal">
             <div class="conteudoLogin" id="login">
-                <h2>Login</h2>
-                <p>Email</p>
-                <input type="text" id="emailLogin">
-                <p>Senha</p>
-                <input type="password" id="senhaLogin">
-                <button id="entrarLogin">Entrar</button>
+                <div class="div_input">
+                    <h2>Login</h2>
+                    <p>Email</p>
+                    <input type="text" id="emailLogin">
+                </div>
+
+
+                <div class="div_input">
+                    <p>Senha</p>
+                    <input type="password" id="senhaLogin">
+                </div>
+
+                <button id="entrarLogin" onclick="entrar()">Entrar</button>
                 <p id="abrirCadastro"> <a href="">Ainda não é cadastrado?</a></p>
             </div>
 
             <div class="conteudoCadastro" id="cadastro" style="display: none;">
                 <h2>Cadastro</h2>
-                <p>Usuário</p>
-                <input type="text" id="userCadastro">
-                <p>Email</p>
-                <input type="text" id="emailCadastro">
-                <p>Senha</p>
-                <input type="password" id="senhaCadastro">
-                <p>Confirme sua senha</p>
-                <input type="password" id="confirmacaoCadastro">
-                <p>Tipo de Usuário</p>
-                <select id="tipoUserCadastro">
-                    <option value="/">Selecione o Usuario</option>
-                    <option value="empresario">Dono de Empresa</option>
-                    <option value="investidor">Investidor</option>
-                </select>
-                <button id="cadastrar">Cadastrar</button>
+                <div class="div_input">
+                    <p>Email</p>
+                    <input type="text" id="emailCadastro">
+                </div>
+                <div class="div_input">
+                    <p>Senha</p>
+                    <input type="password" id="senhaCadastro">
+                </div>
+                <div class="div_input">
+                    <p>Confirme sua senha</p>
+                    <input type="password" id="confirmacaoCadastro">
+                </div>
+                <div class="div_input">
+                    <p>Tipo de Usuário</p>
+                    <select id="tipoUserCadastro">
+                        <option value="/">Selecione o Usuario</option>
+                        <option value="empresario">Dono de Empresa</option>
+                        <option value="investidor">Investidor</option>
+                    </select>
+                </div>
+                <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
                 <p id="abrirLogin"><a href="">Já é cadastrado?</a></p>
             </div>
+
         </div>
+
+
     </div>
 </body>
+
 
 </html>
 
@@ -364,22 +429,23 @@
 
 
 
+  
     function apareceInfos(id) {
-        document.getElementById(id).style.display = "flex";
-        document.getElementById(id).style.opacity = 1;
-    }
+            document.getElementById(id).style.display = "flex";
+            document.getElementById(id).style.opacity = 1;
+      }
 
-    function someInfos(id) {
-        document.getElementById(id).style.display = "none";
-        document.getElementById(id).style.opacity = 0;
-    }
-
-
+      function someInfos(id) {
+            document.getElementById(id).style.display = "none";
+            document.getElementById(id).style.opacity = 0;
+      }
 
 
-    const modal = document.getElementById("myModal");
 
-    const btn = document.getElementById("openModal");
+
+      const modal = document.getElementById("myModal");
+
+      const btn = document.getElementById("openModal");
 
     const span = document.getElementsByClassName("close")[0];
 
@@ -391,14 +457,15 @@
 
     const cadastro = document.getElementById("cadastro");
 
-    btnLogin.onclick = function () {
+    const imgModal = document.getElementById("imgModal");
+
+    btn.onclick = function () {
         event.preventDefault();
-        modal.style.display = "block";
-        login.style.display = "block";
-        cadastro.style.display = "none"
+        modal.style.display = "flex";
+        login.style.display = "flex";
+        cadastro.style.display = "none";
+        imgModal.style.float = "left";
     };
-
-
 
     span.onclick = function () {
         modal.style.display = "none";
@@ -407,13 +474,15 @@
     abrirCadastro.onclick = function () {
         event.preventDefault();
         login.style.display = "none";
-        cadastro.style.display = "block";
+        cadastro.style.display = "flex";
+        imgModal.style.float = "right";
     };
 
     abrirLogin.onclick = function () {
         event.preventDefault();
-        login.style.display = "block";
+        login.style.display = "flex";
         cadastro.style.display = "none";
+        imgModal.style.float = "left";
     };
 
     window.onclick = function (event) {
