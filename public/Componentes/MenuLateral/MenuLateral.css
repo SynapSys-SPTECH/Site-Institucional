@@ -1,0 +1,97 @@
+.nav-bar-lateral {
+    width: fit-content;
+    background-color: rgb(224, 240, 255);
+    border-color: black;
+    border: 1px;
+    border-style: solid;
+    position: fixed;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100vh;
+    padding: 2vw 6vh;
+}
+
+.logo-synapsys {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+
+.nav-bar-lateral .logo-synapsys img {
+    height: 80px;
+    width: 80px;
+}
+
+.nav-bar-lateral .botoes {
+    margin-top: 30%;
+    display: flex;
+    height: fit-content;
+    gap: 1em;
+    width: fit-content;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a.buttom-navbar {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-bar-lateral .titulo {
+    background-color: aliceblue;
+    border-radius: 10px;
+    font-size: large;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar-lateral .nome {
+    color: blue;
+    border-radius: 5px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+
+}
+
+.buttom-navbar {
+    height: 2em;
+    width: fit-content;
+}
+
+.botoes div {
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0.3em 2em;
+    width: 100%;
+}
+
+.botoes div a:hover {
+    color: rgb(255, 0, 0);
+}
+
+.botoes .hover:hover {
+    background-color: grey;
+}
+
+.botoes hr {
+    width: 100%;
+    color: rebeccapurple;
+}
+
+
+
+.sair {
+    margin-top: 18vh;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+    <title>Painel de Conta</title>
+    <!-- <script src="../fetchs.js"></script> -->
+
+</head>
+
+<body>
+
+
+    <!-- INICIO Navbar -->
+    <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
+    <!-- FIM Navbar -->
+
+
+    <div class='container'>
+        <section id='conta'>
+            <h1>Conta</h1>
+
+            <input type="text" placeholder="MudarNomeUsuario" id="nomeUsuarioConta">
+            <br>
+            <input type="text" placeholder="MudarEmailUsuario" id="emailUsuarioConta">
+
+            <button style="background-color: aqua; border: 2px solid blue; width: 100px; height: 100px;"
+                id="button_deletar" onclick="deletar(idUsuario)">Excluir Usuario</button>
+
+            <button onclick="atualizar()">Confirmar</button>
+        </section>
+
+
+    </div>
+
+</body>
+
+<script src="../fetchs.js">
+    let idUsuario = sessionStorage.getItem("ID_USUARIO")
+</script>
+
+</html>

@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="images/Icon-SynapSysBranco.svg" type="image/x-icon" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="style.css" />
     <script src="./fetchs.js"></script>
     <title>SynapSys</title>
@@ -14,19 +15,27 @@
 <body>
     <nav>
         <img class="logo-nav" src="images/logo-synapsys.svg" alt="Logo da SynapSys" />
-        <ul>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="images/navbar/menu.svg" alt="Menu" />
+        </div>
+        <ul id="menu">
             <a href="#main-inicio">
                 <li>Página Inicial</li>
             </a>
-            <a href="#main-infos">
-                <li>Informações</li>
+            <a href="#main-infos01">
+                <li>Nossos Clientes</li>
             </a>
             <a href="#main-detalhes">
                 <li>Detalhes</li>
             </a>
+            <a href="#main-equipe">
+                <li>Equipe</li>
+            </a>
+            <!-- <a href="" id="openModal"><img src="images/Entrar.svg" alt="" /></a> -->
+            <a href="" id="openModal"><img src="images/Entrar.svg" alt=""></a>
 
         </ul>
-        <a href="" id="openModal"><img src="images/Entrar.svg" alt="" /></a>
+
     </nav>
 
     <!-- INICIO - Seção Inicial -->
@@ -34,14 +43,20 @@
     <main>
         <section class="main-inicio" id="main-inicio">
             <div class="caixa-inicio">
-                <div class="card-inicio">
-                    <h1>
-                        Transforme vento em poder: Energize o futuro com a força eólica.
-                    </h1>
-                    <p>
-                        Descubra se você esta realmente explorando todos os seus recursos
-                        disponíveis,ou há oportunidades de expandir sua visão.
-                    </p>
+
+                <div class="container-inicio">
+
+                    <img class="image-inicio" src="imgs/undraw_wind_turbine_x2k4-removebg-preview.png" alt="">
+
+                    <div class="card-inicio">
+                        <h1>
+                            Transforme vento em poder: Energize o futuro com a força eólica.
+                        </h1>
+                        <p>
+                            Descubra se você esta realmente explorando todos os seus recursos
+                            disponíveis,ou há oportunidades de expandir sua visão.
+                        </p>
+                    </div>
                 </div>
                 <button class="btn-ingressar">INGRESSAR</button>
             </div>
@@ -51,35 +66,41 @@
 
         <!-- INICIO - Seção de Informações -->
 
-
-        <section class="main-infos" id="main-infos">
+        <section class="main-infos01" id="main-infos01">
+            <h1>Nossos Clientes</h1>
             <div class="box-info">
-                <img class="img-card-info" src="images/img-turbinas.png" alt="" />
-                <div class="card-info">
-
+                <img class="img-card-info" src="imgs/Main-infos01.png" alt="" />
+                <div class="card-info" id="card-info">
                     <h1>PROPRIETÁRIOS</h1>
                     <p>
-                        Quer descobrir quais são as fronteiras para seus objetivos, aqui
-                        te oferemos as melhores opções para sua expansão e nossa
-                        felicidade. Veja o que nossa IA tem a te dizer...
+                        Quer descobrir quais são as fronteiras para seus objetivos? Aqui
+                        te oferecemos as melhores opções para sua expansão e nossa
+                        felicidade!
+                        <b>Veja o que nossa IA tem a te dizer...</b>
                     </p>
+
                     <button class="btn-saibamais">Saiba mais</button>
                 </div>
             </div>
+        </section>
 
-            <div class="box-info">
+        <section class="main-infos02" id="main-infos02">
+            <h1>Nossos Clientes</h1>
+            <div class="box-info" id="box-info2">
+
                 <div class="card-info" id="card-info2">
                     <h1>INVESTIDORES</h1>
                     <p>
-                        Se você procura mais opções para investir, navegue por nossos
-                        parques eólicos cadastrados e se tiver interesse entre em contato
-                        direto com o proprietário.
+                        Se você procura mais opções para investir, navegue por
+                        nossos parques eólicos cadastrados e se tiver interesse entre em
+                        contato direto com o proprietário.
                     </p>
                     <button class="btn-saibamais">Saiba mais</button>
                 </div>
-                <img class="img-card-info" src="images/img-turbinas.png" alt="" />
+                <img class="img-card-info02" src="imgs/Main-infos2.png" alt="" />
             </div>
         </section>
+
 
         <!-- FIM - Seção de Informações -->
 
@@ -87,9 +108,9 @@
 
         <section class="main-detalhes" id="main-detalhes">
             <main class="container-detalhes">
-                <article class="article-detalhes" onmouseenter="apareceInfos('article1')"
+                <article class="article-detalhes01" onmouseenter="apareceInfos('article1')"
                     onmouseleave="someInfos('article1')">
-                    <div class="article-content" id="article1" style="display: flex">
+                    <div class="article-content" id="article1" style="display: none">
                         <div>
                             <h1>FONTE RENOVÁVEL</h1>
                             <br />
@@ -106,7 +127,8 @@
 
                     <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
                 </article>
-                <article class="article-detalhes" onmouseenter="apareceInfos('article2')"
+
+                <article class="article-detalhes02" onmouseenter="apareceInfos('article2')"
                     onmouseleave="someInfos('article2')">
                     <div class="article-content" id="article2" style="display: none">
                         <h1>VALORIZAÇÃO NACIONAL</h1>
@@ -122,19 +144,15 @@
                     <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
                 </article>
 
-
-                <article class="article-detalhes" onmouseenter="apareceInfos('article3')"
+                <article class="article-detalhes03" onmouseenter="apareceInfos('article3')"
                     onmouseleave="someInfos('article3')">
                     <div class="article-content" id="article3" style="display: none">
                         <h1>BAIXO CUSTO A LONGO PRAZO</h1>
                         <br />
                         <p>
                             Atualmente os custos de instalação e de manutenção de parques
-
-                            eólicos estão relativamente baixos, além de poder ser gerada em
-                            escala residencial, onde miniturbinas pode crescer o acesso ao
-                            mesmo.
-
+                            eólicos estão relativamente baixos, além de poder ser gerada em escala
+                            residencial, onde miniturbinas pode crescer o acesso ao mesmo.
                         </p>
                     </div>
                     <a href="">Saiba mais</a>
@@ -146,110 +164,79 @@
         <!-- FIM - Seção de Detalhes -->
     </main>
 
-
     <!-- INICIO - Seção Desenvolvedores -->
-    <section class="section-teamDev">
+    <section class="section-teamDev" id="main-equipe">
 
 
         <div class="div-tituloTeamDev">
+
 
             <h1>
                 EQUIPE DESENVOLVEDORA
             </h1>
 
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nam ea totam id Lorem ipsum dolor sit, amet
-                consectetur adipisicing elit. Reprehenderit
 
+            <p>
+                Desenvolvedores SynapSys
+            </p>
         </div>
 
         <main class="main-teamDev">
 
             <article class="article-devPhotos">
 
+
                 <figure>
                     <img class="dev-photo" src="imgs/Foto Bianca.jpg" alt="">
                 </figure>
+
 
                 <p class="dev-name">
                     Bianca Alves
                 </p>
 
+
                 <p class="dev-function">
-                    Batutinha 01
+                    Product Owner
                 </p>
 
-                <img src="imgs/Logo LinkedIn.png" alt="">
+                <div class="div-empresa">
+                    <img src="imgs/linkedin-brands-solid.svg" alt="">
+                    <img class="logo-empresas" src="imgs/logo-accenture.png" alt="">
+                </div>
 
                 <a href="">
                     <button class="bnt-contact">Contate Bianca</button>
                 </a>
 
+
             </article>
 
+
             <article class="article-devPhotos">
+
 
                 <figure>
                     <img class="dev-photo" src="imgs/Foto Bryan.jpg" alt="">
                 </figure>
 
+
                 <p class="dev-name">
                     Bryan Henrique
                 </p>
 
+
                 <p class="dev-function">
-                    Batutinha 02
+                    Desenvolvedor Back-end
                 </p>
 
-                <img src="imgs/Logo LinkedIn.png" alt="">
+                <div class="div-empresa">
+                    <img src="imgs/linkedin-brands-solid.svg" alt="">
+                    <img class="logo-empresas" src="imgs/logo-bradesco.png" alt="">
+                </div>
 
                 <a href="">
                     <button class="bnt-contact">Contate Bryan</button>
-                </a>
-
-            </article>
-
-            <article class="article-devPhotos">
-
-                <figure>
-                    <img class="dev-photo" src="imgs/Foto Gabriel Felix.jpg" alt="">
-                </figure>
-
-                <p class="dev-name">
-                    Gabriel Felix
-                </p>
-
-                <p class="dev-function">
-                    Batutinha 03
-                </p>
-
-                <img src="imgs/Logo LinkedIn.png" alt="">
-
-                <a href="">
-                    <button class="bnt-contact">Contate Gabriel</button>
-                </a>
-
-
-            </article>
-
-            <article class="article-devPhotos">
-
-                <figure>
-                    <img class="dev-photo" src="imgs/Foto Gavassa.jpg" alt="">
-                </figure>
-
-                <p class="dev-name">
-                    Guilherme Gavassa
-                </p>
-
-                <p class="dev-function">
-                    Batutinha 04
-                </p>
-
-                <img src="imgs/Logo LinkedIn.png" alt="">
-
-                <a href="">
-                    <button class="bnt-contact">Contate Guilherme</button>
                 </a>
 
             </article>
@@ -265,10 +252,12 @@
                 </p>
 
                 <p class="dev-function">
-                    Batutinha 05
+                    Desenvolvedor Back-end
                 </p>
-
-                <img src="imgs/Logo LinkedIn.png" alt="">
+                <div class="div-empresa">
+                    <img src="imgs/linkedin-brands-solid.svg" alt="">
+                    <img class="logo-empresas" src="imgs/Radix-logo.jpeg" alt="">
+                </div>
 
                 <a href="">
                     <button class="bnt-contact">Contate Enrico</button>
@@ -276,54 +265,77 @@
 
             </article>
 
+            <article class="article-devPhotos">
+
+
+
+                <figure>
+                    <img class="dev-photo" src="imgs/Foto Gabriel Felix.jpg" alt="">
+                </figure>
+
+                <p class="dev-name">
+                    Gabriel Felix
+                </p>
+
+                <p class="dev-function">
+                    Desenvolvedor Front-end
+                </p>
+
+                <div class="div-empresa">
+                    <img src="imgs/linkedin-brands-solid.svg" alt="">
+                    <img class="logo-empresas" src="imgs/Radix-logo.jpeg" alt="">
+                </div>
+
+                <a href="">
+                    <button class="bnt-contact">Contate Gabriel</button>
+                </a>
+
+
+
+            </article>
+
+
+            <article class="article-devPhotos">
+
+
+
+                <figure>
+                    <img class="dev-photo" src="imgs/Foto Gavassa.jpg" alt="">
+                </figure>
+
+
+                <p class="dev-name">
+                    Guilherme Gavassa
+                </p>
+
+                <p class="dev-function">
+                    Scrum Master
+                </p>
+
+                <div class="div-empresa">
+                    <img src="imgs/linkedin-brands-solid.svg" alt="">
+                    <img class="logo-empresas" src="imgs/logo-avanade.png" alt="">
+                </div>
+
+
+                <a href="">
+                    <button class="bnt-contact">Contate Guilherme</button>
+                </a>
+
+            </article>
+
+
+
         </main>
 
-
-        <section class="section-empresas">
-
-            <div class="div-empresa">
-
-                <p>
-                    <img class="logo-empresas" src="imgs/logo-avanade.png" alt="">
-                    Avandade
-                </p>
-            </div>
-
-            <div class="div-empresa">
-                <img class="logo-empresas" src="imgs/logo-accenture.png" alt="">
-                <p>
-                    Accenture
-                </p>
-            </div>
-
-            <div class="div-empresa">
-                <img class="logo-empresas" src="imgs/sptech-logo.png" alt="">
-                <p>
-                    SPTECH
-                </p>
-            </div>
-
-            <div class="div-empresa">
-                <img class="logo-empresas" src="imgs/logo-bradesco.png" alt="">
-                <p>
-                    Bradesco
-                </p>
-            </div>
-
-            <div class="div-empresa">
-                <img class="logo-empresas" src="imgs/Radix-logo.jpeg" alt="">
-                <p>
-                    Radix
-                </p>
-            </div>
-
-        </section>
 
     </section>
 
     <footer>
         <img src="images/logo-branca.svg" alt="" />
     </footer>
+
+
 
     <!-- INICIO - Modais Login e Cadastro-->
     <div id="myModal" class="modal">
@@ -350,6 +362,14 @@
             <div class="conteudoCadastro" id="cadastro" style="display: none;">
                 <h2>Cadastro</h2>
                 <div class="div_input">
+                    <p>Nome</p>
+                    <input type="text" id="nomeCadastro">
+                </div>
+                <div class="div_input">
+                    <p>Telefone</p>
+                    <input type="text" id="telefoneCadastro">
+                </div>
+                <div class="div_input">
                     <p>Email</p>
                     <input type="text" id="emailCadastro">
                 </div>
@@ -365,8 +385,9 @@
                     <p>Tipo de Usuário</p>
                     <select id="tipoUserCadastro">
                         <option value="/">Selecione o Usuario</option>
-                        <option value="empresario">Dono de Empresa</option>
-                        <option value="investidor">Investidor</option>
+                        <option value="1">Dono de Empresa</option>
+                        <option value="2">Investidor</option>
+                        <option value="3">Dono e Investidor</option>
                     </select>
                 </div>
                 <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
@@ -379,9 +400,19 @@
     </div>
 </body>
 
+
 </html>
 
 <script>
+
+
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("show-menu");
+    }
+
+
+
 
     function apareceInfos(id) {
         document.getElementById(id).style.display = "flex";
