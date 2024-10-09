@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
+
+        <section id="propriedades">
+            <h1>CADASTRO DE PROPRIEDADE</h1>
+
+            <span>Logradouro:</span>
+            
+            <input type="text" id="input_logradouro" />
+            <span>CEP:</span>
+            
+            <input type="text" id="input_cep" placeholder="somente números" />
+            Tamanho (m² ou hectare):
+            <input type="text" id="input_tamanho" />
+            <span>Cidade:</span>
+            
+            <input type="text" id="input_cidade" />
+            <span>UF:</span>
+            
+            <input type="text" id="input_uf" placeholder="ex: SP" />
+
+            <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+        </section>
+    </div>
+
+</body>
+
+</html>
