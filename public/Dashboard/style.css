@@ -1,17 +1,17 @@
-*{
+* {
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
     font-family: Inter;
 }
 
-.botoes img{
+.botoes img {
     height: 30px;
     width: 30px;
     padding: 10px;
 }
 
-section{
+section {
     position: absolute;
     top: 0;
     height: 100vh;
@@ -19,16 +19,67 @@ section{
     opacity: 1;
     transition: all ease-in .5s;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    height: 10vh;
+    width: 100%;
+    color: #000000;
+    background-color: var(--whiteSynapSys);
+}
+
+#dashboard {
+    background: var(--primary-color);
+    width: 75vw;
+    left: 25vw;
+}
+
+.main-dashboard{
+    background-color: red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.dash{
-    width: 88vw;
-    height: 100vh;
-    background-color: red;
+.kpis{
+    background-color: green;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5em;
+    padding: 2em;
 }
+
+.kpi{
+    background-color: yellow;
+    width: 10em;
+    height: 10em;
+}
+
+.graficos{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5em;
+    padding: 2em;
+}
+
+.grafico{
+    background-color: rgb(255, 255, 255);
+    height: 20em;
+    width: 28em;
+}
+
+
+
+
+
+
+
 
 
 :root {
@@ -38,18 +89,18 @@ section{
     --contrast-color: #F2E527;
     --light-color: #D2A9D9;
     --lol-color: #000000;
-    }
-    
-    .container {
-      background: #191919;
-      min-height: 100vh;
-      font-family: Montserrat, sans-serif;
-    }
-    
-    #dashboard {
-      background:var(--primary-color);
-    }
-   
-    
-    
-    
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #204B74;
+    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys: #00B2FF;
+}
+
+.container {
+    background: #191919;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}
