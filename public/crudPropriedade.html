@@ -35,14 +35,21 @@
 
 <script>
   function cadastrar() {
-    let lograudouro = input_logradouro.value;
-    let tamanho = input_tamanho.value;
-    let cep = input_cep.value;
-    let cidade = input_cidade.value;
-    let uf = input_uf.value;
+    var logradouro = input_logradouro.value;
+    var tamanho = input_tamanho.value;
+    var cep = input_cep.value;
+    var cidade = input_cidade.value;
+    var uf = input_uf.value;
+
+
+    console.log(logradouro)
+    console.log(cep)
+    console.log(uf)
+    console.log(cidade)
+    console.log(tamanho)
 
     if (
-      lograudouro == "" ||
+      logradouro == "" ||
       cep == "" ||
       tamanho == "" ||
       cidade == "" ||
@@ -70,16 +77,20 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        logradouroServer: lograudouro,
+        logradouroServer: logradouro,
         cepServer: cep,
         tamanhoServer: tamanho,
         cidadeServer: cidade,
         ufServer: uf,
+
+    
       }),
     })
+    
+
       .then(function (resposta) {
         console.log("resposta: ", resposta);
-
+        console.log(logradouroServer)
         setTimeout(() => {
           window.location = "./index.html";
         }, "1000");
