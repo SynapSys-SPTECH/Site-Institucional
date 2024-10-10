@@ -6,46 +6,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
 
-</head> 
+</head>
 
 <body>
     <!-- INICIO Navbar -->
     <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
-<!-- FIM Navbar -->
-    <div class= 'container'> 
+    <!-- FIM Navbar -->
+    <div class='container'>
         <section id='dashboard'>
-          <nav class="navbar">
-            <p>navbar</p>
-          </nav>
-          <div class="main-dashboard">
-            <div class="kpis">
-                <div class="kpi">KPI</div>
-                <div class="kpi">KPI</div>
-                <div class="kpi">KPI</div>
-            </div>
-            <div class="graficos">
-                <div class="grafico">Grafico</div>
-                <div class="grafico">Grafico</div>
+            <nav class="navbar">
+                <p>navbar</p>
+            </nav>
+            <div class="main-dashboard">
+                <div class="kpis">
+                    <div class="kpi">
+                        <h1>Constância dos Ventos(%)</h1>
+                        <span>10</span>
+                    </div>
+                    <div class="kpi">
+                        <h1>Cidades com Potencial</h1>
+                        <span>10</span>
+                    </div>
+                    <div class="kpi">
+                        <h1>Dias com Ventos Acima dos Limites (%)</h1>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="graficos">
+                    <div class="grafico">
+                        <div id="myChart" style="max-width:400px; height:400px"></div>
+                    </div>
+                    <div class="grafico">
+                        <h1>Mapa</h1>
+                        <!-- <div id="map"></div> -->
+                    </div>
+                </div>
+
             </div>
 
-          </div>
-
-        </section>       
+        </section>
     </div>
-    
+
 </body>
 
 <script src="../fetchs.js">
     let idUsuario = sessionStorage.getItem("ID_USUARIO")
 </script>
 
-</html> 
+<!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
+
+</html>
 
 <script type="module">
     import { cadastrarEmpresa } from '../empresaFetch.js';
-    
+
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
-  </script>
+</script>
+
+<script>
+    google.charts.load('current', { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        
+        const data = google.visualization.arrayToDataTable([
+            ['Contry', 'Mhl'],
+            ['Italy', 55],
+            ['France', 49],
+            ['Spain', 44],
+            ['USA', 24],
+            ['Argentina', 15]
+        ]);
+
+      
+        const options = {
+            title: 'TOP 3 HARDCORE VENTOS DO NORDESTE',
+            hAxis: { title: 'Square Meters' },
+            vAxis: { title: 'Price in Millions' },
+            legend: 'none',
+            colors: ['#1b9e77', '#d95f02'] 
+    };
+
+    
+    const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
+    chart.draw(data, options);
+
+    }
+</script>
+
+<!-- <script>
+    // Inicializando o mapa e centralizando no Nordeste
+    var map = L.map('map').setView([-9.649849, -36.612738], 6);
+
+    // Adicionando a camada do mapa (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Polígonos ou marcadores podem ser adicionados aqui para destacar os estados
+    // Exemplo: Adicionando um marcador para Salvador, Bahia
+    L.marker([-12.9714, -38.5014]).addTo(map)
+        .bindPopup('Salvador, Bahia')
+        .openPopup();
+
+    // Polígono para destacar a área aproximada da região Nordeste
+    var nordestePolygon = L.polygon([
+        [-2.5, -44.3], // Maranhão
+        [-8.0, -35.0], // Pernambuco
+        [-13.0, -38.5], // Bahia
+        [-10.0, -36.5], // Alagoas
+        [-4.0, -39.5] // Ceará
+    ], {
+        color: 'blue',
+        fillColor: '#3f97df',
+        fillOpacity: 0.4
+    }).addTo(map).bindPopup('Região Nordeste');
+
+</script> -->
