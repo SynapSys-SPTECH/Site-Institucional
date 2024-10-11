@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 :root {
     --whiteSynapSys: #eee;
     --whiteFundo: #DADADA;
@@ -8,6 +10,10 @@
     --blueSecondarySynapSys: #183E63;
     --lightBlueSynapSys: #00B2FF;
 
+}
+
+*{
+    font-family: Inter;
 }
 
 .nav-bar-lateral {
@@ -59,7 +65,7 @@ a.buttom-navbar {
 
 .nav-bar-lateral .titulo {
     border-radius: 10px;
-    font-size: largrer;
+    font-size: larger;
     display: flex;
     justify-content: center;
 }
