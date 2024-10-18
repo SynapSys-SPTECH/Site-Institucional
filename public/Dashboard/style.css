@@ -94,7 +94,7 @@ section {
 
 .graficos {
     width: 100%;
-    height: 50%;
+    height: 60%;
     display: flex;
     justify-content: space-between;
     gap: 1em;
@@ -103,7 +103,7 @@ section {
 
 .grafico {
     background-color: rgb(255, 255, 255);
-    height: 100%;
+    height: 90%;
     width: 45%;
     display: flex;
     flex-direction: column;
