@@ -26,8 +26,8 @@ section {
 .navbar {
     height: 10vh;
     width: 100%;
-    color: #000000;
-    background-color: var(--whiteSynapSys);
+    color: var(--whiteSynapSys);
+    background-color: var(--blueSkySynapSys);
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -36,8 +36,12 @@ section {
 }
 
 .navbar div{
-    margin: auto;
+    margin-left: 5%;
+    font-weight: 500;
+    font-size: large;
 }
+
+
 
 
 #dashboard {
@@ -143,6 +147,7 @@ section {
     --bluePrimarySynapSys: #204B74;
     --blueSecondarySynapSys: #183E63;
     --lightBlueSynapSys: #00B2FF;
+    --blackSynapsys: #0d0d0d;
 }
 
 .container {

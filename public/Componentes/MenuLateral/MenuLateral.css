@@ -99,7 +99,7 @@ a.buttom-navbar {
 }
 
 .botoes .hover:hover {
-    background-color: var(--bluePrimarySynapSys);
+    background-color: var(--lightBlueSynapSys);
 }
 
 .botoes hr {
