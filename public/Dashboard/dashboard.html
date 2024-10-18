@@ -9,6 +9,9 @@
 
     <script src="https://www.gstatic.com/charts/loader.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.css" />
+
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
 
@@ -44,7 +47,7 @@
                     </div>
                     <div class="grafico">
                         <h1>Mapa</h1>
-                        <!-- <div id="map"></div> -->
+                        <div id="map"></div>
                     </div>
                 </div>
 
@@ -59,7 +62,6 @@
     let idUsuario = sessionStorage.getItem("ID_USUARIO")
 </script>
 
-<!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
 
 </html>
 
@@ -75,7 +77,7 @@
 
     function drawChart() {
 
-        
+
         const data = google.visualization.arrayToDataTable([
             ['Contry', 'Mhl'],
             ['Italy', 55],
@@ -85,48 +87,129 @@
             ['Argentina', 15]
         ]);
 
-      
+
         const options = {
             title: 'TOP 3 HARDCORE VENTOS DO NORDESTE',
             hAxis: { title: 'Square Meters' },
             vAxis: { title: 'Price in Millions' },
             legend: 'none',
-            colors: ['#1b9e77', '#d95f02'] 
-    };
+            colors: ['#1b9e77', '#d95f02']
+        };
 
-    
-    const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
-    chart.draw(data, options);
+
+        const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
+        chart.draw(data, options);
 
     }
 </script>
 
-<!-- <script>
-    // Inicializando o mapa e centralizando no Nordeste
-    var map = L.map('map').setView([-9.649849, -36.612738], 6);
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.min.js"></script>
 
-    // Adicionando a camada do mapa (OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+<script>
+    // Inicializando o mapa centralizado no Nordeste
+    const map = L.map('map').setView([-9.649849, -36.612738], 6);
+
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    // Polígonos ou marcadores podem ser adicionados aqui para destacar os estados
-    // Exemplo: Adicionando um marcador para Salvador, Bahia
-    L.marker([-12.9714, -38.5014]).addTo(map)
-        .bindPopup('Salvador, Bahia')
-        .openPopup();
+    // Control para mostrar info dos estados ao passar o mouse
+    const info = L.control();
 
-    // Polígono para destacar a área aproximada da região Nordeste
-    var nordestePolygon = L.polygon([
-        [-2.5, -44.3], // Maranhão
-        [-8.0, -35.0], // Pernambuco
-        [-13.0, -38.5], // Bahia
-        [-10.0, -36.5], // Alagoas
-        [-4.0, -39.5] // Ceará
-    ], {
-        color: 'blue',
-        fillColor: '#3f97df',
-        fillOpacity: 0.4
-    }).addTo(map).bindPopup('Região Nordeste');
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info');
+        this.update();
+        return this._div;
+    };
 
-</script> -->
+    info.update = function (props) {
+        const contents = props ? `<b>${props.name}</b><br />${props.density} hab/km<sup>2</sup>` : 'Passe o mouse sobre um estado';
+        this._div.innerHTML = `<h4>Densidade Populacional</h4>${contents}`;
+    };
+
+    info.addTo(map);
+
+    // Função para obter a cor baseada na densidade populacional
+    function getColor(d) {
+        return d > 100 ? '#800026' :
+               d > 50  ? '#BD0026' :
+               d > 20  ? '#E31A1C' :
+               d > 10  ? '#FC4E2A' :
+               d > 5   ? '#FD8D3C' :
+               d > 2   ? '#FEB24C' :
+               d > 1   ? '#FED976' : '#FFEDA0';
+    }
+
+    function style(feature) {
+        return {
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7,
+            fillColor: getColor(feature.properties.density)
+        };
+    }
+
+    function highlightFeature(e) {
+        const layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        layer.bringToFront();
+
+        info.update(layer.feature.properties);
+    }
+
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+    }
+
+    function zoomToFeature(e) {
+        map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+        });
+    }
+
+    // GeoJSON com os estados do Nordeste e suas propriedades
+    const geojson = L.geoJson(nordesteData, {
+        style,
+        onEachFeature
+    }).addTo(map);
+
+    // Legenda
+    const legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+        const div = L.DomUtil.create('div', 'info legend');
+        const grades = [0, 1, 2, 5, 10, 20, 50, 100];
+        const labels = [];
+        let from, to;
+
+        for (let i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(`<i style="background:${getColor(from + 1)}"></i> ${from}${to ? `&ndash;${to}` : '+'}`);
+        }
+
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    legend.addTo(map);
+</script>

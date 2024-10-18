@@ -1,0 +1,142 @@
+<!-- Desenvolvido por Levi Lucena - https://levilucena.github.io/portfolio/ -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de São Paulo</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            height: 700px;
+            position: relative;
+        }
+
+        #legenda {
+            position: absolute;
+            bottom: 200px;
+            right: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .legenda-item {
+            margin-bottom: 10px;
+        }
+
+        .legenda-color {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* Estilos responsivos */
+        @media only screen and (max-width: 768px) {
+            #legenda {
+                bottom: 10px;
+                right: auto;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div id="legenda">
+        <div class="legenda-item">
+            <div class="legenda-color" style="background-color: red;"></div>
+            Atividade Aumentada
+        </div>
+        <div class="legenda-item">
+            <div class="legenda-color" style="background-color: orange;"></div>
+            Transmissão
+        </div>
+        <div class="legenda-item">
+            <div class="legenda-color" style="background-color: yellow;"></div>
+            Atenção
+        </div>
+        <div class="legenda-item">
+            <div class="legenda-color" style="background-color: green;"></div>
+            Baixo Risco
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Coordenadas do sudoeste e nordeste de São Paulo para definir o foco apenas no estado
+        var bounds = [
+            [-7.583, -53.109], // Sudoeste de São Paulo
+            [-19.766, -44.196]  // Nordeste de São Paulo
+        ];
+
+        // Criar o mapa Leaflet focado apenas em São Paulo
+        var map = L.map('map', {
+            maxBounds: bounds,
+            minZoom: 7 // Ajuste o nível mínimo de zoom para mostrar apenas o estado de São Paulo
+        }).fitBounds(bounds);
+
+        // Adicionar o mapa base do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Carregar os limites dos municípios de São Paulo usando o GeoJSON
+        fetch('SP_Municipios_2022.json')
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    style: function (feature) {
+                        var casosDengue = randomNumber(0, 3000); // Gerar casos de dengue aleatórios
+                        if (casosDengue >= 2000) {
+                            return { fillColor: 'red', color: 'blue', weight: 1, fillOpacity: 0.7 };
+                        } else if (casosDengue >= 1000) {
+                            return { fillColor: 'orange', color: 'blue', weight: 1, fillOpacity: 0.7 };
+                        } else if (casosDengue >= 100) {
+                            return { fillColor: 'yellow', color: 'blue', weight: 1, fillOpacity: 0.7 };
+                        } else {
+                            return { fillColor: 'green', color: 'blue', weight: 1, fillOpacity: 0.7 };
+                        }
+                    },
+                    onEachFeature: function (feature, layer) {
+                        layer.on({
+                            mouseover: function (e) {
+                                var layer = e.target;
+                                var popupContent = "<b>" + feature.properties.NM_MUN + "</b><br>Casos: " + getCountByColor(layer.options.fillColor);
+                                layer.bindPopup(popupContent).openPopup();
+                            }
+                        });
+                    }
+                }).addTo(map);
+            });
+
+        // Função para obter a quantidade de casos com base na cor
+        function getCountByColor(color) {
+            if (color === 'red') {
+                return randomNumber(2000, 3000);
+            } else if (color === 'orange') {
+                return randomNumber(1000, 1999);
+            } else if (color === 'yellow') {
+                return randomNumber(100, 999);
+            } else {
+                return randomNumber(0, 99);
+            }
+        }
+
+        // Função para gerar números aleatórios dentro de um intervalo específico
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+    </script>
+</body>
+
+</html>
