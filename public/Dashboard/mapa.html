@@ -75,14 +75,14 @@
     <script>
         // Coordenadas do sudoeste e nordeste de São Paulo para definir o foco apenas no estado
         var bounds = [
-            [-7.583, -53.109], // Sudoeste de São Paulo
-            [-19.766, -44.196]  // Nordeste de São Paulo
+            [-9.583, -50.109], // Sudoeste de São Paulo
+            [-17.766, -34.196]  // Nordeste de São Paulo
         ];
 
         // Criar o mapa Leaflet focado apenas em São Paulo
         var map = L.map('map', {
             maxBounds: bounds,
-            minZoom: 7 // Ajuste o nível mínimo de zoom para mostrar apenas o estado de São Paulo
+            minZoom: 4 // Ajuste o nível mínimo de zoom para mostrar apenas o estado de São Paulo
         }).fitBounds(bounds);
 
         // Adicionar o mapa base do OpenStreetMap
@@ -91,7 +91,7 @@
         }).addTo(map);
 
         // Carregar os limites dos municípios de São Paulo usando o GeoJSON
-        fetch('SP_Municipios_2022.json')
+        fetch('./Mapas/BA_Municipios_2022.json')
             .then(response => response.json())
             .then(data => {
                 L.geoJSON(data, {

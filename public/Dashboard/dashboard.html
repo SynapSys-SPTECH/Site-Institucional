@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
 
@@ -24,7 +25,16 @@
     <div class='container'>
         <section id='dashboard'>
             <nav class="navbar">
-                <p>navbar</p>
+                <div>
+                    <label for="id_propriedade">Escolha a Propriedade</label>
+                    <select name="Propriedade" id="id_propriedade">
+                        <option value="1">Propriedade 1</option>
+                        <option value="2">Propriedade 2</option>
+                        <option value="3">Propriedade 3</option>
+                        <option value="4">Propriedade 4</option>
+                        <option value="5">Propriedade 5</option>
+                    </select>
+                </div>
             </nav>
             <div class="main-dashboard">
                 <div class="kpis">
@@ -107,109 +117,68 @@
 <script src="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.min.js"></script>
 
 <script>
-    // Inicializando o mapa centralizado no Nordeste
-    const map = L.map('map').setView([-9.649849, -36.612738], 6);
+    // Coordenadas do sudoeste e nordeste de São Paulo para definir o foco apenas no estado
+    var bounds = [
+        [-9.583, -50.109], // Sudoeste de São Paulo
+        [-17.766, -34.196]  // Nordeste de São Paulo
+    ];
 
-    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // Criar o mapa Leaflet focado apenas em São Paulo
+    var map = L.map('map', {
+        maxBounds: bounds,
+        minZoom: 5,
+        maxZoom: 7 // Ajuste o nível mínimo de zoom para mostrar apenas o estado de São Paulo
+    }).fitBounds(bounds);
+
+    // Adicionar o mapa base do OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Control para mostrar info dos estados ao passar o mouse
-    const info = L.control();
-
-    info.onAdd = function (map) {
-        this._div = L.DomUtil.create('div', 'info');
-        this.update();
-        return this._div;
-    };
-
-    info.update = function (props) {
-        const contents = props ? `<b>${props.name}</b><br />${props.density} hab/km<sup>2</sup>` : 'Passe o mouse sobre um estado';
-        this._div.innerHTML = `<h4>Densidade Populacional</h4>${contents}`;
-    };
-
-    info.addTo(map);
-
-    // Função para obter a cor baseada na densidade populacional
-    function getColor(d) {
-        return d > 100 ? '#800026' :
-               d > 50  ? '#BD0026' :
-               d > 20  ? '#E31A1C' :
-               d > 10  ? '#FC4E2A' :
-               d > 5   ? '#FD8D3C' :
-               d > 2   ? '#FEB24C' :
-               d > 1   ? '#FED976' : '#FFEDA0';
-    }
-
-    function style(feature) {
-        return {
-            weight: 2,
-            opacity: 1,
-            color: 'white',
-            dashArray: '3',
-            fillOpacity: 0.7,
-            fillColor: getColor(feature.properties.density)
-        };
-    }
-
-    function highlightFeature(e) {
-        const layer = e.target;
-
-        layer.setStyle({
-            weight: 5,
-            color: '#666',
-            dashArray: '',
-            fillOpacity: 0.7
+    // Carregar os limites dos municípios de São Paulo usando o GeoJSON
+    fetch('./Mapas/BA_Municipios_2022.json')
+        .then(response => response.json())
+        .then(data => {
+            L.geoJSON(data, {
+                style: function (feature) {
+                    var casosDengue = randomNumber(0, 3000); // Gerar casos de dengue aleatórios
+                    if (casosDengue >= 2000) {
+                        return { fillColor: 'red', color: 'blue', weight: 1, fillOpacity: 0.7 };
+                    } else if (casosDengue >= 1000) {
+                        return { fillColor: 'orange', color: 'blue', weight: 1, fillOpacity: 0.7 };
+                    } else if (casosDengue >= 100) {
+                        return { fillColor: 'yellow', color: 'blue', weight: 1, fillOpacity: 0.7 };
+                    } else {
+                        return { fillColor: 'green', color: 'blue', weight: 1, fillOpacity: 0.7 };
+                    }
+                },
+                onEachFeature: function (feature, layer) {
+                    layer.on({
+                        mouseover: function (e) {
+                            var layer = e.target;
+                            var popupContent = "<b>" + feature.properties.NM_MUN + "</b><br>Casos: " + getCountByColor(layer.options.fillColor);
+                            layer.bindPopup(popupContent).openPopup();
+                        }
+                    });
+                }
+            }).addTo(map);
         });
 
-        layer.bringToFront();
-
-        info.update(layer.feature.properties);
-    }
-
-    function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        info.update();
-    }
-
-    function zoomToFeature(e) {
-        map.fitBounds(e.target.getBounds());
-    }
-
-    function onEachFeature(feature, layer) {
-        layer.on({
-            mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            click: zoomToFeature
-        });
-    }
-
-    // GeoJSON com os estados do Nordeste e suas propriedades
-    const geojson = L.geoJson(nordesteData, {
-        style,
-        onEachFeature
-    }).addTo(map);
-
-    // Legenda
-    const legend = L.control({position: 'bottomright'});
-
-    legend.onAdd = function (map) {
-        const div = L.DomUtil.create('div', 'info legend');
-        const grades = [0, 1, 2, 5, 10, 20, 50, 100];
-        const labels = [];
-        let from, to;
-
-        for (let i = 0; i < grades.length; i++) {
-            from = grades[i];
-            to = grades[i + 1];
-
-            labels.push(`<i style="background:${getColor(from + 1)}"></i> ${from}${to ? `&ndash;${to}` : '+'}`);
+    // Função para obter a quantidade de casos com base na cor
+    function getCountByColor(color) {
+        if (color === 'red') {
+            return randomNumber(2000, 3000);
+        } else if (color === 'orange') {
+            return randomNumber(1000, 1999);
+        } else if (color === 'yellow') {
+            return randomNumber(100, 999);
+        } else {
+            return randomNumber(0, 99);
         }
+    }
 
-        div.innerHTML = labels.join('<br>');
-        return div;
-    };
-
-    legend.addTo(map);
+    // Função para gerar números aleatórios dentro de um intervalo específico
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
 </script>
