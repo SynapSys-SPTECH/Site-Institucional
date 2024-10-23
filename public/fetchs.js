@@ -176,7 +176,7 @@ function atualizar() {
 
     if (resposta.ok) {
       window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-      window.location = "/dashboard/dashboard.html#conta"
+      window.location = "/Dashboard/dashboard.html#conta"
     } else if (resposta.status == 404) {
       window.alert("Deu 404!");
     } else {
