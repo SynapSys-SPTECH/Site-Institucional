@@ -49,7 +49,7 @@ function entrar() {
       });
       irDash();
     } else {
-
+      document.getElementById("erro_login").innerHTML = "Email e(ou) senha inválido(os).";
       console.log("Houve um erro ao tentar realizar o login!");
 
       resposta.text().then(texto => {
