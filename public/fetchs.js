@@ -1,7 +1,7 @@
 var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
 function irDash() {
-  window.location = "./public/Dashboard/dashboard.html#dashboard";
+  window.location = "./Dashboard/dashboard.html#dashboard";
 }
 
 function abrirLogon() {
