@@ -47,7 +47,7 @@
                         <span>10</span>
                     </div>
                     <div class="kpi">
-                        <h1>Cidades com Potencial</h1>
+                        <h1>Pontos com Potencial de Expansão</h1>
                         <span>10</span>
                     </div>
                     <div class="kpi">
@@ -94,24 +94,24 @@
 
         const data = google.visualization.arrayToDataTable([
             ['Contry', 'Mhl'],
-            ['Italy', 55],
-            ['France', 49],
-            ['Spain', 44],
-            ['USA', 24],
-            ['Argentina', 15]
+            ['Segunda-Feira', 55],
+            ['Terça-Feira', 49],
+            ['Quarta-Feira', 44],
+            ['Quinta-Feira', 24],
+            ['Sexta-Feira', 15]
         ]);
 
 
         const options = {
-            title: 'TOP 3 HARDCORE VENTOS DO NORDESTE',
-            hAxis: { title: 'Square Meters' },
-            vAxis: { title: 'Price in Millions' },
+            title: 'VARIAÇÕES DAS VELOCIDADES DE VENTOS NA SEMANA',
+            hAxis: { title: 'Velocidade' },
+            vAxis: { title: 'Dias' },
             legend: 'none',
             colors: ['#1b9e77', '#d95f02']
         };
 
 
-        const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
+        const chart = new google.visualization.BarChart(document.getElementById('myChart'));
         chart.draw(data, options);
 
     }
