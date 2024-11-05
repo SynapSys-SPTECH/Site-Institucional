@@ -110,7 +110,7 @@ nav ul li {
 
 
 .main-inicio {
-    background-color: var(--whiteFundo);
+    background-color: var(--bluePrimarySynapSys);
     height: 100vh;
 
     display: flex;
@@ -160,7 +160,7 @@ nav ul li {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-   text-align: center;
+    text-align: center;
 
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
@@ -248,9 +248,20 @@ nav ul li {
 }
 
 .img-card-info {
-    width: 20em;
-    height: 20em;
+    width: 26em;
+    height: 26em;
     position: relative;
+    left: 3rem;
+    z-index: 1;
+
+    border-radius: 100%;
+}
+
+.img-card-info02 {
+    width: 26em;
+    height: 26em;
+    position: relative;
+    right: 2rem;
     z-index: 1;
 
     border-radius: 100%;
@@ -318,7 +329,7 @@ nav ul li {
     align-items: center;
     height: 100vh;
 
-    background-color: rgb(87, 121, 150);
+    background-color: var(--blueSecondarySynapSys);
 }
 
 .container-detalhes {
@@ -330,10 +341,10 @@ nav ul li {
     height: 80vh;
 }
 
-.article-detalhes {
+.article-detalhes01 {
     width: 20vw;
     height: 70vh;
-    background-image: url(images/img-turbinas.png);
+    background-image: url(imgs/Detalhes-direita.png);
     background-size: cover;
     background-position: center;
     border-radius: 1rem;
@@ -385,7 +396,7 @@ nav ul li {
     border: var(--whiteSynapSys) 3px solid;
 }
 
-.article-content{
+.article-content {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -433,7 +444,7 @@ nav ul li {
     align-items: center;
 }
 
-.article-detalhes a:hover{
+.article-detalhes a:hover {
     height: 10%;
     width: 100%;
 }
