@@ -34,11 +34,12 @@ function createNavbar() {
     botoesDiv.appendChild(document.createElement('hr'));
 
     // Função para criar cada botão como um link <a>
-    function createButton(id, imgSrc, imgAlt, href, text) {
+    function createButton(id, imgSrc, imgAlt, href, text, fnc) {
         const link = document.createElement('a');
         link.id = id;
         link.href = href;
         link.classList.add('buttom-navbar', 'hover');
+        link.onclick = fnc
 
         const img = document.createElement('img');
         img.src = imgSrc;
@@ -69,8 +70,14 @@ function createNavbar() {
     botoesDiv.appendChild(document.createElement('hr'));
 
     // Criação do botão de sair
-    const sairButton = createButton('sair', '../images/exit-svgrepo-com.svg', 'Sair', '#', 'Sair');
+    const sairButton = createButton('sair', '../images/exit-svgrepo-com.svg', 'Sair', '../index.html', 'Sair',sair);
     botoesDiv.appendChild(sairButton);
+
+    //Função sair
+    function sair() {
+        sessionStorage.clear()
+        alert("Deslogando...")
+    }
 
     // Adiciona todos os elementos à navbar
     navbar.appendChild(logoDiv);
