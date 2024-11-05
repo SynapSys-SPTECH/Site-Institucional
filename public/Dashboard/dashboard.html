@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="Mapas/geojs-29-mun.json"></script>
+    
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.css" />
+
+    <title>Dashboard</title>
+    <!-- <script src="../fetchs.js"></script> -->
+
+</head>
+
+<body>
+    <!-- INICIO Navbar -->
+    <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
+
+    <!-- FIM Navbar -->
+    <div class='container'>
+        <section id='dashboard'>
+            <nav class="navbar">
+                <div>
+                    <label for="id_propriedade">Escolha a Propriedade</label>
+                    <select name="Propriedade" id="id_propriedade">
+                        <option value="1">Propriedade 1</option>
+                        <option value="2">Propriedade 2</option>
+                        <option value="3">Propriedade 3</option>
+                        <option value="4">Propriedade 4</option>
+                        <option value="5">Propriedade 5</option>
+                    </select>
+                </div>
+            </nav>
+            <div class="main-dashboard">
+                <div class="kpis">
+                    <div class="kpi">
+                        <h1>Constância dos Ventos(%)</h1>
+                        <span>10</span>
+                    </div>
+                    <div class="kpi">
+                        <h1>Pontos com Potencial de Expansão</h1>
+                        <span>10</span>
+                    </div>
+                    <div class="kpi">
+                        <h1>Dias com Ventos Acima dos Limites (%)</h1>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="graficos">
+                    <div class="grafico">
+                        <div id="myChart" style="max-width:400px; height:400px"></div>
+                    </div>
+                    <div class="grafico">
+                        <h1>Mapa</h1>
+                        <div id="map"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+
+</body>
+
+<script src="../fetchs.js">
+    let idUsuario = sessionStorage.getItem("ID_USUARIO")
+</script>
+
+
+</html>
+
+<script type="module">
+    import { cadastrarEmpresa } from '../empresaFetch.js';
+
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+</script>
+
+<script>
+    google.charts.load('current', { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+
+        const data = google.visualization.arrayToDataTable([
+            ['Contry', 'Mhl'],
+            ['Segunda-Feira', 55],
+            ['Terça-Feira', 49],
+            ['Quarta-Feira', 44],
+            ['Quinta-Feira', 24],
+            ['Sexta-Feira', 15]
+        ]);
+
+
+        const options = {
+            title: 'VARIAÇÕES DAS VELOCIDADES DE VENTOS NA SEMANA',
+            hAxis: { title: 'Velocidade' },
+            vAxis: { title: 'Dias' },
+            legend: 'none',
+            colors: ['#1b9e77', '#d95f02']
+        };
+
+
+        const chart = new google.visualization.BarChart(document.getElementById('myChart'));
+        chart.draw(data, options);
+
+    }
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.min.js"></script>
+
+<script>
+    // Coordenadas do sudoeste e nordeste de São Paulo para definir o foco apenas no estado
+    var bounds = [
+        [-9.583, -50.109], // Sudoeste de São Paulo
+        [-17.766, -34.196]  // Nordeste de São Paulo
+    ];
+
+    // Criar o mapa Leaflet focado apenas em São Paulo
+    var map = L.map('map', {
+        maxBounds: bounds,
+        minZoom: 5,
+        maxZoom: 15 // Ajuste o nível mínimo de zoom para mostrar apenas o estado de São Paulo
+    }).fitBounds(bounds);
+
+    // Adicionar o mapa base do OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var marker = L.marker([-12.97, -40.47]).addTo(map);
+
+    const areasPotenciais = [
+        { latitude: -11.50, longitude: -43.11, color: 'red', fillColor: '#f03', radius: 80000 },
+        { latitude: -12.97, longitude: -40.47, color: 'red', fillColor: '#f03', radius: 80000 },
+        { latitude: -9.90, longitude: -40.20, color: 'red', fillColor: '#f03', radius: 80000 },
+        { latitude: -14.50, longitude: -41.50, color: 'red', fillColor: '#f03', radius: 80000 },
+        { latitude: -11.50, longitude: -42.11, color: 'red', fillColor: '#f03', radius: 80000 }
+    ];
+
+    areasPotenciais.forEach(areaPotencial => {
+        L.circle([areaPotencial.latitude, areaPotencial.longitude], {
+            color: areaPotencial.color,
+            fillColor: areaPotencial.fillColor,
+            fillOpacity: 0.5,
+            radius: areaPotencial.radius
+        }).addTo(map);
+    });
+
+    var theTrail = L.geoJSON(trail, {
+        color: '#999999999',
+        weight: 3,
+        dashArray: '12 8 12',
+    });
+    theTrail.addTo(map);
+
+    // Carregar os limites dos municípios de São Paulo usando o GeoJSON
+    // fetch('./Mapas/geojs-29-mun.json')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         L.geoJSON(data, {
+    //             style: function (feature) {
+    //                 var casosDengue = randomNumber(0, 3000); // Gerar casos de dengue aleatórios
+    //                 if (casosDengue >= 2000) {
+    //                     return { fillColor: 'red', color: 'blue', weight: 1, fillOpacity: 0.7 };
+    //                 } else if (casosDengue >= 1000) {
+    //                     return { fillColor: 'orange', color: 'blue', weight: 1, fillOpacity: 0.7 };
+    //                 } else if (casosDengue >= 100) {
+    //                     return { fillColor: 'yellow', color: 'blue', weight: 1, fillOpacity: 0.7 };
+    //                 } else {
+    //                     return { fillColor: 'green', color: 'blue', weight: 1, fillOpacity: 0.7 };
+    //                 }
+    //             },
+    //             onEachFeature: function (feature, layer) {
+    //                 layer.on({
+    //                     mouseover: function (e) {
+    //                         var layer = e.target;
+    //                         var popupContent = "<b>" + feature.properties.NM_MUN + "</b><br>Casos: " + getCountByColor(layer.options.fillColor);
+    //                         layer.bindPopup(popupContent).openPopup();
+    //                     }
+    //                 });
+    //             }
+    //         }).addTo(map);
+    //     });
+
+    // Função para obter a quantidade de casos com base na cor
+    function getCountByColor(color) {
+        if (color === 'red') {
+            return randomNumber(2000, 3000);
+        } else if (color === 'orange') {
+            return randomNumber(1000, 1999);
+        } else if (color === 'yellow') {
+            return randomNumber(100, 999);
+        } else {
+            return randomNumber(0, 99);
+        }
+    }
+
+    // Função para gerar números aleatórios dentro de um intervalo específico
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+</script>

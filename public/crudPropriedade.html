@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="propriedade">
+      <h1>CADASTRO DE PROPRIEDADE</h1>
+
+      Logradouro:<br />
+      <input type="text" id="input_logradouro" />
+      <br /><br />
+      CEP:<br />
+      <input type="text" id="input_cep" placeholder="somente números" />
+
+      <br /><br />
+      Tamanho (m² ou hectare):<br />
+      <input type="text" id="input_tamanho" />
+      <br /><br />
+
+      Cidade:<br />
+      <input type="text" id="input_cidade" />
+
+      <br /><br />
+      UF:<br />
+      <input type="text" id="input_uf" placeholder="ex: SP" />
+      <br /><br />
+      <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  function cadastrar() {
+    var logradouro = input_logradouro.value;
+    var tamanho = input_tamanho.value;
+    var cep = input_cep.value;
+    var cidade = input_cidade.value;
+    var uf = input_uf.value;
+
+
+    console.log(logradouro)
+    console.log(cep)
+    console.log(uf)
+    console.log(cidade)
+    console.log(tamanho)
+
+    if (
+      logradouro == "" ||
+      cep == "" ||
+      tamanho == "" ||
+      cidade == "" ||
+      uf == ""
+    ) {
+      alert("Todos os campos devem ser preenchidos");
+    } else {
+      if (cep.length != 8) {
+        alert("Erro no CEP");
+        return;
+      }
+
+      if (uf.length != 2) {
+        alert("Erro no UF");
+        return;
+      }
+    }
+
+    // Enviando o valor da nova input
+    fetch("/propriedades/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        logradouroServer: logradouro,
+        cepServer: cep,
+        tamanhoServer: tamanho,
+        cidadeServer: cidade,
+        ufServer: uf,
+
+    
+      }),
+    })
+    
+
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+        console.log(logradouroServer)
+        setTimeout(() => {
+          window.location = "./index.html";
+        }, "1000");
+
+        finalizarAguardar();
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>
