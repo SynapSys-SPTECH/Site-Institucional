@@ -16,19 +16,20 @@
 * {
     padding: 0;
     margin: 0;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
+    box-sizing: border-box;
     font-family: Inter;
 }
 
-body {
+/* body {
     width: 100vw;
     overflow-x: hidden;
-}
+} */
 
 
 
 /* Estilos gerais para a navbar */
-nav {
+/* nav {
     background-color: var(--whiteSynapSys);
     display: flex;
     align-items: center;
@@ -94,7 +95,7 @@ nav ul li {
     margin: 0.5em;
     padding: 0.5em 3em;
     font-size: 1em;
-}
+} */
 
 .menu-icon {
     display: none;

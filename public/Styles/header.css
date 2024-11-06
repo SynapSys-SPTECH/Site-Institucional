@@ -1,0 +1,23 @@
+header {
+    width: 100%;
+    padding: 28px 8%;
+}
+
+.logo-nav{
+    height: 6vh;
+}
+ #navBar{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+ }
+
+ #navList_main{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    gap: 48px;
+ }
+ 
+
