@@ -1,3 +1,24 @@
+:root {
+    --primary-color: #D96AA7;
+    --secondary-color: #422C73;
+    --complimentary-color: #88BFB5;
+    --contrast-color: #F2E527;
+    --light-color: #D2A9D9;
+    --lol-color: #000000;
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #204B74;
+    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys: #00B2FF;
+    --darkBlueSynapsys: #1B1D2A;
+}
+
+
+
+
 * {
     padding: 0;
     margin: 0;
@@ -15,12 +36,13 @@ section {
     position: absolute;
     top: 0;
     height: 100vh;
-    width: 100%;
+    width: 85vw;
+    padding-left: 15vw;
     opacity: 1;
     transition: all ease-in .5s;
     display: flex;
     flex-direction: column;
-    left: 0;
+    right: 0;
     justify-content: center;
     align-items: center;
 }
@@ -32,26 +54,46 @@ section {
 }
 
 
-:root {
-    --primary-color: #D96AA7;
-    --secondary-color: #422C73;
-    --complimentary-color: #88BFB5;
-    --contrast-color: #F2E527;
-    --light-color: #D2A9D9;
-    --lol-color: #000000;
-}
-
-.container {
-    background: #191919;
-    min-height: 100vh;
-    font-family: Montserrat, sans-serif;
+.adicionar_empresas {
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    width: 30vw;
+    height: 100vh;
+    background-color: #422C73;
 }
 
+.inputs_cadastrar_empresa{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
+    color: var(--whiteSynapSys);
+    gap: 10px;
+}
 
-section h1 {
+.inputs_cadastrar_empresa div{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs_cadastrar_empresa div label{
+    font-size: small;
+}
+
+.inputs_cadastrar_empresa div input{
+    
+    border: none;
+    border-bottom: var(--blueSkySynapSys) 2px solid;
+    padding: 0.5em 2em;
+}
+
+.adicionar_empresas h1 {
     color: #fff;
-    font-size: 50px;
+    font-size: larger;
     text-transform: uppercase;
     opacity: 1;
 }
@@ -61,3 +103,53 @@ section h1 {
 }
 
 
+.menu_lateral {
+    background-color: var(--darkBlueSynapsys);
+    width: 15vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.menu_lateral ul {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu_lateral ul a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    width: 12vw;
+    align-items: center;
+    padding: 1em 1em;
+    border-bottom: var(--darkBlueSynapsys) 5px solid;
+
+}
+
+.menu_lateral ul a li {
+    color: var(--whiteSynapSys);
+    list-style: none;
+    width: 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.menu_lateral ul a:hover {
+    border-bottom: var(--bluePrimarySynapSys) 5px solid;
+}
+
+.menu_lateral ul a img {
+    height: 1.7em;
+    color: var(--whiteSynapSys);
+}

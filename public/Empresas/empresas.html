@@ -12,25 +12,93 @@
 
 <body>
 
-    <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
-    
-    <div class='container'>
-        <section id='empresas'>
-            <h1>empresas</h1>
-            <input type="text" id="cnpj" placeholder="cnpj">
-            <input type="text" id="nomeFantasia" placeholder="nomeFantasia">
-            <input type="text" id="cidade" placeholder="cidade">
-            <input type="text" id="uf" placeholder="uf">
-            <input type="text" id="cep" placeholder="cep">
-            <input type="text" id="numero" placeholder="numero">
-            <input type="text" id="bairro" placeholder="bairro">
-            <input type="text" id="razaoSocial" placeholder="razaoSocial">
-            <input type="text" id="ie" placeholder="ie">
-            <input type="text" id="logradouro" placeholder="logradouro">
-            <input type="text" id="complemento" placeholder="complemento">
-            <button id="cadastrarBtn">Cadastrar</button>
-        </section>
+    <!-- <script src="../Componentes/MenuLateral/MenuLateral.js"></script> -->
+    <div class="menu_lateral">
+        <ul>
+            <a href="../Dashboard/dashboard.html"><img src="../images/chart-svgrepo-com.svg" alt="">
+                <li>Dashboard</li>
+            </a>
+            <a href="../Empresas/empresas.html"><img src="../images/company-svgrepo-com.svg" alt="">
+                <li>Empresas</li>
+            </a>
+            <a href="../Propriedades/propriedades.html"><img src="../images/brazil-svgrepo-com.svg" alt="">
+                <li>Propriedades</li>
+            </a>
+            <a href="../Conta/conta.html"><img src="../images/account-svgrepo-com.svg" alt="">
+                <li>Conta</li>
+            </a>
+            <a href=""><img src="../images/exit-svgrepo-com.svg" alt="">
+                <li>Sair</li>
+            </a>
+        </ul>
     </div>
+
+
+
+
+    <section id='empresas'>
+        <div class="adicionar_empresas" id="add_empresa" style="display: flex;">
+            <h1>Adicionar Empresa</h1>
+            <div class="inputs_cadastrar_empresa">
+                <div>
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" placeholder="cnpj">
+                </div>
+
+                <div>
+                    <label for="cnpj">Nome Fantasia</label>
+                    <input type="text" id="nomeFantasia" placeholder="nomeFantasia">
+                </div>
+
+                <div>
+                    <label for="cnpj">Cidade</label>
+                    <input type="text" id="cidade" placeholder="cidade">
+                </div>
+                <div>
+                    <label for="cnpj">Unidade Federativa (UF)</label>
+                    <input type="text" id="uf" placeholder="uf">
+                </div>
+                <div>
+                    <label for="cnpj">CEP</label>
+                    <input type="text" id="cep" placeholder="cep">
+                </div>
+                <div>
+                    <label for="cnpj">Número</label>
+                    <input type="text" id="numero" placeholder="numero">
+                </div>
+                <div>
+                    <label for="cnpj">Bairro</label>
+                    <input type="text" id="bairro" placeholder="bairro">
+                </div>
+                <div>
+                    <label for="cnpj">Razão Social</label>
+                    <input type="text" id="razaoSocial" placeholder="razaoSocial">
+                </div>
+                <div>
+                    <label for="cnpj">Inscrição Estadual</label>
+                    <input type="text" id="ie" placeholder="ie">
+                </div>
+                <div>
+                    <label for="cnpj">Logradouro</label>
+                    <input type="text" id="logradouro" placeholder="logradouro">
+                </div>
+                <div>
+                    <label for="cnpj">Complemento</label>
+                    <input type="text" id="complemento" placeholder="complemento">
+                </div>
+            </div>
+            <button id="cadastrarBtn">Cadastrar</button>
+        </div>
+        <div id="listagem_empresas" style="display: none;">
+
+        </div>
+
+        <div id="edit_empresa" style="display: none;">
+
+        </div>
+    </section>
+
+
 
 </body>
 
