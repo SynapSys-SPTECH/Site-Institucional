@@ -7,7 +7,12 @@
     <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <title>Empresas</title>
+
 </head>
 
 <body>
@@ -37,68 +42,95 @@
 
 
     <section id='empresas'>
-        <div class="adicionar_empresas" id="add_empresa" style="display: flex;">
-            <h1>Adicionar Empresa</h1>
+        
+        <div class="adicionar_empresas" id="add_empresa" style="display: none;">
+            <h1>Cadastrar Empresa</h1>
             <div class="inputs_cadastrar_empresa">
+
                 <div>
                     <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj" placeholder="cnpj">
-                </div>
-
-                <div>
-                    <label for="cnpj">Nome Fantasia</label>
-                    <input type="text" id="nomeFantasia" placeholder="nomeFantasia">
-                </div>
-
-                <div>
-                    <label for="cnpj">Cidade</label>
-                    <input type="text" id="cidade" placeholder="cidade">
-                </div>
-                <div>
-                    <label for="cnpj">Unidade Federativa (UF)</label>
-                    <input type="text" id="uf" placeholder="uf">
-                </div>
-                <div>
-                    <label for="cnpj">CEP</label>
-                    <input type="text" id="cep" placeholder="cep">
-                </div>
-                <div>
-                    <label for="cnpj">Número</label>
-                    <input type="text" id="numero" placeholder="numero">
-                </div>
-                <div>
-                    <label for="cnpj">Bairro</label>
-                    <input type="text" id="bairro" placeholder="bairro">
+                    <input type="text" id="cnpj" placeholder="00.000.000/0000-00.">
                 </div>
                 <div>
                     <label for="cnpj">Razão Social</label>
-                    <input type="text" id="razaoSocial" placeholder="razaoSocial">
+                    <input type="text" id="razaoSocial" placeholder="Insira a Razão Social.">
+                </div>
+                <div>
+                    <label for="cnpj">Nome Fantasia</label>
+                    <input type="text" id="nomeFantasia" placeholder="Insira o Nome Fantasia.">
                 </div>
                 <div>
                     <label for="cnpj">Inscrição Estadual</label>
-                    <input type="text" id="ie" placeholder="ie">
+                    <input type="text" id="ie" placeholder="Insira a Inscrição Estadual.">
+                </div>
+                <div>
+                    <label for="cnpj">Cidade</label>
+                    <input type="text" id="cidade" placeholder="Insira a Cidade.">
+                </div>
+
+                <div>
+                    <label for="cnpj">CEP</label>
+                    <input type="text" id="cep" placeholder="Insira o CEP (00000-000).">
+                </div>
+                <div>
+                    <label for="cnpj">Unidade Federativa (UF)</label>
+                    <input type="text" id="uf" placeholder="Insira a Unidade Federativa (Estado).">
+                </div>
+                <div>
+                    <label for="cnpj">Número</label>
+                    <input type="text" id="numero" placeholder="Insira o Número.">
+                </div>
+                <div>
+                    <label for="cnpj">Bairro</label>
+                    <input type="text" id="bairro" placeholder="Insira o Bairro.">
                 </div>
                 <div>
                     <label for="cnpj">Logradouro</label>
-                    <input type="text" id="logradouro" placeholder="logradouro">
+                    <input type="text" id="logradouro" placeholder="Insira o Logradouro.">
                 </div>
                 <div>
                     <label for="cnpj">Complemento</label>
-                    <input type="text" id="complemento" placeholder="complemento">
+                    <input type="text" id="complemento" placeholder="Insira o complemento.">
                 </div>
-            </div>
-            <button id="cadastrarBtn">Cadastrar</button>
-        </div>
-        <div id="listagem_empresas" style="display: none;">
 
+            </div>
+            <button class="drawer_button" id="cadastrarBtn">Cadastrar</button>
+            <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerCadastro()">Fechar</button>
+        </div>
+        <div id="listagem_empresas" style="display: flex;">
+            <div class="container_listagem">
+                <div class="list_actions">
+                    <h1>Listagem das Empresas</h1>
+                    <button class="list_button" onclick="toggleDrawerCadastro()">Cadastrar Empresa</button>
+
+                </div>
+                <section class="campos">
+                    <table id="tabela_empresas" class="display" width="70vw">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Idade</th>
+                                <th>País</th>
+                                <th>Cargo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo_tabela_empresas">
+                            <tr>
+                                <td>João</td>
+                                <td>34</td>
+                                <td>Portugal</td>
+                                <td>Desenvolvedor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+            </div>
         </div>
 
         <div id="edit_empresa" style="display: none;">
-
         </div>
     </section>
-
-
 
 </body>
 
@@ -108,4 +140,58 @@
     import { cadastrarEmpresa } from '../empresaFetch.js';
 
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+</script>
+
+<script>
+
+    function addNewRow() {
+        table.row
+            .add([
+                counter + '.1',
+                counter + '.2',
+                counter + '.3',
+                counter + '.4',
+                counter + '.5'
+            ])
+            .draw(false);
+
+        counter++;
+    }
+
+    let table = new DataTable('#tabela_empresas');
+</script>
+
+<script>
+
+    function toggleDrawerCadastro() {
+        const div = document.getElementById("add_empresa");
+        if (div.style.display === "none") {
+            div.style.display = "flex";
+        } else {
+            div.style.display = "none";
+        }
+    }
+
+    
+
+
+
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("show-menu");
+    }
+
+
+
+
+    function apareceInfos(id) {
+        document.getElementById(id).style.display = "flex";
+        document.getElementById(id).style.opacity = 1;
+    }
+
+    function someInfos(id) {
+        document.getElementById(id).style.display = "none";
+        document.getElementById(id).style.opacity = 0;
+    }
+
 </script>
