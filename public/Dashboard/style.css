@@ -30,15 +30,48 @@ section {
     background-color: var(--blueSkySynapSys);
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: space-around;
     align-items: center;
-    gap: 1em;
+    gap: 48em;
 }
 
-.navbar div{
-    margin-left: 5%;
+.textNavbar {
+    font-size: 25px;
+}
+
+.selectNavbar {
+    width: 10em;
+    height: 2em;
+    border-radius: 100px;
+}
+
+.selectNavbar select {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+    border: solid 1px #000;
+    border-radius: 100px;
+    outline: none;
+    appearance: none;
+    font-size: 18px;
+}
+
+.selectSeta {
+    content: "";
+    position: absolute;
+    right: 65px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+}
+
+.navbar div {
     font-weight: 500;
-    font-size: large;
 }
 
 
@@ -79,7 +112,7 @@ section {
     align-items: center;
     padding: 1em;
     box-shadow: 1px 2px 6px black;
-    border-radius: 2em; 
+    border-radius: 2em;
 }
 
 .kpi h1 {
@@ -147,6 +180,8 @@ section {
     --blueSecondarySynapSys: #183E63;
     --lightBlueSynapSys: #00B2FF;
     --blackSynapsys: #0d0d0d;
+    --darkBlueSynapsys: #191c30;
+    --lightWhiteSynapsys: #FFF;
 }
 
 .container {
