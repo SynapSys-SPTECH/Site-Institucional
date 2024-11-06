@@ -11,7 +11,7 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script src="Mapas/geojs-29-mun.json"></script>
-    
+
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.css" />
@@ -57,7 +57,7 @@
                 </div>
                 <div class="graficos">
                     <div class="grafico">
-                        <div id="myChart" style="max-width:400px; height:400px"></div>
+                        <div id="myChart" style="width: 40em; height:400px"></div>
                     </div>
                     <div class="grafico">
                         <h1>Mapa</h1>
@@ -103,11 +103,15 @@
 
 
         const options = {
-            title: 'MÁXIMAS VELOCIDADES DOS VENTOS NA SEMANA (m/s)',
+            title: 'VELOCIDADES MÁXIMAS DOS VENTOS NA SEMANA (m/s)',
+            titleTextStyle: {
+                fontSize: 16 // tamanho da fonte do título
+            },
             hAxis: { title: 'Velocidade' },
             vAxis: { title: 'Dias' },
             legend: 'none',
-            colors: ['#1b9e77', '#d95f02']
+            colors: ['#1b9e77', '#d95f02'],
+            size: '20px'
         };
 
 
@@ -130,8 +134,8 @@
     // Criar o mapa Leaflet focado apenas em São Paulo
     var map = L.map('map', {
         maxBounds: bounds,
-        minZoom: 5,
-        maxZoom: 15 // Ajuste o nível mínimo de zoom para mostrar apenas o estado de São Paulo
+        minZoom: 5.4,
+        maxZoom: 8 // Ajuste o nível mínimo de zoom para mostrar apenas o estado de São Paulo
     }).fitBounds(bounds);
 
     // Adicionar o mapa base do OpenStreetMap
