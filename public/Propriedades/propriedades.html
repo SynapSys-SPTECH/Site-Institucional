@@ -7,6 +7,10 @@
     <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <title>Document</title>
 </head>
 
@@ -15,24 +19,45 @@
         <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
 
         <section id="propriedades">
-            <h1>CADASTRO DE PROPRIEDADE</h1>
+            <div class="adicionar_propriedade">
+                <h1>CADASTRO DE PROPRIEDADE</h1>    
 
-            <span>Logradouro:</span>
-            
-            <input type="text" id="input_logradouro" />
-            <span>CEP:</span>
-            
-            <input type="text" id="input_cep" placeholder="somente números" />
-            Tamanho (m² ou hectare):
-            <input type="text" id="input_tamanho" />
-            <span>Cidade:</span>
-            
-            <input type="text" id="input_cidade" />
-            <span>UF:</span>
-            
-            <input type="text" id="input_uf" placeholder="ex: SP" />
+                <div class="inputs_cadastrar_propriedade">
+                    <div>
+                        <label for="input_logradouro">Insira o Logradouro:</label>
+                        <input type="text" id="input_logradouro" placeholder=""/>
+                    </div>
 
-            <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+                    <div>
+                        <label for="input_cep">Insira o CEP</label>
+                        <input type="text" id="input_cep" placeholder="Somente números" />
+                    </div>
+                    <div>
+                        <label for="input_tamanho">Insira o Tamanho em M²</label>
+                        <input type="text" id="input_tamanho" placeholder="Tamanho da Propriedade em M²"/>
+                    </div>
+                    <div>
+                        <label for="input_cidade">Insira a Cidade</label>
+                        <input type="text" id="input_cidade" placeholder="ex: São Paulo" />
+                    </div>
+                    <div>
+                        <label for="input_uf">Insira a Unidade Federativa</label>
+                        <input type="text" id="input_uf" placeholder="ex: SP" />
+                    </div>
+                </div>
+
+
+                <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+            </div>
+
+            <div id="listagem_propriedades">
+                
+            </div>
+
+            <div id="editar_propriedade">
+                
+            </div>
+
         </section>
     </div>
 

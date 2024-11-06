@@ -1,3 +1,23 @@
+:root {
+    --primary-color: #D96AA7;
+    --secondary-color: #422C73;
+    --complimentary-color: #88BFB5;
+    --contrast-color: #F2E527;
+    --light-color: #D2A9D9;
+    --lol-color: #000000;
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #204B74;
+    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys: #00B2FF;
+    --darkBlueSynapsys: #191C30;
+    --lightWhiteSynapsys: #fff;
+}
+
+
 * {
     padding: 0;
     margin: 0;
@@ -5,22 +25,17 @@
     font-family: Inter;
 }
 
-.botoes img {
-    height: 30px;
-    width: 30px;
-    padding: 10px;
-}
-
 section {
     position: absolute;
     top: 0;
     height: 100vh;
-    width: 100%;
+    width: 85vw;
+    padding-left: 15vw;
     opacity: 1;
     transition: all ease-in .5s;
     display: flex;
     flex-direction: column;
-    left: 0;
+    right: 0;
     justify-content: center;
     align-items: center;
 }
@@ -32,28 +47,98 @@ section {
 }
 
 
-:root {
-    --primary-color: #D96AA7;
-    --secondary-color: #422C73;
-    --complimentary-color: #88BFB5;
-    --contrast-color: #F2E527;
-    --light-color: #D2A9D9;
-    --lol-color: #000000;
-}
-
-.container {
-    background: #191919;
-    min-height: 100vh;
-    font-family: Montserrat, sans-serif;
+.adicionar_propriedade {
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    width: 20vw;
+    height: 100vh;
+    background-color: var(--lightWhiteSynapsys);
+    text-align: center;
 }
 
+.inputs_cadastrar_propriedade {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: var(--bluePrimarySynapSys);
+    gap: 10px;
+}
 
-section h1 {
-    color: #fff;
-    font-size: 50px;
+.inputs_cadastrar_propriedade div {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs_div {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.inputs_cadastrar_propriedade div label {
+    font-size: small;
+}
+
+.inputs_cadastrar_propriedade div input {
+    border: none;
+    border-bottom: var(--blueSkySynapSys) 2px solid;
+    padding: 0.5em 1em;
+    background-color: var(--whiteSynapSys);
+}
+
+.adicionar_empresas h1 {
+    color: var(--darkBlueSynapsys);
+    font-size: larger;
     text-transform: uppercase;
     opacity: 1;
+}
+
+.drawer_button {
+    background-color: var(--blueSkySynapSys);
+    color: var(--lightWhiteSynapsys);
+    border: none;
+    font-size: medium;
+    font-weight: 600;
+    padding: 1em 3em;
+}
+
+.drawer_button:hover {
+    cursor: pointer;
+    background-color: var(--bluePrimarySynapSys);
+}
+
+.drawer_button_sec{
+    background-color: var(--whiteSynapSys);
+    color: var(--darkBlueSynapsys);
+    border: none;
+    font-size: medium;
+    font-weight: 600;
+    padding: 1em 3em;
+}
+
+.drawer_button_sec:hover{
+    cursor: pointer;
+    background-color: var(--whiteFundo);
+}
+
+.list_button{
+    background-color: var(--blueSkySynapSys);
+    color: var(--lightWhiteSynapsys);
+    border: none;
+    font-size: small;
+    font-weight: 900;
+    padding: 1em 2em;
+}
+
+.list_button:hover{
+    cursor: pointer;
+    background-color: var(--bluePrimarySynapSys);
 }
 
 #propriedades {

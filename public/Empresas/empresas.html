@@ -17,8 +17,10 @@
 
 <body>
 
-    <!-- <script src="../Componentes/MenuLateral/MenuLateral.js"></script> -->
-    <div class="menu_lateral">
+    <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
+    <!-- <div class="menu_lateral">
+        <h3>Empresa</h3>
+        
         <ul>
             <a href="../Dashboard/dashboard.html"><img src="../images/chart-svgrepo-com.svg" alt="">
                 <li>Dashboard</li>
@@ -36,7 +38,7 @@
                 <li>Sair</li>
             </a>
         </ul>
-    </div>
+    </div> -->
 
 
 
@@ -46,7 +48,6 @@
         <div class="adicionar_empresas" id="add_empresa" style="display: none;">
             <h1>Cadastrar Empresa</h1>
             <div class="inputs_cadastrar_empresa">
-
                 <div>
                     <label for="cnpj">CNPJ</label>
                     <input type="text" id="cnpj" placeholder="00.000.000/0000-00.">
@@ -112,6 +113,7 @@
                                 <th>Idade</th>
                                 <th>País</th>
                                 <th>Cargo</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody id="corpo_tabela_empresas">
@@ -120,6 +122,7 @@
                                 <td>34</td>
                                 <td>Portugal</td>
                                 <td>Desenvolvedor</td>
+                                <td><button onclick="editarLinha(this)">Editar</button></td>
                             </tr>
                         </tbody>
                     </table>
