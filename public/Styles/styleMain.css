@@ -1,5 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #7ec0fa;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #016fd7;
+    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys02: #97cbf8;
+    --BlueHeaderSynapSys: #8cd6fc;
+    --BlueFundo02SynapSys: #599cdb;
+
+}
+
 *{
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    
+     
+}
+
+body{
+  background-color: var(--lightBlueSynapSys);
+}
+
+section{
+    padding: 28px 8%;
+}
+
+.section-title{
+    color: #ffff;
+    font-size: 1.563rem;
+}
+
+.section-subtitle{
+    font-size: 2rem;
+    text-align:center;
 }

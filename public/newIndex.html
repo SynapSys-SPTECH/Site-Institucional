@@ -4,15 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Styles/header.css">
-    <title>SynpaSys</title>
+    <link rel="stylesheet" href="Styles/styleMain.css">
+    <link rel="stylesheet" href="Styles/home.css">
+    <link rel="stylesheet" href="Styles/clientes.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>SynapSys</title>
 </head>
 
 <body>
 
     <header>
         <nav id="navBar">
-            <ul id="navList-principal">
+
+            <img class="logo-nav" src="images/logo-synapsys.svg" alt="Logo da SynapSys" />
+            <ul id="navList_principal">
+                <li class="item-NavList active">
+                    <a href="">
+                        Início
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="">
+                        Nossos Clientes
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="">
+                        Detalhes
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="">
+                        Equipe
+                    </a>
+                </li>
+            </ul>
+            <a href="" id="btn_cadastro"><img src="images/Entrar.svg" alt=""></a>
+
+
+            <button id="btn_mobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+
+            <ul id="mobile_navList">
                 <li class="item-NavList">
                     <a href="">
                         Início
@@ -37,8 +84,121 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+
+            <a href="" id="btn_cadastro_mobile"><img src="images/Entrar.svg" alt=""></a>
+        </div>
     </header>
+
+    <main id="content_inicio">
+        <section id="home">
+            <div class="shape"></div>
+            <div id="cta">
+                <h1 class="title">
+                    Transforme vento em poder: Energize o futuro com a <span>força eólica</span>.
+                </h1>
+                <p class="description">
+                    Descubra se você esta realmente explorando todos os seus recursos
+                    disponíveis,ou há oportunidades de expandir sua visão.
+                </p>
+            </div>
+
+            <div id="banner">
+                <img class="img-banner" src="images/BannerOficial02.png" alt="">
+            </div>
+        </section>
+
+        <section id="nossosClientes">
+            <h2 class="section-title">
+                Nossos Clientes
+            </h2>
+            <h3 class="section-subtitle">
+                Investidores visionários e empresários que impulsionam o futuro da energia limpa
+            </h3>
+
+            <div id="clientes">
+                <div class="cliente">
+                    <div class="cliente-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <img class="cliente-image" src="images/ImageInvest.png" alt="">
+
+                    <h3 class="cliente-title">
+                        Investidores
+                    </h3>
+
+                    <span class="cliente-description">
+                        Multiplique seu capital com segurança e inovação: nossa expertise maximiza seus retornos na
+                        energia eólica.
+                    </span>
+
+                </div>
+
+                <div class="cliente">
+                    <div class="cliente-icon">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+
+                    <img class="cliente-image" src="images/ImageEmpresario.png" alt="">
+
+                    <h3 class="cliente-title">
+                        Empresários
+                    </h3>
+
+                    <span class="cliente-description">
+                        Expanda seu negócio com confiança: oferecemos as soluções e insights estratégicos que aceleram
+                        seu sucesso no mercado eólico.
+                    </span>
+
+                </div>
+
+                <div class="cliente">
+                    <div class="cliente-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <img class="cliente-image" src="images/ImageInvest.png" alt="">
+
+                    <h3 class="cliente-title">
+                        Investidores
+                    </h3>
+
+                    <span class="cliente-description">
+                        Expanda seu negócio com confiança: oferecemos as soluções e insights estratégicos que aceleram
+                        seu sucesso no mercado eólico.
+                    </span>
+
+                </div>
+
+                <div class="cliente">
+                    <div class="cliente-icon">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+
+                    <img class="cliente-image" src="images/ImageEmpresario.png" alt="">
+
+                    <h3 class="cliente-title">
+                        Empresários
+                    </h3>
+
+                    <span class="cliente-description">
+                        Expanda seu negócio com confiança: oferecemos as soluções e insights estratégicos que aceleram
+                        seu sucesso no mercado eólico.
+                    </span>
+
+                </div> 
+            </div>
+
+
+        </section>
+
+        <section id="detalhes">
+        </section>
+    </main>
+
+    <script src="Javascript/script.js"></script>
 </body>
+
+
 
 </html>

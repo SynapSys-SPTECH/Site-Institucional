@@ -1,23 +1,91 @@
 header {
-    width: 100%;
+    width: 83.2vw;
     padding: 28px 8%;
+    background-color: var(--lightBlueSynapSys02);
+    /* position: sticky;
+    top: 0;
+    z-index: 3; */
 }
 
-.logo-nav{
-    height: 6vh;
-}
- #navBar{
+#navBar {
+    width: 80vw;
     display: flex;
-    width: 100%;
     align-items: center;
-    justify-content: center;
- }
+    justify-content: space-between;
+}
 
- #navList_main{
+.logo-nav {
+    height: 8vh;
+}
+
+#navList_principal {
     display: flex;
     list-style: none;
-    text-decoration: none;
     gap: 48px;
- }
- 
+}
+
+.item-NavList a {
+    text-decoration: none;
+    color: #1d1d1dad;
+    font-weight: 600;
+
+}
+
+.item-NavList.active a {
+    color: #1d1d1dad;
+    border-bottom: 3px solid var(--blueSecondarySynapSys);
+
+}
+
+#btn_mobile{
+    display: none;
+}
+
+#mobile_menu{
+    display: none;
+}
+
+@media screen and (max-width: 1170px){
+    
+    #navList_principal{
+        display: none;
+    }
+
+    #btn_cadastro{
+        display: none;
+    }
+
+
+    #btn_mobile{
+        display: block;
+        border: none;
+        background-color: transparent;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    #mobile_menu.active{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mobile_navList{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 12px 0px;
+    }
+
+    #mobile_navList .item-NavList{
+        list-style: none;
+        text-align: center;
+    }
+}
+
+   
+
+  
+    
+
 
