@@ -95,18 +95,20 @@
                 </div>
 
             </div>
-            <button class="drawer_button" id="cadastrarBtn">Cadastrar</button>
-            <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerCadastro()">Fechar</button>
+            <div>
+                <button class="drawer_button" id="cadastrarBtn">Cadastrar</button>
+                <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerCadastro()">Fechar</button>
+            </div>
+
         </div>
         <div id="listagem_empresas" style="display: flex;">
             <div class="container_listagem">
                 <div class="list_actions">
-                    <h1>Listagem das Empresas</h1>
+                    <h1 id="addRow">Listagem das Empresas</h1>
                     <button class="list_button" onclick="toggleDrawerCadastro()">Cadastrar Empresa</button>
-                    <button class="list_button" id="addRow">Adicionar teste</button>
                 </div>
                 <section class="campos">
-                    <table id="tabela_empresas" class="display" width="70vw">
+                    <table id="tabela_empresas" class="display" width="70vw" max-height="60vh">
                         <thead>
                             <tr>
                                 <th>Nome Fantasia</th>
@@ -183,8 +185,11 @@
                 </div>
 
             </div>
-            <button class="drawer_button" id="cadastrarBtn">Editar</button>
-            <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerEdit()">Fechar</button>
+            <div>
+                <button class="drawer_button" id="cadastrarBtn">Editar</button>
+                <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerEdit()">Fechar</button>
+            </div>
+
         </div>
     </section>
 
@@ -200,7 +205,10 @@
 
 <script>
 
+let counter = 1;
+
 function adicionarNovaEmpresaTabela() {
+    const table = $('#tabela_empresas').DataTable(); 
     table.row
         .add([
             "empresa" + counter,
@@ -208,41 +216,38 @@ function adicionarNovaEmpresaTabela() {
             "empresa" + counter,
             "empresa" + counter,
             "empresa" + counter,
-            `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
-            
+            `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>` 
         ])
         .draw(false);
- 
+
     counter++;
 }
- 
-const table = new DataTable('#tabela_empresas');
-let counter = 1;
- 
-document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
- 
-// Automatically add a first row of data
-adicionarNovaEmpresaTabela();
 
-    $(document).ready(function () {
-        $('#tabela_empresas').DataTable({
-            language: {
-                lengthMenu: "Mostrar _MENU_ itens por página",
-                zeroRecords: "Nenhum resultado encontrado",
-                info: "Mostrando _START_ até _END_ de _TOTAL_ itens",
-                infoEmpty: "Mostrando 0 até 0 de 0 itens",
-                infoFiltered: "(filtrado de _MAX_ itens no total)",
-                search: "Buscar:",
-                paginate: {
-                    first: "Primeiro",
-                    last: "Último",
-                    next: "Próximo",
-                    previous: "Anterior"
-                }
-            },
-        });
+$(document).ready(function () {
+    $('#tabela_empresas').DataTable({
+        language: {
+            lengthMenu: "Mostrar _MENU_ itens por página",        
+            zeroRecords: "Nenhum resultado encontrado",           
+            info: "Mostrando _START_ até _END_ de _TOTAL_ itens", 
+            infoEmpty: "Mostrando 0 até 0 de 0 itens",            
+            infoFiltered: "(filtrado de _MAX_ itens no total)",   
+            search: "Buscar:",                                    
+            paginate: {                                           
+                first: "Primeiro",
+                last: "Último",
+                next: "Próximo",
+                previous: "Anterior"
+            }
+        },
     });
+    
+    document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
+});
 
+function toggleDrawerEdit(button) {
+    
+    alert("Editar empresa: " + button.closest('tr').cells[0].textContent);
+}
 
 </script>
 
