@@ -44,7 +44,7 @@
 
 
     <section id='empresas'>
-        
+
         <div class="adicionar_empresas" id="add_empresa" style="display: none;">
             <h1>Cadastrar Empresa</h1>
             <div class="inputs_cadastrar_empresa">
@@ -103,26 +103,28 @@
                 <div class="list_actions">
                     <h1>Listagem das Empresas</h1>
                     <button class="list_button" onclick="toggleDrawerCadastro()">Cadastrar Empresa</button>
-
+                    <button class="list_button" id="addRow">Adicionar teste</button>
                 </div>
                 <section class="campos">
                     <table id="tabela_empresas" class="display" width="70vw">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Idade</th>
-                                <th>País</th>
-                                <th>Cargo</th>
+                                <th>Nome Fantasia</th>
+                                <th>Cidade</th>
+                                <th>CEP</th>
+                                <th>CNPJ</th>
+                                <th>Status</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody id="corpo_tabela_empresas">
                             <tr>
-                                <td>João</td>
-                                <td>34</td>
-                                <td>Portugal</td>
-                                <td>Desenvolvedor</td>
-                                <td><button onclick="editarLinha(this)">Editar</button></td>
+                                <td>SPTECH</td>
+                                <td>São Paulo</td>
+                                <td>00000-000</td>
+                                <td>00.000.000/0000-00</td>
+                                <td>Ativo</td>
+                                <td><button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -132,6 +134,57 @@
         </div>
 
         <div id="edit_empresa" style="display: none;">
+            <h1>Editar Empresa</h1>
+            <div class="inputs_cadastrar_empresa">
+                <div>
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" placeholder="00.000.000/0000-00.">
+                </div>
+                <div>
+                    <label for="cnpj">Razão Social</label>
+                    <input type="text" id="razaoSocial" placeholder="Insira a Razão Social.">
+                </div>
+                <div>
+                    <label for="cnpj">Nome Fantasia</label>
+                    <input type="text" id="nomeFantasia" placeholder="Insira o Nome Fantasia.">
+                </div>
+                <div>
+                    <label for="cnpj">Inscrição Estadual</label>
+                    <input type="text" id="ie" placeholder="Insira a Inscrição Estadual.">
+                </div>
+                <div>
+                    <label for="cnpj">Cidade</label>
+                    <input type="text" id="cidade" placeholder="Insira a Cidade.">
+                </div>
+
+                <div>
+                    <label for="cnpj">CEP</label>
+                    <input type="text" id="cep" placeholder="Insira o CEP (00000-000).">
+                </div>
+                <div>
+                    <label for="cnpj">Unidade Federativa (UF)</label>
+                    <input type="text" id="uf" placeholder="Insira a Unidade Federativa (Estado).">
+                </div>
+                <div>
+                    <label for="cnpj">Número</label>
+                    <input type="text" id="numero" placeholder="Insira o Número.">
+                </div>
+                <div>
+                    <label for="cnpj">Bairro</label>
+                    <input type="text" id="bairro" placeholder="Insira o Bairro.">
+                </div>
+                <div>
+                    <label for="cnpj">Logradouro</label>
+                    <input type="text" id="logradouro" placeholder="Insira o Logradouro.">
+                </div>
+                <div>
+                    <label for="cnpj">Complemento</label>
+                    <input type="text" id="complemento" placeholder="Insira o complemento.">
+                </div>
+
+            </div>
+            <button class="drawer_button" id="cadastrarBtn">Editar</button>
+            <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerEdit()">Fechar</button>
         </div>
     </section>
 
@@ -147,21 +200,50 @@
 
 <script>
 
-    function addNewRow() {
-        table.row
-            .add([
-                counter + '.1',
-                counter + '.2',
-                counter + '.3',
-                counter + '.4',
-                counter + '.5'
-            ])
-            .draw(false);
+function adicionarNovaEmpresaTabela() {
+    table.row
+        .add([
+            "empresa" + counter,
+            "empresa" + counter,
+            "empresa" + counter,
+            "empresa" + counter,
+            "empresa" + counter,
+            `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
+            
+        ])
+        .draw(false);
+ 
+    counter++;
+}
+ 
+const table = new DataTable('#tabela_empresas');
+let counter = 1;
+ 
+document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
+ 
+// Automatically add a first row of data
+adicionarNovaEmpresaTabela();
 
-        counter++;
-    }
+    $(document).ready(function () {
+        $('#tabela_empresas').DataTable({
+            language: {
+                lengthMenu: "Mostrar _MENU_ itens por página",
+                zeroRecords: "Nenhum resultado encontrado",
+                info: "Mostrando _START_ até _END_ de _TOTAL_ itens",
+                infoEmpty: "Mostrando 0 até 0 de 0 itens",
+                infoFiltered: "(filtrado de _MAX_ itens no total)",
+                search: "Buscar:",
+                paginate: {
+                    first: "Primeiro",
+                    last: "Último",
+                    next: "Próximo",
+                    previous: "Anterior"
+                }
+            },
+        });
+    });
 
-    let table = new DataTable('#tabela_empresas');
+
 </script>
 
 <script>
@@ -175,8 +257,14 @@
         }
     }
 
-    
-
+    function toggleDrawerEdit() {
+        const divEdit = document.getElementById("edit_empresa");
+        if (divEdit.style.display === "none") {
+            divEdit.style.display = "flex";
+        } else {
+            divEdit.style.display = "none";
+        }
+    }
 
 
     function toggleMenu() {
