@@ -1,5 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('header.css');
+@import url('home.css');
+@import url('clientes.css');
+@import url('detalhes.css');
+@import url('footer.css');
+
 
 :root {
     --whiteSynapSys: #eee;
@@ -13,6 +19,20 @@
     --BlueHeaderSynapSys: #8cd6fc;
     --BlueFundo02SynapSys: #599cdb;
 
+}
+
+:root {
+    --blackSynapsys: #000000;
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    /* --lightBlueSynapSys: #85d4e0; */
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #204B74;
+    --blueSecondarySynapSys: #183E63;
+    /* --lightBlueSynapSys: #00B2FF; */
+    --darkBlueSynapsys: #191C30;
+    --lightWhiteSynapsys: #fff;
 }
 
 *{

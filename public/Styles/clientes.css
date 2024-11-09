@@ -6,6 +6,7 @@
 
 #nossosClientes{
     display: flex;
+    /* background-color: var(--blueSkySynapSys); */
     flex-direction: column;
     align-items: center;
     margin-top: 20vh;
@@ -38,7 +39,7 @@
 
 .cliente-icon{
     position: absolute;
-    background-color:  var(--bluePrimarySynapSys);
+    background-color:  var(--darkBlueSynapsys);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,6 +57,10 @@
     color: #434343;
     text-align: center;
 }
+
+/* .section-title{
+    text-align: center;
+} */
 
 @media screen and (max-width: 1170px){
     #clientes{
