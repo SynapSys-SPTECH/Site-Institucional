@@ -21,20 +21,44 @@
 
 
     <div class='container'>
-        <section id='conta'>
-            <h1>Conta</h1>
-
-            <input type="text" placeholder="MudarNomeUsuario" id="nomeUsuarioConta">
-            <br>
-            <input type="text" placeholder="MudarEmailUsuario" id="emailUsuarioConta">
-
-            <button style="background-color: aqua; border: 2px solid blue; width: 100px; height: 100px;"
-                id="button_deletar" onclick="deletar(idUsuario)">Excluir Usuario</button>
-
-            <button onclick="atualizar()">Confirmar</button>
-        </section>
-
-
+        <div class="container-conta">
+            <div class="titulo"> Editar Conta</div>
+            <div class="conteudo">
+                <div class="cont-esq">
+                    <div class="info1">
+                        <span>Informações Pessoais</span>
+                        <label for="nomeConta">Nome</label>
+                        <input type="text" name="" id="nomeConta">
+                        <label for="emailConta">Email</label>
+                        <input type="text" name="" id="emailConta">
+                        <button>Atualizar Informações</button>
+                    </div>
+                    <div class="info2">
+                        <span>Atualizar Senha</span>
+                        <label for="senhaAtualConta">Senha Atual</label>
+                        <input type="text" name="" id="senhaAtualConta">
+                        <label for="novaSenhaConta">Senha Nova</label>
+                        <input type="text" name="" id="novaSenhaConta">
+                        <label for="confirmarSenhaConta">Confirmar Senha</label>
+                        <input type="text" name="" id="confirmarSenhaConta">
+                        <button>Atualizar Informações</button>
+                    </div>
+                </div>
+                <div class="cont-dir">
+                    <div class="info3">
+                        <span>Informações Importantes</span>
+                        <label for="nomeConta">CPF</label>
+                        <input type="text" name="" id="cpfConta">
+                        <label for="emailConta">Tipo de Usuario</label>
+                        <select name="" id="">
+                            <option value="">Investidor</option>
+                            <option value="">Empresario</option>
+                        </select>
+                        <button>Atualizar Informações</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
