@@ -1,5 +1,4 @@
 #detalhes {
-    /* background-color: var(--bluePrimarySynapSys); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,13 +91,14 @@
         font-size: 2rem;
         text-align: center;
     }
-    .info{
+
+    .info {
         display: flex;
         flex-direction: column;
 
     }
 
-    #detalhes_content{
+    #detalhes_content {
         width: 100%;
     }
 }
