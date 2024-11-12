@@ -1,13 +1,11 @@
 var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
 function irDash() {
-  window.location = "./Dashboard/dashboard.html#dashboard";
+  window.location.href = "http://localhost:3333/Dashboard/dashboard.html";
 }
 
 function abrirLogon() {
-  login.style.display = "flex";
-  cadastro.style.display = "none";
-  imgModal.style.float = "left";
+  window.location = "./Login/login.html";
 };
 
 function entrar() {
@@ -86,7 +84,7 @@ function cadastrar() {
     console.log("Campos Preenchidos.")
   }
 
-  fetch("/usuarios/cadastrar", {
+  fetch("../usuarios/cadastrar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

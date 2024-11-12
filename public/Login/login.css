@@ -81,6 +81,7 @@ body {
     font-weight: 900;
     padding: 1em 2em;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .content p {
