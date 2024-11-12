@@ -97,11 +97,31 @@ function deletar(req, res) {
 }
 
 function editar(req, res) {
-    var nome = req.body.nome;
-    var email = req.body.email;
-    var idUsuario = req.params.idUsuario;
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var idUsuario = req.body.idServer;
 
     usuarioModel.editar(nome , email, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
+function editarSenha(req, res) {
+    var senha = req.body.senhaServer;
+    var idUsuario = req.body.idServer;
+
+    usuarioModel.editarSenha(senha, idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -121,5 +141,6 @@ module.exports = {
     autenticar,
     cadastrar,
     deletar,
-    editar
+    editar,
+    editarSenha
 }
