@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  --whiteSynapSys: #eee;
+  --whiteFundo: #dadada;
+  --lightBlueSynapSys: #85d4e0;
+  --blueSkySynapSys: #00b2ff;
+  --greySynapSys: #b3b3b3;
+  --bluePrimarySynapSys: #204b74;
+  --blueSecondarySynapSys: #183e63;
+  --lightBlueSynapSys: #00b2ff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: Inter;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  background-image: url(../images/download.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login {
+  width: 40%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-login {
+  margin: 0 auto;
+  width: 95%;
+  height: 65%;
+  border-radius: 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(218, 218, 218,1);
+}
+
+.titulo {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 9%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.content label {
+  font-size: small;
+  text-align: start;
+  margin-top: 10px;
+}
+
+.content input {
+  border: none;
+  border-bottom: var(--blueSkySynapSys) 2px solid;
+  padding: 0.5em 1em;
+  background-color: var(--whiteSynapSys);
+}
+
+.content button {
+    background-color: var(--blueSkySynapSys);
+    color: white;
+    border: none;
+    font-size: small;
+    font-weight: 900;
+    padding: 1em 2em;
+    margin-top: 10px;
+}
+
+.content p {
+    margin-top: 8%;
+}
+
+.img {
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Opcional, para ocultar excessos de imagem */
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
