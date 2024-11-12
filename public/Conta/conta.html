@@ -51,9 +51,9 @@
                         <label for="nomeConta">CPF</label>
                         <input type="text" name="" id="cpfConta">
                         <label for="emailConta">Tipo de Usuario</label>
-                        <select name="" id="">
-                            <option value="">Investidor</option>
-                            <option value="">Empresario</option>
+                        <select name="" id="tipoUser" disabled>
+                            <option value="1">Empresario</option>
+                            <option value="2">Investidor</option>
                         </select>
                         <button onclick="">Atualizar Informações</button>
                     </div>
@@ -65,3 +65,11 @@
 </body>
 
 </html>
+
+<script>
+    if(sessionStorage.TIPO_USUARIO == 1){
+        tipoUser.value = 1;
+    } else {
+        tipoUser.value = 2;
+    }
+</script>
