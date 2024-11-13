@@ -19,13 +19,13 @@
         <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
 
         <section id="propriedades">
-            <div class="adicionar_propriedade">
-                <h1>CADASTRO DE PROPRIEDADE</h1>    
+            <div class="adicionar_propriedade" style="display: none;">
+                <h1>CADASTRO DE PROPRIEDADE</h1>
 
                 <div class="inputs_cadastrar_propriedade">
                     <div>
                         <label for="input_logradouro">Insira o Logradouro:</label>
-                        <input type="text" id="input_logradouro" placeholder=""/>
+                        <input type="text" id="input_logradouro" placeholder="" />
                     </div>
 
                     <div>
@@ -34,7 +34,7 @@
                     </div>
                     <div>
                         <label for="input_tamanho">Insira o Tamanho em M²</label>
-                        <input type="text" id="input_tamanho" placeholder="Tamanho da Propriedade em M²"/>
+                        <input type="text" id="input_tamanho" placeholder="Tamanho da Propriedade em M²" />
                     </div>
                     <div>
                         <label for="input_cidade">Insira a Cidade</label>
@@ -55,13 +55,53 @@
 
                 <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
             </div>
-
-            <div id="listagem_propriedades">
+            <nav class="navbar">
+                <div class="textNavbar">
+                    <label for="id_propriedade">Escolha a Propriedade:</label>
+                </div>
+                <div class="img_menu_suspenso">
+                    
+                </div>
+                <div class="selectSeta"></div>
+            </nav>
+            <div id="listagem_propriedades" style="display: flex;">
                 
+                <div class="container_listagem">
+                    <div class="list_actions">
+                        <h1 id="addRow">Listagem das Propriedades</h1>
+                        <button class="list_button" onclick="toggleDrawerCadastro()">Cadastrar Propriedade</button>
+                    </div>
+                    <section class="campos">
+                        <table id="tabela_propriedades" class="display" width="70vw" max-height="60vh">
+                            <thead>
+                                <tr>
+                                    <th>Nome Fantasia</th>
+                                    <th>Cidade</th>
+                                    <th>CEP</th>
+                                    <th>CNPJ</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="corpo_tabela_propriedades">
+                                <tr>
+                                    <td>SPTECH</td>
+                                    <td>São Paulo</td>
+                                    <td>00000-000</td>
+                                    <td>00.000.000/0000-00</td>
+                                    <td>Ativo</td>
+                                    <td><button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+
+                </div>
             </div>
 
             <div id="editar_propriedade">
-                
+
             </div>
 
         </section>
@@ -70,3 +110,92 @@
 </body>
 
 </html>
+
+<script>
+
+    let counter = 1;
+    
+    function adicionarNovaEmpresaTabela() {
+        const table = $('#tabela_propriedades').DataTable(); 
+        table.row
+            .add([
+                "empresa" + counter,
+                "empresa" + counter,
+                "empresa" + counter,
+                "empresa" + counter,
+                "empresa" + counter,
+                `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>` 
+            ])
+            .draw(false);
+    
+        counter++;
+    }
+    
+    $(document).ready(function () {
+        $('#tabela_propriedades').DataTable({
+            language: {
+                lengthMenu: "Mostrar _MENU_ itens por página",        
+                zeroRecords: "Nenhum resultado encontrado",           
+                info: "Mostrando _START_ até _END_ de _TOTAL_ itens", 
+                infoEmpty: "Mostrando 0 até 0 de 0 itens",            
+                infoFiltered: "(filtrado de _MAX_ itens no total)",   
+                search: "Buscar:",                                    
+                paginate: {                                           
+                    first: "Primeiro",
+                    last: "Último",
+                    next: "Próximo",
+                    previous: "Anterior"
+                }
+            },
+        });
+        
+        document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
+    });
+    
+    function toggleDrawerEdit(button) {
+        
+        alert("Editar empresa: " + button.closest('tr').cells[0].textContent);
+    }
+    
+    </script>
+    
+    <script>
+    
+        function toggleDrawerCadastro() {
+            const div = document.getElementById("add_propriedade");
+            if (div.style.display === "none") {
+                div.style.display = "flex";
+            } else {
+                div.style.display = "none";
+            }
+        }
+    
+        function toggleDrawerEdit() {
+            const divEdit = document.getElementById("edit_propriedade");
+            if (divEdit.style.display === "none") {
+                divEdit.style.display = "flex";
+            } else {
+                divEdit.style.display = "none";
+            }
+        }
+    
+    
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("show-menu");
+        }
+    
+    
+    
+    
+        function apareceInfos(id) {
+            document.getElementById(id).style.display = "flex";
+            document.getElementById(id).style.opacity = 1;
+        }
+    
+        function someInfos(id) {
+            document.getElementById(id).style.display = "none";
+            document.getElementById(id).style.opacity = 0;
+        }
+    
+    </script>
