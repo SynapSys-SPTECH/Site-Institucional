@@ -7,7 +7,7 @@
 
     width: 84%;
     height: fit-content;
-    background-color: var(--BlueFundo02SynapSys);
+    background-color: var(--lightBlueSynapSys03);
 }
 
 .div-tituloTeamDev {
@@ -62,7 +62,7 @@
     width: 20vh;
     height: 30vh;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 3px solid #183E63;
 }
 
@@ -80,7 +80,7 @@
     border: none;
     border-radius: 5px;
     color: var(--whiteSynapSys);
-    background: var(--blueSecondarySynapSys);
+    background: var(--blueSkySynapSys);
     font-weight: bold;
 }
 

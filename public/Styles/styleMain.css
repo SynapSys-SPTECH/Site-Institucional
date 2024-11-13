@@ -17,6 +17,7 @@
     --bluePrimarySynapSys: #016fd7;
     --blueSecondarySynapSys: #183E63;
     --lightBlueSynapSys02: #97cbf8;
+    --lightBlueSynapSys03: #bfe1ff;
     --BlueHeaderSynapSys: #8cd6fc;
     --BlueFundo02SynapSys: #599cdb;
 
@@ -29,7 +30,7 @@
     /* --lightBlueSynapSys: #85d4e0; */
     --blueSkySynapSys: #00B2FF;
     --greySynapSys: #B3B3B3;
-    --bluePrimarySynapSys: #204B74;
+    --bluePrimarySynapSys02: #204B74;
     --blueSecondarySynapSys: #183E63;
     /* --lightBlueSynapSys: #00B2FF; */
     --darkBlueSynapsys: #191C30;
@@ -43,8 +44,13 @@
      
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
-  background-color: var(--lightBlueSynapSys02);
+  background-color: var(--lightBlueSynapSys03);
+  overflow-x: hidden;
 }
 
 section{

@@ -1,10 +1,11 @@
 header {
     width: 83.2vw;
     padding: 28px 8%;
-    background-color: var(--lightBlueSynapSys);
-    /* position: sticky;
+    background-color: var(--lightWhiteSynapsys);
+    position: sticky;
     top: 0;
-    z-index: 3; */
+    z-index: 3;
+    opacity: 0.9;
 }
 
 #navBar {
@@ -33,7 +34,7 @@ header {
 
 .item-NavList.active a {
     color: #1d1d1dad;
-    border-bottom: 3px solid var(--blueSecondarySynapSys);
+    border-bottom: 3px solid var(--darkBlueSynapsys);
 
 }
 
