@@ -27,18 +27,51 @@ section {
     height: 10vh;
     width: 100%;
     color: var(--whiteSynapSys);
-    background-color: var(--blueSkySynapSys);
+    background-color: var(--darkBlueSynapsys);
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: space-around;
     align-items: center;
-    gap: 1em;
+    gap: 48em;
 }
 
-.navbar div{
-    margin-left: 5%;
+.textNavbar {
+    font-size: 25px;
+}
+
+.selectNavbar {
+    width: 10em;
+    height: 2em;
+    border-radius: 100px;
+}
+
+.selectNavbar select {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    padding: 0;
+    border: solid 1px #000;
+    border-radius: 100px;
+    outline: none;
+    appearance: none;
+    font-size: 18px;
+}
+
+.selectSeta {
+    content: "";
+    position: absolute;
+    right: 6.5%;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+}
+
+.navbar div {
     font-weight: 500;
-    font-size: large;
 }
 
 
@@ -46,8 +79,8 @@ section {
 
 #dashboard {
     background: var(--whiteFundo);
-    width: 75vw;
-    left: 25vw;
+    width: 85vw;
+    left: 15vw;
 }
 
 .main-dashboard {
@@ -61,7 +94,6 @@ section {
 }
 
 .kpis {
-    /* background-color: green; */
     width: 100%;
     height: 30%;
     display: flex;
@@ -78,20 +110,20 @@ section {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* box-shadow: 1px 5px 12px black; */
     padding: 1em;
-    /* border-radius: 0.5em; */
+    box-shadow: 1px 2px 6px black;
+    border-radius: 2em;
 }
 
 .kpi h1 {
-    font-size: medium;
+    font-size: 23px;
     text-align: center;
     height: 1em;
 }
 
 .kpi span {
-    font-size: xx-large;
-    font-weight: 600;
+    font-size: 45px;
+    font-weight: bolder;
     text-align: center;
     margin: auto;
 }
@@ -108,20 +140,20 @@ section {
 .grafico {
     background-color: rgb(255, 255, 255);
     height: 90%;
-    width: 45%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* box-shadow: 1px 5px 12px black; */
+    box-shadow: 1px 2px 6px black;
     padding: 1em;
-    /* border-radius: 0.5em; */
+    border-radius: 2em;
 }
 
 
 #map {
-    height: 24em;
-    width: 30em;
+    height: 34em;
+    width: 40em;
 }
 
 
@@ -148,6 +180,9 @@ section {
     --blueSecondarySynapSys: #183E63;
     --lightBlueSynapSys: #00B2FF;
     --blackSynapsys: #0d0d0d;
+    --darkBlueSynapsys: #191c30;
+    --lightWhiteSynapsys: #FFF;
+    --darkBlueSynapsys: #191c30;
 }
 
 .container {

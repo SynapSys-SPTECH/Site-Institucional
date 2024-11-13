@@ -9,6 +9,8 @@
     --bluePrimarySynapSys: #204B74;
     --blueSecondarySynapSys: #183E63;
     --lightBlueSynapSys: #00B2FF;
+    --darkBlueSynapsys: #191c30;
+    --lightWhiteSynapsys: #FFF;
 
 }
 
@@ -18,7 +20,7 @@
 
 .nav-bar-lateral {
     width: 15vw;
-    background-color: rgb(224, 240, 255);
+    background-color: var(--darkBlueSynapsys);
     border-color: black;
     border: 1px;
     border-style: solid;

@@ -19,4 +19,8 @@ router.put("/editar/:idUsuario", function (req, res) {
     usuarioController.editar(req, res);
 });
 
+router.put("/editarSenha/:idUsuario", function (req, res) {
+    usuarioController.editarSenha(req, res);
+});
+
 module.exports = router;

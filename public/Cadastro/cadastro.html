@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css" />
+    <script src="../fetchs.js"></script>
+  </head>
+  <body>
+    <div class="espaco"></div>
+    
+    <div class="login">
+        <div class="content-login">
+            <div class="titulo">
+                <span>Cadastro</span>
+            </div>
+            <div class="content">
+                <label for="nomeCadastro">Nome</label>
+                <input type="text" id="nomeCadastro">
+                <label for="telefoneCadastro">Telefone</label>
+                <input type="tel" id="telefoneCadastro">
+                <label for="emailCadastro">Email</label>
+                <input type="email" id="emailCadastro">
+                <label for="senhaCadastro">Senha</label>
+                <input type="password" id="senhaCadastro">
+                <label for="confirmacaoCadastro">Confirmar Senha</label>
+                <input type="password" id="confirmacaoCadastro">
+                <label for="tipoUserCadastro">Tipo de Usuário</label>
+                <select id="tipoUserCadastro">
+                    <option value="/">Selecione o Usuario</option>
+                    <option value="1">Dono de Empresa</option>
+                    <option value="2">Investidor</option>
+                </select>
+                <button id="entrarLogin" onclick="cadastrar()">Cadastrar</button>
+                <p id="abrirCadastro"> <a href="../Login/login.html">Já é cadastrado?</a></p>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>

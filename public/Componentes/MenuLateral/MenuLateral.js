@@ -29,13 +29,19 @@ const items = [
     { href: '../Empresas/empresas.html', imgSrc: '../images/company-svgrepo-com.svg', text: 'Empresas' },
     { href: '../Propriedades/propriedades.html', imgSrc: '../images/brazil-svgrepo-com.svg', text: 'Propriedades' },
     { href: '../Conta/conta.html', imgSrc: '../images/account-svgrepo-com.svg', text: 'Conta' },
-    { href: '', imgSrc: '../images/exit-svgrepo-com.svg', text: 'Sair' }
+    { href: '', imgSrc: '../images/exit-svgrepo-com.svg', text: 'Sair', onclick: sair}
 ];
 
 items.forEach(item => {
-    const menuItem = createMenuItem(item.href, item.imgSrc, item.text);
+    const menuItem = createMenuItem(item.href, item.imgSrc, item.text, item.onclick);
     menuList.appendChild(menuItem);
 });
+
+function sair() {
+    sessionStorage.clear()
+    event.preventDefault()
+    alert("OI")
+}
 
 menuLateral.appendChild(menuList);
 

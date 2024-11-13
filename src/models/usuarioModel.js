@@ -40,9 +40,20 @@ function editar(nome , email , idUsuario) {
     return database.executar(instrucaoSql); 
 }
 
+function editarSenha(senha, idUsuario) {
+    var instrucaoSql = `
+        UPDATE usuario
+        set senha = '${senha}'
+        where idUsuario = '${idUsuario}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql); 
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     deletar,
-    editar
+    editar,
+    editarSenha
 };
