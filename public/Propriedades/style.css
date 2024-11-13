@@ -267,6 +267,13 @@ section {
     margin-top: 20vh;
 }
 
+#select_empresa {
+    border: none;
+    border-bottom: var(--blueSkySynapSys) 2px solid;
+    padding: 0.5em 1em;
+    background-color: var(--whiteSynapSys);
+}
+
 
 
 /* .campos div{
