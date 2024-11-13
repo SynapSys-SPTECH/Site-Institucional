@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="login.css" />
-    <script src="../fetchs.js"></script>
-  </head>
-  <body>
-    <div class="login">
-        <div class="content-login">
-            <div class="titulo">
-                <span>Login</span>
-            </div>
-            <div class="content">
-                <label for="emailLogin">Email</label>
-                <input type="text" id="emailLogin">
-                <label for="senhaLogin">Senha</label>
-                <input type="password" id="senhaLogin">
-                <button id="entrarLogin" onclick="entrar()">Entrar</button>
-                <p id="abrirCadastro"> <a href="../Cadastro/cadastro.html">Ainda não é cadastrado?</a></p>
-            </div>
-        </div>
-    </div>
 
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css" />
+  <script src="../fetchs.js"></script>
+</head>
+
+<body>
+  <div class="login">
+    <div class="content-login">
+      <div class="titulo">
+        <h1>Bem vindo(a) de volta!</h1>
+        <p>Efetue o seu <span>login</span>:</p>
+      </div>
+      <div class="content">
+        <div class="inputs">
+          <label for="emailLogin">Email</label>
+          <input type="text" id="emailLogin">
+        </div>
+        <div class="inputs">
+          <label for="senhaLogin">Senha</label>
+          <input type="password" id="senhaLogin">
+        </div>
+        <div class="actions">
+          <button id="entrarLogin" onclick="entrar()">Entrar</button>
+          <p class="link" id="abrirCadastro">Não possui conta?<a class="link"
+              href="../Cadastro/cadastro.html"> Cadastrar-se</a></p>
+          <a class="voltar" href="../Cadastro/cadastro.html">Voltar ao início</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <img class="img-login" src="../images/cadastro/undraw_secure_login_pdn4.svg" alt="">
+    </div>
+  </div>
+
+</body>
+
 </html>

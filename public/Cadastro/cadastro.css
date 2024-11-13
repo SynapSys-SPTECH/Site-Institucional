@@ -20,61 +20,80 @@
 
 body {
   width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
   background-image: url(../images/download.jpeg);
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.espaco {
+/* .espaco {
   width: 60%;
-}
+} */
 
 .login {
-  width: 40%;
-  height: 100vh;
+  width: 50%;
+  height: 70vh;
+  padding: 2em;
+  border-radius: 2em;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--whiteSynapSys);
+}
+
+.img-login{
+  width: 20vw;
 }
 
 .content-login {
-  margin: 0 auto;
-  width: 95%;
-  height: 65%;
-  border-radius: 8%;
+  width: fit-content;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(218, 218, 218, 1);
 }
 
 .titulo {
   text-align: center;
-  font-size: 50px;
-  margin-bottom: 5%;
+  /* font-size: 50px;
+  margin-bottom: 5%; */
+}
+
+.titulo span{
+  color: var(--blueSkySynapSys);
+  font-size: x-large;
+}
+
+.titulo h1{
+  font-size: xx-large;
+}
+
+.titulo p{
+  font-size: larger;
+  font-weight: 600
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  align-items: center;
+  width: 100%;
 }
 
-.content label {
-  font-size: small;
-  text-align: start;
-  margin-top: 10px;
-}
 
 .content input {
   border: none;
   border-bottom: var(--blueSkySynapSys) 2px solid;
   padding: 0.5em 1em;
-  background-color: var(--whiteSynapSys);
+  background-color: var(--whiteFundo);
+  width: 30em;
 }
 
 .content button {
@@ -86,6 +105,11 @@ body {
   padding: 1em 2em;
   margin-top: 5%;
   cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.content button:hover{
+  background-color: var(--blueSecondarySynapSys);
 }
 
 .content p {
@@ -95,8 +119,19 @@ body {
 .content select {
   border: none;
   border-bottom: var(--blueSkySynapSys) 2px solid;
-  padding: 0.5em 0.5em;
-  background-color: var(--whiteSynapSys);
+  padding: 0.5em 1em;
+  background-color: var(--whiteFundo);
+  width: 32em;
+}
+
+.inputs{
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs label{
+  font-size: medium;
+  text-align: start;
 }
 
 .img {
@@ -112,4 +147,34 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.content .link{
+  text-decoration: none;
+  font-size: medium;
+}
+
+.link a{
+  color: var(--blueSkySynapSys);
+}
+
+.link a:hover{
+  color: var(--blueSecondarySynapSys);
+}
+
+.voltar{
+  color: var(--blueSkySynapSys);
+  text-decoration: none;
+  font-size: medium;
+}
+
+.voltar:hover{
+  color: var(--blueSecondarySynapSys);
+}
+
+.actions{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
