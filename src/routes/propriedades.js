@@ -8,8 +8,24 @@ router.post("/cadastrar", function (req, res) {
     propriedadeController.cadastrar(req, res);
 })
 
-// router.post("/autenticar", function (req, res) {
-//     propriedadeController.autenticar(req, res);
-// });
+
+router.get("/listar", function (req, res) {
+    console.log("Rota listar atiginda")
+    propriedadeController.cadastrar(req, res);
+})
+
+router.put("/editar/:idPropriedade", function (req, res) {
+    console.log("Rota editar atiginda")
+
+    avisoController.editar(req, res);
+});
+
+router.delete("/deletar", function (req, res) {
+    console.log("Rota deletar atiginda")
+
+    avisoController.deletar(req, res);
+});
+
+
 
 module.exports = router;    

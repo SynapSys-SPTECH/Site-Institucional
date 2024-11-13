@@ -29,6 +29,17 @@
       <input type="text" id="input_uf" placeholder="ex: SP" />
       <br /><br />
       <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+
+
+
+     <button id="listar" onclick="listar()">listar</button>
+
+     <button id="deletar" onclick="deletar()">Deletar</button>
+
+     <button id="atualizar" onclick="atualizar()">atualizar</button>
+
+     
+
     </div>
   </body>
 </html>
@@ -104,4 +115,99 @@
 
     return false;
   }
+
+  function listar() {
+    fetch("/propriedades/listar", {
+      method: "GET",
+      headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição: ' + response.status);
+    }
+    return response.json()
+  })
+  .then(propriedades => {
+    console.log(propriedades);  
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
+}
+
+
+
+function deletar(idPropriedade) {
+  console.log("Criar função de apagar post escolhido - ID " + idPropriedade);
+  fetch(`/propriedades/deletar`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+
+    if (resposta.ok) {
+      window.alert("Propriedade Deletada Com sucesso!");
+      window.location = "../index.html"
+    } else if (resposta.status == 404) {
+      window.alert("Deu 404!");
+    } else {
+      throw ("Houve um erro ao tentar realizar a exclusão da conta: " + resposta.status);
+    }
+  }).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+  });
+}
+
+function atualizar() {
+  var logradouro = input_logradouro.value;
+    var tamanho = input_tamanho.value;
+    var cep = input_cep.value;
+    var cidade = input_cidade.value;
+    var uf = input_uf.value;
+
+
+    if (cep.length != 8 && cep.length !=0) {
+        alert("Erro no CEP");
+        return;
+      }
+
+      if (uf.length != 2 && cep.length !=0) {
+        alert("Erro no UF");
+        return;
+      }
+  
+
+
+  fetch(`/propriedades/editar/${sessionStorage.getItem("ID_PROPRIEDADE")}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      logradouroServer: logradouro,
+        cepServer: cep,
+        tamanhoServer: tamanho,
+        cidadeServer: cidade,
+        ufServer: uf,
+    })
+  }).then(function (resposta) {
+
+    if (resposta.ok) {
+        window.location = "../index.html"
+    } else if (resposta.status == 404) {
+      window.alert("Deu 404!");
+    } else {
+      throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+    }
+  }).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+  });
+}
+
+  
+
+
 </script>

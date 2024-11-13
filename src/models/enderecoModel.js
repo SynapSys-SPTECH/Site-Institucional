@@ -9,8 +9,8 @@ function cadastrar(cidade, UF, cep, numero, bairro, logradouro, complemento) {
 }
 
 
-function cadastrarPropriedade(cidade, UF, cep, logradouro) {
-    var instrucaoSql = `INSERT INTO endereco (cidade, UF, cep, logradouro) VALUES ('${cidade}', '${UF}', '${cep}', '${logradouro}')`;
+function cadastrarPropriedade(cidade, UF, cep, logradouro, ) {
+    var instrucaoSql = `INSERT INTO endereco (cidade, UF, cep, logradouro, fkDonoPropriedade) VALUES ('${cidade}', '${UF}', '${cep}', '${logradouro}',${1})`;
   
     return database.executar(instrucaoSql);
 }
