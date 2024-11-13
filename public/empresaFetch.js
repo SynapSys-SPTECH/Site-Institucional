@@ -1,15 +1,35 @@
-export function cadastrarEmpresa() {
-  let cnpjVar = cnpj.value;
-  let nomeFantasiaVar = nomeFantasia.value;
-  let cidadeVar = cidade.value;
-  let ufVar = uf.value;
-  let cepVar = cep.value;
-  let numeroVar = Number(numero.value);
-  let bairroVar = bairro.value;
-  let razaoSocialVar = razaoSocial.value;
-  let ieVar = ie.value;
-  let logradouroVar = logradouro.value;
-  let complementoVar = complemento.value;
+
+function cadastrarEmpresa() {
+  let idUserVar = sessionStorage.ID_USUARIO;
+  let cnpjVar = document.getElementById("cnpj").value;
+  let nomeFantasiaVar = document.getElementById("nomeFantasia").value;
+  let cidadeVar = document.getElementById("cidade").value;
+  let ufVar = document.getElementById("uf").value;
+  let cepVar = document.getElementById("cep").value;
+  let numeroVar = Number(document.getElementById("numero").value);
+  let bairroVar = document.getElementById("bairro").value;
+  let razaoSocialVar = document.getElementById("razaoSocial").value;
+  let ieVar = document.getElementById("ie").value;
+  let logradouroVar = document.getElementById("logradouro").value;
+  let complementoVar = document.getElementById("complemento").value;
+
+  console.log(idUserVar)
+
+  // if (cnpjVar.length !== 14) {
+  //   alert("CNPJ INVALIDO!")
+  //   return;
+  // }
+
+  // if (ufVar.length !== 2) {
+  //   alert("UF INVALIDO!")
+  //   return;
+  // }
+
+  // if (cepVar.length !== 8) {
+  //   alert("CEP INVALIDO")
+  //   return;
+  // }
+
 
   fetch("/empresas/cadastrar", {
     method: "POST",
@@ -30,6 +50,7 @@ export function cadastrarEmpresa() {
       ieServer: ieVar,
       logradouroServer: logradouroVar,
       complementoServer: complementoVar,
+      idServer: idUserVar
     }),
   })
     .then(function (resposta) {
@@ -39,7 +60,7 @@ export function cadastrarEmpresa() {
         console.log(
           "Cadastro de empresa realizado com sucesso!"
         );
-        
+
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
       }
@@ -50,3 +71,27 @@ export function cadastrarEmpresa() {
 
   return false;
 }
+
+function buscarEmpresas() {
+  let idUserVar = sessionStorage.ID_USUARIO;
+  
+  fetch(`/empresas/buscar/${idUserVar}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      console.log(resposta);
+      console.log("FOI BUSCAR")
+      resposta.json().then(json => {
+        console.log(json);
+        console.log(JSON.stringify(json));
+      });
+    } else {
+      return false
+    }
+  })
+}
+
+export { cadastrarEmpresa, buscarEmpresas };

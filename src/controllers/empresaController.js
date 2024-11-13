@@ -15,10 +15,10 @@ function listar(req, res) {
   });
 }
 
-function buscarPorId(req, res) {
-  var id = req.params.id;
+function buscar(req, res) {
+  var id = req.params.idUserVar;
 
-  empresaModel.buscarPorId(id).then((resultado) => {
+  empresaModel.buscar(id).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
@@ -35,6 +35,7 @@ async function cadastrar(req, res) {
   var bairro = req.body.bairroServer
   var logradouro = req.body.logradouroServer;
   var complemento = req.body.complementoServer;
+  var id = req.body.idServer;
 
   const resultado = await empresaModel.buscarPorCnpj(cnpj);
     if (resultado.length > 0) {
@@ -45,14 +46,14 @@ async function cadastrar(req, res) {
     console.log(resultadoEndereco)
     const fkEndereco = resultadoEndereco.insertId;
 
-    const resultadoEmpresa = await empresaModel.cadastrar(razaoSocial, cnpj, inscricaoEstadual, nomeFantasia, fkEndereco);
+    const resultadoEmpresa = await empresaModel.cadastrar(razaoSocial, cnpj, inscricaoEstadual, nomeFantasia, fkEndereco, id);
     res.status(201).json(resultadoEmpresa);
     
 }
 
 module.exports = {
   buscarPorCnpj,
-  buscarPorId,
+  buscar,
   cadastrar,
   listar,
 };
