@@ -19,9 +19,8 @@
         <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
 
         <section id="propriedades">
-            <div class="adicionar_propriedade" style="display: none;">
-                <h1>CADASTRO DE PROPRIEDADE</h1>
-
+            <div class="adicionar_propriedade" id="add_propriedade" style="display: none;">
+                <h1>Cadastrar Propriedade</h1>
                 <div class="inputs_cadastrar_propriedade">
                     <div>
                         <label for="input_logradouro">Insira o Logradouro:</label>
@@ -50,10 +49,12 @@
                             <option value="#">Empresa 1</option>
                         </select>
                     </div>
+    
                 </div>
-
-
-                <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+                <div>
+                    <button class="drawer_button" id="cadastrarBtn">Cadastrar</button>
+                    <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerCadastro()">Fechar</button>
+                </div>
             </div>
             <nav class="navbar">
                 <div class="textNavbar">
@@ -100,8 +101,42 @@
                 </div>
             </div>
 
-            <div id="editar_propriedade">
+            <div id="editar_propriedade" style="display: none;">
+                <h1>Editar Propriedade</h1>
+                <div class="inputs_cadastrar_propriedade">
+                    <div>
+                        <label for="input_logradouro">Insira o Logradouro:</label>
+                        <input type="text" id="input_logradouro" placeholder="" />
+                    </div>
 
+                    <div>
+                        <label for="input_cep">Insira o CEP</label>
+                        <input type="text" id="input_cep" placeholder="Somente números" />
+                    </div>
+                    <div>
+                        <label for="input_tamanho">Insira o Tamanho em M²</label>
+                        <input type="text" id="input_tamanho" placeholder="Tamanho da Propriedade em M²" />
+                    </div>
+                    <div>
+                        <label for="input_cidade">Insira a Cidade</label>
+                        <input type="text" id="input_cidade" placeholder="ex: São Paulo" />
+                    </div>
+                    <div>
+                        <label for="input_uf">Insira a Unidade Federativa</label>
+                        <input type="text" id="input_uf" placeholder="ex: SP" />
+                    </div>
+                    <div>
+                        <label for="select_empresa">Escolha a Empresa a Associar a Propriedade.</label>
+                        <select name="select_empresa" id="select_empresa">
+                            <option value="#">Empresa 1</option>
+                        </select>
+                    </div>
+    
+                </div>
+                <div>
+                    <button class="drawer_button" id="cadastrarBtn">Editar</button>
+                    <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerEdit()">Fechar</button>
+                </div>
             </div>
 
         </section>
@@ -134,11 +169,11 @@
     $(document).ready(function () {
         $('#tabela_propriedades').DataTable({
             language: {
-                lengthMenu: "Mostrar _MENU_ itens por página",        
-                zeroRecords: "Nenhum resultado encontrado",           
+                lengthMenu: "Mostrar _MENU_ propriedades por página",        
+                zeroRecords: "Nenhuma propriedade encontrada, cadastre uma nova propriedade.",           
                 info: "Mostrando _START_ até _END_ de _TOTAL_ itens", 
-                infoEmpty: "Mostrando 0 até 0 de 0 itens",            
-                infoFiltered: "(filtrado de _MAX_ itens no total)",   
+                infoEmpty: "Mostrando 0 até 0 de 0 propriedades",            
+                infoFiltered: "(filtrado de _MAX_ propriedades no total)",   
                 search: "Buscar:",                                    
                 paginate: {                                           
                     first: "Primeiro",
@@ -171,7 +206,7 @@
         }
     
         function toggleDrawerEdit() {
-            const divEdit = document.getElementById("edit_propriedade");
+            const divEdit = document.getElementById("editar_propriedade");
             if (divEdit.style.display === "none") {
                 divEdit.style.display = "flex";
             } else {

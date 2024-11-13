@@ -62,7 +62,7 @@ section {
 
 
 .adicionar_propriedade,
-#edit_propriedade {
+#editar_propriedade {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -73,20 +73,23 @@ section {
     width: 30vw;
     height: 100vh;
     background-color: var(--lightWhiteSynapsys);
+    -webkit-box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
 }
 
 
 
-.inputs_cadastrar_propriedades {
+.inputs_cadastrar_propriedade {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
     color: var(--bluePrimarySynapSys);
     gap: 10px;
 }
 
-.inputs_cadastrar_propriedades div {
+.inputs_cadastrar_propriedade div {
     display: flex;
     flex-direction: column;
 }
@@ -97,11 +100,11 @@ section {
     gap: 1em;
 }
 
-.inputs_cadastrar_propriedades div label {
+.inputs_cadastrar_propriedade div label {
     font-size: small;
 }
 
-.inputs_cadastrar_propriedades div input {
+.inputs_cadastrar_propriedade div input {
     border: none;
     border-bottom: var(--blueSkySynapSys) 2px solid;
     padding: 0.5em 1em;
@@ -109,7 +112,7 @@ section {
 }
 
 .adicionar_propriedade h1,
-#edit_propriedade h1 {
+#editar_propriedade h1 {
     color: var(--darkBlueSynapsys);
     font-size: larger;
     text-transform: uppercase;
@@ -175,7 +178,7 @@ section {
     background-color: var(--bluePrimarySynapSys);
 }
 
-#propriedade {
+#propriedades {
     background: var(--whiteFundo);
     height: 100vh;
     display: flex;
@@ -280,6 +283,7 @@ section {
     font-size: 16px;
     text-align: left;
 }
+
 
 .styled-table thead tr {
     background-color: var(--bluePrimarySynapSys);
