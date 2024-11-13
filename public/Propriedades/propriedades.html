@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
     <title>Document</title>
 </head>
 
@@ -24,7 +25,7 @@
                 <div class="inputs_cadastrar_propriedade">
                     <div>
                         <label for="input_logradouro">Insira o Logradouro:</label>
-                        <input type="text" id="input_logradouro" placeholder="" />
+                        <input type="text" id="input_logradouro" placeholder="ex: Rua Haddock Lobo, 595" />
                     </div>
 
                     <div>
@@ -49,7 +50,7 @@
                             <option value="#">Empresa 1</option>
                         </select>
                     </div>
-    
+
                 </div>
                 <div>
                     <button class="drawer_button" id="cadastrarBtn">Cadastrar</button>
@@ -57,16 +58,28 @@
                 </div>
             </div>
             <nav class="navbar">
-                <div class="textNavbar">
-                    <label for="id_propriedade">Escolha a Propriedade:</label>
+                <div>
+                    <div class="textNavbar">
+                        <label for="id_propriedade">Escolha a Propriedade:</label>
+                    </div>
+    
+                    <select class="selectNavbar" name="Propriedade" id="id_propriedade">Escolha a Empresas
+                        <option value="1">Propriedade 1</option>
+                        <option value="2">Propriedade 2</option>
+                        <option value="3">Propriedade 3</option>
+                        <option value="4">Propriedade 4</option>
+                        <option value="5">Propriedade 5</option>
+                    </select>
                 </div>
+                
+
                 <div class="img_menu_suspenso">
-                    
+
                 </div>
-                <div class="selectSeta"></div>
+                
             </nav>
             <div id="listagem_propriedades" style="display: flex;">
-                
+
                 <div class="container_listagem">
                     <div class="list_actions">
                         <h1 id="addRow">Listagem das Propriedades</h1>
@@ -76,9 +89,10 @@
                         <table id="tabela_propriedades" class="display" width="70vw" max-height="60vh">
                             <thead>
                                 <tr>
-                                    <th>Nome Fantasia</th>
+                                    <th>Empresa Associada</th>
                                     <th>Cidade</th>
                                     <th>CEP</th>
+                                    <th>Logradouro</th>
                                     <th>CNPJ</th>
                                     <th>Status</th>
                                     <th>Ações</th>
@@ -89,6 +103,7 @@
                                     <td>SPTECH</td>
                                     <td>São Paulo</td>
                                     <td>00000-000</td>
+                                    <td>Rua Haddock Lobo, 595</td>
                                     <td>00.000.000/0000-00</td>
                                     <td>Ativo</td>
                                     <td><button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button></td>
@@ -125,13 +140,8 @@
                         <label for="input_uf">Insira a Unidade Federativa</label>
                         <input type="text" id="input_uf" placeholder="ex: SP" />
                     </div>
-                    <div>
-                        <label for="select_empresa">Escolha a Empresa a Associar a Propriedade.</label>
-                        <select name="select_empresa" id="select_empresa">
-                            <option value="#">Empresa 1</option>
-                        </select>
-                    </div>
-    
+
+
                 </div>
                 <div>
                     <button class="drawer_button" id="cadastrarBtn">Editar</button>
@@ -149,9 +159,9 @@
 <script>
 
     let counter = 1;
-    
+
     function adicionarNovaEmpresaTabela() {
-        const table = $('#tabela_propriedades').DataTable(); 
+        const table = $('#tabela_propriedades').DataTable();
         table.row
             .add([
                 "empresa" + counter,
@@ -159,23 +169,24 @@
                 "empresa" + counter,
                 "empresa" + counter,
                 "empresa" + counter,
-                `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>` 
+                "empresa" + counter,
+                `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
             ])
             .draw(false);
-    
+
         counter++;
     }
-    
+
     $(document).ready(function () {
         $('#tabela_propriedades').DataTable({
             language: {
-                lengthMenu: "Mostrar _MENU_ propriedades por página",        
-                zeroRecords: "Nenhuma propriedade encontrada, cadastre uma nova propriedade.",           
-                info: "Mostrando _START_ até _END_ de _TOTAL_ itens", 
-                infoEmpty: "Mostrando 0 até 0 de 0 propriedades",            
-                infoFiltered: "(filtrado de _MAX_ propriedades no total)",   
-                search: "Buscar:",                                    
-                paginate: {                                           
+                lengthMenu: "Mostrar _MENU_ propriedades por página",
+                zeroRecords: "Nenhuma propriedade encontrada, cadastre uma nova propriedade.",
+                info: "Mostrando _START_ até _END_ de _TOTAL_ itens",
+                infoEmpty: "Mostrando 0 até 0 de 0 propriedades",
+                infoFiltered: "(filtrado de _MAX_ propriedades no total)",
+                search: "Buscar:",
+                paginate: {
                     first: "Primeiro",
                     last: "Último",
                     next: "Próximo",
@@ -183,54 +194,54 @@
                 }
             },
         });
-        
+
         document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
     });
-    
+
     function toggleDrawerEdit(button) {
-        
+
         alert("Editar empresa: " + button.closest('tr').cells[0].textContent);
     }
-    
-    </script>
-    
-    <script>
-    
-        function toggleDrawerCadastro() {
-            const div = document.getElementById("add_propriedade");
-            if (div.style.display === "none") {
-                div.style.display = "flex";
-            } else {
-                div.style.display = "none";
-            }
+
+</script>
+
+<script>
+
+    function toggleDrawerCadastro() {
+        const div = document.getElementById("add_propriedade");
+        if (div.style.display === "none") {
+            div.style.display = "flex";
+        } else {
+            div.style.display = "none";
         }
-    
-        function toggleDrawerEdit() {
-            const divEdit = document.getElementById("editar_propriedade");
-            if (divEdit.style.display === "none") {
-                divEdit.style.display = "flex";
-            } else {
-                divEdit.style.display = "none";
-            }
+    }
+
+    function toggleDrawerEdit() {
+        const divEdit = document.getElementById("editar_propriedade");
+        if (divEdit.style.display === "none") {
+            divEdit.style.display = "flex";
+        } else {
+            divEdit.style.display = "none";
         }
-    
-    
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            menu.classList.toggle("show-menu");
-        }
-    
-    
-    
-    
-        function apareceInfos(id) {
-            document.getElementById(id).style.display = "flex";
-            document.getElementById(id).style.opacity = 1;
-        }
-    
-        function someInfos(id) {
-            document.getElementById(id).style.display = "none";
-            document.getElementById(id).style.opacity = 0;
-        }
-    
-    </script>
+    }
+
+
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("show-menu");
+    }
+
+
+
+
+    function apareceInfos(id) {
+        document.getElementById(id).style.display = "flex";
+        document.getElementById(id).style.opacity = 1;
+    }
+
+    function someInfos(id) {
+        document.getElementById(id).style.display = "none";
+        document.getElementById(id).style.opacity = 0;
+    }
+
+</script>
