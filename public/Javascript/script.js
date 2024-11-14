@@ -42,29 +42,34 @@ $(document).ready(function () {
         origin: 'left',
         duration: 2000,
         distance: '20%',
+        reset: true,
     });
 
     ScrollReveal().reveal('.cliente', {
         origin: 'left',
         duration: 2000,
         distance: '20%',
+        reset: true,
     });
 
     ScrollReveal().reveal('#wind-detalhes', {
         origin: 'left',
         duration: 1000,
         distance: '20%',
+        reset: true,
     });
 
     ScrollReveal().reveal('.info', {
         origin: 'right',
         duration: 1000,
         distance: '20%',
+        reset: true,
     });
 
     ScrollReveal().reveal('.dev-photo', {
         origin: 'bottom',
         duration: 2000,
         distance: '40%',
+        reset: true,
     });
 });

@@ -15,7 +15,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    
+
 
     width: 90vw;
     height: 20vh;
@@ -72,6 +72,7 @@
 
 .dev-function {
     color: #2a2d2f;
+    font-weight: 600;
 }
 
 .bnt-contact {
