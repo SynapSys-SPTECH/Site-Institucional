@@ -117,19 +117,9 @@
                                 <th>CEP</th>
                                 <th>CNPJ</th>
                                 <th>Status</th>
-                                <th>Ações</th>
+                                <!-- <th>Ações</th> -->
                             </tr>
                         </thead>
-                        <tbody id="corpo_tabela_empresas">
-                            <tr>
-                                <td>SPTECH</td>
-                                <td>São Paulo</td>
-                                <td>00000-000</td>
-                                <td>00.000.000/0000-00</td>
-                                <td>Ativo</td>
-                                <td><button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button></td>
-                            </tr>
-                        </tbody>
                     </table>
                 </section>
 
@@ -198,14 +188,9 @@
 
 </html>
 
-<script type="module">
-    import { cadastrarEmpresa } from '../empresaFetch.js';
-    import { buscarEmpresas } from '../empresaFetch.js';
-    buscarEmpresas()
-    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
-</script>
 
 <script>
+
 
     let counter = 1;
 
@@ -213,11 +198,11 @@
         const table = $('#tabela_empresas').DataTable();
         table.row
             .add([
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
+                localStorage.nomeFantasia,
+                localStorage.cidade,
+                localStorage.cep,
+                localStorage.cnpj,
+                localStorage.status,
                 `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
             ])
             .draw(false);
@@ -293,3 +278,11 @@
     }
 </script>
 
+
+<script type="module">
+    import { cadastrarEmpresa } from '../empresaFetch.js';
+    import { buscarEmpresas } from '../empresaFetch.js';
+
+    buscarEmpresas()
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+</script>

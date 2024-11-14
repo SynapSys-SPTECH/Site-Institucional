@@ -74,7 +74,8 @@ function cadastrarEmpresa() {
 
 function buscarEmpresas() {
   let idUserVar = sessionStorage.ID_USUARIO;
-  
+  let nomeFantasia;
+
   fetch(`/empresas/buscar/${idUserVar}`, {
     method: "GET",
     headers: {
@@ -86,6 +87,14 @@ function buscarEmpresas() {
       console.log("FOI BUSCAR")
       resposta.json().then(json => {
         console.log(json);
+        for(let i = 0; i < json.length; i++){
+          localStorage.setItem("nomeFantasia", json[i].nomeFantasia)
+          localStorage.setItem("cidade", json[i].cidade)
+          localStorage.setItem("cep", json[i].cep)
+          localStorage.setItem("cnpj", json[i].cnpj)
+          localStorage.setItem("status",json[i].idEmpresa)
+          adicionarNovaEmpresaTabela();
+        }
         console.log(JSON.stringify(json));
       });
     } else {

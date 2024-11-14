@@ -15,12 +15,22 @@ function listar(req, res) {
   });
 }
 
-function buscar(req, res) {
+async function buscar(req, res) {
   var id = req.params.idUserVar;
 
-  empresaModel.buscar(id).then((resultado) => {
-    res.status(200).json(resultado);
+  var empresaComEndereco = [];
+const respostaEmpresa = await empresaModel.buscar(id)
+
+  console.log("TESSSTE")
+  console.log(respostaEmpresa)
+  console.log("TESTE")
+  let fkEndereco = respostaEmpresa.fk_endereco
+
+  enderecoModel.listarEndereco(fkEndereco).then((resultadoEndereco) => {
+    res.status(200).json({...resultadoEmpresa, ...resultadoEndereco});
   });
+
+
 }
 
 async function cadastrar(req, res) {
