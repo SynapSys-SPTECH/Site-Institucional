@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <link rel="stylesheet" href="submenu.css">
+    <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
 
-    <title>Document</title>
+    <title>SynapSys</title>
 </head>
 
 <body>
@@ -62,7 +64,7 @@
                     <div class="textNavbar">
                         <label for="id_propriedade">Escolha a Empresa:</label>
                     </div>
-    
+
                     <select class="selectNavbar" name="Propriedade" id="id_propriedade">Escolha a Empresas
                         <option value="1">Empresa 1</option>
                         <option value="2">Empresa 2</option>
@@ -71,12 +73,45 @@
                         <option value="5">Empresa 5</option>
                     </select>
                 </div>
-                
 
-                <div class="img_menu_suspenso">
 
-                </div>
-                
+                <div class="nav-profile" onclick="toggleMenuSuspenso()">
+                    <div class="user-profile-button" id="user_profile-image">
+                        <i class="fa-solid fa-user icon-modify"></i>
+                        <p>Perfil</p>
+                    </div>
+
+                    <div class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <i class="fa-solid fa-user icon-modify"></i>
+                                <h2 class="user-name">Fernanda Caramico</h2>
+                            </div>
+
+                            <a href="endereco.html" class="submenu-option">
+                                <i class="fa-solid fa-house-chimney icon-modify"></i>
+                                <p>Option</p>
+                                <span> > </span>
+                            </a>
+
+                            <a href="endereco.html" class="submenu-option">
+                                <i class="fa-solid fa-house-chimney icon-modify"></i>
+                                <p>Option</p>
+                                <span> > </span>
+                            </a>
+
+                            <a href="index.html " class="submenu-option">
+                                <i class="fa-solid fa-door-open icon-modify"></i>
+                                <p>Sair</p>
+                                <span> > </span>
+                            </a>
+
+
+
+                        </div>
+                    </div>
+
+
             </nav>
             <div id="listagem_propriedades" style="display: flex;">
 
@@ -152,9 +187,22 @@
         </section>
     </div>
 
+    <script>
+        let subMenu = document.getElementById("subMenu");
+    
+        function toggleMenuSuspenso() {
+            subMenu.classList.toggle("open-menu");
+        };
+    </script>
+
+   
+
 </body>
 
+
+
 </html>
+
 
 <script>
 

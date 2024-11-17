@@ -322,7 +322,7 @@ section {
 
 
 .navbar {
-    height: 10vh;
+    height: fit-content;
     width: 85vw;
     color: var(--whiteSynapSys);
     background-color: var(--darkBlueSynapsys);
@@ -357,7 +357,7 @@ section {
     font-weight: 500;
 }
 
-.img_menu_suspenso {
+/* .img_menu_suspenso {
     border-radius: 100%;
     overflow: hidden;
     width: 50px;
@@ -375,4 +375,4 @@ section {
     cursor: pointer;
     transform: scale(1.05);
     border: 2px solid var(--lightWhiteSynapsys);
-}
+} */
