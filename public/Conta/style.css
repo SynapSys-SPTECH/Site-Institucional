@@ -37,6 +37,7 @@ section {
   right: 0;
   justify-content: center;
   align-items: center;
+  background-color: var(--whiteFundo);
 }
 
 .dash {
@@ -45,40 +46,30 @@ section {
   background-color: red;
 }
 
-.container {
-  background-color: var(--greySynapSys);
-  width: 99.8em;
-  height: 100vh;
-  margin-left: 282px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container-conta {
-  width: 75em;
-  height: 45em;
-  background-color: var(--whiteFundo);
+  width: 70vw;
+  height: fit-content;
+  background-color: var(--lightWhiteSynapsys);
   display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  padding: 25px; /* Adiciona algum espaço interno */
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
 }
 
 .titulo {
-  width: 100%; /* Alarga o título para ocupar toda a largura do container */
-  height: 40px;
-  text-align: center; /* Centraliza o texto dentro do título */
+  width: 100%;
+  text-align: center;
   color: black;
-  font-size: 40px;
+  font-size: 4vh;
+  font-weight: 700;
+  margin: 1em;
 }
+
 .conteudo {
-  width: 100%; /* Alarga o conteúdo para ocupar toda a largura do container */
-  height: 90%;
-  margin-top: 10px;
+  width: 100%;
+  height: fit-content;
   display: flex;
-  flex-direction: row; /* Empilha os itens verticalmente */
-  align-items: center; /* Adiciona um espaço entre o título e o conteúdo */
+  flex-direction: row;
 }
 
 .conteudo input {
@@ -89,7 +80,7 @@ section {
 }
 
 .conteudo label {
-  font-size: small;
+  font-size: 2vh;
   text-align: start;
   margin-top: 10px;
 }
@@ -98,7 +89,7 @@ section {
   background-color: var(--blueSkySynapSys);
   color: var(--lightWhiteSynapsys);
   border: none;
-  font-size: small;
+  font-size: 2vh;
   font-weight: 900;
   padding: 1em 2em;
   margin-top: 10px;
@@ -110,46 +101,26 @@ section {
 }
 
 .conteudo span {
-    font-size: 27px;
+  font-size: 4vh;
     text-align: center;
 }
 
-.cont-esq {
-  width: 50%; /* Alarga o conteúdo para ocupar toda a largura do container */
-  height: 90%;
+.cards {
+  width: 100%; 
+  height: fit-content;
   display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: top;
+  
+  justify-content: space-between;
 }
 
-.cont-dir {
-  width: 50%; /* Alarga o conteúdo para ocupar toda a largura do container */
-  height: 90%;
-  display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  align-items: center;
-}
 
-.info1 {
-  display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  height: 50%;
-  width: 70%;
-  margin-top: 50px;
-}
 
-.info2 {
+.card{
   display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  height: 50%;
-  width: 70%;
-  margin-top: 10px;
-}
-
-.info3 {
-  display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  height: 50%;
-  width: 70%;
-  margin-top: 50px;
+  flex-direction: column; 
+  height: fit-content;
+  width: 40%;
 }
