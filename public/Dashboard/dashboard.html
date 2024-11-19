@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.css" />
 
+    
+    <!-- Config menu suspenso -->
+    <link rel="stylesheet" href="submenu.css">
+    <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
+
+
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
 
@@ -29,20 +35,54 @@
     <div class='container'>
         <section id='dashboard'>
             <nav class="navbar">
-                <div class="textNavbar">
-                    <label for="id_propriedade">Escolha a Propriedade:</label>
-                </div>
-                <div class="selectNavbar">
-                    <select name="Propriedade" id="id_propriedade">
-                        <option value="1">Propriedade 1</option>
-                        <option value="2">Propriedade 2</option>
-                        <option value="3">Propriedade 3</option>
-                        <option value="4">Propriedade 4</option>
-                        <option value="5">Propriedade 5</option>
+                <div>
+                    <div class="textNavbar">
+                        <label for="id_propriedade">Escolha a Empresa:</label>
+                    </div>
+
+                    <select class="selectNavbar" name="Propriedade" id="id_propriedade">Escolha a Empresas
+                        <option value="1">Empresa 1</option>
+                        <option value="2">Empresa 2</option>
+                        <option value="3">Empresa 3</option>
+                        <option value="4">Empresa 4</option>
+                        <option value="5">Empresa 5</option>
                     </select>
                 </div>
-                <div class="selectSeta"></div>
+
+
+                <div class="nav-profile" onclick="toggleMenuSuspenso()">
+                    <div class="user-profile-button" id="user_profile-image">
+                        <i class="fa-solid fa-user icon-modify"></i>
+                        
+                    </div>
+
+                    <div class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <i class="fa-solid fa-user icon-modify"></i>
+                                <h2 class="user-name" id="username">Usuário</h2>
+                            </div>
+
+                            <a href="../Conta/conta.html" class="submenu-option">
+                                <i class="fa-solid fa-gear icon-modify"></i>
+                                <p>Conta</p>
+                                <span> > </span>
+                            </a>
+
+                            <a href="../index.html" onclick="sairDaConta()" class="submenu-option">
+                                <i class="fa-solid fa-door-open icon-modify"></i>
+                                <p>Sair</p>
+                                <span> > </span>
+                            </a>
+
+
+
+                        </div>
+                    </div>
+
+
             </nav>
+            
             <div class="main-dashboard">
                 <div class="kpis">
                     <div class="kpi">
@@ -60,10 +100,10 @@
                 </div>
                 <div class="graficos">
                     <div class="grafico">
-                        <div id="myChart" style="width: 40em; height:400px"></div>
+                        <div id="myChart" style="width: 30vw; height:40vh"></div>
                     </div>
                     <div class="grafico">
-                        <h1>Mapa</h1>
+                        
                         <div id="map"></div>
                     </div>
                 </div>
@@ -96,7 +136,7 @@
 
 
         const data = google.visualization.arrayToDataTable([
-            ['Contry', 'Mhl'],
+            ['Dias', 'Mhl'],
             ['Segunda-Feira', 55],
             ['Terça-Feira', 49],
             ['Quarta-Feira', 44],
@@ -128,20 +168,20 @@
 <script src="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.min.js"></script>
 
 <script>
-    // Coordenadas do sudoeste e nordeste de São Paulo para definir o foco apenas no estado
+
     var bounds = [
-        [-9.583, -50.109], // Sudoeste de São Paulo
-        [-17.766, -34.196]  // Nordeste de São Paulo
+        [-9.583, -50.109], 
+        [-17.766, -34.196]  
     ];
 
-    // Criar o mapa Leaflet focado apenas em São Paulo
+    
     var map = L.map('map', {
         maxBounds: bounds,
         minZoom: 5.4,
-        maxZoom: 8 // Ajuste o nível mínimo de zoom para mostrar apenas o estado de São Paulo
+        maxZoom: 8 
     }).fitBounds(bounds);
 
-    // Adicionar o mapa base do OpenStreetMap
+    
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -219,4 +259,13 @@
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
+</script>
+
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenuSuspenso() {
+        subMenu.classList.toggle("open-menu");
+    };
 </script>

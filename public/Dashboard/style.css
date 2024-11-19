@@ -23,51 +23,38 @@ section {
     align-items: center;
 }
 
+
 .navbar {
-    height: 10vh;
-    width: 100%;
+    height: fit-content;
+    width: 85vw;
     color: var(--whiteSynapSys);
     background-color: var(--darkBlueSynapsys);
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    gap: 48em;
+    padding: 0.5em 0;
+}
+
+.navbar div {
+    display: flex;
+    gap: 1vw;
 }
 
 .textNavbar {
     font-size: 25px;
+    margin-left: 5em;
 }
 
 .selectNavbar {
-    width: 10em;
-    height: 2em;
-    border-radius: 100px;
-}
-
-.selectNavbar select {
-    width: 100%;
-    height: 100%;
-    margin: 0;
     text-align: center;
     cursor: pointer;
-    padding: 0;
-    border: solid 1px #000;
-    border-radius: 100px;
     outline: none;
-    appearance: none;
     font-size: 18px;
-}
-
-.selectSeta {
-    content: "";
-    position: absolute;
-    right: 6.5%;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #333;
+    border: none;
+    border-bottom: var(--blueSkySynapSys) 2px solid;
+    background-color: var(--darkBlueSynapsys);
+    color: var(--lightWhiteSynapsys);
 }
 
 .navbar div {
@@ -76,10 +63,11 @@ section {
 
 
 
-
 #dashboard {
     background: var(--whiteFundo);
     width: 85vw;
+    height: 100vh;
+    overflow-y: hidden;
     left: 15vw;
 }
 
@@ -112,17 +100,17 @@ section {
     align-items: center;
     padding: 1em;
     box-shadow: 1px 2px 6px black;
-    border-radius: 2em;
+    border-left: #00B2FF 4px solid;
 }
 
 .kpi h1 {
-    font-size: 23px;
+    font-size: medium;
     text-align: center;
     height: 1em;
 }
 
 .kpi span {
-    font-size: 45px;
+    font-size: xx-large;
     font-weight: bolder;
     text-align: center;
     margin: auto;
@@ -134,26 +122,27 @@ section {
     display: flex;
     justify-content: space-between;
     gap: 1em;
-    padding: 2em 0;
+    padding-top: 2em; 
 }
 
 .grafico {
     background-color: rgb(255, 255, 255);
-    height: 90%;
+    height: 80%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 1px 2px 6px black;
-    padding: 1em;
-    border-radius: 2em;
+    padding: 0.5em;
+    border-left: var(--blueSkySynapSys) 4px solid;
 }
 
 
 #map {
-    height: 34em;
+    height: 60vh;
     width: 40em;
+
 }
 
 
