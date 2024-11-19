@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script type="module" src="../empresaFetch.js"></script>
     <title>Empresas</title>
 
 </head>
@@ -118,19 +119,9 @@
                                 <th>CEP</th>
                                 <th>CNPJ</th>
                                 <th>Status</th>
-                                <th>Ações</th>
+                                <!-- <th>Ações</th> -->
                             </tr>
                         </thead>
-                        <tbody id="corpo_tabela_empresas">
-                            <tr>
-                                <td>SPTECH</td>
-                                <td>São Paulo</td>
-                                <td>00000-000</td>
-                                <td>00.000.000/0000-00</td>
-                                <td>Ativo</td>
-                                <td><button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button></td>
-                            </tr>
-                        </tbody>
                     </table>
                 </section>
 
@@ -199,57 +190,53 @@
 
 </html>
 
-<script type="module">
-    import { cadastrarEmpresa } from '../empresaFetch.js';
-
-    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
-</script>
 
 <script>
 
-let counter = 1;
 
-function adicionarNovaEmpresaTabela() {
-    const table = $('#tabela_empresas').DataTable(); 
-    table.row
-        .add([
-            "empresa" + counter,
-            "empresa" + counter,
-            "empresa" + counter,
-            "empresa" + counter,
-            "empresa" + counter,
-            `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>` 
-        ])
-        .draw(false);
+    let counter = 1;
 
-    counter++;
-}
+    function adicionarNovaEmpresaTabela() {
+        const table = $('#tabela_empresas').DataTable();
+        table.row
+            .add([
+                localStorage.nomeFantasia,
+                localStorage.cidade,
+                localStorage.cep,
+                localStorage.cnpj,
+                localStorage.status,
+                `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
+            ])
+            .draw(false);
 
-$(document).ready(function () {
-    $('#tabela_empresas').DataTable({
-        language: {
-            lengthMenu: "Mostrar _MENU_ itens por página",        
-            zeroRecords: "Nenhum resultado encontrado",           
-            info: "Mostrando _START_ até _END_ de _TOTAL_ itens", 
-            infoEmpty: "Mostrando 0 até 0 de 0 itens",            
-            infoFiltered: "(filtrado de _MAX_ itens no total)",   
-            search: "Buscar:",                                    
-            paginate: {                                           
-                first: "Primeiro",
-                last: "Último",
-                next: "Próximo",
-                previous: "Anterior"
-            }
-        },
+        counter++;
+    }
+
+    $(document).ready(function () {
+        $('#tabela_empresas').DataTable({
+            language: {
+                lengthMenu: "Mostrar _MENU_ itens por página",
+                zeroRecords: "Nenhum resultado encontrado",
+                info: "Mostrando _START_ até _END_ de _TOTAL_ itens",
+                infoEmpty: "Mostrando 0 até 0 de 0 itens",
+                infoFiltered: "(filtrado de _MAX_ itens no total)",
+                search: "Buscar:",
+                paginate: {
+                    first: "Primeiro",
+                    last: "Último",
+                    next: "Próximo",
+                    previous: "Anterior"
+                }
+            },
+        });
+
+        document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
     });
-    
-    document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
-});
 
-function toggleDrawerEdit(button) {
-    
-    alert("Editar empresa: " + button.closest('tr').cells[0].textContent);
-}
+    function toggleDrawerEdit(button) {
+
+        alert("Editar empresa: " + button.closest('tr').cells[0].textContent);
+    }
 
 </script>
 
@@ -291,5 +278,13 @@ function toggleDrawerEdit(button) {
         document.getElementById(id).style.display = "none";
         document.getElementById(id).style.opacity = 0;
     }
+</script>
 
+
+<script type="module">
+    import { cadastrarEmpresa } from '../empresaFetch.js';
+    import { buscarEmpresas } from '../empresaFetch.js';
+
+    buscarEmpresas()
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
 </script>

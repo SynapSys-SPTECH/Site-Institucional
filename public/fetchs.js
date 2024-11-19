@@ -42,6 +42,7 @@ function entrar() {
         sessionStorage.TIPO_USUARIO = json.fktipo
         sessionStorage.NOME_USUARIO = json.nome;
 
+        
         irDash();
 
       });
