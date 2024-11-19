@@ -120,54 +120,7 @@ section {
 
 .card{
   display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  height: 50%;
-  width: 70%;
-  margin-top: 10px;
+  flex-direction: column; 
+  height: fit-content;
+  width: 40%;
 }
-
-.info3 {
-  display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  height: 50%;
-  width: 70%;
-  margin-top: 50px;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    width: 100%;
-    margin-left: 0;
-  }
-  .container-conta {
-    width: 90%;
-  }
-}
-
-@media (max-width: 768px) {
-  .container-conta {
-    width: 95%;
-    height: auto;
-  }
-  .conteudo {
-    flex-direction: column;
-  }
-  .cont-esq, .cont-dir {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  .info1, .info2, .info3 {
-    width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .titulo {
-    font-size: 30px;
-  }
-  .info1, .info2, .info3 {
-      width: 100%;
-  }
-}
-
