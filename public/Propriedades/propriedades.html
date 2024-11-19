@@ -85,7 +85,7 @@
                         <div class="sub-menu">
                             <div class="user-info">
                                 <i class="fa-solid fa-user icon-modify"></i>
-                                <h2 class="user-name">Fernanda Caramico</h2>
+                                <h2 class="user-name" id="username">Usuário</h2>
                             </div>
 
                             <a href="../Conta/conta.html" class="submenu-option">
@@ -181,13 +181,7 @@
         </section>
     </div>
 
-    <script>
-        let subMenu = document.getElementById("subMenu");
     
-        function toggleMenuSuspenso() {
-            subMenu.classList.toggle("open-menu");
-        };
-    </script>
 
    
 
@@ -197,6 +191,13 @@
 
 </html>
 
+<script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenuSuspenso() {
+        subMenu.classList.toggle("open-menu");
+    };
+</script>
 
 <script>
 

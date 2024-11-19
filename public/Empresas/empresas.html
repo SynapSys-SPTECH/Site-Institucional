@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
 
+    <!-- Config para menu suspenso -->
+    <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="submenu.css">
+
     <!-- Importando o Data Tables aqui!! -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -104,6 +108,39 @@
             </div>
 
         </div>
+        <nav class="navbar">
+            <div class="nav-profile" onclick="toggleMenuSuspenso()">
+                <div class="user-profile-button" id="user_profile-image">
+                    <i class="fa-solid fa-user icon-modify"></i>
+                    
+                </div>
+
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <i class="fa-solid fa-user icon-modify"></i>
+                            <h2 class="user-name" id="username">Usuário</h2>
+                        </div>
+
+                        <a href="../Conta/conta.html" class="submenu-option">
+                            <i class="fa-solid fa-gear icon-modify"></i>
+                            <p>Option</p>
+                            <span> > </span>
+                        </a>
+
+                        <a href="../index.html" onclick="sairDaConta()" class="submenu-option">
+                            <i class="fa-solid fa-door-open icon-modify"></i>
+                            <p>Sair</p>
+                            <span> > </span>
+                        </a>
+
+
+
+                    </div>
+                </div>
+
+
+        </nav>
         <div id="listagem_empresas" style="display: flex;">
             <div class="container_listagem">
                 <div class="list_actions">
@@ -215,11 +252,11 @@
     $(document).ready(function () {
         $('#tabela_empresas').DataTable({
             language: {
-                lengthMenu: "Mostrar _MENU_ itens por página",
-                zeroRecords: "Nenhum resultado encontrado",
-                info: "Mostrando _START_ até _END_ de _TOTAL_ itens",
-                infoEmpty: "Mostrando 0 até 0 de 0 itens",
-                infoFiltered: "(filtrado de _MAX_ itens no total)",
+                lengthMenu: "Mostrar _MENU_ empresas por página",
+                zeroRecords: "Nenhuma empresa encontrada",
+                info: "Mostrando _START_ até _END_ de _TOTAL_ empresas",
+                infoEmpty: "Mostrando 0 até 0 de 0 empresas",
+                infoFiltered: "(filtrado de _MAX_ empresas no total)",
                 search: "Buscar:",
                 paginate: {
                     first: "Primeiro",
@@ -287,4 +324,12 @@
 
     buscarEmpresas()
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+</script>
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenuSuspenso() {
+        subMenu.classList.toggle("open-menu");
+    };
 </script>

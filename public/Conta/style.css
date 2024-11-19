@@ -35,7 +35,7 @@ section {
   display: flex;
   flex-direction: column;
   right: 0;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   background-color: var(--whiteFundo);
 }
@@ -124,3 +124,61 @@ section {
   height: fit-content;
   width: 40%;
 }
+
+.navbar {
+  height: fit-content;
+  width: 85vw;
+  color: var(--whiteSynapSys);
+  background-color: var(--darkBlueSynapsys);
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding: 0.5em 0;
+}
+
+.navbar div {
+  display: flex;
+  gap: 1vw;
+}
+
+.textNavbar {
+  font-size: 25px;
+  margin-left: 5em;
+}
+
+.selectNavbar {
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  border: none;
+  border-bottom: var(--blueSkySynapSys) 2px solid;
+  background-color: var(--darkBlueSynapsys);
+  color: var(--lightWhiteSynapsys);
+}
+
+.navbar div {
+  font-weight: 500;
+}
+
+/* .img_menu_suspenso {
+  border-radius: 100%;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  background-image: url(../images/download.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: ease-in-out 0.2s;
+  border: 2px solid transparent;
+  margin-right: 5em;
+}
+
+.img_menu_suspenso:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  border: 2px solid var(--lightWhiteSynapsys);
+} */
+
