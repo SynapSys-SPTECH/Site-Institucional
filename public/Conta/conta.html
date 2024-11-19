@@ -21,12 +21,12 @@
     <!-- FIM Navbar -->
 
 
-    <div class='container'>
+    <section>
         <div class="container-conta">
             <div class="titulo"> Editar Conta</div>
             <div class="conteudo">
-                <div class="cont-esq">
-                    <div class="info1">
+                <div class="cards">
+                    <div class="card">
                         <span>Informações Pessoais</span>
                         <label for="nomeConta">Nome</label>
                         <input type="text" name="" id="nomeConta">
@@ -34,19 +34,7 @@
                         <input type="text" name="" id="emailConta">
                         <button onclick="atualizarInfo()">Atualizar Informações</button>
                     </div>
-                    <div class="info2">
-                        <span>Atualizar Senha</span>
-                        <label for="senhaAtualConta">Senha Atual</label>
-                        <input type="password" name="" id="senhaAtualConta">
-                        <label for="novaSenhaConta">Senha Nova</label>
-                        <input type="password" name="" id="novaSenhaConta">
-                        <label for="confirmarSenhaConta">Confirmar Senha</label>
-                        <input type="password" name="" id="confirmarSenhaConta">
-                        <button onclick="atualizarSenha()">Atualizar Senha</button>
-                    </div>
-                </div>
-                <div class="cont-dir">
-                    <div class="info3">
+                    <div class="card">
                         <span>Informações Importantes</span>
                         <label for="nomeConta">CPF</label>
                         <input type="text" name="" id="cpfConta">
@@ -57,10 +45,21 @@
                         </select>
                         <button onclick="">Atualizar Informações</button>
                     </div>
+                    <div class="card">
+                        <span>Atualizar Senha</span>
+                        <label for="senhaAtualConta">Senha Atual</label>
+                        <input type="password" name="" id="senhaAtualConta">
+                        <label for="novaSenhaConta">Senha Nova</label>
+                        <input type="password" name="" id="novaSenhaConta">
+                        <label for="confirmarSenhaConta">Confirmar Senha</label>
+                        <input type="password" name="" id="confirmarSenhaConta">
+                        <button onclick="atualizarSenha()">Atualizar Senha</button>
+                    </div>
                 </div>
+                
             </div>
         </div>
-    </div>
+    </section>
 
 </body>
 
