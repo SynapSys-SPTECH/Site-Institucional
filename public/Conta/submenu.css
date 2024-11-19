@@ -40,7 +40,7 @@
 .sub-menu-wrap {
     position: absolute;
     top: 100%;
-    right: 10%;
+    right: -250%;
     width: 320px;
     max-height: 0px;
     overflow: hidden;

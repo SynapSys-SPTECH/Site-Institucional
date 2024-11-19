@@ -84,6 +84,8 @@ section {
     justify-content: space-evenly;
     color: var(--bluePrimarySynapSys);
     gap: 10px;
+    height: 70vh;
+    overflow-y: scroll;
 }
 
 .inputs_cadastrar_empresa div {
