@@ -1,17 +1,17 @@
-*{
+* {
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
     font-family: Inter;
 }
 
-.botoes img{
+.botoes img {
     height: 30px;
     width: 30px;
     padding: 10px;
 }
 
-section{
+section {
     position: absolute;
     top: 0;
     height: 100vh;
@@ -19,16 +19,138 @@ section{
     opacity: 1;
     transition: all ease-in .5s;
     display: flex;
-    flex-direction: column; 
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-.dash{
-    width: 88vw;
-    height: 100vh;
-    background-color: red;
+
+.navbar {
+    height: fit-content;
+    width: 85vw;
+    color: var(--whiteSynapSys);
+    background-color: var(--darkBlueSynapsys);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
 }
+
+.navbar div {
+    display: flex;
+    gap: 1vw;
+}
+
+.textNavbar {
+    font-size: 25px;
+    margin-left: 5em;
+}
+
+.selectNavbar {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    border: none;
+    border-bottom: var(--blueSkySynapSys) 2px solid;
+    background-color: var(--darkBlueSynapsys);
+    color: var(--lightWhiteSynapsys);
+}
+
+.navbar div {
+    font-weight: 500;
+}
+
+
+
+#dashboard {
+    background: var(--whiteFundo);
+    width: 85vw;
+    height: 100vh;
+    overflow-y: hidden;
+    left: 15vw;
+}
+
+.main-dashboard {
+    /* background-color: red; */
+    width: 90%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.kpis {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    padding: 2em 0;
+}
+
+.kpi {
+    background-color: #fff;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em;
+    box-shadow: 1px 2px 6px black;
+    border-left: #00B2FF 4px solid;
+}
+
+.kpi h1 {
+    font-size: medium;
+    text-align: center;
+    height: 1em;
+}
+
+.kpi span {
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    margin: auto;
+}
+
+.graficos {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    padding-top: 2em; 
+}
+
+.grafico {
+    background-color: rgb(255, 255, 255);
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 2px 6px black;
+    padding: 0.5em;
+    border-left: var(--blueSkySynapSys) 4px solid;
+}
+
+
+#map {
+    height: 60vh;
+    width: 40em;
+
+}
+
+
+
+
+
+
+
 
 
 :root {
@@ -38,18 +160,22 @@ section{
     --contrast-color: #F2E527;
     --light-color: #D2A9D9;
     --lol-color: #000000;
-    }
-    
-    .container {
-      background: #191919;
-      min-height: 100vh;
-      font-family: Montserrat, sans-serif;
-    }
-    
-    #dashboard {
-      background:var(--primary-color);
-    }
-   
-    
-    
-    
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #204B74;
+    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys: #00B2FF;
+    --blackSynapsys: #0d0d0d;
+    --darkBlueSynapsys: #191c30;
+    --lightWhiteSynapsys: #FFF;
+    --darkBlueSynapsys: #191c30;
+}
+
+.container {
+    background: #191919;
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}

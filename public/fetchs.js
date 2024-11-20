@@ -1,13 +1,11 @@
 var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
 function irDash() {
-  window.location = "./dashboard/dashboard.html#dashboard";
+  window.location.href = "http://localhost:3333/Dashboard/dashboard.html";
 }
 
 function abrirLogon() {
-  login.style.display = "flex";
-  cadastro.style.display = "none";
-  imgModal.style.float = "left";
+  window.location = "./Login/login.html";
 };
 
 function entrar() {
@@ -44,12 +42,13 @@ function entrar() {
         sessionStorage.TIPO_USUARIO = json.fktipo
         sessionStorage.NOME_USUARIO = json.nome;
 
+        
         irDash();
 
       });
       irDash();
     } else {
-
+      document.getElementById("erro_login").innerHTML = "Email e(ou) senha inválido(os).";
       console.log("Houve um erro ao tentar realizar o login!");
 
       resposta.text().then(texto => {
@@ -86,7 +85,7 @@ function cadastrar() {
     console.log("Campos Preenchidos.")
   }
 
-  fetch("/usuarios/cadastrar", {
+  fetch("../usuarios/cadastrar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -145,45 +144,116 @@ function deletar(idUsuario) {
   });
 }
 
-function atualizar() {
-  var nomeServer = nomeUsuarioConta.value
-  var emailServer = emailUsuarioConta.value
 
-  console.log(nomeServer);
-  if (nomeServer == '') {
-    nomeServer = sessionStorage.getItem("NOME_USUARIO")
+function atualizarInfo() {
+    let nomeVar = nomeConta.value;
+    let emailVar = emailConta.value
+    let idUsuarioVar = sessionStorage.ID_USUARIO
+
+    if(nomeVar == "") {
+      nomeVar = sessionStorage.NOME_USUARIO
+    } else {
+      sessionStorage.setItem("NOME_USUARIO", nomeVar); 
+    }
+
+    if(emailVar == "") {
+      emailVar = sessionStorage.EMAIL_USUARIO
+    } else {
+      sessionStorage.setItem("EMAIL_USUARIO", emailVar); 
+    }
+
+    if(!emailVar.includes("@")){
+        alert("Email Invalido!")
+        return;
+    }
+
+    console.log("idUsuarioVar:", idUsuarioVar);
+
+    fetch(`../usuarios/editar/${idUsuarioVar}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        idServer: idUsuarioVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+          console.log(
+            "Edição realizado com sucesso!")
+        } else {
+          throw "Houve um erro ao tentar realizar a edição!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  
+    return false;
   }
 
-  if (emailServer == '') {
-    emailServer = sessionStorage.getItem("EMAIL_USUARIO")
-  }
+  function atualizarSenha() {
+    let senhaNovaVar = novaSenhaConta.value;
+    let confirmarSenhaVar = confirmarSenhaConta.value
+    let senhaAtualVar = senhaAtualConta.value;
+    let emailVar = sessionStorage.EMAIL_USUARIO;
+    let idUsuarioVar = sessionStorage.ID_USUARIO
 
-  console.log(nomeServer);
+    if(senhaNovaVar != confirmarSenhaVar) {
+      alert("Confirmar senha não bate com o campo senha")
+      return;
+    }
 
-  var nomeVar = nomeServer;
-  var emailVar = emailServer;
-
-  fetch(`/usuarios/editar/${sessionStorage.getItem("ID_USUARIO")}`, {
-    method: "PUT",
+    fetch("/usuarios/autenticar", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      nome: nomeVar,
-      email: emailVar
+      emailServer: emailVar,
+      senhaServer: senhaAtualVar
     })
   }).then(function (resposta) {
-
     if (resposta.ok) {
-      window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-      window.location = "/dashboard/dashboard.html#conta"
-    } else if (resposta.status == 404) {
-      window.alert("Deu 404!");
+      console.log(resposta);
     } else {
-      throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      console.log("Senha Atual errada!");
+      alert("Senha Atual errada!")
+      return;
     }
-  }).catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-  });
-}
+
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+
+
+    fetch(`../usuarios/editarSenha/${idUsuarioVar}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        senhaServer: senhaNovaVar,
+        idServer: idUsuarioVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+          console.log(
+            "Edição realizado com sucesso!")
+        } else {
+          throw "Houve um erro ao tentar realizar a edição!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  
+    return false;
+  }
 

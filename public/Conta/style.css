@@ -1,64 +1,182 @@
-*{
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
-    font-family: Inter;
-}
-
-.botoes img{
-    height: 30px;
-    width: 30px;
-    padding: 10px;
-}
-
-section{
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-    opacity: 1;
-    transition: all ease-in .5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dash{
-    width: 88vw;
-    height: 100vh;
-    background-color: red;
-}
-
-
 :root {
-    --primary-color: #D96AA7;
-    --secondary-color: #422C73;
-    --complimentary-color: #88BFB5;
-    --contrast-color: #F2E527;
-    --light-color: #D2A9D9;
-    --lol-color: #000000;
-    }
-    
-    .container {
-      background: #191919;
-      min-height: 100vh;
-      font-family: Montserrat, sans-serif;
-    }
-    
-    section h1 {
-        color: #fff;
-        font-size: 50px;
-        text-transform: uppercase;
-        opacity: 0;
-    }
-    
-    
-    #conta {
-        background: var(--lol-color);
-        display: flex;
-        flex-direction: column;
-    }
-    
-    @keyframes fadeIn {
-        100% { opacity:1 }
-    }
+  --primary-color: #d96aa7;
+  --secondary-color: #422c73;
+  --complimentary-color: #88bfb5;
+  --contrast-color: #f2e527;
+  --light-color: #d2a9d9;
+  --lol-color: #000000;
+  --whiteSynapSys: #eee;
+  --whiteFundo: #dadada;
+  --lightBlueSynapSys: #85d4e0;
+  --blueSkySynapSys: #00b2ff;
+  --greySynapSys: #b3b3b3;
+  --bluePrimarySynapSys: #204b74;
+  --blueSecondarySynapSys: #183e63;
+  --lightBlueSynapSys: #00b2ff;
+  --darkBlueSynapsys: #191c30;
+  --lightWhiteSynapsys: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: Inter;
+}
+
+section {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 85vw;
+  padding-left: 15vw;
+  opacity: 1;
+  transition: all ease-in 0.5s;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  justify-content: start;
+  align-items: center;
+  background-color: var(--whiteFundo);
+}
+
+.dash {
+  width: 88vw;
+  height: 100vh;
+  background-color: red;
+}
+
+.container-conta {
+  width: 70vw;
+  height: fit-content;
+  background-color: var(--lightWhiteSynapsys);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+
+.titulo {
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 4vh;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.conteudo {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+
+.conteudo input {
+  border: none;
+  border-bottom: var(--blueSkySynapSys) 2px solid;
+  padding: 0.5em 1em;
+  background-color: var(--whiteSynapSys);
+}
+
+.conteudo label {
+  font-size: 2vh;
+  text-align: start;
+}
+
+.conteudo button {
+  background-color: var(--blueSkySynapSys);
+  color: var(--lightWhiteSynapsys);
+  border: none;
+  font-size: 2vh;
+  font-weight: 900;
+  padding: 1em 2em;
+  margin-top: 5px;
+}
+
+.conteudo button:hover {
+  cursor: pointer;
+  background-color: var(--bluePrimarySynapSys);
+}
+
+.conteudo span {
+  font-size: 3vh;
+  text-align: center;
+}
+
+.cards {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: top;
+
+  justify-content: space-between;
+}
+
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 40%;
+}
+
+.navbar {
+  height: fit-content;
+  width: 85vw;
+  color: var(--whiteSynapSys);
+  background-color: var(--darkBlueSynapsys);
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding: 0.5em 0;
+}
+
+.navbar div {
+  display: flex;
+  gap: 1vw;
+}
+
+.textNavbar {
+  font-size: 25px;
+  margin-left: 5em;
+}
+
+.selectNavbar {
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  border: none;
+  border-bottom: var(--blueSkySynapSys) 2px solid;
+  background-color: var(--darkBlueSynapsys);
+  color: var(--lightWhiteSynapsys);
+}
+
+.navbar div {
+  font-weight: 500;
+}
+
+/* .img_menu_suspenso {
+  border-radius: 100%;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  background-image: url(../images/download.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: ease-in-out 0.2s;
+  border: 2px solid transparent;
+  margin-right: 5em;
+}
+
+.img_menu_suspenso:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  border: 2px solid var(--lightWhiteSynapsys);
+} */

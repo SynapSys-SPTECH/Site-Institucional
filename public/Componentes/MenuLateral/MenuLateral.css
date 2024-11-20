@@ -1,6 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #85d4e0;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #204B74;
+    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys: #00B2FF;
+    --darkBlueSynapsys: #191c30;
+    --lightWhiteSynapsys: #FFF;
+
+}
+
+*{
+    font-family: Inter;
+}
+
 .nav-bar-lateral {
-    width: fit-content;
-    background-color: rgb(224, 240, 255);
+    width: 15vw;
+    background-color: var(--darkBlueSynapsys);
     border-color: black;
     border: 1px;
     border-style: solid;
@@ -9,13 +29,14 @@
     z-index: 50;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     flex-direction: column;
     height: 100vh;
-    padding: 2vw 6vh;
+    padding: 0 5vw;
 }
 
+
 .logo-synapsys {
-    margin-top: 10%;
     display: flex;
     flex-direction: column;
     align-items: center
@@ -28,7 +49,6 @@
 }
 
 .nav-bar-lateral .botoes {
-    margin-top: 30%;
     display: flex;
     height: fit-content;
     gap: 1em;
@@ -46,10 +66,8 @@ a.buttom-navbar {
 }
 
 .nav-bar-lateral .titulo {
-    background-color: aliceblue;
     border-radius: 10px;
-    font-size: large;
-    padding: 5px;
+    font-size: larger;
     display: flex;
     justify-content: center;
 }
@@ -57,7 +75,7 @@ a.buttom-navbar {
 .nav-bar-lateral .nome {
     color: blue;
     border-radius: 5px;
-    background-color: aliceblue;
+    font-weight: 600;
     display: flex;
     justify-content: center;
 
@@ -73,16 +91,17 @@ a.buttom-navbar {
     border-radius: 5px;
     display: flex;
     align-items: center;
-    padding: 0.3em 2em;
+    padding: 1em 2em;
     width: 100%;
+    transition: ease-out 0.3s;
 }
 
 .botoes a:hover {
-    color: rgb(255, 0, 0);
+    color: var(--whiteSynapSys);
 }
 
 .botoes .hover:hover {
-    background-color: grey;
+    background-color: var(--lightBlueSynapSys);
 }
 
 .botoes hr {
@@ -90,8 +109,63 @@ a.buttom-navbar {
     color: rebeccapurple;
 }
 
-
-
 .sair {
     margin-top: 18vh;
+    background-color: red;
+}
+
+
+
+.menu_lateral {
+    background-color: var(--darkBlueSynapsys);
+    width: 15vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu_lateral h3{
+    color: var(--whiteSynapSys);
+    
+}
+
+.menu_lateral ul {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu_lateral ul a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    width: 12vw;
+    align-items: center;
+    padding: 1em 1em;
+    border-bottom: var(--darkBlueSynapsys) 5px solid;
+
+}
+
+.menu_lateral ul a li {
+    color: var(--whiteSynapSys);
+    list-style: none;
+    width: 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.menu_lateral ul a:hover {
+    border-bottom: var(--bluePrimarySynapSys) 5px solid;
+}
+
+.menu_lateral ul a img {
+    height: 1.7em;
+    color: var(--whiteSynapSys);
 }

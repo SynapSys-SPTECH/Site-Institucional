@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="style.css" />
+    
     <script src="./fetchs.js"></script>
     <title>SynapSys</title>
 </head>
@@ -353,6 +354,7 @@
                 <div class="div_input">
                     <p>Senha</p>
                     <input type="password" id="senhaLogin">
+                    <span id="erro_login"></span>
                 </div>
 
                 <button id="entrarLogin" onclick="entrar()">Entrar</button>
@@ -410,9 +412,6 @@
         const menu = document.getElementById("menu");
         menu.classList.toggle("show-menu");
     }
-
-
-
 
     function apareceInfos(id) {
         document.getElementById(id).style.display = "flex";

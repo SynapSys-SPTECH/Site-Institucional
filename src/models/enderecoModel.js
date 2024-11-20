@@ -15,4 +15,10 @@ function cadastrarPropriedade(cidade, UF, cep, logradouro) {
     return database.executar(instrucaoSql);
 }
 
-module.exports = { cadastrar, cadastrarPropriedade };
+function listarEndereco(fkEndereco){
+  var instrucaoSql = `SELECT * FROM endereco where idEndereco = ${fkEndereco}`;
+  
+  return database.executar(instrucaoSql);
+}
+
+module.exports = { cadastrar, cadastrarPropriedade, listarEndereco };

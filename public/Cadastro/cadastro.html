@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="cadastro.css" />
+  <script src="../fetchs.js"></script>
+</head>
+
+<body>
+
+  <div class="login">
+    <div>
+      <img class="img-login" src="../images/cadastro/undraw_secure_login_pdn4.svg" alt="">
+    </div>
+
+    <div class="content-login">
+      <div class="titulo">
+        <h1>Seja bem vindo(a)!</h1>
+        <p>Efetue o seu <span>cadastro</span>:</p>
+      </div>
+      <div class="content">
+        <div class="inputs">
+          <label for="nomeCadastro">Nome</label>
+          <input type="text" id="nomeCadastro">
+        </div>
+        <div class="inputs">
+          <label for="telefoneCadastro">Telefone</label>
+          <input type="tel" id="telefoneCadastro">
+        </div>
+        <div class="inputs">
+          <label for="emailCadastro">Email</label>
+          <input type="email" id="emailCadastro">
+        </div>
+        <div class="inputs">
+          <label for="senhaCadastro">Senha</label>
+          <input type="password" id="senhaCadastro">
+        </div>
+        <div class="inputs">
+          <label for="confirmacaoCadastro">Confirmar Senha</label>
+          <input type="password" id="confirmacaoCadastro">
+        </div>
+        <div class="inputs">
+          <label for="tipoUserCadastro">Tipo de Usuário</label>
+          <select id="tipoUserCadastro">
+            <option value="/">Selecione o Usuario</option>
+            <option value="1">Dono de Empresa</option>
+            <option value="2">Investidor</option>
+          </select>
+        </div>
+        <div class="actions">
+          <button id="entrarLogin" onclick="cadastrar()">Cadastrar</button>
+          <p class="link" id="abrirCadastro">Já possui conta?<a class="link" href="../Login/login.html"> Entrar</a></p>
+          <a class="voltar"  href="../index.html">Voltar ao início</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
