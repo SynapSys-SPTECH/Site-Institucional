@@ -1,120 +1,224 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="images/Icon-SynapSysBranco.svg" type="image/x-icon" />
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css" />
     
-    <script src="./fetchs.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/Icon-SynapSysBranco.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Styles/styleMain.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <title>SynapSys</title>
+
 </head>
 
 <body>
-    <nav>
-        <img class="logo-nav" src="images/logo-synapsys.svg" alt="Logo da SynapSys" />
-        <div class="menu-icon" onclick="toggleMenu()">
-            <img src="images/navbar/menu.svg" alt="Menu" />
+
+    <header>
+        <nav id="navBar">
+
+            <img class="logo-nav" src="images/logo-synapsys.svg" alt="Logo da SynapSys" />
+            <ul id="navList_principal">
+                <li class="item-NavList active">
+                    <a href="#home">
+                        Início
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="#nossosClientes">
+                        Nossos Clientes
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="#detalhes">
+                        Detalhes
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="#main-equipe">
+                        Equipe
+                    </a>
+                </li>
+            </ul>
+            <a href="" id="btn_cadastro"><img src="images/Entrar.svg" alt=""></a>
+
+
+            <button id="btn_mobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+
+            <ul id="mobile_navList">
+                <li class="item-NavList">
+                    <a href="">
+                        Início
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="">
+                        Nossos Clientes
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="">
+                        Detalhes
+                    </a>
+                </li>
+
+                <li class="item-NavList">
+                    <a href="">
+                        Equipe
+                    </a>
+                </li>
+            </ul>
+
+            <a href="" id="btn_cadastro_mobile"><img src="images/Entrar.svg" alt=""></a>
         </div>
-        <ul id="menu">
-            <a href="#main-inicio">
-                <li>Página Inicial</li>
-            </a>
-            <a href="#main-infos01">
-                <li>Nossos Clientes</li>
-            </a>
-            <a href="#main-detalhes">
-                <li>Detalhes</li>
-            </a>
-            <a href="#main-equipe">
-                <li>Equipe</li>
-            </a>
-            <!-- <a href="" id="openModal"><img src="images/Entrar.svg" alt="" /></a> -->
-            <a href="" id="openModal"><img src="images/Entrar.svg" alt=""></a>
+    </header>
 
-        </ul>
+    <main id="content_inicio">
+        <section id="home">
+            <div class="shape"></div>
+            <div id="cta">
+                <h1 class="title">
+                    Transforme vento em poder: Energize o futuro com a <span>força eólica</span>.
+                </h1>
+                <p class="description">
+                    Descubra se você esta realmente explorando todos os seus recursos
+                    disponíveis,ou há oportunidades de expandir sua visão.
+                </p>
+            </div>
 
-    </nav>
+            <div id="banner">
+                <img class="img-banner" src="images/BannerOficial02.png" alt="">
+            </div>
+        </section>
 
-    <!-- INICIO - Seção Inicial -->
+        <section id="nossosClientes">
+            <h2 class="section-title">
+                Nossos Clientes
+            </h2>
+            <h3 class="section-subtitle">
+                Investidores visionários e empresários que impulsionam o futuro da energia limpa
+            </h3>
 
-    <main>
-        <section class="main-inicio" id="main-inicio">
-            <div class="caixa-inicio">
-
-                <div class="container-inicio">
-
-                    <img class="image-inicio" src="imgs/undraw_wind_turbine_x2k4-removebg-preview.png" alt="">
-
-                    <div class="card-inicio">
-                        <h1>
-                            Transforme vento em poder: Energize o futuro com a força eólica.
-                        </h1>
-                        <p>
-                            Descubra se você esta realmente explorando todos os seus recursos
-                            disponíveis,ou há oportunidades de expandir sua visão.
-                        </p>
+            <div id="clientes">
+                <div class="cliente">
+                    <div class="cliente-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
                     </div>
+
+                    <img class="cliente-image" src="images/InvestidorImagem01.png" alt="">
+
+                    <h3 class="cliente-title">
+                        Investidores
+                    </h3>
+
+                    <span class="cliente-description">
+                        Expanda seu negócio com confiança: oferecemos as soluções e insights estratégicos que aceleram
+                        seu sucesso no mercado eólico.
+                    </span>
+
                 </div>
-                <button class="btn-ingressar">INGRESSAR</button>
+
+                <div class="cliente">
+                    <div class="cliente-icon">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+
+                    <img class="cliente-image" src="images/EmpresarioImagem01.png" alt="">
+
+                    <h3 class="cliente-title">
+                        Empresários
+                    </h3>
+
+                    <span class="cliente-description">
+                        Multiplique seu capital com segurança e inovação: nossa expertise maximiza seus retornos na
+                        energia eólica.
+                    </span>
+
+                </div>
+
+                <div class="cliente">
+                    <div class="cliente-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <img class="cliente-image" src="images/InvestidorImagem02.png" alt="">
+
+                    <h3 class="cliente-title">
+                        Investidores
+                    </h3>
+
+                    <span class="cliente-description">
+                        Expanda seu negócio com confiança: oferecemos as soluções e insights estratégicos que aceleram
+                        seu sucesso no mercado eólico.
+                    </span>
+
+                </div>
+
+                <div class="cliente">
+                    <div class="cliente-icon">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+
+                    <img class="cliente-image" src="images/EmpresarioImagem02.png" alt="">
+
+                    <h3 class="cliente-title">
+                        Empresários
+                    </h3>
+
+                    <span class="cliente-description">
+                        Multiplique seu capital com segurança e inovação: nossa expertise maximiza seus retornos na
+                        energia eólica.
+                    </span>
+
+                </div>
             </div>
+
+
         </section>
 
-        <!-- FIM - Seção Inicial -->
+        <section id="detalhes">
+            <img src="images/FundoImageDetalhes.png" id="wind-detalhes" alt="">
 
-        <!-- INICIO - Seção de Informações -->
+            <div id="detalhes_content">
+                <h2 class="section-title">
+                    Energia em Profundidade
+                </h2>
 
-        <section class="main-infos01" id="main-infos01">
-            <h1>Nossos Clientes</h1>
-            <div class="box-info">
-                <img class="img-card-info" src="imgs/Main-infos01.png" alt="" />
-                <div class="card-info" id="card-info">
-                    <h1>PROPRIETÁRIOS</h1>
-                    <p>
-                        Quer descobrir quais são as fronteiras para seus objetivos? Aqui
-                        te oferecemos as melhores opções para sua expansão e nossa
-                        felicidade!
-                        <b>Veja o que nossa IA tem a te dizer...</b>
-                    </p>
+                <h3 class="section-subtitle">
+                    O que você precisa saber
+                </h3>
 
-                    <button class="btn-saibamais">Saiba mais</button>
-                </div>
-            </div>
-        </section>
+                <div id="infos">
+                    <div class="info">
+                        <img src="imgs/Main-infos01.png" class="info-avatar" alt="">
 
-        <section class="main-infos02" id="main-infos02">
-            <h1>Nossos Clientes</h1>
-            <div class="box-info" id="box-info2">
+                        <div class="info-content">
+                            <p>
+                                <b>FONTE RENOVÁVEL</b>
+                                <span>
+                                    <i class="fa-solid fa-wind"></i>
+                                </span>
+                            </p>
 
-                <div class="card-info" id="card-info2">
-                    <h1>INVESTIDORES</h1>
-                    <p>
-                        Se você procura mais opções para investir, navegue por
-                        nossos parques eólicos cadastrados e se tiver interesse entre em
-                        contato direto com o proprietário.
-                    </p>
-                    <button class="btn-saibamais">Saiba mais</button>
-                </div>
-                <img class="img-card-info02" src="imgs/Main-infos2.png" alt="" />
-            </div>
-        </section>
-
-
-        <!-- FIM - Seção de Informações -->
-
-        <!-- INICIO - Seção de Detalhes -->
-
-        <section class="main-detalhes" id="main-detalhes">
-            <main class="container-detalhes">
-                <article class="article-detalhes01" onmouseenter="apareceInfos('article1')"
-                    onmouseleave="someInfos('article1')">
-                    <div class="article-content" id="article1" style="display: none">
-                        <div>
-                            <h1>FONTE RENOVÁVEL</h1>
-                            <br />
                             <p>
                                 Priorizando os caminhos que nos levam a um mundo mais
                                 sustentável, as fontes renováveis são responsáveis por pegar
@@ -124,284 +228,234 @@
                             </p>
                         </div>
                     </div>
-                    <a href="">Saiba mais</a>
 
-                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-                </article>
+                    <div class="info">
+                        <img src="imgs/Main-infos2.png" class="info-avatar" alt="">
 
-                <article class="article-detalhes02" onmouseenter="apareceInfos('article2')"
-                    onmouseleave="someInfos('article2')">
-                    <div class="article-content" id="article2" style="display: none">
-                        <h1>VALORIZAÇÃO NACIONAL</h1>
-                        <br />
-                        <p>
-                            Sendo o Brasil, o 6º maior país do ranking mundial em energia
-                            eólica desde 2021, a fonte representa uma oportunidade de
-                            investir em uma energia limpa e valorizar uma fonte desenvolvida
-                            nacionalmente.
-                        </p>
+                        <div class="info-content">
+                            <p>
+                                <b>VALORIZAÇÃO NACIONAL</b>
+                                <span>
+                                    <i class="fa-solid fa-wind"></i>
+                                </span>
+                            </p>
+
+                            <p>
+                                Sendo o Brasil, o 6º maior país do ranking mundial em energia
+                                eólica desde 2021, a fonte representa uma oportunidade de
+                                investir em uma energia limpa e valorizar uma fonte desenvolvida
+                                nacionalmente.
+                            </p>
+                        </div>
                     </div>
-                    <a href="">Saiba mais</a>
-                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-                </article>
 
-                <article class="article-detalhes03" onmouseenter="apareceInfos('article3')"
-                    onmouseleave="someInfos('article3')">
-                    <div class="article-content" id="article3" style="display: none">
-                        <h1>BAIXO CUSTO A LONGO PRAZO</h1>
-                        <br />
-                        <p>
-                            Atualmente os custos de instalação e de manutenção de parques
-                            eólicos estão relativamente baixos, além de poder ser gerada em escala
-                            residencial, onde miniturbinas pode crescer o acesso ao mesmo.
-                        </p>
+                    <div class="info">
+                        <img src="images/img-turbinas.png" class="info-avatar" alt="">
+
+                        <div class="info-content">
+                            <p>
+                                <b>BAIXO CUSTO A LONGO PRAZO</b>
+                                <span>
+                                    <i class="fa-solid fa-wind"></i>
+                                </span>
+                            </p>
+
+                            <p>
+                                Atualmente os custos de instalação e de manutenção de parques
+                                eólicos estão relativamente baixos, além de poder ser gerada em escala
+                                residencial, onde miniturbinas pode crescer o acesso ao mesmo.
+                            </p>
+                        </div>
                     </div>
-                    <a href="">Saiba mais</a>
-                    <!-- <img class="img-detalhes" src="images/img-turbinas.png"> -->
-                </article>
-            </main>
+                </div>
+            </div>
+
         </section>
 
-        <!-- FIM - Seção de Detalhes -->
+        <section class="section-teamDev" id="main-equipe">
+
+
+            <div class="div-tituloTeamDev">
+
+
+                <h1>
+                    EQUIPE DESENVOLVEDORA
+                </h1>
+
+
+                <p>
+                    Desenvolvedores SynapSys
+                </p>
+            </div>
+
+            <main class="main-teamDev">
+
+                <article class="article-devPhotos">
+
+
+                    <figure>
+                        <img class="dev-photo" src="imgs/Foto Bianca.jpg" alt="">
+                    </figure>
+
+
+                    <p class="dev-name">
+                        Bianca Alves
+                    </p>
+
+
+                    <p class="dev-function">
+                        Product Owner
+                    </p>
+
+                    <div class="div-empresa">
+                        <img src="imgs/linkedin-brands-solid.svg" alt="">
+                        <img class="logo-empresas" src="imgs/logo-accenture.png" alt="">
+                    </div>
+
+                    <a href="">
+                        <button class="bnt-contact">Contate Bianca</button>
+                    </a>
+
+
+                </article>
+
+
+                <article class="article-devPhotos">
+
+
+                    <figure>
+                        <img class="dev-photo" src="imgs/Foto Bryan.jpg" alt="">
+                    </figure>
+
+
+                    <p class="dev-name">
+                        Bryan Henrique
+                    </p>
+
+
+                    <p class="dev-function">
+                        Desenvolvedor Back-end
+                    </p>
+
+                    <div class="div-empresa">
+                        <img src="imgs/linkedin-brands-solid.svg" alt="">
+                        <img class="logo-empresas" src="imgs/logo-bradesco.png" alt="">
+                    </div>
+
+                    <a href="">
+                        <button class="bnt-contact">Contate Bryan</button>
+                    </a>
+
+                </article>
+
+                <article class="article-devPhotos">
+
+                    <figure>
+                        <img class="dev-photo" src="imgs/Foto Enrico.jpg" alt="">
+                    </figure>
+
+                    <p class="dev-name">
+                        Enrico Ferrer
+                    </p>
+
+                    <p class="dev-function">
+                        Desenvolvedor Back-end
+                    </p>
+                    <div class="div-empresa">
+                        <img src="imgs/linkedin-brands-solid.svg" alt="">
+                        <img class="logo-empresas" src="imgs/Radix-logo.jpeg" alt="">
+                    </div>
+
+                    <a href="">
+                        <button class="bnt-contact">Contate Enrico</button>
+                    </a>
+
+                </article>
+
+                <article class="article-devPhotos">
+
+
+
+                    <figure>
+                        <img class="dev-photo" src="imgs/Foto Gabriel Felix.jpg" alt="">
+                    </figure>
+
+                    <p class="dev-name">
+                        Gabriel Felix
+                    </p>
+
+                    <p class="dev-function">
+                        Desenvolvedor Front-end
+                    </p>
+
+                    <div class="div-empresa">
+                        <img src="imgs/linkedin-brands-solid.svg" alt="">
+                        <img class="logo-empresas" src="imgs/Radix-logo.jpeg" alt="">
+                    </div>
+
+                    <a href="">
+                        <button class="bnt-contact">Contate Gabriel</button>
+                    </a>
+
+
+
+                </article>
+
+
+                <article class="article-devPhotos">
+
+
+
+                    <figure>
+                        <img class="dev-photo" src="imgs/Foto Gavassa.jpg" alt="">
+                    </figure>
+
+
+                    <p class="dev-name">
+                        Guilherme Gavassa
+                    </p>
+
+                    <p class="dev-function">
+                        Scrum Master
+                    </p>
+
+                    <div class="div-empresa">
+                        <img src="imgs/linkedin-brands-solid.svg" alt="">
+                        <img class="logo-empresas" src="imgs/logo-avanade.png" alt="">
+                    </div>
+
+
+                    <a href="">
+                        <button class="bnt-contact">Contate Guilherme</button>
+                    </a>
+
+                </article>
+
+
+
+            </main>
+
+
+        </section>
+
+
     </main>
 
-    <!-- INICIO - Seção Desenvolvedores -->
-    <section class="section-teamDev" id="main-equipe">
-
-
-        <div class="div-tituloTeamDev">
-
-
-            <h1>
-                EQUIPE DESENVOLVEDORA
-            </h1>
-
-
-            <p>
-                Desenvolvedores SynapSys
-            </p>
-        </div>
-
-        <main class="main-teamDev">
-
-            <article class="article-devPhotos">
-
-
-                <figure>
-                    <img class="dev-photo" src="imgs/Foto Bianca.jpg" alt="">
-                </figure>
-
-
-                <p class="dev-name">
-                    Bianca Alves
-                </p>
-
-
-                <p class="dev-function">
-                    Product Owner
-                </p>
-
-                <div class="div-empresa">
-                    <img src="imgs/linkedin-brands-solid.svg" alt="">
-                    <img class="logo-empresas" src="imgs/logo-accenture.png" alt="">
-                </div>
-
-                <a href="">
-                    <button class="bnt-contact">Contate Bianca</button>
-                </a>
-
-
-            </article>
-
-
-            <article class="article-devPhotos">
-
-
-                <figure>
-                    <img class="dev-photo" src="imgs/Foto Bryan.jpg" alt="">
-                </figure>
-
-
-                <p class="dev-name">
-                    Bryan Henrique
-                </p>
-
-
-                <p class="dev-function">
-                    Desenvolvedor Back-end
-                </p>
-
-                <div class="div-empresa">
-                    <img src="imgs/linkedin-brands-solid.svg" alt="">
-                    <img class="logo-empresas" src="imgs/logo-bradesco.png" alt="">
-                </div>
-
-                <a href="">
-                    <button class="bnt-contact">Contate Bryan</button>
-                </a>
-
-            </article>
-
-            <article class="article-devPhotos">
-
-                <figure>
-                    <img class="dev-photo" src="imgs/Foto Enrico.jpg" alt="">
-                </figure>
-
-                <p class="dev-name">
-                    Enrico Ferrer
-                </p>
-
-                <p class="dev-function">
-                    Desenvolvedor Back-end
-                </p>
-                <div class="div-empresa">
-                    <img src="imgs/linkedin-brands-solid.svg" alt="">
-                    <img class="logo-empresas" src="imgs/Radix-logo.jpeg" alt="">
-                </div>
-
-                <a href="">
-                    <button class="bnt-contact">Contate Enrico</button>
-                </a>
-
-            </article>
-
-            <article class="article-devPhotos">
-
-
-
-                <figure>
-                    <img class="dev-photo" src="imgs/Foto Gabriel Felix.jpg" alt="">
-                </figure>
-
-                <p class="dev-name">
-                    Gabriel Felix
-                </p>
-
-                <p class="dev-function">
-                    Desenvolvedor Front-end
-                </p>
-
-                <div class="div-empresa">
-                    <img src="imgs/linkedin-brands-solid.svg" alt="">
-                    <img class="logo-empresas" src="imgs/Radix-logo.jpeg" alt="">
-                </div>
-
-                <a href="">
-                    <button class="bnt-contact">Contate Gabriel</button>
-                </a>
-
-
-
-            </article>
-
-
-            <article class="article-devPhotos">
-
-
-
-                <figure>
-                    <img class="dev-photo" src="imgs/Foto Gavassa.jpg" alt="">
-                </figure>
-
-
-                <p class="dev-name">
-                    Guilherme Gavassa
-                </p>
-
-                <p class="dev-function">
-                    Scrum Master
-                </p>
-
-                <div class="div-empresa">
-                    <img src="imgs/linkedin-brands-solid.svg" alt="">
-                    <img class="logo-empresas" src="imgs/logo-avanade.png" alt="">
-                </div>
-
-
-                <a href="">
-                    <button class="bnt-contact">Contate Guilherme</button>
-                </a>
-
-            </article>
-
-
-
-        </main>
-
-
-    </section>
-
     <footer>
-        <img src="images/logo-branca.svg" alt="" />
+        <img src="images/wave.svg" alt="">
+
+        <div id="footer_itens">
+            <span id="copyright">
+                &copy 2024 SynapSys
+            </span>
+
+            <img src="images/logo-synapsys.svg" class="logo-nav" alt="">
+        </div>
     </footer>
 
-
-
-    <!-- INICIO - Modais Login e Cadastro-->
-    <div id="myModal" class="modal">
-        <div class="modalEspaco">
-            <span class="close">&times;</span>
-            <img class="img-modal" src="images/img-turbinas.png" alt="" id="imgModal">
-            <div class="conteudoLogin" id="login">
-                <div class="div_input">
-                    <h2>Login</h2>
-                    <p>Email</p>
-                    <input type="text" id="emailLogin">
-                </div>
-
-
-                <div class="div_input">
-                    <p>Senha</p>
-                    <input type="password" id="senhaLogin">
-                    <span id="erro_login"></span>
-                </div>
-
-                <button id="entrarLogin" onclick="entrar()">Entrar</button>
-                <p id="abrirCadastro"> <a href="">Ainda não é cadastrado?</a></p>
-            </div>
-
-            <div class="conteudoCadastro" id="cadastro" style="display: none;">
-                <h2>Cadastro</h2>
-                <div class="div_input">
-                    <p>Nome</p>
-                    <input type="text" id="nomeCadastro">
-                </div>
-                <div class="div_input">
-                    <p>Telefone</p>
-                    <input type="text" id="telefoneCadastro">
-                </div>
-                <div class="div_input">
-                    <p>Email</p>
-                    <input type="text" id="emailCadastro">
-                </div>
-                <div class="div_input">
-                    <p>Senha</p>
-                    <input type="password" id="senhaCadastro">
-                </div>
-                <div class="div_input">
-                    <p>Confirme sua senha</p>
-                    <input type="password" id="confirmacaoCadastro">
-                </div>
-                <div class="div_input">
-                    <p>Tipo de Usuário</p>
-                    <select id="tipoUserCadastro">
-                        <option value="/">Selecione o Usuario</option>
-                        <option value="1">Dono de Empresa</option>
-                        <option value="2">Investidor</option>
-                        <option value="3">Dono e Investidor</option>
-                    </select>
-                </div>
-                <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
-                <p id="abrirLogin"><a href="">Já é cadastrado?</a></p>
-            </div>
-
-        </div>
-
-
-    </div>
 </body>
 
+<script src="Javascript/script.js"></script>
 
 </html>
 

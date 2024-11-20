@@ -1,0 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('header.css');
+@import url('home.css');
+@import url('clientes.css');
+@import url('detalhes.css');
+@import url('footer.css');
+@import url('equipe.css');
+
+
+:root {
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    --lightBlueSynapSys: #7ec0fa;
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys: #016fd7;
+    --blueSecondarySynapSys: #183E63;
+    --lightBlueSynapSys02: #97cbf8;
+    --lightBlueSynapSys03: #bfe1ff;
+    --BlueHeaderSynapSys: #8cd6fc;
+    --BlueFundo02SynapSys: #599cdb;
+
+}
+
+:root {
+    --blackSynapsys: #000000;
+    --whiteSynapSys: #eee;
+    --whiteFundo: #DADADA;
+    /* --lightBlueSynapSys: #85d4e0; */
+    --blueSkySynapSys: #00B2FF;
+    --greySynapSys: #B3B3B3;
+    --bluePrimarySynapSys02: #204B74;
+    --blueSecondarySynapSys: #183E63;
+    /* --lightBlueSynapSys: #00B2FF; */
+    --darkBlueSynapsys: #191C30;
+    --lightWhiteSynapsys: #fff;
+}
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+     
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+  background-color: var(--lightBlueSynapSys03);
+  overflow-x: hidden;
+}
+
+section{
+    padding: 28px 8%;
+}
+
+.section-title{
+    color: #ffff;
+    font-size: 1.563rem;
+}
+
+.section-subtitle{
+    font-size: 2rem;
+    text-align:center;
+}
