@@ -58,7 +58,7 @@
                 </div>
                 <div>
                     <button class="drawer_button" id="cadastrarBtn">Cadastrar</button>
-                    <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerCadastro()">Fechar</button>
+                    <button class="drawer_button_sec" onclick="toggleDrawerCadastro()">Fechar</button>
                 </div>
             </div>
             <nav class="navbar">
@@ -125,21 +125,11 @@
                                     <th>CEP</th>
                                     <th>Logradouro</th>
                                     <th>CNPJ</th>
+                                    <th>Tamanho</th>
                                     <th>Status</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
-                            <tbody id="corpo_tabela_propriedades">
-                                <tr>
-                                    <td>SPTECH</td>
-                                    <td>São Paulo</td>
-                                    <td>00000-000</td>
-                                    <td>Rua Haddock Lobo, 595</td>
-                                    <td>00.000.000/0000-00</td>
-                                    <td>Ativo</td>
-                                    <td><button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button></td>
-                                </tr>
-                            </tbody>
                         </table>
                     </section>
 
@@ -202,19 +192,21 @@
 </script>
 
 <script>
+    console.log(window.location.href)
 
     let counter = 1;
 
-    function adicionarNovaEmpresaTabela() {
+    function adicionarNovaPropriedadeTabela() {
         const table = $('#tabela_propriedades').DataTable();
         table.row
             .add([
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
+                localStorage.nomeFantasia,
+                localStorage.cidade,
+                localStorage.cep,
+                localStorage.logradouro,
+                localStorage.cnpj,
+                localStorage.tamanho  + "m²",
+                "Ativo",
                 `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
             ])
             .draw(false);
@@ -240,7 +232,7 @@
             },
         });
 
-        document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
+       // document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
     });
 
     function toggleDrawerEdit(button) {
@@ -289,4 +281,12 @@
         document.getElementById(id).style.opacity = 0;
     }
 
+</script>
+
+<script type="module">
+    import { cadastrar } from '../crudPropriedade.js';
+    import { buscarPropriedade } from '../crudPropriedade.js';
+
+    buscarPropriedade()
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
 </script>

@@ -18,20 +18,9 @@ function listar(req, res) {
 async function buscar(req, res) {
   var id = req.params.idUserVar;
 
-  var empresaComEndereco = [];
   const respostaEmpresa = await empresaModel.buscar(id).then((respostaEmpresa) => {
     res.status(200).json(respostaEmpresa);
   });
-
-  // console.log("TESSSTE")
-  console.log(respostaEmpresa)
-  // console.log("TESTE")
-  // let fkEndereco = respostaEmpresa.fk_endereco
-
-  // enderecoModel.listarEndereco(fkEndereco).then((resultadoEndereco) => {
-  //   res.status(200).json({...resultadoEmpresa, ...resultadoEndereco});
-  // });
-
 
 }
 

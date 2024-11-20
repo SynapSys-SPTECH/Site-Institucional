@@ -1,4 +1,3 @@
-
 function cadastrarEmpresa() {
   let idUserVar = sessionStorage.ID_USUARIO;
   let cnpjVar = document.getElementById("cnpj").value;
@@ -13,7 +12,7 @@ function cadastrarEmpresa() {
   let logradouroVar = document.getElementById("logradouro").value;
   let complementoVar = document.getElementById("complemento").value;
 
-  console.log(idUserVar)
+  console.log(idUserVar);
 
   // if (cnpjVar.length !== 14) {
   //   alert("CNPJ INVALIDO!")
@@ -30,15 +29,12 @@ function cadastrarEmpresa() {
   //   return;
   // }
 
-
   fetch("/empresas/cadastrar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      // crie um atributo que recebe o valor recuperado aqui
-      // Agora vá para o arquivo routes/usuario.js
       cnpjServer: cnpjVar,
       nomeFantasiaServer: nomeFantasiaVar,
       cidadeServer: cidadeVar,
@@ -50,17 +46,16 @@ function cadastrarEmpresa() {
       ieServer: ieVar,
       logradouroServer: logradouroVar,
       complementoServer: complementoVar,
-      idServer: idUserVar
+      idServer: idUserVar,
     }),
   })
     .then(function (resposta) {
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
-        console.log(
-          "Cadastro de empresa realizado com sucesso!"
-        );
-
+        console.log("Cadastro de empresa realizado com sucesso!");
+        alert("Empresa cadastrada com sucesso!");
+        window.location.reload();
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
       }
@@ -79,28 +74,62 @@ function buscarEmpresas() {
   fetch(`/empresas/buscar/${idUserVar}`, {
     method: "GET",
     headers: {
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   }).then(function (resposta) {
     if (resposta.ok) {
       console.log(resposta);
-      console.log("FOI BUSCAR")
-      resposta.json().then(json => {
+      console.log("FOI BUSCAR");
+      resposta.json().then((json) => {
         console.log(json);
-        for(let i = 0; i < json.length; i++){
-          localStorage.setItem("nomeFantasia", json[i].nomeFantasia)
-          localStorage.setItem("cidade", json[i].cidade)
-          localStorage.setItem("cep", json[i].cep)
-          localStorage.setItem("cnpj", json[i].cnpj)
-          localStorage.setItem("status",json[i].idEmpresa)
-          adicionarNovaEmpresaTabela();
+        localStorage.setItem("qtdEmpresas", json.length);
+        console.log("qtd empresa ->", localStorage.qtdEmpresas);
+
+        // Função que cria as opções dinamicamente no select
+        function criarOpcoesSelect(json) {
+          const selectElement = document.getElementById("select_empresa");
+
+          selectElement.innerHTML = "";
+
+          const optionDefault = document.createElement("option");
+          optionDefault.value = "#";
+          optionDefault.textContent = "Selecione uma Empresa";
+          selectElement.appendChild(optionDefault);
+
+          // Adicionar opções para cada empresa na lista
+          json.forEach((json) => {
+            const option = document.createElement("option");
+            option.value = json.idEmpresa; // Valor do ID da empresa
+            option.textContent = json.nomeFantasia; // Nome da empresa
+            selectElement.appendChild(option);
+          });
+
+        }
+        if(window.location.href == "../Propriedades/propriedades.html"){
+          criarOpcoesSelect(json);
+        }
+        
+
+
+        for (let i = 0; i < json.length; i++) {
+          localStorage.setItem("nomeFantasia", json[i].nomeFantasia);
+          localStorage.setItem("cidade", json[i].cidade);
+          localStorage.setItem("cep", json[i].cep);
+          localStorage.setItem("cnpj", json[i].cnpj);
+          localStorage.setItem("status", json[i].idEmpresa);
+          if (
+            window.location.href ==
+            "../Empresas/empresas.html"
+          ) {
+            adicionarNovaEmpresaTabela();
+          }
         }
         console.log(JSON.stringify(json));
       });
     } else {
-      return false
+      return false;
     }
-  })
+  });
 }
 
 export { cadastrarEmpresa, buscarEmpresas };
