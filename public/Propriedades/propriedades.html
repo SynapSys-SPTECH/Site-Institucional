@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script type="module" src="../crudPropriedade.html"></script>
     <title>Document</title>
 </head>
 
@@ -53,7 +54,7 @@
                 </div>
 
 
-                <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+                <button id="cadastrarBtn">Cadastrar</button>
             </div>
 
             <div id="listagem_propriedades">
@@ -70,3 +71,10 @@
 </body>
 
 </html>
+
+<script type="module">
+    import { cadastrar } from '../crudPropriedade.js';
+    import { buscarPropriedade } from '../crudPropriedade.js';
+
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
+</script>
