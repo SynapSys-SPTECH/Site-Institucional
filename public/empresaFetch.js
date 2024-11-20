@@ -105,7 +105,7 @@ function buscarEmpresas() {
           });
 
         }
-        if(window.location.href == "http://localhost:3333/Propriedades/propriedades.html"){
+        if(window.location.href == "../Propriedades/propriedades.html"){
           criarOpcoesSelect(json);
         }
         
@@ -119,7 +119,7 @@ function buscarEmpresas() {
           localStorage.setItem("status", json[i].idEmpresa);
           if (
             window.location.href ==
-            "http://localhost:3333/Empresas/empresas.html"
+            "../Empresas/empresas.html"
           ) {
             adicionarNovaEmpresaTabela();
           }
