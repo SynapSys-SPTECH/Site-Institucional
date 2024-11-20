@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-    <script type="module" src="../crudPropriedade.html"></script>
     
     <!-- Config menu suspenso -->
     <link rel="stylesheet" href="submenu.css">
@@ -59,7 +58,7 @@
                 </div>
                 <div>
                     <button class="drawer_button" id="cadastrarBtn">Cadastrar</button>
-                    <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerCadastro()">Fechar</button>
+                    <button class="drawer_button_sec" onclick="toggleDrawerCadastro()">Fechar</button>
                 </div>
             </div>
             <nav class="navbar">
@@ -126,21 +125,11 @@
                                     <th>CEP</th>
                                     <th>Logradouro</th>
                                     <th>CNPJ</th>
+                                    <th>Tamanho</th>
                                     <th>Status</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
-                            <tbody id="corpo_tabela_propriedades">
-                                <tr>
-                                    <td>SPTECH</td>
-                                    <td>São Paulo</td>
-                                    <td>00000-000</td>
-                                    <td>Rua Haddock Lobo, 595</td>
-                                    <td>00.000.000/0000-00</td>
-                                    <td>Ativo</td>
-                                    <td><button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button></td>
-                                </tr>
-                            </tbody>
                         </table>
                     </section>
 
@@ -203,19 +192,21 @@
 </script>
 
 <script>
+    console.log(window.location.href)
 
     let counter = 1;
 
-    function adicionarNovaEmpresaTabela() {
+    function adicionarNovaPropriedadeTabela() {
         const table = $('#tabela_propriedades').DataTable();
         table.row
             .add([
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
-                "empresa" + counter,
+                localStorage.nomeFantasia,
+                localStorage.cidade,
+                localStorage.cep,
+                localStorage.logradouro,
+                localStorage.cnpj,
+                localStorage.tamanho  + "m²",
+                "Ativo",
                 `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
             ])
             .draw(false);
@@ -241,7 +232,7 @@
             },
         });
 
-        document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
+       // document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
     });
 
     function toggleDrawerEdit(button) {
@@ -296,5 +287,6 @@
     import { cadastrar } from '../crudPropriedade.js';
     import { buscarPropriedade } from '../crudPropriedade.js';
 
+    buscarPropriedade()
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
 </script>

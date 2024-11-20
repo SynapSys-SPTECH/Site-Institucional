@@ -18,7 +18,6 @@ function listar(req, res) {
 async function buscar(req, res) {
   var id = req.params.idUserVar;
 
-  var empresaComEndereco = [];
   const respostaEmpresa = await empresaModel.buscar(id).then((respostaEmpresa) => {
     res.status(200).json(respostaEmpresa);
   });

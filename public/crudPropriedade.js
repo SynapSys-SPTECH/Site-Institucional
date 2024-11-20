@@ -1,16 +1,16 @@
+import { buscarEmpresas } from '../empresaFetch.js';
+
+await buscarEmpresas();
+const quantidadeEmpresas = localStorage.qtdEmpresas;
+
 function cadastrar() {
   var logradouro = document.getElementById("input_logradouro").value;
   var tamanho = document.getElementById("input_tamanho").value;
   var cep = document.getElementById("input_cep").value;
   var cidade = document.getElementById("input_cidade").value;
   var uf = document.getElementById("input_uf").value;
-
-  console.log(logradouro);
-  console.log(cep);
-  console.log(uf);
-  console.log(cidade);
-  console.log(tamanho);
-
+  var empresa = document.getElementById("select_empresa").value;
+  console.log("tamanho ->",tamanho)
   if (
     logradouro == "" ||
     cep == "" ||
@@ -43,6 +43,7 @@ function cadastrar() {
       tamanhoServer: tamanho,
       cidadeServer: cidade,
       ufServer: uf,
+      empresaServer: empresa
     }),
   })
     .then(function (resposta) {
@@ -52,6 +53,8 @@ function cadastrar() {
         console.log(
           "Cadastro de propriedade realizado com sucesso!"
         );
+        alert("Propriedade cadastrada com sucesso!")
+        window.location.reload();
 
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
@@ -66,7 +69,7 @@ function cadastrar() {
 function buscarPropriedade() {
   let idUserVar = sessionStorage.ID_USUARIO;
 
-  fetch(`/propriedade/buscar/${idUserVar}`, {
+  fetch(`/propriedades/buscar/${idUserVar}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -77,13 +80,15 @@ function buscarPropriedade() {
       console.log("FOI BUSCAR");
       resposta.json().then((json) => {
         console.log(json);
-        for (let i = 0; i < json.length; i++) {
-          localStorage.setItem("nomeFantasia", json[i].nomeFantasia);
-          localStorage.setItem("cidade", json[i].cidade);
-          localStorage.setItem("cep", json[i].cep);
-          localStorage.setItem("cnpj", json[i].cnpj);
-          localStorage.setItem("status", json[i].idEmpresa);
-          adicionarNovaEmpresaTabela();
+        for(let i = 0; i < json.length; i++){
+          localStorage.setItem("nomeFantasia", json[i].nomeFantasia)
+          localStorage.setItem("cidade", json[i].cidade)
+          localStorage.setItem("cep", json[i].cep)
+          localStorage.setItem("logradouro", json[i].logradouro)
+          localStorage.setItem("cnpj", json[i].cnpj)  
+          localStorage.setItem("status",json[i].idEmpresa)
+          localStorage.setItem("tamanho", json[i].tamanho)
+          adicionarNovaPropriedadeTabela();
         }
         console.log(JSON.stringify(json));
       });
