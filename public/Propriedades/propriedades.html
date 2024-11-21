@@ -7,9 +7,14 @@
     <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <!-- Plugin de Máscara -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     
     <!-- Config menu suspenso -->
@@ -21,7 +26,26 @@
 
 <body>
     <div class="container">
-        <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
+        <!-- <script src="../Componentes/MenuLateral/MenuLateral.js"></script> -->
+
+        <div class="menu_lateral">
+            <h3>Empresa</h3>
+            
+            <ul>
+                <li onclick="window.location.href='../Dashboard/dashboard.html'">
+                    <img src="../images/chart-svgrepo-com.svg" alt="">
+                    <a>Dashboard</a>
+                </li>
+                <li onclick="window.location.href='../Empresas/empresas.html'">
+                    <img src="../images/company-svgrepo-com.svg" alt="">
+                    <a>Empresas</a>
+                </li>
+                <li onclick="window.location.href='../Propriedades/propriedades.html'" id="tela_ativa">
+                    <img src="../images/brazil-svgrepo-com.svg" alt="">
+                    <a>Propriedades</a>
+                </li>
+            </ul>
+        </div>  
 
         <section id="propriedades">
             <div class="adicionar_propriedade" id="add_propriedade" style="display: none;">
@@ -29,24 +53,24 @@
                 <div class="inputs_cadastrar_propriedade">
                     <div>
                         <label for="input_logradouro">Insira o Logradouro:</label>
-                        <input type="text" id="input_logradouro" placeholder="ex: Rua Haddock Lobo, 595" />
+                        <input type="text" id="input_add_logradouro" placeholder="ex: Rua Haddock Lobo, 595" />
                     </div>
 
                     <div>
                         <label for="input_cep">Insira o CEP</label>
-                        <input type="text" id="input_cep" placeholder="Somente números" />
+                        <input type="text" id="input_add_cep" placeholder="Somente números" />
                     </div>
                     <div>
                         <label for="input_tamanho">Insira o Tamanho em M²</label>
-                        <input type="text" id="input_tamanho" placeholder="Tamanho da Propriedade em M²" />
+                        <input type="text" id="input_add_tamanho" placeholder="Tamanho da Propriedade em M²" />
                     </div>
                     <div>
                         <label for="input_cidade">Insira a Cidade</label>
-                        <input type="text" id="input_cidade" placeholder="ex: São Paulo" />
+                        <input type="text" id="input_add_cidade" placeholder="ex: São Paulo" />
                     </div>
                     <div>
                         <label for="input_uf">Insira a Unidade Federativa</label>
-                        <input type="text" id="input_uf" placeholder="ex: SP" />
+                        <input type="text" id="input_add_uf" placeholder="ex: SP" maxlength="2"/>
                     </div>
                     <div>
                         <label for="select_empresa">Escolha a Empresa a Associar a Propriedade.</label>
@@ -140,26 +164,29 @@
             <div id="editar_propriedade" style="display: none;">
                 <h1>Editar Propriedade</h1>
                 <div class="inputs_cadastrar_propriedade">
-                    <div>
-                        <label for="input_logradouro">Insira o Logradouro:</label>
-                        <input type="text" id="input_logradouro" placeholder="" />
-                    </div>
-
-                    <div>
-                        <label for="input_cep">Insira o CEP</label>
-                        <input type="text" id="input_cep" placeholder="Somente números" />
+                    <div class="div_checkbox-status">
+                        <input type="checkbox" name="" id="ckbox_status_propriedade">
+                        <label for="ckbox_status_propriedade" >Ativar Propriedade</label>
                     </div>
                     <div>
-                        <label for="input_tamanho">Insira o Tamanho em M²</label>
-                        <input type="text" id="input_tamanho" placeholder="Tamanho da Propriedade em M²" />
+                        <label for="input_logradouro">Altere o Logradouro:</label>
+                        <input type="text" id="input_edit_logradouro" placeholder="ex: Rua Haddock Lobo, 595" />
                     </div>
                     <div>
-                        <label for="input_cidade">Insira a Cidade</label>
-                        <input type="text" id="input_cidade" placeholder="ex: São Paulo" />
+                        <label for="input_cep">Altere o CEP</label>
+                        <input type="text" id="input_edit_cep" placeholder="Somente números" />
                     </div>
                     <div>
-                        <label for="input_uf">Insira a Unidade Federativa</label>
-                        <input type="text" id="input_uf" placeholder="ex: SP" />
+                        <label for="input_tamanho">Altere o Tamanho em M²</label>
+                        <input type="text" id="input_edit_tamanho" placeholder="Tamanho em M²" />
+                    </div>
+                    <div>
+                        <label for="input_cidade">Altere a Cidade</label>
+                        <input type="text" id="input_edit_cidade" placeholder="ex: São Paulo" />
+                    </div>
+                    <div>
+                        <label for="input_uf">Altere a Unidade Federativa</label>
+                        <input type="text" id="input_edit_uf" placeholder="ex: SP" maxlength="2"/>
                     </div>
 
 
@@ -290,3 +317,16 @@
     buscarPropriedade()
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
 </script>
+
+<script>
+
+$(document).ready(function(){
+  $('#input_edit_cep').mask('00000-000');
+  $('#input_add_cep').mask('00000-000');
+});
+
+</script>
+
+
+
+

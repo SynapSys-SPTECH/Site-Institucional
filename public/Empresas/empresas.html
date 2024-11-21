@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
 
     <!-- Config para menu suspenso -->
@@ -24,28 +25,25 @@
 
 <body>
 
-    <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
-    <!-- <div class="menu_lateral">
+    <!-- <script src="../Componentes/MenuLateral/MenuLateral.js"></script> -->
+    <div class="menu_lateral">
         <h3>Empresa</h3>
         
         <ul>
-            <a href="../Dashboard/dashboard.html"><img src="../images/chart-svgrepo-com.svg" alt="">
-                <li>Dashboard</li>
-            </a>
-            <a href="../Empresas/empresas.html"><img src="../images/company-svgrepo-com.svg" alt="">
-                <li>Empresas</li>
-            </a>
-            <a href="../Propriedades/propriedades.html"><img src="../images/brazil-svgrepo-com.svg" alt="">
-                <li>Propriedades</li>
-            </a>
-            <a href="../Conta/conta.html"><img src="../images/account-svgrepo-com.svg" alt="">
-                <li>Conta</li>
-            </a>
-            <a href=""><img src="../images/exit-svgrepo-com.svg" alt="">
-                <li>Sair</li>
-            </a>
+            <li onclick="window.location.href='../Dashboard/dashboard.html'">
+                <img src="../images/chart-svgrepo-com.svg" alt="">
+                <a>Dashboard</a>
+            </li>
+            <li onclick="window.location.href='../Empresas/empresas.html'" id="tela_ativa">
+                <img src="../images/company-svgrepo-com.svg" alt="" >
+                <a>Empresas</a>
+            </li>
+            <li onclick="window.location.href='../Propriedades/propriedades.html'" >
+                <img src="../images/brazil-svgrepo-com.svg" alt="">
+                <a>Propriedades</a>
+            </li>
         </ul>
-    </div> -->
+    </div>  
 
 
 
