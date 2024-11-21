@@ -1,4 +1,5 @@
 const janelaAtual =window.location.pathname;
+console.log(janelaAtual)
 
 function cadastrarEmpresa() {
   let idUserVar = sessionStorage.ID_USUARIO;
@@ -108,7 +109,7 @@ function buscarEmpresas() {
           });
 
         }
-        if(janelaAtual != "../Propriedades/propriedades.html"){
+        if(janelaAtual != "/Empresas/empresas.html"){
           criarOpcoesSelect(json);
         }
         
