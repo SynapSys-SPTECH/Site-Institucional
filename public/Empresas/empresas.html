@@ -322,6 +322,8 @@
     import { buscarEmpresas } from '../empresaFetch.js';
 
     buscarEmpresas()
+    console.log("id usuario ->", sessionStorage.ID_USUARIO)
+    console.log("nome usuario ->", sessionStorage.NOME_USUARIO)
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
 </script>
 

@@ -41,12 +41,8 @@ function entrar() {
         sessionStorage.EMAIL_USUARIO = json.email;
         sessionStorage.TIPO_USUARIO = json.fktipo
         sessionStorage.NOME_USUARIO = json.nome;
-
-        
         irDash();
-
       });
-      irDash();
     } else {
       document.getElementById("erro_login").innerHTML = "Email e(ou) senha inválido(os).";
       console.log("Houve um erro ao tentar realizar o login!");
