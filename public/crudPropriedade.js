@@ -10,6 +10,7 @@ function cadastrar() {
   var cidade = document.getElementById("input_cidade").value;
   var uf = document.getElementById("input_uf").value;
   var empresa = document.getElementById("select_empresa").value;
+  let idUserVar = sessionStorage.ID_USUARIO;
   console.log("tamanho ->",tamanho)
   if (
     logradouro == "" ||
@@ -43,7 +44,8 @@ function cadastrar() {
       tamanhoServer: tamanho,
       cidadeServer: cidade,
       ufServer: uf,
-      empresaServer: empresa
+      empresaServer: empresa,
+      idServer: idUserVar
     }),
   })
     .then(function (resposta) {

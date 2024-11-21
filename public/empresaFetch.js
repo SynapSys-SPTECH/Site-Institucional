@@ -1,3 +1,6 @@
+const janelaAtual =window.location.pathname;
+console.log(janelaAtual)
+
 function cadastrarEmpresa() {
   let idUserVar = sessionStorage.ID_USUARIO;
   let cnpjVar = document.getElementById("cnpj").value;
@@ -29,7 +32,7 @@ function cadastrarEmpresa() {
   //   return;
   // }
 
-  fetch("/empresas/cadastrar", {
+  fetch("../empresas/cadastrar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -48,6 +51,7 @@ function cadastrarEmpresa() {
       complementoServer: complementoVar,
       idServer: idUserVar,
     }),
+    credentials: "include",
   })
     .then(function (resposta) {
       console.log("resposta: ", resposta);
@@ -105,7 +109,7 @@ function buscarEmpresas() {
           });
 
         }
-        if(window.location.href == "../Propriedades/propriedades.html"){
+        if(janelaAtual != "/Empresas/empresas.html"){
           criarOpcoesSelect(json);
         }
         
@@ -118,8 +122,8 @@ function buscarEmpresas() {
           localStorage.setItem("cnpj", json[i].cnpj);
           localStorage.setItem("status", json[i].idEmpresa);
           if (
-            window.location.href ==
-            "../Empresas/empresas.html"
+            janelaAtual ==
+            "/Empresas/empresas.html"
           ) {
             adicionarNovaEmpresaTabela();
           }

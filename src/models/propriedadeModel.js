@@ -20,7 +20,7 @@ INNER JOIN
     Synapsys.endereco AS endereco 
     ON endereco.idEndereco = propriedade.fk_endereco
 WHERE 
-    usuario.idUsuario = 1;
+    usuario.idUsuario = ${id};
 `;
   
     return database.executar(instrucaoSql);
