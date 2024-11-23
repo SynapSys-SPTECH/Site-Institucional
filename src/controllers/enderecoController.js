@@ -10,8 +10,8 @@ function cadastrar(req, res) {
   var complemento = propriedadeController.cadastrar().complemento;
 
   enderecoModel.cadastrar(cidade, UF, cep, numero, logradouro, complemento)
-    .then((resultado) => {
-      res.status(201).json(resultado);
+    .then((resultadoEndereco) => {
+      res.status(201).json(resultadoEndereco);
     });
 }
 

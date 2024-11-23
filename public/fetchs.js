@@ -1,11 +1,11 @@
 var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
 function irDash() {
-  window.location.href = "http://localhost:3333/Dashboard/dashboard.html";
+  window.location.href = "../Dashboard/dashboard.html";
 }
 
 function abrirLogon() {
-  window.location = "./Login/login.html";
+  window.location = "../Login/login.html";
 };
 
 function entrar() {
@@ -41,11 +41,8 @@ function entrar() {
         sessionStorage.EMAIL_USUARIO = json.email;
         sessionStorage.TIPO_USUARIO = json.fktipo
         sessionStorage.NOME_USUARIO = json.nome;
-
         irDash();
-
       });
-      irDash();
     } else {
       document.getElementById("erro_login").innerHTML = "Email e(ou) senha inválido(os).";
       console.log("Houve um erro ao tentar realizar o login!");

@@ -7,6 +7,11 @@
     <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
+
+    <!-- Config para menu suspenso -->
+    <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="submenu.css">
+
     <script src="../fetchs.js"></script>
     <title>Painel de Conta</title>
     <!-- <script src="../fetchs.js"></script> -->
@@ -21,12 +26,46 @@
     <!-- FIM Navbar -->
 
 
-    <div class='container'>
+    <section>
+        <nav class="navbar">
+
+            <div class="nav-profile" onclick="toggleMenuSuspenso()">
+                <div class="user-profile-button" id="user_profile-image">
+                    <i class="fa-solid fa-user icon-modify"></i>
+
+                </div>
+
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <i class="fa-solid fa-user icon-modify"></i>
+                            <h2 class="user-name" id="username">Usuário</h2>
+                        </div>
+
+                        <a href="../Conta/conta.html" class="submenu-option">
+                            <i class="fa-solid fa-gear icon-modify"></i>
+                            <p>Conta</p>
+                            <span> > </span>
+                        </a>
+
+                        <a href="../index.html" onclick="sairDaConta()" class="submenu-option">
+                            <i class="fa-solid fa-door-open icon-modify"></i>
+                            <p>Sair</p>
+                            <span> > </span>
+                        </a>
+
+
+
+                    </div>
+                </div>
+
+
+        </nav>
         <div class="container-conta">
             <div class="titulo"> Editar Conta</div>
             <div class="conteudo">
-                <div class="cont-esq">
-                    <div class="info1">
+                <div class="cards">
+                    <div class="card">
                         <span>Informações Pessoais</span>
                         <label for="nomeConta">Nome</label>
                         <input type="text" name="" id="nomeConta">
@@ -34,19 +73,7 @@
                         <input type="text" name="" id="emailConta">
                         <button onclick="atualizarInfo()">Atualizar Informações</button>
                     </div>
-                    <div class="info2">
-                        <span>Atualizar Senha</span>
-                        <label for="senhaAtualConta">Senha Atual</label>
-                        <input type="password" name="" id="senhaAtualConta">
-                        <label for="novaSenhaConta">Senha Nova</label>
-                        <input type="password" name="" id="novaSenhaConta">
-                        <label for="confirmarSenhaConta">Confirmar Senha</label>
-                        <input type="password" name="" id="confirmarSenhaConta">
-                        <button onclick="atualizarSenha()">Atualizar Senha</button>
-                    </div>
-                </div>
-                <div class="cont-dir">
-                    <div class="info3">
+                    <div class="card">
                         <span>Informações Importantes</span>
                         <label for="nomeConta">CPF</label>
                         <input type="text" name="" id="cpfConta">
@@ -57,19 +84,38 @@
                         </select>
                         <button onclick="">Atualizar Informações</button>
                     </div>
+                    <div class="card">
+                        <span>Atualizar Senha</span>
+                        <label for="senhaAtualConta">Senha Atual</label>
+                        <input type="password" name="" id="senhaAtualConta">
+                        <label for="novaSenhaConta">Senha Nova</label>
+                        <input type="password" name="" id="novaSenhaConta">
+                        <label for="confirmarSenhaConta">Confirmar Senha</label>
+                        <input type="password" name="" id="confirmarSenhaConta">
+                        <button onclick="atualizarSenha()">Atualizar Senha</button>
+                    </div>
                 </div>
+
             </div>
         </div>
-    </div>
+    </section>
 
 </body>
 
 </html>
 
 <script>
-    if(sessionStorage.TIPO_USUARIO == 1){
+    if (sessionStorage.TIPO_USUARIO == 1) {
         tipoUser.value = 1;
     } else {
         tipoUser.value = 2;
     }
+</script>
+
+<script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenuSuspenso() {
+        subMenu.classList.toggle("open-menu");
+    };
 </script>

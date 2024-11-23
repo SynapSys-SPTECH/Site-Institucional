@@ -18,6 +18,8 @@
 }
 
 
+
+
 * {
     padding: 0;
     margin: 0;
@@ -25,8 +27,14 @@
     font-family: Inter;
 }
 
-body{
+body {
     overflow: hidden;
+}
+
+.botoes img {
+    height: 30px;
+    width: 30px;
+    padding: 10px;
 }
 
 section {
@@ -42,8 +50,8 @@ section {
     right: 0;
     justify-content: center;
     align-items: center;
-    overflow-y: hidden;
-    max-height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .dash {
@@ -53,7 +61,8 @@ section {
 }
 
 
-.adicionar_propriedade {
+.adicionar_propriedade,
+#editar_propriedade {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -61,17 +70,19 @@ section {
     position: absolute;
     right: 0;
     z-index: 1;
-    width: 20vw;
+    width: 30vw;
     height: 100vh;
     background-color: var(--lightWhiteSynapsys);
-    text-align: center;
-    transition: ease-in-out 0.3s;
-    transform-origin: left;
+    -webkit-box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
 }
+
+
 
 .inputs_cadastrar_propriedade {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
     color: var(--bluePrimarySynapSys);
@@ -81,7 +92,6 @@ section {
 .inputs_cadastrar_propriedade div {
     display: flex;
     flex-direction: column;
-    align-items: start;
 }
 
 .inputs_div {
@@ -101,7 +111,8 @@ section {
     background-color: var(--whiteSynapSys);
 }
 
-.adicionar_empresas h1 {
+.adicionar_propriedade h1,
+#editar_propriedade h1 {
     color: var(--darkBlueSynapsys);
     font-size: larger;
     text-transform: uppercase;
@@ -122,36 +133,247 @@ section {
     background-color: var(--bluePrimarySynapSys);
 }
 
-.drawer_button_sec{
+.drawer_button_sec {
     background-color: var(--whiteSynapSys);
     color: var(--darkBlueSynapsys);
     border: none;
     font-size: medium;
     font-weight: 600;
     padding: 1em 3em;
+    transition: ease-in-out 0.2s;
 }
 
-.drawer_button_sec:hover{
+.drawer_button_sec:hover {
     cursor: pointer;
     background-color: var(--whiteFundo);
 }
 
-.list_button{
+.list_button {
     background-color: var(--blueSkySynapSys);
     color: var(--lightWhiteSynapsys);
     border: none;
     font-size: small;
     font-weight: 900;
     padding: 1em 2em;
+    transition: ease-in-out 0.2s;
 }
 
-.list_button:hover{
+.list_button:hover {
+    cursor: pointer;
+    background-color: var(--bluePrimarySynapSys);
+}
+
+.edit_btn {
+    background-color: var(--blueSkySynapSys);
+    color: var(--lightWhiteSynapsys);
+    border: none;
+    font-size: small;
+    font-weight: 900;
+    padding: 1em 2em;
+    transition: ease-in-out 0.2s;
+}
+
+.edit_btn:hover {
     cursor: pointer;
     background-color: var(--bluePrimarySynapSys);
 }
 
 #propriedades {
     background: var(--whiteFundo);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
 
+.menu_lateral {
+    background-color: var(--darkBlueSynapsys);
+    width: 15vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu_lateral h3 {
+    color: var(--whiteSynapSys);
+
+}
+
+.menu_lateral ul {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu_lateral ul a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    width: 12vw;
+    align-items: center;
+    padding: 1em 1em;
+    border-bottom: var(--darkBlueSynapsys) 5px solid;
+
+}
+
+.menu_lateral ul a li {
+    color: var(--whiteSynapSys);
+    list-style: none;
+    width: 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.menu_lateral ul a:hover {
+    border-bottom: var(--bluePrimarySynapSys) 5px solid;
+}
+
+.menu_lateral ul a img {
+    height: 1.7em;
+    color: var(--whiteSynapSys);
+}
+
+.container_listagem {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 90vh;
+    justify-content: start;
+    align-items: center;
+}
+
+.list_actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 4vh;
+}
+
+
+
+.campos {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    margin-top: 20vh;
+}
+
+#select_empresa {
+    border: none;
+    border-bottom: var(--blueSkySynapSys) 2px solid;
+    padding: 0.5em 1em;
+    background-color: var(--whiteSynapSys);
+}
+
+
+
+/* .campos div{
+    background-color: #88BFB5;
+    width: max-content;
+    padding: 2em;
+    border: #000000 1px solid;
+} */
+
+.styled-table {
+    width: 70vw;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+
+.styled-table thead tr {
+    background-color: var(--bluePrimarySynapSys);
+    color: #fff;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--bluePrimarySynapSys);
+}
+
+
+
+.navbar {
+    height: fit-content;
+    width: 85vw;
+    color: var(--whiteSynapSys);
+    background-color: var(--darkBlueSynapsys);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
+}
+
+.navbar div {
+    display: flex;
+    gap: 1vw;
+}
+
+.textNavbar {
+    font-size: 25px;
+    margin-left: 5em;
+}
+
+.selectNavbar {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    border: none;
+    border-bottom: var(--blueSkySynapSys) 2px solid;
+    background-color: var(--darkBlueSynapsys);
+    color: var(--lightWhiteSynapsys);
+}
+
+.navbar div {
+    font-weight: 500;
+}
+
+/* .img_menu_suspenso {
+    border-radius: 100%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/download.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: ease-in-out 0.2s;
+    border: 2px solid transparent;
+    margin-right: 5em;
+}
+
+.img_menu_suspenso:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 2px solid var(--lightWhiteSynapsys);
+} */

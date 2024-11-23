@@ -35,8 +35,9 @@ section {
   display: flex;
   flex-direction: column;
   right: 0;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  background-color: var(--whiteFundo);
 }
 
 .dash {
@@ -45,40 +46,30 @@ section {
   background-color: red;
 }
 
-.container {
-  background-color: var(--greySynapSys);
-  width: 99.8em;
-  height: 100vh;
-  margin-left: 282px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container-conta {
-  width: 75em;
-  height: 45em;
-  background-color: var(--whiteFundo);
+  width: 70vw;
+  height: fit-content;
+  background-color: var(--lightWhiteSynapsys);
   display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  padding: 25px; /* Adiciona algum espaço interno */
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
 }
 
 .titulo {
-  width: 100%; /* Alarga o título para ocupar toda a largura do container */
-  height: 40px;
-  text-align: center; /* Centraliza o texto dentro do título */
+  width: 100%;
+  text-align: center;
   color: black;
-  font-size: 40px;
+  font-size: 4vh;
+  font-weight: 700;
+  margin-bottom: 1em;
 }
+
 .conteudo {
-  width: 100%; /* Alarga o conteúdo para ocupar toda a largura do container */
-  height: 90%;
-  margin-top: 10px;
+  width: 100%;
+  height: fit-content;
   display: flex;
-  flex-direction: row; /* Empilha os itens verticalmente */
-  align-items: center; /* Adiciona um espaço entre o título e o conteúdo */
+  flex-direction: row;
 }
 
 .conteudo input {
@@ -89,19 +80,18 @@ section {
 }
 
 .conteudo label {
-  font-size: small;
+  font-size: 2vh;
   text-align: start;
-  margin-top: 10px;
 }
 
 .conteudo button {
   background-color: var(--blueSkySynapSys);
   color: var(--lightWhiteSynapsys);
   border: none;
-  font-size: small;
+  font-size: 2vh;
   font-weight: 900;
   padding: 1em 2em;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .conteudo button:hover {
@@ -110,46 +100,83 @@ section {
 }
 
 .conteudo span {
-    font-size: 27px;
-    text-align: center;
+  font-size: 3vh;
+  text-align: center;
 }
 
-.cont-esq {
-  width: 50%; /* Alarga o conteúdo para ocupar toda a largura do container */
-  height: 90%;
+.cards {
+  width: 100%;
+  height: fit-content;
   display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: top;
+
+  justify-content: space-between;
+}
+
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 40%;
+}
+
+.navbar {
+  height: fit-content;
+  width: 85vw;
+  color: var(--whiteSynapSys);
+  background-color: var(--darkBlueSynapsys);
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
   align-items: center;
+  padding: 0.5em 0;
 }
 
-.cont-dir {
-  width: 50%; /* Alarga o conteúdo para ocupar toda a largura do container */
-  height: 90%;
+.navbar div {
   display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  align-items: center;
+  gap: 1vw;
 }
 
-.info1 {
-  display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  height: 50%;
-  width: 70%;
-  margin-top: 50px;
+.textNavbar {
+  font-size: 25px;
+  margin-left: 5em;
 }
 
-.info2 {
-  display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  height: 50%;
-  width: 70%;
-  margin-top: 10px;
+.selectNavbar {
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  border: none;
+  border-bottom: var(--blueSkySynapSys) 2px solid;
+  background-color: var(--darkBlueSynapsys);
+  color: var(--lightWhiteSynapsys);
 }
 
-.info3 {
-  display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  height: 50%;
-  width: 70%;
-  margin-top: 50px;
+.navbar div {
+  font-weight: 500;
 }
+
+/* .img_menu_suspenso {
+  border-radius: 100%;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  background-image: url(../images/download.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: ease-in-out 0.2s;
+  border: 2px solid transparent;
+  margin-right: 5em;
+}
+
+.img_menu_suspenso:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  border: 2px solid var(--lightWhiteSynapsys);
+} */
