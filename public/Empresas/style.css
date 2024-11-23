@@ -89,6 +89,17 @@ section {
     overflow-y: scroll;
 }
 
+.div_checkbox-status{
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px;
+}
+
+.div_checkbox-status input{
+    border: none;
+    
+}
+
 .inputs_cadastrar_empresa div {
     display: flex;
     flex-direction: column;
@@ -101,6 +112,7 @@ section {
     gap: 1em;
 }
 
+
 .inputs_cadastrar_empresa div label {
     font-size: small;
 }
@@ -110,6 +122,13 @@ section {
     border-bottom: var(--blueSkySynapSys) 2px solid;
     padding: 0.5em 1em;
     background-color: var(--whiteSynapSys);
+}
+
+.inputs_cadastrar_empresa div input:disabled {
+    border: none;
+    border-bottom: var(--bluePrimarySynapSys) 2px solid;
+    padding: 0.5em 1em;
+    background-color: var(--whiteFundo);
 }
 
 .adicionar_empresas h1,

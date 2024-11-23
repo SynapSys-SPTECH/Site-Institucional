@@ -10,13 +10,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!-- Plugin de Máscara -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
     <!-- Config para menu suspenso -->
     <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="submenu.css">
+    <link rel="stylesheet" href="../Componentes/MenuSuspenso/submenu.css">
 
     <!-- Importando o Data Tables aqui!! -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <script type="module" src="../empresaFetch.js"></script>
     <title>Empresas</title>
@@ -54,55 +58,84 @@
             <h1>Cadastrar Empresa</h1>
             <div class="inputs_cadastrar_empresa">
                 <div>
-                    <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj" placeholder="00.000.000/0000-00.">
+                    <label for="input_add_cnpj">CNPJ</label>
+                    <input type="text" id="input_add_cnpj" placeholder="00.000.000/0000-00.">
                 </div>
                 <div>
-                    <label for="cnpj">Razão Social</label>
-                    <input type="text" id="razaoSocial" placeholder="Insira a Razão Social.">
+                    <label for="input_add_razaoSocial">Razão Social</label>
+                    <input type="text" id="input_add_razaoSocial" placeholder="Insira a Razão Social.">
                 </div>
                 <div>
-                    <label for="cnpj">Nome Fantasia</label>
-                    <input type="text" id="nomeFantasia" placeholder="Insira o Nome Fantasia.">
+                    <label for="input_add_nomeFantasia">Nome Fantasia</label>
+                    <input type="text" id="input_add_nomeFantasia" placeholder="Insira o Nome Fantasia.">
                 </div>
                 <div>
-                    <label for="cnpj">Inscrição Estadual</label>
-                    <input type="text" id="ie" placeholder="Insira a Inscrição Estadual.">
+                    <label for="input_add_ie">Inscrição Estadual</label>
+                    <input type="text" id="input_add_ie" placeholder="Insira a Inscrição Estadual." >
                 </div>
                 <div>
-                    <label for="cnpj">Cidade</label>
-                    <input type="text" id="cidade" placeholder="Insira a Cidade.">
+                    <label for="input_add_cidade">Cidade</label>
+                    <input type="text" id="input_add_cidade" placeholder="Insira a Cidade.">
                 </div>
 
                 <div>
-                    <label for="cnpj">CEP</label>
-                    <input type="text" id="cep" placeholder="Insira o CEP (00000-000).">
+                    <label for="input_add_cep">CEP</label>
+                    <input type="text" id="input_add_cep" placeholder="Insira o CEP (00000-000)." >
                 </div>
                 <div>
-                    <label for="cnpj">Unidade Federativa (UF)</label>
-                    <input type="text" id="uf" placeholder="Insira a Unidade Federativa (Estado).">
+                    <label for="input_add_uf">Unidade Federativa (UF)</label>
+                    <input list="suggestions" type="text" id="input_add_uf" placeholder="Insira a Unidade Federativa (Estado)." maxlength="2">
+                    <datalist id="suggestions">
+                        <option value="AC">
+                        <option value="AL">
+                        <option value="AP">
+                        <option value="AM">
+                        <option value="BA">
+                        <option value="CE">
+                        <option value="DF">
+                        <option value="ES">
+                        <option value="GO">
+                        <option value="MA">
+                        <option value="MT">
+                        <option value="MS">
+                        <option value="MG">
+                        <option value="PA">
+                        <option value="PB">
+                        <option value="PR">
+                        <option value="PE">
+                        <option value="PI">
+                        <option value="RJ">
+                        <option value="RN">
+                        <option value="RS">
+                        <option value="RO">
+                        <option value="RR">
+                        <option value="SC">
+                        <option value="SP">
+                        <option value="SE">
+                        <option value="TO">
+                    </datalist>
                 </div>
                 <div>
-                    <label for="cnpj">Número</label>
-                    <input type="text" id="numero" placeholder="Insira o Número.">
+                    <label for="input_add_numero">Número</label>
+                    <input type="number" id="input_add_numero" placeholder="Insira o Número.">
                 </div>
                 <div>
-                    <label for="cnpj">Bairro</label>
-                    <input type="text" id="bairro" placeholder="Insira o Bairro.">
+                    <label for="input_add_bairro">Bairro</label>
+                    <input type="text" id="input_add_bairro" placeholder="Insira o Bairro.">
                 </div>
                 <div>
-                    <label for="cnpj">Logradouro</label>
-                    <input type="text" id="logradouro" placeholder="Insira o Logradouro.">
+                    <label for="input_add_logradouro">Logradouro</label>
+                    <input type="text" id="input_add_logradouro" placeholder="Insira o Logradouro.">
                 </div>
                 <div>
-                    <label for="cnpj">Complemento</label>
-                    <input type="text" id="complemento" placeholder="Insira o complemento.">
+                    <label for="input_add_complemento">Complemento</label>
+                    <input type="text" id="input_add_complemento" placeholder="Insira o complemento.">
                 </div>
 
             </div>
             <div>
                 <button class="drawer_button" id="cadastrarBtn">Cadastrar</button>
-                <button class="drawer_button_sec" id="cadastrarBtn" onclick="toggleDrawerCadastro()">Fechar</button>
+                <button class="drawer_button_sec" onclick="toggleDrawerCadastro()">Fechar</button>
             </div>
 
         </div>
@@ -166,50 +199,83 @@
         <div id="edit_empresa" style="display: none;">
             <h1>Editar Empresa</h1>
             <div class="inputs_cadastrar_empresa">
-                <div>
-                    <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj" placeholder="00.000.000/0000-00.">
+                <div class="div_checkbox-status">
+                    <input type="checkbox" name="" id="ckbox_status_empresa">
+                    <label for="ckbox_status_empresa">Ativar Empresa</label>
                 </div>
                 <div>
-                    <label for="cnpj">Razão Social</label>
-                    <input type="text" id="razaoSocial" placeholder="Insira a Razão Social.">
+                    <label for="input_edit_cnpj">CNPJ</label>
+                    <input type="text" id="input_edit_cnpj" placeholder="00.000.000/0000-00." disabled>
                 </div>
                 <div>
-                    <label for="cnpj">Nome Fantasia</label>
-                    <input type="text" id="nomeFantasia" placeholder="Insira o Nome Fantasia.">
+                    <label for="input_edit_razaoSocial">Razão Social</label>
+                    <input type="text" id="input_edit_razaoSocial" placeholder="Insira a Razão Social.">
                 </div>
                 <div>
-                    <label for="cnpj">Inscrição Estadual</label>
-                    <input type="text" id="ie" placeholder="Insira a Inscrição Estadual.">
+                    <label for="input_edit_nomeFantasia">Nome Fantasia</label>
+                    <input type="text" id="input_edit_nomeFantasia" placeholder="Insira o Nome Fantasia.">
                 </div>
                 <div>
-                    <label for="cnpj">Cidade</label>
-                    <input type="text" id="cidade" placeholder="Insira a Cidade.">
+                    <label for="input_edit_ie">Inscrição Estadual</label>
+                    <input type="text" id="input_edit_ie" placeholder="Insira a Inscrição Estadual." disabled>
+                </div>
+                <div>
+                    <label for="input_edit_cidade">Cidade</label>
+                    <input type="text" id="input_edit_cidade" placeholder="Insira a Cidade.">
                 </div>
 
                 <div>
-                    <label for="cnpj">CEP</label>
-                    <input type="text" id="cep" placeholder="Insira o CEP (00000-000).">
+                    <label for="input_edit_cep">CEP</label>
+                    <input type="text" id="input_edit_cep" placeholder="Insira o CEP (00000-000).">
                 </div>
                 <div>
-                    <label for="cnpj">Unidade Federativa (UF)</label>
-                    <input type="text" id="uf" placeholder="Insira a Unidade Federativa (Estado).">
+                    <label for="input_edit_uf">Unidade Federativa (UF)</label>
+                    <input list="suggestions" type="text" id="input_edit_uf" placeholder="Insira a Unidade Federativa (Estado)." maxlength="2">
+                    <datalist id="suggestions">
+                        <option value="AC">
+                        <option value="AL">
+                        <option value="AP">
+                        <option value="AM">
+                        <option value="BA">
+                        <option value="CE">
+                        <option value="DF">
+                        <option value="ES">
+                        <option value="GO">
+                        <option value="MA">
+                        <option value="MT">
+                        <option value="MS">
+                        <option value="MG">
+                        <option value="PA">
+                        <option value="PB">
+                        <option value="PR">
+                        <option value="PE">
+                        <option value="PI">
+                        <option value="RJ">
+                        <option value="RN">
+                        <option value="RS">
+                        <option value="RO">
+                        <option value="RR">
+                        <option value="SC">
+                        <option value="SP">
+                        <option value="SE">
+                        <option value="TO">
+                    </datalist>
                 </div>
                 <div>
-                    <label for="cnpj">Número</label>
-                    <input type="text" id="numero" placeholder="Insira o Número.">
+                    <label for="input_edit_numero">Número</label>
+                    <input type="text" id="input_edit_numero" placeholder="Insira o Número.">
                 </div>
                 <div>
-                    <label for="cnpj">Bairro</label>
-                    <input type="text" id="bairro" placeholder="Insira o Bairro.">
+                    <label for="input_edit_bairro">Bairro</label>
+                    <input type="text" id="input_edit_bairro" placeholder="Insira o Bairro.">
                 </div>
                 <div>
-                    <label for="cnpj">Logradouro</label>
-                    <input type="text" id="logradouro" placeholder="Insira o Logradouro.">
+                    <label for="input_edit_logradouro">Logradouro</label>
+                    <input type="text" id="input_edit_logradouro" placeholder="Insira o Logradouro.">
                 </div>
                 <div>
-                    <label for="cnpj">Complemento</label>
-                    <input type="text" id="complemento" placeholder="Insira o complemento.">
+                    <label for="input_edit_complemento">Complemento</label>
+                    <input type="text" id="input_edit_complemento" placeholder="Insira o complemento.">
                 </div>
 
             </div>
@@ -334,4 +400,16 @@
 
     var usernameValue = sessionStorage.NOME_USUARIO;
     document.getElementById('username').textContent = usernameValue;
+</script>
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#input_edit_cep').mask('00000-000');
+        $('#input_add_cep').mask('00000-000');
+        $('#input_add_ie').mask('00.000.0000-0');
+        $('#input_add_cnpj').mask('00.000.000/0000-00')
+    });
+
 </script>

@@ -3,17 +3,17 @@ console.log(janelaAtual)
 
 function cadastrarEmpresa() {
   let idUserVar = sessionStorage.ID_USUARIO;
-  let cnpjVar = document.getElementById("cnpj").value;
-  let nomeFantasiaVar = document.getElementById("nomeFantasia").value;
-  let cidadeVar = document.getElementById("cidade").value;
-  let ufVar = document.getElementById("uf").value;
-  let cepVar = document.getElementById("cep").value;
-  let numeroVar = Number(document.getElementById("numero").value);
-  let bairroVar = document.getElementById("bairro").value;
-  let razaoSocialVar = document.getElementById("razaoSocial").value;
-  let ieVar = document.getElementById("ie").value;
-  let logradouroVar = document.getElementById("logradouro").value;
-  let complementoVar = document.getElementById("complemento").value;
+  let cnpjVar = document.getElementById("input_add_cnpj").value.replace(/[\.\-\/]/g, "");
+  let nomeFantasiaVar = document.getElementById("input_add_nomeFantasia").value;
+  let cidadeVar = document.getElementById("input_add_cidade").value;
+  let ufVar = document.getElementById("input_add_uf").value;
+  let cepVar = document.getElementById("input_add_cep").value.replace(/-/g, "");
+  let numeroVar = Number(document.getElementById("input_add_numero").value);
+  let bairroVar = document.getElementById("input_add_bairro").value;
+  let razaoSocialVar = document.getElementById("input_add_razaoSocial").value;
+  let ieVar = document.getElementById("input_add_ie").value.replace(/[\.\-]/g, "");
+  let logradouroVar = document.getElementById("input_add_logradouro").value;
+  let complementoVar = document.getElementById("input_add_complemento").value;
 
   console.log(idUserVar);
 

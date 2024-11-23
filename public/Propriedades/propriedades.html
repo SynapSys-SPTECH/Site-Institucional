@@ -18,7 +18,7 @@
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
     <!-- Config menu suspenso -->
-    <link rel="stylesheet" href="submenu.css">
+    <link rel="stylesheet" href="../Componentes/MenuSuspenso/submenu.css">
     <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
     <script src="../crudPropriedade.js"></script>
 
@@ -71,7 +71,36 @@
                     </div>
                     <div>
                         <label for="input_add_uf">Insira a Unidade Federativa</label>
-                        <input type="text" id="input_add_uf" placeholder="ex: SP" maxlength="2" />
+                        <input list="suggestions" type="text" id="input_add_uf" placeholder="ex: SP" maxlength="2" />
+                        <datalist id="suggestions">
+                            <option value="AC">
+                            <option value="AL">
+                            <option value="AP">
+                            <option value="AM">
+                            <option value="BA">
+                            <option value="CE">
+                            <option value="DF">
+                            <option value="ES">
+                            <option value="GO">
+                            <option value="MA">
+                            <option value="MT">
+                            <option value="MS">
+                            <option value="MG">
+                            <option value="PA">
+                            <option value="PB">
+                            <option value="PR">
+                            <option value="PE">
+                            <option value="PI">
+                            <option value="RJ">
+                            <option value="RN">
+                            <option value="RS">
+                            <option value="RO">
+                            <option value="RR">
+                            <option value="SC">
+                            <option value="SP">
+                            <option value="SE">
+                            <option value="TO">
+                        </datalist>
                     </div>
                     <div>
                         <label for="select_empresa">Escolha a Empresa a Associar a Propriedade.</label>
@@ -93,7 +122,7 @@
                     </div>
 
                     <select class="selectNavbar" name="Propriedade" id="select_empresa1">Escolha a Empresas
-                        
+
                     </select>
                 </div>
 
@@ -183,7 +212,36 @@
                     </div>
                     <div>
                         <label for="input_uf">Altere a Unidade Federativa</label>
-                        <input type="text" id="input_edit_uf" placeholder="ex: SP" maxlength="2" />
+                        <input list="suggestions" type="text" id="input_edit_uf" placeholder="ex: SP" maxlength="2" />
+                        <datalist id="suggestions">
+                            <option value="AC">
+                            <option value="AL">
+                            <option value="AP">
+                            <option value="AM">
+                            <option value="BA">
+                            <option value="CE">
+                            <option value="DF">
+                            <option value="ES">
+                            <option value="GO">
+                            <option value="MA">
+                            <option value="MT">
+                            <option value="MS">
+                            <option value="MG">
+                            <option value="PA">
+                            <option value="PB">
+                            <option value="PR">
+                            <option value="PE">
+                            <option value="PI">
+                            <option value="RJ">
+                            <option value="RN">
+                            <option value="RS">
+                            <option value="RO">
+                            <option value="RR">
+                            <option value="SC">
+                            <option value="SP">
+                            <option value="SE">
+                            <option value="TO">
+                        </datalist>
                     </div>
 
 
@@ -241,7 +299,7 @@
         counter++;
     }
 
-    
+
 
     $(document).ready(function () {
         $('#tabela_propriedades').DataTable({
@@ -316,7 +374,7 @@
     import { cadastrar } from '../crudPropriedade.js';
     import { buscarPropriedade } from '../crudPropriedade.js';
 
-    
+
     buscarPropriedade()
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
 </script>
