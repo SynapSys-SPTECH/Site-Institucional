@@ -57,12 +57,8 @@
                         <label for="id_propriedade">Escolha a Empresa:</label>
                     </div>
 
-                    <select class="selectNavbar" name="Propriedade" id="id_propriedade">Escolha a Empresas
-                        <option value="1">Empresa 1</option>
-                        <option value="2">Empresa 2</option>
-                        <option value="3">Empresa 3</option>
-                        <option value="4">Empresa 4</option>
-                        <option value="5">Empresa 5</option>
+                    <select class="selectNavbar" name="Propriedade" id="select_empresa">Escolha a Empresas
+                        
                     </select>
                 </div>
 
@@ -288,4 +284,10 @@
 
     var usernameValue = sessionStorage.NOME_USUARIO;
     document.getElementById('username').textContent = usernameValue;
+</script>
+
+
+<script type="module">
+    import { buscarPropriedade } from '../crudPropriedade.js';
+    buscarPropriedade()
 </script>

@@ -85,12 +85,14 @@ section {
     color: var(--bluePrimarySynapSys);
     gap: 10px;
     height: 70vh;
+    width: 100%;
     overflow-y: scroll;
 }
 
 .inputs_cadastrar_empresa div {
     display: flex;
     flex-direction: column;
+    width: 60%;
 }
 
 .inputs_div {
