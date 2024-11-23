@@ -73,7 +73,6 @@ function cadastrarEmpresa() {
 
 function buscarEmpresas() {
   let idUserVar = sessionStorage.ID_USUARIO;
-  let nomeFantasia;
 
   fetch(`/empresas/buscar/${idUserVar}`, {
     method: "GET",
@@ -89,42 +88,47 @@ function buscarEmpresas() {
         localStorage.setItem("qtdEmpresas", json.length);
         console.log("qtd empresa ->", localStorage.qtdEmpresas);
 
-        // Função que cria as opções dinamicamente no select
-        function criarOpcoesSelect(json) {
-          const selectElement = document.getElementById("select_empresa");
+        // Função para criar opções no select
+        function criarOpcoesSelect(json, selectId) {
+          const selectElement = document.getElementById(selectId);
 
-          selectElement.innerHTML = "";
+          if (selectElement) {
+            selectElement.innerHTML = "";
 
-          const optionDefault = document.createElement("option");
-          optionDefault.value = "#";
-          optionDefault.textContent = "Selecione uma Empresa";
-          selectElement.appendChild(optionDefault);
+            const optionDefault = document.createElement("option");
+            optionDefault.value = "#";
+            optionDefault.textContent = "Selecione uma Empresa";
+            selectElement.appendChild(optionDefault);
 
-          // Adicionar opções para cada empresa na lista
-          json.forEach((json) => {
-            const option = document.createElement("option");
-            option.value = json.idEmpresa; // Valor do ID da empresa
-            option.textContent = json.nomeFantasia; // Nome da empresa
-            selectElement.appendChild(option);
-          });
-
+            // Adicionar opções para cada empresa na lista
+            json.forEach((empresa) => {
+              const option = document.createElement("option");
+              option.value = empresa.idEmpresa; // Valor do ID da empresa
+              option.textContent = empresa.nomeFantasia; // Nome da empresa
+              selectElement.appendChild(option);
+            });
+          } else {
+            console.error(`Elemento select com ID "${selectId}" não encontrado.`);
+          }
         }
-        if(janelaAtual != "/Empresas/empresas.html"){
-          criarOpcoesSelect(json);
-        }
-        
 
+        // IDs dos selects onde as empresas devem aparecer
+        const selectIds = ["select_empresa1", "select_empresa"];
 
+        // Preencher ambos os selects
+        selectIds.forEach((id) => {
+          criarOpcoesSelect(json, id);
+        });
+
+        // Atualizar localStorage para cada empresa
         for (let i = 0; i < json.length; i++) {
           localStorage.setItem("nomeFantasia", json[i].nomeFantasia);
           localStorage.setItem("cidade", json[i].cidade);
           localStorage.setItem("cep", json[i].cep);
           localStorage.setItem("cnpj", json[i].cnpj);
           localStorage.setItem("status", json[i].idEmpresa);
-          if (
-            janelaAtual ==
-            "/Empresas/empresas.html"
-          ) {
+
+          if (janelaAtual == "/Empresas/empresas.html") {
             adicionarNovaEmpresaTabela();
           }
         }
@@ -135,5 +139,6 @@ function buscarEmpresas() {
     }
   });
 }
+
 
 export { cadastrarEmpresa, buscarEmpresas };

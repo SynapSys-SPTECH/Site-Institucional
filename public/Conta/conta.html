@@ -26,7 +26,7 @@
 
     <div class="menu_lateral">
         <h3>Empresa</h3>
-        
+
         <ul>
             <li onclick="window.location.href='../Dashboard/dashboard.html'">
                 <img src="../images/chart-svgrepo-com.svg" alt="">
@@ -138,4 +138,7 @@
     function toggleMenuSuspenso() {
         subMenu.classList.toggle("open-menu");
     };
+
+    var usernameValue = sessionStorage.NOME_USUARIO;
+    document.getElementById('username').textContent = usernameValue;
 </script>

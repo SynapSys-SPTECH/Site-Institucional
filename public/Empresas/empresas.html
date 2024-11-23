@@ -28,22 +28,22 @@
     <!-- <script src="../Componentes/MenuLateral/MenuLateral.js"></script> -->
     <div class="menu_lateral">
         <h3>Empresa</h3>
-        
+
         <ul>
             <li onclick="window.location.href='../Dashboard/dashboard.html'">
                 <img src="../images/chart-svgrepo-com.svg" alt="">
                 <a>Dashboard</a>
             </li>
             <li onclick="window.location.href='../Empresas/empresas.html'" id="tela_ativa">
-                <img src="../images/company-svgrepo-com.svg" alt="" >
+                <img src="../images/company-svgrepo-com.svg" alt="">
                 <a>Empresas</a>
             </li>
-            <li onclick="window.location.href='../Propriedades/propriedades.html'" >
+            <li onclick="window.location.href='../Propriedades/propriedades.html'">
                 <img src="../images/brazil-svgrepo-com.svg" alt="">
                 <a>Propriedades</a>
             </li>
         </ul>
-    </div>  
+    </div>
 
 
 
@@ -110,7 +110,7 @@
             <div class="nav-profile" onclick="toggleMenuSuspenso()">
                 <div class="user-profile-button" id="user_profile-image">
                     <i class="fa-solid fa-user icon-modify"></i>
-                    
+
                 </div>
 
                 <div class="sub-menu-wrap" id="subMenu">
@@ -331,4 +331,7 @@
     function toggleMenuSuspenso() {
         subMenu.classList.toggle("open-menu");
     };
+
+    var usernameValue = sessionStorage.NOME_USUARIO;
+    document.getElementById('username').textContent = usernameValue;
 </script>

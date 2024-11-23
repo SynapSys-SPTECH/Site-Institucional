@@ -15,11 +15,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.css" />
 
-    
+
     <!-- Config menu suspenso -->
     <link rel="stylesheet" href="submenu.css">
     <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
-
 
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
@@ -32,7 +31,7 @@
 
     <div class="menu_lateral">
         <h3>Empresa</h3>
-        
+
         <ul>
             <li onclick="window.location.href='../Dashboard/dashboard.html'" id="tela_ativa">
                 <img src="../images/chart-svgrepo-com.svg" alt="">
@@ -71,7 +70,7 @@
                 <div class="nav-profile" onclick="toggleMenuSuspenso()">
                     <div class="user-profile-button" id="user_profile-image">
                         <i class="fa-solid fa-user icon-modify"></i>
-                        
+
                     </div>
 
                     <div class="sub-menu-wrap" id="subMenu">
@@ -100,7 +99,7 @@
 
 
             </nav>
-            
+
             <div class="main-dashboard">
                 <div class="kpis">
                     <div class="kpi">
@@ -121,7 +120,7 @@
                         <div id="myChart" style="width: 30vw; height:40vh"></div>
                     </div>
                     <div class="grafico">
-                        
+
                         <div id="map"></div>
                     </div>
                 </div>
@@ -188,18 +187,18 @@
 <script>
 
     var bounds = [
-        [-9.583, -50.109], 
-        [-17.766, -34.196]  
+        [-9.583, -50.109],
+        [-17.766, -34.196]
     ];
 
-    
+
     var map = L.map('map', {
         maxBounds: bounds,
         minZoom: 5.4,
-        maxZoom: 8 
+        maxZoom: 8
     }).fitBounds(bounds);
 
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -286,4 +285,7 @@
     function toggleMenuSuspenso() {
         subMenu.classList.toggle("open-menu");
     };
+
+    var usernameValue = sessionStorage.NOME_USUARIO;
+    document.getElementById('username').textContent = usernameValue;
 </script>

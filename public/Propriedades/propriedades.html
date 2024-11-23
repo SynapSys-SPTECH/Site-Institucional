@@ -16,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-    
+
     <!-- Config menu suspenso -->
     <link rel="stylesheet" href="submenu.css">
     <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
         <div class="menu_lateral">
             <h3>Empresa</h3>
-            
+
             <ul>
                 <li onclick="window.location.href='../Dashboard/dashboard.html'">
                     <img src="../images/chart-svgrepo-com.svg" alt="">
@@ -45,7 +45,7 @@
                     <a>Propriedades</a>
                 </li>
             </ul>
-        </div>  
+        </div>
 
         <section id="propriedades">
             <div class="adicionar_propriedade" id="add_propriedade" style="display: none;">
@@ -70,11 +70,11 @@
                     </div>
                     <div>
                         <label for="input_uf">Insira a Unidade Federativa</label>
-                        <input type="text" id="input_add_uf" placeholder="ex: SP" maxlength="2"/>
+                        <input type="text" id="input_add_uf" placeholder="ex: SP" maxlength="2" />
                     </div>
                     <div>
                         <label for="select_empresa">Escolha a Empresa a Associar a Propriedade.</label>
-                        <select name="select_empresa" id="select_empresa">
+                        <select name="select_empresa" id="select_empresa" class="select_empresa">
                             <option value="#">Empresa 1</option>
                         </select>
                     </div>
@@ -91,12 +91,8 @@
                         <label for="id_propriedade">Escolha a Empresa:</label>
                     </div>
 
-                    <select class="selectNavbar" name="Propriedade" id="id_propriedade">Escolha a Empresas
-                        <option value="1">Empresa 1</option>
-                        <option value="2">Empresa 2</option>
-                        <option value="3">Empresa 3</option>
-                        <option value="4">Empresa 4</option>
-                        <option value="5">Empresa 5</option>
+                    <select class="selectNavbar" name="Propriedade" id="select_empresa1">Escolha a Empresas
+                        
                     </select>
                 </div>
 
@@ -104,7 +100,7 @@
                 <div class="nav-profile" onclick="toggleMenuSuspenso()">
                     <div class="user-profile-button" id="user_profile-image">
                         <i class="fa-solid fa-user icon-modify"></i>
-                        
+
                     </div>
 
                     <div class="sub-menu-wrap" id="subMenu">
@@ -166,7 +162,7 @@
                 <div class="inputs_cadastrar_propriedade">
                     <div class="div_checkbox-status">
                         <input type="checkbox" name="" id="ckbox_status_propriedade">
-                        <label for="ckbox_status_propriedade" >Ativar Propriedade</label>
+                        <label for="ckbox_status_propriedade">Ativar Propriedade</label>
                     </div>
                     <div>
                         <label for="input_logradouro">Altere o Logradouro:</label>
@@ -186,7 +182,7 @@
                     </div>
                     <div>
                         <label for="input_uf">Altere a Unidade Federativa</label>
-                        <input type="text" id="input_edit_uf" placeholder="ex: SP" maxlength="2"/>
+                        <input type="text" id="input_edit_uf" placeholder="ex: SP" maxlength="2" />
                     </div>
 
 
@@ -200,9 +196,9 @@
         </section>
     </div>
 
-    
 
-   
+
+
 
 </body>
 
@@ -216,6 +212,9 @@
     function toggleMenuSuspenso() {
         subMenu.classList.toggle("open-menu");
     };
+
+    var usernameValue = sessionStorage.NOME_USUARIO;
+    document.getElementById('username').textContent = usernameValue;
 </script>
 
 <script>
@@ -232,7 +231,7 @@
                 localStorage.cep,
                 localStorage.logradouro,
                 localStorage.cnpj,
-                localStorage.tamanho  + "m²",
+                localStorage.tamanho + "m²",
                 "Ativo",
                 `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
             ])
@@ -240,6 +239,8 @@
 
         counter++;
     }
+
+    
 
     $(document).ready(function () {
         $('#tabela_propriedades').DataTable({
@@ -259,7 +260,7 @@
             },
         });
 
-       // document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
+        // document.querySelector('#addRow').addEventListener('click', adicionarNovaEmpresaTabela);
     });
 
     function toggleDrawerEdit(button) {
@@ -314,19 +315,16 @@
     import { cadastrar } from '../crudPropriedade.js';
     import { buscarPropriedade } from '../crudPropriedade.js';
 
+    
     buscarPropriedade()
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
 </script>
 
 <script>
 
-$(document).ready(function(){
-  $('#input_edit_cep').mask('00000-000');
-  $('#input_add_cep').mask('00000-000');
-});
+    $(document).ready(function () {
+        $('#input_edit_cep').mask('00000-000');
+        $('#input_add_cep').mask('00000-000');
+    });
 
 </script>
-
-
-
-
