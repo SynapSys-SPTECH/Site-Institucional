@@ -211,9 +211,13 @@ section {
     display: flex;
     flex-direction: column;
     width: 70vw;
-    height: 90vh;
+    height: 80vh;
     justify-content: start;
     align-items: center;
+    padding: 2em;
+    margin-top: 1em;
+    background-color: var(--lightWhiteSynapsys);
+    box-shadow: 1px 2px 6px black;
 }
 
 .list_actions {
@@ -226,10 +230,13 @@ section {
 
 
 
+
 .campos {
     display: flex;
+    align-items: flex-start;
     flex-direction: row;
-    height: fit-content;
+    height: 70vh;
+    overflow-y: scroll;
     margin-top: 20vh;
 }
 
@@ -244,6 +251,7 @@ section {
 
 .styled-table {
     width: 70vw;
+    max-height: 50vh;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     font-size: 16px;

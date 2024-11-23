@@ -48,12 +48,15 @@ section {
 
 .container-conta {
   width: 70vw;
-  height: fit-content;
+  height: 70vh;
   background-color: var(--lightWhiteSynapsys);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
+  justify-content: space-evenly;
+  padding: 2em;
+  box-shadow: 1px 2px 6px black;
+  margin-top: 1em;
 }
 
 .titulo {
@@ -70,6 +73,7 @@ section {
   height: fit-content;
   display: flex;
   flex-direction: row;
+  
 }
 
 .conteudo input {
