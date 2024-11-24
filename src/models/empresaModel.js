@@ -12,6 +12,13 @@ function listar() {
   return database.executar(instrucaoSql);
 }
 
+function buscarIdEmpresa(idEmpresa) {
+  var instrucaoSql = `SELECT endereco.cidade, empresa.idEmpresa from empresa inner join endereco on endereco.idEndereco = empresa.fk_endereco WHERE idEmpresa = '${idEmpresa}'`;
+
+  return database.executar(instrucaoSql);
+}
+
+
 function buscarPorCnpj(cnpj) {
   var instrucaoSql = `SELECT * FROM empresa WHERE cnpj = '${cnpj}'`;
 
@@ -24,4 +31,4 @@ function cadastrar(razaoSocial, cnpj, inscricaoEstadual, nomeFantasia, fkEnderec
   return database.executar(instrucaoSql);
 }
 
-module.exports = { buscarPorCnpj, buscar, cadastrar, listar };
+module.exports = { buscarIdEmpresa, buscar, cadastrar, listar, buscarPorCnpj};
