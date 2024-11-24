@@ -4,13 +4,16 @@ await buscarEmpresas();
 const quantidadeEmpresas = localStorage.qtdEmpresas;
 
 function cadastrar() {
-  var logradouro = document.getElementById("input_logradouro").value;
-  var tamanho = document.getElementById("input_tamanho").value;
-  var cep = document.getElementById("input_cep").value;
-  var cidade = document.getElementById("input_cidade").value;
-  var uf = document.getElementById("input_uf").value;
+  var logradouro = document.getElementById("input_add_logradouro").value;
+  var tamanho = document.getElementById("input_add_tamanho").value;
+  var cep = document.getElementById("input_add_cep").value.replace("-", "");
+  var cidade = document.getElementById("input_add_cidade").value;
+  var uf = document.getElementById("input_add_uf").value;
   var empresa = document.getElementById("select_empresa").value;
   let idUserVar = sessionStorage.ID_USUARIO;
+
+
+  
   console.log("tamanho ->",tamanho)
   if (
     logradouro == "" ||

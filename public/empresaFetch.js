@@ -3,17 +3,17 @@ console.log(janelaAtual)
 
 function cadastrarEmpresa() {
   let idUserVar = sessionStorage.ID_USUARIO;
-  let cnpjVar = document.getElementById("cnpj").value;
-  let nomeFantasiaVar = document.getElementById("nomeFantasia").value;
-  let cidadeVar = document.getElementById("cidade").value;
-  let ufVar = document.getElementById("uf").value;
-  let cepVar = document.getElementById("cep").value;
-  let numeroVar = Number(document.getElementById("numero").value);
-  let bairroVar = document.getElementById("bairro").value;
-  let razaoSocialVar = document.getElementById("razaoSocial").value;
-  let ieVar = document.getElementById("ie").value;
-  let logradouroVar = document.getElementById("logradouro").value;
-  let complementoVar = document.getElementById("complemento").value;
+  let cnpjVar = document.getElementById("input_add_cnpj").value.replace(/[\.\-\/]/g, "");
+  let nomeFantasiaVar = document.getElementById("input_add_nomeFantasia").value;
+  let cidadeVar = document.getElementById("input_add_cidade").value;
+  let ufVar = document.getElementById("input_add_uf").value;
+  let cepVar = document.getElementById("input_add_cep").value.replace(/-/g, "");
+  let numeroVar = Number(document.getElementById("input_add_numero").value);
+  let bairroVar = document.getElementById("input_add_bairro").value;
+  let razaoSocialVar = document.getElementById("input_add_razaoSocial").value;
+  let ieVar = document.getElementById("input_add_ie").value.replace(/[\.\-]/g, "");
+  let logradouroVar = document.getElementById("input_add_logradouro").value;
+  let complementoVar = document.getElementById("input_add_complemento").value;
 
   console.log(idUserVar);
 
@@ -73,7 +73,6 @@ function cadastrarEmpresa() {
 
 function buscarEmpresas() {
   let idUserVar = sessionStorage.ID_USUARIO;
-  let nomeFantasia;
 
   fetch(`/empresas/buscar/${idUserVar}`, {
     method: "GET",
@@ -89,42 +88,47 @@ function buscarEmpresas() {
         localStorage.setItem("qtdEmpresas", json.length);
         console.log("qtd empresa ->", localStorage.qtdEmpresas);
 
-        // Função que cria as opções dinamicamente no select
-        function criarOpcoesSelect(json) {
-          const selectElement = document.getElementById("select_empresa");
+        // Função para criar opções no select
+        function criarOpcoesSelect(json, selectId) {
+          const selectElement = document.getElementById(selectId);
 
-          selectElement.innerHTML = "";
+          if (selectElement) {
+            selectElement.innerHTML = "";
 
-          const optionDefault = document.createElement("option");
-          optionDefault.value = "#";
-          optionDefault.textContent = "Selecione uma Empresa";
-          selectElement.appendChild(optionDefault);
+            const optionDefault = document.createElement("option");
+            optionDefault.value = "#";
+            optionDefault.textContent = "Selecione uma Empresa";
+            selectElement.appendChild(optionDefault);
 
-          // Adicionar opções para cada empresa na lista
-          json.forEach((json) => {
-            const option = document.createElement("option");
-            option.value = json.idEmpresa; // Valor do ID da empresa
-            option.textContent = json.nomeFantasia; // Nome da empresa
-            selectElement.appendChild(option);
-          });
-
+            // Adicionar opções para cada empresa na lista
+            json.forEach((empresa) => {
+              const option = document.createElement("option");
+              option.value = empresa.idEmpresa; // Valor do ID da empresa
+              option.textContent = empresa.nomeFantasia; // Nome da empresa
+              selectElement.appendChild(option);
+            });
+          } else {
+            console.error(`Elemento select com ID "${selectId}" não encontrado.`);
+          }
         }
-        if(janelaAtual != "/Empresas/empresas.html"){
-          criarOpcoesSelect(json);
-        }
-        
 
+        // IDs dos selects onde as empresas devem aparecer
+        const selectIds = ["select_empresa1", "select_empresa"];
 
+        // Preencher ambos os selects
+        selectIds.forEach((id) => {
+          criarOpcoesSelect(json, id);
+        });
+
+        // Atualizar localStorage para cada empresa
         for (let i = 0; i < json.length; i++) {
           localStorage.setItem("nomeFantasia", json[i].nomeFantasia);
           localStorage.setItem("cidade", json[i].cidade);
           localStorage.setItem("cep", json[i].cep);
           localStorage.setItem("cnpj", json[i].cnpj);
           localStorage.setItem("status", json[i].idEmpresa);
-          if (
-            janelaAtual ==
-            "/Empresas/empresas.html"
-          ) {
+
+          if (janelaAtual == "/Empresas/empresas.html") {
             adicionarNovaEmpresaTabela();
           }
         }
@@ -135,5 +139,6 @@ function buscarEmpresas() {
     }
   });
 }
+
 
 export { cadastrarEmpresa, buscarEmpresas };

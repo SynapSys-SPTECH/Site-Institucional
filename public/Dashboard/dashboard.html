@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
-
     <script src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script src="Mapas/geojs-29-mun.json"></script>
@@ -16,11 +15,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.css" />
 
-    
-    <!-- Config menu suspenso -->
-    <link rel="stylesheet" href="submenu.css">
-    <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
 
+    <!-- Config menu suspenso -->
+    <link rel="stylesheet" href="../Componentes/MenuSuspenso/submenu.css">
+    <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
 
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
@@ -29,7 +27,26 @@
 
 <body>
     <!-- INICIO Navbar -->
-    <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
+    <!-- <script src="../Componentes/MenuLateral/MenuLateral.js"></script> -->
+
+    <div class="menu_lateral">
+        <h3>Empresa</h3>
+
+        <ul>
+            <li onclick="window.location.href='../Dashboard/dashboard.html'" id="tela_ativa">
+                <img src="../images/chart-svgrepo-com.svg" alt="">
+                <a>Dashboard</a>
+            </li>
+            <li onclick="window.location.href='../Empresas/empresas.html'">
+                <img src="../images/company-svgrepo-com.svg" alt="">
+                <a>Empresas</a>
+            </li>
+            <li onclick="window.location.href='../Propriedades/propriedades.html'">
+                <img src="../images/brazil-svgrepo-com.svg" alt="">
+                <a>Propriedades</a>
+            </li>
+        </ul>
+    </div>
 
     <!-- FIM Navbar -->
     <div class='container'>
@@ -40,12 +57,8 @@
                         <label for="id_propriedade">Escolha a Empresa:</label>
                     </div>
 
-                    <select class="selectNavbar" name="Propriedade" id="id_propriedade">Escolha a Empresas
-                        <option value="1">Empresa 1</option>
-                        <option value="2">Empresa 2</option>
-                        <option value="3">Empresa 3</option>
-                        <option value="4">Empresa 4</option>
-                        <option value="5">Empresa 5</option>
+                    <select class="selectNavbar" name="Propriedade" id="select_empresa">Escolha a Empresas
+                        
                     </select>
                 </div>
 
@@ -53,7 +66,7 @@
                 <div class="nav-profile" onclick="toggleMenuSuspenso()">
                     <div class="user-profile-button" id="user_profile-image">
                         <i class="fa-solid fa-user icon-modify"></i>
-                        
+
                     </div>
 
                     <div class="sub-menu-wrap" id="subMenu">
@@ -82,7 +95,7 @@
 
 
             </nav>
-            
+
             <div class="main-dashboard">
                 <div class="kpis">
                     <div class="kpi">
@@ -103,7 +116,7 @@
                         <div id="myChart" style="width: 30vw; height:40vh"></div>
                     </div>
                     <div class="grafico">
-                        
+
                         <div id="map"></div>
                     </div>
                 </div>
@@ -170,18 +183,18 @@
 <script>
 
     var bounds = [
-        [-9.583, -50.109], 
-        [-17.766, -34.196]  
+        [-9.583, -50.109],
+        [-17.766, -34.196]
     ];
 
-    
+
     var map = L.map('map', {
         maxBounds: bounds,
         minZoom: 5.4,
-        maxZoom: 8 
+        maxZoom: 8
     }).fitBounds(bounds);
 
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -268,4 +281,13 @@
     function toggleMenuSuspenso() {
         subMenu.classList.toggle("open-menu");
     };
+
+    var usernameValue = sessionStorage.NOME_USUARIO;
+    document.getElementById('username').textContent = usernameValue;
+</script>
+
+
+<script type="module">
+    import { buscarPropriedade } from '../crudPropriedade.js';
+    buscarPropriedade()
 </script>

@@ -73,6 +73,9 @@ section {
     width: 30vw;
     height: 100vh;
     background-color: var(--lightWhiteSynapsys);
+    -webkit-box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.75);
 }
 
 
@@ -85,12 +88,28 @@ section {
     color: var(--bluePrimarySynapSys);
     gap: 10px;
     height: 70vh;
+    width: 100%;
     overflow-y: scroll;
+    text-transform: uppercase;
+}
+
+
+
+.div_checkbox-status{
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px;
+}
+
+.div_checkbox-status input{
+    border: none;
+    
 }
 
 .inputs_cadastrar_empresa div {
     display: flex;
     flex-direction: column;
+    width: 60%;
 }
 
 .inputs_div {
@@ -98,6 +117,7 @@ section {
     flex-direction: column;
     gap: 1em;
 }
+
 
 .inputs_cadastrar_empresa div label {
     font-size: small;
@@ -108,6 +128,13 @@ section {
     border-bottom: var(--blueSkySynapSys) 2px solid;
     padding: 0.5em 1em;
     background-color: var(--whiteSynapSys);
+}
+
+.inputs_cadastrar_empresa div input:disabled {
+    border: none;
+    border-bottom: var(--bluePrimarySynapSys) 2px solid;
+    padding: 0.5em 1em;
+    background-color: var(--whiteFundo);
 }
 
 .adicionar_empresas h1,
@@ -186,67 +213,17 @@ section {
 }
 
 
-.menu_lateral {
-    background-color: var(--darkBlueSynapsys);
-    width: 15vw;
-    height: 100vh;
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.menu_lateral h3 {
-    color: var(--whiteSynapSys);
-
-}
-
-.menu_lateral ul {
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.menu_lateral ul a {
-    text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    width: 12vw;
-    align-items: center;
-    padding: 1em 1em;
-    border-bottom: var(--darkBlueSynapsys) 5px solid;
-
-}
-
-.menu_lateral ul a li {
-    color: var(--whiteSynapSys);
-    list-style: none;
-    width: 8vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.menu_lateral ul a:hover {
-    border-bottom: var(--bluePrimarySynapSys) 5px solid;
-}
-
-.menu_lateral ul a img {
-    height: 1.7em;
-    color: var(--whiteSynapSys);
-}
-
 .container_listagem {
     display: flex;
     flex-direction: column;
     width: 70vw;
-    height: 90vh;
+    height: 80vh;
     justify-content: start;
     align-items: center;
+    padding: 2em;
+    margin-top: 1em;
+    background-color: var(--lightWhiteSynapsys);
+    box-shadow: 1px 2px 6px black;
 }
 
 .list_actions {
@@ -259,10 +236,13 @@ section {
 
 
 
+
 .campos {
     display: flex;
+    align-items: flex-start;
     flex-direction: row;
-    height: fit-content;
+    height: 70vh;
+    overflow-y: scroll;
     margin-top: 20vh;
 }
 
@@ -277,6 +257,7 @@ section {
 
 .styled-table {
     width: 70vw;
+    max-height: 50vh;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     font-size: 16px;
