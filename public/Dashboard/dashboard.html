@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,12 +31,17 @@
 </head>
 
 <script>
-    window.onload = function(){
+
+    import { buscarPropriedade } from '../crudPropriedade.js';
+
+
+    window.onload = function () {
         validarSessao(),
-        verificarPossuiEmpresa()
-    } 
-    
-    
+            buscarPropriedade(),
+            verificarPossuiEmpresa()
+    }
+
+
 </script>
 
 <body>
@@ -70,7 +77,7 @@
                     </div>
 
                     <select class="selectNavbar" name="Propriedade" id="select_empresa">Escolha a Empresas
-                        
+
                     </select>
                 </div>
 
@@ -296,10 +303,4 @@
 
     var usernameValue = sessionStorage.NOME_USUARIO;
     document.getElementById('username').textContent = usernameValue;
-</script>
-
-
-<script type="module">
-    import { buscarPropriedade } from '../crudPropriedade.js';
-    buscarPropriedade()
 </script>
