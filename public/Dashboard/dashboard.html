@@ -24,6 +24,7 @@
 
     <!-- Validação de Sessão -->
     <script src="../Javascript/sessao.js"></script>
+    <script src="../crudPropriedade.js"></script>
 
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
@@ -32,12 +33,8 @@
 
 <script>
 
-    import { buscarPropriedade } from '../crudPropriedade.js';
-
-
     window.onload = function () {
         validarSessao(),
-            buscarPropriedade(),
             verificarPossuiEmpresa()
     }
 
@@ -76,7 +73,7 @@
                         <label for="id_propriedade">Escolha a Empresa:</label>
                     </div>
 
-                    <select class="selectNavbar" name="Propriedade" id="select_empresa">Escolha a Empresas
+                    <select class="selectNavbar" name="Propriedade" id="select_empresa1">Escolha a Empresas
 
                     </select>
                 </div>
@@ -154,11 +151,7 @@
 
 </html>
 
-<script type="module">
-    import { cadastrarEmpresa } from '../empresaFetch.js';
 
-    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
-</script>
 
 <script>
     google.charts.load('current', { packages: ['corechart'] });
@@ -305,7 +298,11 @@
     document.getElementById('username').textContent = usernameValue;
 </script>
 
-<script type="module" src="">
+<script type="module">
+    import { cadastrar } from '../crudPropriedade.js';
     import { buscarPropriedade } from '../crudPropriedade.js';
+
+
     buscarPropriedade()
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
 </script>
