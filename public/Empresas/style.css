@@ -90,7 +90,10 @@ section {
     height: 70vh;
     width: 100%;
     overflow-y: scroll;
+    text-transform: uppercase;
 }
+
+
 
 .div_checkbox-status{
     display: flex !important;

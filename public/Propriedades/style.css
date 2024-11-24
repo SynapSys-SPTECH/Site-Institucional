@@ -109,11 +109,10 @@ section {
     border-bottom: var(--blueSkySynapSys) 2px solid;
     padding: 0.5em 1em;
     background-color: var(--whiteSynapSys);
-}
-
-.inputs_cadastrar_propriedade, #input_edit_uf, #input_add_uf{
     text-transform: uppercase;
 }
+
+
 
 .adicionar_propriedade h1,
 #editar_propriedade h1 {
