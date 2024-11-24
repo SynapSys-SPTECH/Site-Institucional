@@ -29,7 +29,10 @@
 </head>
 
 <script>
-    window.onload = validarSessao()
+    window.onload = function () {
+        validarSessao(),
+            verificarPossuiEmpresa()
+    } 
 </script>
 
 <body>
@@ -174,7 +177,8 @@
                         <button class="list_button" onclick="toggleDrawerCadastro()">Cadastrar Propriedade</button>
                     </div>
                     <section class="campos">
-                        <table id="tabela_propriedades" class="display" width="70vw" max-height="50vh" margin-top="400px">
+                        <table id="tabela_propriedades" class="display" width="70vw" max-height="50vh"
+                            margin-top="400px">
                             <thead>
                                 <tr>
                                     <th>Empresa Associada</th>
