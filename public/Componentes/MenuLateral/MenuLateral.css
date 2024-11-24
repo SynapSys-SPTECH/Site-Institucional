@@ -14,7 +14,7 @@
 
 }
 
-*{
+* {
     font-family: Inter;
 }
 
@@ -128,9 +128,9 @@ a.buttom-navbar {
     align-items: center;
 }
 
-.menu_lateral h3{
+.menu_lateral h3 {
     color: var(--whiteSynapSys);
-    
+
 }
 
 .menu_lateral ul {
@@ -141,7 +141,7 @@ a.buttom-navbar {
     justify-content: space-evenly;
 }
 
-.menu_lateral ul a {
+/* .menu_lateral ul li {
     text-decoration: none;
     display: flex;
     justify-content: space-between;
@@ -149,10 +149,15 @@ a.buttom-navbar {
     align-items: center;
     padding: 1em 1em;
     border-bottom: var(--darkBlueSynapsys) 5px solid;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
+} */
 
-}
+/* #tela_ativa {
+    border-bottom: var(--bluePrimarySynapSys) 5px solid;
+} */
 
-.menu_lateral ul a li {
+.menu_lateral ul li a {
     color: var(--whiteSynapSys);
     list-style: none;
     width: 8vw;
@@ -161,11 +166,78 @@ a.buttom-navbar {
     align-items: flex-end;
 }
 
-.menu_lateral ul a:hover {
+/* .menu_lateral ul li:hover {
     border-bottom: var(--bluePrimarySynapSys) 5px solid;
-}
+} */
 
-.menu_lateral ul a img {
+.menu_lateral ul li img {
     height: 1.7em;
     color: var(--whiteSynapSys);
+}
+
+
+
+
+
+
+
+.menu_lateral ul li {
+    text-decoration: none;
+    list-style-type: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    width: 12vw;
+    align-items: center;
+    padding: 1em 1em;
+    background: transparent;
+    border: none;
+    color: #ffedd3;
+    position: relative;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.menu_lateral ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--blueSkySynapSys);
+    transition: 0.2s ease;
+}
+
+.menu_lateral ul li:hover {
+    transition-delay: 0.2s;
+}
+
+.menu_lateral ul li:hover::before {
+    width: 100%;
+}
+
+.menu_lateral ul li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--blueSkySynapSys);
+    transition: 0.2s ease;
+    z-index: -1;
+}
+
+.menu_lateral ul li:hover::after {
+    height: 100%;
+    transition-delay: 0.2s;
+    color: var(--whiteFundo);
+}
+
+
+#tela_ativa {
+    
+    color: var(--GavaWhite);
+    background-color: var(--blueSkySynapSys);
 }

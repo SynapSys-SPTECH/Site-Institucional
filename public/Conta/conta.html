@@ -10,7 +10,7 @@
 
     <!-- Config para menu suspenso -->
     <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="submenu.css">
+    <link rel="stylesheet" href="../Componentes/MenuSuspenso/submenu.css">
 
     <script src="../fetchs.js"></script>
     <title>Painel de Conta</title>
@@ -22,7 +22,27 @@
 
 
     <!-- INICIO Navbar -->
-    <script src="../Componentes/MenuLateral/MenuLateral.js"></script>
+    <!-- <script src="../Componentes/MenuLateral/MenuLateral.js"></script> -->
+
+    <div class="menu_lateral">
+        <h3>Empresa</h3>
+
+        <ul>
+            <li onclick="window.location.href='../Dashboard/dashboard.html'">
+                <img src="../images/chart-svgrepo-com.svg" alt="">
+                <a>Dashboard</a>
+            </li>
+            <li onclick="window.location.href='../Empresas/empresas.html'">
+                <img src="../images/company-svgrepo-com.svg" alt="">
+                <a>Empresas</a>
+            </li>
+            <li onclick="window.location.href='../Propriedades/propriedades.html'">
+                <img src="../images/brazil-svgrepo-com.svg" alt="">
+                <a>Propriedades</a>
+            </li>
+        </ul>
+    </div>
+
     <!-- FIM Navbar -->
 
 
@@ -118,4 +138,7 @@
     function toggleMenuSuspenso() {
         subMenu.classList.toggle("open-menu");
     };
+
+    var usernameValue = sessionStorage.NOME_USUARIO;
+    document.getElementById('username').textContent = usernameValue;
 </script>
