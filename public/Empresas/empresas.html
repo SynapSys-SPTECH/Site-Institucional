@@ -20,12 +20,19 @@
 
     <!-- Importando o Data Tables aqui!! -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
+
+    <!-- Validação de Sessão -->
+    <script src="../Javascript/sessao.js"></script>
     
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <script type="module" src="../empresaFetch.js"></script>
     <title>Empresas</title>
 
 </head>
+
+<script>
+    window.onload = validarSessao()
+</script>
 
 <body>
 
@@ -159,7 +166,7 @@
                             <span> > </span>
                         </a>
 
-                        <a href="../index.html" onclick="sairDaConta()" class="submenu-option">
+                        <a href="../index.html" onclick="limparSessao()" class="submenu-option">
                             <i class="fa-solid fa-door-open icon-modify"></i>
                             <p>Sair</p>
                             <span> > </span>
@@ -398,8 +405,7 @@
         subMenu.classList.toggle("open-menu");
     };
 
-    var usernameValue = sessionStorage.NOME_USUARIO;
-    document.getElementById('username').textContent = usernameValue;
+    
 </script>
 
 

@@ -20,10 +20,17 @@
     <link rel="stylesheet" href="../Componentes/MenuSuspenso/submenu.css">
     <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
 
+    <!-- Validação de Sessão -->
+    <script src="../Javascript/sessao.js"></script>
+
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
 
 </head>
+
+<script>
+    window.onload = validarSessao()
+</script>
 
 <body>
     <!-- INICIO Navbar -->
@@ -82,7 +89,7 @@
                                 <span> > </span>
                             </a>
 
-                            <a href="../index.html" onclick="sairDaConta()" class="submenu-option">
+                            <a href="../index.html" onclick="limparSessao()" class="submenu-option">
                                 <i class="fa-solid fa-door-open icon-modify"></i>
                                 <p>Sair</p>
                                 <span> > </span>
