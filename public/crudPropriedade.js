@@ -13,8 +13,8 @@ function cadastrar() {
   let idUserVar = sessionStorage.ID_USUARIO;
 
 
-  
-  console.log("tamanho ->",tamanho)
+
+  console.log("tamanho ->", tamanho)
   if (
     logradouro == "" ||
     cep == "" ||
@@ -22,52 +22,107 @@ function cadastrar() {
     cidade == "" ||
     uf == ""
   ) {
-    alert("Todos os campos devem ser preenchidos");
+    Swal.fire({
+      icon: "error",
+      title: "Opa...",
+      text: 'Todos os campos devem ser preenchidos.',
+      showConfirmButton: true,
+      confirmButtonText: "Tentar novamente."
+    })
+    return;
   } else {
     if (cep.length != 8) {
-      alert("Erro no CEP");
+      Swal.fire({
+        icon: "error",
+        title: "Opa...",
+        text: 'O CEP está incorreto. Deve seguir o padrão (00000-000)',
+        showConfirmButton: true,
+        confirmButtonText: "Tentar novamente."
+      })
       return;
     }
 
     if (uf.length != 2) {
-      alert("Erro no UF");
+      Swal.fire({
+        icon: "error",
+        title: "Opa...",
+        text: 'O UF está incorreto, deve seguir o padrão (SP, RJ, etc).',
+        showConfirmButton: true,
+        confirmButtonText: "Tentar novamente."
+      })
+      return;
+    }
+
+    if (empresa == null || empresa == "#") {
+      Swal.fire({
+        icon: "error",
+        title: "Opa...",
+        text: 'Você deve escolher uma empresa para continuar.',
+        showConfirmButton: true,
+        confirmButtonText: "Tentar novamente."
+      })
       return;
     }
   }
 
-  // Enviando o valor da nova input
-  fetch("/propriedades/cadastrar", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      logradouroServer: logradouro,
-      cepServer: cep,
-      tamanhoServer: tamanho,
-      cidadeServer: cidade,
-      ufServer: uf,
-      empresaServer: empresa,
-      idServer: idUserVar
-    }),
-  })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
+  Swal.fire({
+    title: "Deseja cadastrar uma nova propriedade?",
+    text: "Você estará anexando uma propriedade à esta empresa!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    cancelButtonText: "Cancelar",
+    confirmButtonText: "Isso, criar!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Enviando o valor da nova input
+      fetch("/propriedades/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          logradouroServer: logradouro,
+          cepServer: cep,
+          tamanhoServer: tamanho,
+          cidadeServer: cidade,
+          ufServer: uf,
+          empresaServer: empresa,
+          idServer: idUserVar
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
 
-      if (resposta.ok) {
-        console.log(
-          "Cadastro de propriedade realizado com sucesso!"
-        );
-        alert("Propriedade cadastrada com sucesso!")
-        window.location.reload();
+          if (resposta.ok) {
+            console.log(
+              "Cadastro de propriedade realizado com sucesso!"
+            );
+            Swal.fire({
+              icon: "success",
+              title: "Isso!",
+              text: 'Propriedade cadastrada com sucesso! ',
+              showConfirmButton: true,
+              confirmButtonText: "Ufa!"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload();
+              } else {
+                window.location.reload();
+              }
+            });
 
-      } else {
-        throw "Houve um erro ao tentar realizar o cadastro!";
-      }
-    })
-    .catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-    });
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+    }
+  });
   return false;
 }
 
@@ -85,13 +140,13 @@ function buscarPropriedade() {
       console.log("FOI BUSCAR");
       resposta.json().then((json) => {
         console.log(json);
-        for(let i = 0; i < json.length; i++){
+        for (let i = 0; i < json.length; i++) {
           localStorage.setItem("nomeFantasia", json[i].nomeFantasia)
           localStorage.setItem("cidade", json[i].cidade)
           localStorage.setItem("cep", json[i].cep)
           localStorage.setItem("logradouro", json[i].logradouro)
-          localStorage.setItem("cnpj", json[i].cnpj)  
-          localStorage.setItem("status",json[i].idEmpresa)
+          localStorage.setItem("cnpj", json[i].cnpj)
+          localStorage.setItem("status", json[i].idEmpresa)
           localStorage.setItem("tamanho", json[i].tamanho)
           adicionarNovaPropriedadeTabela();
         }

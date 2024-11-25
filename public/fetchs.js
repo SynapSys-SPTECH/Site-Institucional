@@ -41,11 +41,36 @@ function entrar() {
         sessionStorage.EMAIL_USUARIO = json.email;
         sessionStorage.TIPO_USUARIO = json.fktipo
         sessionStorage.NOME_USUARIO = json.nome;
-        irDash();
+
+        Swal.fire({
+          icon: "success",
+          title: "Isso!",
+          text: 'Login realizado com sucesso! ',
+          showConfirmButton: true,
+          confirmButtonText: "Entrar!"
+
+        }).then((result) => {
+          if (result.isConfirmed) {
+            irDash()
+          } else {
+            irDash()
+          }
+        });
       });
     } else {
-      document.getElementById("erro_login").innerHTML = "Email e(ou) senha inválido(os).";
-      console.log("Houve um erro ao tentar realizar o login!");
+      Swal.fire({
+            icon: "error",
+            title: "Opa...",
+            text: 'Email e(ou) Senha Incorretos! ',
+            showConfirmButton: true,
+            confirmButtonText: "Tentar Novamente!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            } else {
+              window.location.reload();
+            }
+          });
 
       resposta.text().then(texto => {
         console.error(texto);
@@ -179,8 +204,19 @@ function atualizarInfo() {
       .then(function (resposta) {
         console.log("resposta: ", resposta);
         if (resposta.ok) {
-          console.log(
-            "Edição realizado com sucesso!")
+          Swal.fire({
+            icon: "success",
+            title: "Isso!",
+            text: 'Informações atualizadas com sucesso! ',
+            showConfirmButton: true,
+            confirmButtonText: "Ufa!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            } else {
+              window.location.reload();
+            }
+          });
         } else {
           throw "Houve um erro ao tentar realizar a edição!";
         }
@@ -200,7 +236,19 @@ function atualizarInfo() {
     let idUsuarioVar = sessionStorage.ID_USUARIO
 
     if(senhaNovaVar != confirmarSenhaVar) {
-      alert("Confirmar senha não bate com o campo senha")
+      Swal.fire({
+        icon: "error",
+        title: "Opa...",
+        text: 'As Senhas não coincidem...',
+        showConfirmButton: true,
+        confirmButtonText: "Tentar novamente."
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        } else {
+          window.location.reload();
+        }
+      });
       return;
     }
 
@@ -218,7 +266,19 @@ function atualizarInfo() {
       console.log(resposta);
     } else {
       console.log("Senha Atual errada!");
-      alert("Senha Atual errada!")
+      Swal.fire({
+        icon: "error",
+        title: "Opa...",
+        text: 'Senha atual incorreta.',
+        showConfirmButton: true,
+        confirmButtonText: "Tentar novamente."
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        } else {
+          window.location.reload();
+        }
+      });
       return;
     }
 
@@ -240,8 +300,19 @@ function atualizarInfo() {
       .then(function (resposta) {
         console.log("resposta: ", resposta);
         if (resposta.ok) {
-          console.log(
-            "Edição realizado com sucesso!")
+          Swal.fire({
+            icon: "success",
+            title: "Isso!",
+            text: 'Senha atualizada com sucesso! ',
+            showConfirmButton: true,
+            confirmButtonText: "Ufa!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            } else {
+              window.location.reload();
+            }
+          });
         } else {
           throw "Houve um erro ao tentar realizar a edição!";
         }

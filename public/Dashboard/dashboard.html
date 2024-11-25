@@ -23,18 +23,21 @@
     <!-- Validação de Sessão -->
     <script src="../Javascript/sessao.js"></script>
 
+    <!-- Sweet Alerts 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
 
 </head>
 
 <script>
-    window.onload = function(){
+    window.onload = function () {
         validarSessao(),
-        verificarPossuiEmpresa()
-    } 
-    
-    
+            verificarPossuiEmpresa()
+    }
+
+
 </script>
 
 <body>
@@ -70,7 +73,7 @@
                     </div>
 
                     <select class="selectNavbar" name="Propriedade" id="select_empresa">Escolha a Empresas
-                        
+
                     </select>
                 </div>
 
@@ -137,6 +140,23 @@
 
         </section>
     </div>
+
+
+
+
+
+
+
+
+    <!-- ALERTS PARA A PÁGINA -->
+
+    <!-- Alert caso não possua empresa. -->
+    <script src="../Componentes/Alerts/possuiEmpresa.js"></script>
+
+
+
+
+
 
 </body>
 

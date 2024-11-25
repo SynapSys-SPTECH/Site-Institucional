@@ -1,4 +1,4 @@
-const janelaAtual =window.location.pathname;
+const janelaAtual = window.location.pathname;
 console.log(janelaAtual)
 
 function cadastrarEmpresa() {
@@ -17,56 +17,121 @@ function cadastrarEmpresa() {
 
   console.log(idUserVar);
 
-  // if (cnpjVar.length !== 14) {
-  //   alert("CNPJ INVALIDO!")
-  //   return;
-  // }
 
-  // if (ufVar.length !== 2) {
-  //   alert("UF INVALIDO!")
-  //   return;
-  // }
 
-  // if (cepVar.length !== 8) {
-  //   alert("CEP INVALIDO")
-  //   return;
-  // }
-
-  fetch("../empresas/cadastrar", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      cnpjServer: cnpjVar,
-      nomeFantasiaServer: nomeFantasiaVar,
-      cidadeServer: cidadeVar,
-      ufServer: ufVar,
-      cepServer: cepVar,
-      numeroServer: numeroVar,
-      bairroServer: bairroVar,
-      razaoSocialServer: razaoSocialVar,
-      ieServer: ieVar,
-      logradouroServer: logradouroVar,
-      complementoServer: complementoVar,
-      idServer: idUserVar,
-    }),
-    credentials: "include",
-  })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
-
-      if (resposta.ok) {
-        console.log("Cadastro de empresa realizado com sucesso!");
-        alert("Empresa cadastrada com sucesso!");
-        window.location.reload();
-      } else {
-        throw "Houve um erro ao tentar realizar o cadastro!";
-      }
+  if (
+    cnpjVar == "" ||
+    nomeFantasiaVar == "" ||
+    cidadeVar == "" ||
+    ufVar == "" ||
+    cepVar == "" ||
+    numeroVar == "" ||
+    bairroVar == "" ||
+    razaoSocialVar == "" ||
+    ieVar == "" ||
+    logradouroVar == "" ||
+    complementoVar == ""
+  ) {
+    Swal.fire({
+      icon: "error",
+      title: "Opa...",
+      text: 'Todos os campos devem ser preenchidos.',
+      showConfirmButton: true,
+      confirmButtonText: "Tentar novamente."
     })
-    .catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-    });
+    return;
+  } else if (cnpjVar.length !== 14) {
+    Swal.fire({
+      icon: "error",
+      title: "Opa...",
+      text: 'O CNPJ está incorreto, deve seguir o padrão (00.000.000/0000-00).',
+      showConfirmButton: true,
+      confirmButtonText: "Tentar novamente."
+    })
+    return;
+  } else if (ufVar.length !== 2) {
+    Swal.fire({
+      icon: "error",
+      title: "Opa...",
+      text: 'O UF está incorreto, deve seguir o padrão (SP, RJ, etc).',
+      showConfirmButton: true,
+      confirmButtonText: "Tentar novamente."
+    })
+    return;
+  } else if (cepVar.length !== 8) {
+    Swal.fire({
+      icon: "error",
+      title: "Opa...",
+      text: 'O CEP está incorreto. Deve seguir o padrão (00000-000)',
+      showConfirmButton: true,
+      confirmButtonText: "Tentar novamente."
+    })
+    return;
+  }
+
+  Swal.fire({
+    title: "Deseja cadastrar uma nova empresa?",
+    text: "Você estará anexando uma empresa ao seu nome!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    cancelButtonText: "Cancelar",
+    confirmButtonText: "Isso, criar!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch("../empresas/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cnpjServer: cnpjVar,
+          nomeFantasiaServer: nomeFantasiaVar,
+          cidadeServer: cidadeVar,
+          ufServer: ufVar,
+          cepServer: cepVar,
+          numeroServer: numeroVar,
+          bairroServer: bairroVar,
+          razaoSocialServer: razaoSocialVar,
+          ieServer: ieVar,
+          logradouroServer: logradouroVar,
+          complementoServer: complementoVar,
+          idServer: idUserVar,
+        }),
+        credentials: "include",
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            console.log("Cadastro de empresa realizado com sucesso!");
+            Swal.fire({
+              icon: "success",
+              title: "Isso!",
+              text: 'Empresa cadastrada com sucesso! ',
+              showConfirmButton: true,
+              confirmButtonText: "Ufa!"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload();
+              } else {
+                window.location.reload();
+              }
+            });
+
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+
+          console.log(`#ERRO: ${resposta}`);
+        });
+    }
+  });
+
+
 
   return false;
 }
