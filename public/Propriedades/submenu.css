@@ -1,0 +1,130 @@
+
+.nav-profile {
+    padding-top: 10px;
+    margin-right: 100px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-profile-button {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.user-profile-button p {
+    margin-top: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.user-profile-button .icon-modify {
+    color: rgb(139, 138, 138);
+    padding: 10px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.user-profile-button .icon-modify:hover {
+    color: #0e0c0c;
+    background-color: rgb(139, 138, 138);
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    z-index: 3;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+    z-index: 3;
+}
+
+
+.sub-menu {
+    border-radius: 5px;
+    border: #bdbdbd 1.5px solid;
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #bdbdbd;
+    padding-bottom: 8px;
+}
+
+.user-info .user-name {
+    font-size: 24px;
+    color: #3b3b3b;
+}
+
+.user-info .icon-modify {
+    border: 2px solid grey;
+    background-color: #d9d9d9;
+    border-radius: 100%;
+    padding: 7px;
+    color: grey;
+    font-size: 32px;
+    margin-right: 15px;
+}
+
+.submenu-option {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #bdbdbd;
+    padding-bottom: 8px;
+    text-decoration: none;
+    color: #b8b8b8;
+    margin: 12px 0;
+}
+
+.submenu-option p {
+    width: 100%;
+}
+
+.submenu-option .icon-modify {
+    font-size: 16px;
+    color: grey;
+    padding: 8px;
+    background-color: var(--cinza);
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.submenu-option span {
+    font-size: 22px;
+    transition: transform 0.3s;
+}
+
+.submenu-option:hover .icon-modify {
+    color: black;
+}
+
+.submenu-option:hover span {
+    color: black;
+    transform: translateX(8px);
+}
+
+.submenu-option:hover p {
+    color: black;
+    font-weight: bold;
+}

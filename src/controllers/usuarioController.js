@@ -137,6 +137,9 @@ function editarSenha(req, res) {
 
 }
 
+
+
+
 module.exports = {
     autenticar,
     cadastrar,

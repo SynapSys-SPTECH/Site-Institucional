@@ -26,7 +26,7 @@
           <input type="password" id="senhaLogin">
         </div>
         <div class="actions">
-          <button id="entrarLogin" onclick="entrar()">Entrar</button>
+          <button id="entrarLogin" onclick="verificarEEntrar()">Entrar</button>
           <p class="link" id="abrirCadastro">Não possui conta?<a class="link"
               href="../Cadastro/cadastro.html"> Cadastrar-se</a></p>
           <a class="voltar" href="../Cadastro/cadastro.html">Voltar ao início</a>
@@ -39,5 +39,30 @@
   </div>
 
 </body>
+
+<script>
+
+function verificarEEntrar() {
+  var emailVar = emailLogin.value;
+
+  if (emailVar === "") {
+    console.log("Preencha todos os campos para entrar!");
+    document.getElementById("erro_login").innerHTML = "Preencha o campo de e-mail.";
+    return false;
+  }
+
+
+  verificarEmailExistente(emailVar).then((resposta) => {
+    if (resposta && !resposta.emailExiste) {
+      document.getElementById("erro_login").innerHTML =
+        "O e-mail informado não está cadastrado.";
+    } else {
+      entrar();
+    }
+  });
+
+  return false; 
+}
+</script>
 
 </html>
