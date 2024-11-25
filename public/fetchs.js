@@ -84,6 +84,14 @@ function entrar() {
   return false;
 }
 
+
+// ESCOPO GLOBAL
+
+const caracterMaiusculo = "QWERTYUIOPASDFGHJKLZXCVBNM";
+const caracterMinusculo = "qwertyuiopasdfghjklzxcvbnm";
+const caracterNum = "1234567890";
+const caracterEspecial = "!#$%&*?@_";
+
 function cadastrar() {
 
   let nomeVar = nomeCadastro.value
@@ -104,6 +112,53 @@ function cadastrar() {
     console.log("Mensagem de erro para todos os campos em branco")
   } else {
     console.log("Campos Preenchidos.")
+  }
+  let validar_email = emailVar.indexOf("@") >= 0 && emailVar.indexOf(".") >= 0;
+
+  // VALIDAÇÃO COMPOSTA DA SENHA
+  let tamanhoSenha = senhaVar.length >= 8;
+  let qtdMaiusculo = 0;
+  let qtdMinisculo = 0;
+  let qtdNum = 0;
+  let qtdCarecterEspecial = 0;
+  let validarConfirmar = senhaVar === confirmacaoSenhaVar;
+
+  // LAÇO QUE VAI PASSAR EM CADA CARACTER DA SENHA [contador] E,
+  // CONFORME CADA VERIFICAÇÃO, CASO SEJA ECONTRADO UMA POSIÇÃO
+  // VALIDA (=! -1), O PARAMETRO INCREMENTA MAIS UM.
+  for (let contador = 0; contador <= senhaVar.length; contador++) {
+
+    if (caracterMaiusculo.indexOf(senhaVar[contador]) != -1) {
+      qtdMaiusculo++;
+    }
+    if (caracterMinusculo.indexOf(senhaVar[contador]) != -1) {
+      qtdMinisculo++;
+    }
+    if (caracterNum.indexOf(senhaVar[contador]) != -1) {
+      qtdNum++;
+    }
+    if (caracterEspecial.indexOf(senhaVar[contador]) != -1) {
+      qtdCarecterEspecial++
+    }
+  }
+
+  // VALIDA SE O EMAIL TEM @ E PONTO-FINAL
+  if (validar_email == false) {
+    console.log('Email preenchido incorretamente!')
+  }
+
+  // VALIDAÇÃO DE SENHA COMPOSTA:
+  if (tamanhoSenha == false
+    || qtdMaiusculo == 0
+    || qtdMinisculo == 0
+    || qtdNum == 0
+    || qtdCarecterEspecial == 0) {
+
+    console.log('Senha preenchida incorretamente!')
+  }
+
+  if (validarConfirmar == false) {
+    console.log('Senhas não coincidem!');
   }
 
   fetch("../usuarios/cadastrar", {
