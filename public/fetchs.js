@@ -1,11 +1,11 @@
 var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
 function irDash() {
-  window.location.href = "http://localhost:3333/Dashboard/dashboard.html";
+  window.location.href = "../Dashboard/dashboard.html";
 }
 
 function abrirLogon() {
-  window.location = "./Login/login.html";
+  window.location = "../Login/login.html";
 };
 
 // function verificarEmailExistente(emailVar) {
