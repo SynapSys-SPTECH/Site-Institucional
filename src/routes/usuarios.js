@@ -23,4 +23,8 @@ router.put("/editarSenha/:idUsuario", function (req, res) {
     usuarioController.editarSenha(req, res);
 });
 
+router.post("/verificar-email", function (req, res) {
+    usuarioController.verificarEmail(req, res);
+});
+
 module.exports = router;

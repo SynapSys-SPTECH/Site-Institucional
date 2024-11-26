@@ -136,11 +136,34 @@ function editarSenha(req, res) {
         );
 
 }
+function verificarEmail(req, res) {
+    var email = req.body.emailServer;
+
+    if (email == undefined) {
+        res.status(400).send("O e-mail está undefined!");
+    } else {
+        usuarioModel.verificarEmail(email)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    
+                    res.status(409).send("E-mail já existe.");
+                } else {
+                    
+                    res.status(200).send("E-mail disponível.");
+                }
+            })
+            .catch(function (erro) {
+                console.log(erro);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
+}
 
 module.exports = {
     autenticar,
     cadastrar,
     deletar,
     editar,
-    editarSenha
+    editarSenha,
+    verificarEmail
 }

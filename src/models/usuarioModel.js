@@ -50,10 +50,20 @@ function editarSenha(senha, idUsuario) {
     return database.executar(instrucaoSql); 
 }
 
+function verificarEmail(email) {
+    var instrucaoSql = `
+        SELECT email FROM usuario WHERE email = '${email}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
     deletar,
     editar,
-    editarSenha
+    editarSenha,
+    verificarEmail
 };
