@@ -205,5 +205,56 @@ function buscarEmpresas() {
   });
 }
 
+function editarEmpresa(){
 
-export { cadastrarEmpresa, buscarEmpresas };
+  let idUserVar = sessionStorage.ID_USUARIO;
+  let idEmpresa = " "
+  let idEndereco = " "
+  let cnpjVar = localStorage.getItem('UpdateCnpj');
+  let nomeFantasiaVar = document.getElementById("input_edit_nomeFantasia").value;
+  let cidadeVar = document.getElementById("input_edit_cidade").value;
+  let ufVar = document.getElementById("input_edit_uf").value;
+  let cepVar = document.getElementById("input_edit_cep").value.replace(/-/g, "");
+  let numeroVar = Number(document.getElementById("input_edit_numero").value);
+  let bairroVar = document.getElementById("input_edit_bairro").value;
+  let razaoSocialVar = document.getElementById("input_edit_razaoSocial").value;
+  let logradouroVar = document.getElementById("input_edit_logradouro").value;
+  let complementoVar = document.getElementById("input_edit_complemento").value;
+
+    fetch(`/empresas/editar/${cnpjVar}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nomeFantasiaServer: nomeFantasiaVar,
+        cidadeServer: cidadeVar,
+        ufServer: ufVar,
+        cepServer: cepVar,
+        numeroServer: numeroVar,
+        bairroServer: bairroVar,
+        razaoSocialServer: razaoSocialVar,
+        logradouroServer: logradouroVar,
+        complementoServer: complementoVar,
+        cnpjServer: cnpjVar,
+        idServer: idUserVar,
+        idEmpresaServer: idEmpresa,
+        idEnderecoServer: idEndereco,
+      })
+    }).then(function (resposta) {
+
+      if (resposta.ok) {
+        window.alert("Post atualizado com sucesso pelo usuario de email: !");
+        window.location = "/Empresas/empresas.html";
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+
+export { cadastrarEmpresa, buscarEmpresas, editarEmpresa };

@@ -20,4 +20,8 @@ router.get("/listar", function (req, res) {
   empresaController.listar(req, res);
 });
 
+router.put("/editar/:cnpj", function (req, res) {
+    empresaController.editar(req, res);
+});
+
 module.exports = router;

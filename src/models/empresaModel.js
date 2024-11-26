@@ -24,4 +24,26 @@ function cadastrar(razaoSocial, cnpj, inscricaoEstadual, nomeFantasia, fkEnderec
   return database.executar(instrucaoSql);
 }
 
-module.exports = { buscarPorCnpj, buscar, cadastrar, listar };
+function editarEmpresa(idEmpresa, razaoSocial, nomeFantasia) {
+  console.log("Atualizando empresa com os dados:", { idEmpresa, razaoSocial, nomeFantasia });
+
+  const instrucaoEmpresa = `
+        UPDATE Synapsys.empresa
+        SET razaoSocial = '${razaoSocial}',
+            nomeFantasia = '${nomeFantasia}',
+            updateAt = CURRENT_TIMESTAMP
+        WHERE idEmpresa = ${idEmpresa};
+    `;
+
+  console.log("Instrução SQL para empresa:\n", instrucaoEmpresa);
+
+  // Executa a query de atualização da empresa
+  return database.executar(instrucaoEmpresa);
+}
+
+
+
+
+
+
+module.exports = { buscarPorCnpj, buscar, cadastrar, listar, editarEmpresa };

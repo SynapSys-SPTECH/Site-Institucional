@@ -315,7 +315,7 @@
                 localStorage.cep,
                 localStorage.cnpj,
                 localStorage.status,
-                `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
+                `<button id="btn-${counter}" onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
             ])
             .draw(false);
 
@@ -344,7 +344,6 @@
     });
 
     function toggleDrawerEdit(button) {
-
         alert("Editar empresa: " + button.closest('tr').cells[0].textContent);
     }
 
@@ -361,13 +360,25 @@
         }
     }
 
-    function toggleDrawerEdit() {
+    function toggleDrawerEdit(button) {
         const divEdit = document.getElementById("edit_empresa");
         if (divEdit.style.display === "none") {
             divEdit.style.display = "flex";
         } else {
             divEdit.style.display = "none";
         }
+        const row = button.closest('tr');
+
+        // Captura todos os <td> da linha
+        const cells = row.querySelectorAll('td');
+
+        // Extração dos valores
+        const values = Array.from(cells).map(cell => cell.textContent.trim());
+
+        // Exibe os valores no console (ou use para outra finalidade)
+        console.log('Valores da linha:', values);
+
+        localStorage.setItem('UpdateCnpj', values[3]);
     }
 
 
@@ -394,11 +405,13 @@
 <script type="module">
     import { cadastrarEmpresa } from '../empresaFetch.js';
     import { buscarEmpresas } from '../empresaFetch.js';
+    import { editarEmpresa } from '../empresaFetch.js';
 
     buscarEmpresas()
     console.log("id usuario ->", sessionStorage.ID_USUARIO)
     console.log("nome usuario ->", sessionStorage.NOME_USUARIO)
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+    document.getElementById('editarBtn').addEventListener('click', editarEmpresa);
 </script>
 
 <script>
