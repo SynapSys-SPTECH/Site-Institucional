@@ -57,6 +57,12 @@ function verificarEmail(email) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function buscarPorEmail(email) {
+    const instrucaoSql = `
+        SELECT * FROM usuario WHERE email = '${email}';
+    `;
+    return database.executar(instrucaoSql); 
+}
 
 
 module.exports = {
@@ -65,5 +71,6 @@ module.exports = {
     deletar,
     editar,
     editarSenha,
-    verificarEmail
+    verificarEmail,
+    buscarPorEmail
 };
