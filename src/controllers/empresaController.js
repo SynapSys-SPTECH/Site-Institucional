@@ -66,7 +66,8 @@ async function editar(req, res) {
       numeroServer: numero,
       bairroServer: bairro,
       logradouroServer: logradouro,
-      complementoServer: complemento
+      complementoServer: complemento,
+      statusServer: status
     } = req.body;
 
     // Buscar dados existentes
@@ -89,6 +90,7 @@ async function editar(req, res) {
         IdEmpresa,
         razaoSocial || resultadoEmpresa[0].razaoSocial, // Usar valor existente caso vazio
         nomeFantasia || resultadoEmpresa[0].nomeFantasia,
+        status || resultadoEmpresa[0].status,
     );
 
     const resultadoEdicao2 = await enderecoModel.editarEndereco(
@@ -108,7 +110,8 @@ async function editar(req, res) {
       empresa: {
         ...resultadoEmpresa[0],
         razaoSocial: razaoSocial || resultadoEmpresa[0].razaoSocial,
-        nomeFantasia: nomeFantasia || resultadoEmpresa[0].nomeFantasia
+        nomeFantasia: nomeFantasia || resultadoEmpresa[0].nomeFantasia,
+        status: status || resultadoEmpresa[0].status
       },
       endereco: {
         cidade: cidade || resultadoEndereco[0].cidade,

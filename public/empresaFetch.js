@@ -220,6 +220,14 @@ function editarEmpresa(){
   let razaoSocialVar = document.getElementById("input_edit_razaoSocial").value;
   let logradouroVar = document.getElementById("input_edit_logradouro").value;
   let complementoVar = document.getElementById("input_edit_complemento").value;
+  const checkbox = document.getElementById("ckbox_status_empresa");
+  let statusVar = ''
+
+  if (checkbox.checked){
+    statusVar = "habilitado"
+  }else{
+    statusVar = "desabilitado"
+  }
 
     fetch(`/empresas/editar/${cnpjVar}`, {
       method: "PUT",
@@ -240,16 +248,17 @@ function editarEmpresa(){
         idServer: idUserVar,
         idEmpresaServer: idEmpresa,
         idEnderecoServer: idEndereco,
+        statusServer: statusVar
       })
     }).then(function (resposta) {
 
       if (resposta.ok) {
-        window.alert("Post atualizado com sucesso pelo usuario de email: !");
+        window.alert("Empresa Atualizada com sucesso pelo usuario " + sessionStorage.getItem("NOME_USUARIO") + " de email:" + sessionStorage.getItem("EMAIL_USUARIO") +"!");
         window.location = "/Empresas/empresas.html";
       } else if (resposta.status == 404) {
         window.alert("Deu 404!");
       } else {
-        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+        throw ("Houve um erro ao tentar realizar edição! Código da resposta: " + resposta.status);
       }
     }).catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);

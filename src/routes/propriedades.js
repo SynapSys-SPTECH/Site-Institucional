@@ -11,5 +11,8 @@ router.get("/buscar/:idUserVar", function (req, res) {
     propriedadeController.buscar(req, res);
 })
 
+router.put("/editar", function (req, res) {
+    propriedadeController.editar(req, res);
+})
 
 module.exports = router;    

@@ -148,6 +148,7 @@ function buscarPropriedade() {
           localStorage.setItem("cnpj", json[i].cnpj)
           localStorage.setItem("status", json[i].idEmpresa)
           localStorage.setItem("tamanho", json[i].tamanho)
+          localStorage.setItem("idPropriedade", json[i].idPropriedade)
           adicionarNovaPropriedadeTabela();
         }
         console.log(JSON.stringify(json));
@@ -158,4 +159,52 @@ function buscarPropriedade() {
   });
 }
 
-export { cadastrar, buscarPropriedade };
+function editarPropriedade(){
+
+  let idUserVar = sessionStorage.ID_USUARIO;
+  let idPropriedadeVar = localStorage.idPropriedadeUpdate;
+  let cidadeVar = document.getElementById("input_edit_cidade").value;
+  let logradouroVar = document.getElementById("input_edit_logradouro").value;
+  let cepVar = document.getElementById("input_edit_cep").value;
+  let tamanhoVar = document.getElementById("input_edit_tamanho").value;
+  let ufVar = document.getElementById("input_edit_uf").value;
+
+  const checkbox = document.getElementById("ckbox_status_propriedade");
+  let statusVar = ''
+
+  if (checkbox.checked){
+    statusVar = "habilitado"
+  }else{
+    statusVar = "desabilitado"
+  }
+
+  fetch(`/propriedades/editar`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      tamanhoServer: tamanhoVar,
+      cidadeServer: cidadeVar,
+      ufServer: ufVar,
+      cepServer: cepVar,
+      logradouroServer: logradouroVar,
+      idPropriedadeServer: idPropriedadeVar,
+      statusServer: statusVar,
+    })
+  }).then(function (resposta){
+
+    if (resposta.ok) {
+      window.alert("Propriedade Atualizada com sucesso pelo usuario " + sessionStorage.getItem("NOME_USUARIO") + " de email:" + sessionStorage.getItem("EMAIL_USUARIO") +"!");
+      window.location = "/Propriedades/propriedades.html";
+    } else if (resposta.status == 404) {
+      window.alert("Deu 404!");
+    } else {
+      throw ("Houve um erro ao tentar realizar edição! Código da resposta: " + resposta.status);
+    }
+  }).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+  });
+}
+
+export { cadastrar, buscarPropriedade, editarPropriedade };

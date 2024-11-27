@@ -313,7 +313,7 @@
                 localStorage.cnpj,
                 localStorage.tamanho + "m²",
                 "Ativo",
-                `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
+                `<button onclick="toggleDrawerEdit(this)" value="${localStorage.idPropriedade}" class="edit_btn">Editar</button>`
             ])
             .draw(false);
 
@@ -344,7 +344,6 @@
     });
 
     function toggleDrawerEdit(button) {
-
         alert("Editar empresa: " + button.closest('tr').cells[0].textContent);
     }
 
@@ -361,13 +360,14 @@
         }
     }
 
-    function toggleDrawerEdit() {
+    function toggleDrawerEdit(button) {
         const divEdit = document.getElementById("editar_propriedade");
         if (divEdit.style.display === "none") {
             divEdit.style.display = "flex";
         } else {
             divEdit.style.display = "none";
         }
+        localStorage.setItem("idPropriedadeUpdate" , button.value)
     }
 
 
@@ -393,11 +393,13 @@
 
 <script type="module">
     import { cadastrar } from '../crudPropriedade.js';
+    import { editarPropriedade} from "../crudPropriedade.js";
     import { buscarPropriedade } from '../crudPropriedade.js';
 
 
     buscarPropriedade()
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
+    document.getElementById('editarBtn').addEventListener('click', editarPropriedade);
 </script>
 
 <script>
