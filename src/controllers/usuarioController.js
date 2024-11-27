@@ -1,46 +1,36 @@
 var usuarioModel = require("../models/usuarioModel");
 
 function autenticar(req, res) {
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
-    } else {
-
-        usuarioModel.autenticar(email, senha)
-            .then(
-                function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
-                    res.json({
-                        idUsuario: resultadoAutenticar[0].idUsuario,
-                        email: resultadoAutenticar[0].email,
-                        senha: resultadoAutenticar[0].senha,
-                        fktipo: resultadoAutenticar[0].fkTipo,
-                        nome: resultadoAutenticar[0].nome
-                    });
-                    if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
-                    } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
-                    } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-                    }
+    const { emailServer, senhaServer } = req.body; 
 
 
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+    if (!emailServer || !senhaServer) {
+        return res.status(400).send("Por favor, informe o email e a senha.");
     }
 
+
+    usuarioModel.buscarPorEmail(emailServer)
+        .then((resultado) => {
+            if (resultado.length === 0) {
+                return res.status(404).send("Email não encontrado.");
+            }
+
+
+            if (resultado[0].senha !== senhaServer) {
+                return res.status(403).send("Senha incorreta.");
+            }
+
+            res.json({
+                idUsuario: resultado[0].idUsuario,
+                email: resultado[0].email,
+                fktipo: resultado[0].fktipo,
+                nome: resultado[0].nome
+            });
+        })
+        .catch((erro) => {
+            console.log(erro);
+            res.status(500).send("Erro ao processar a autenticação.");
+        });
 }
 
 function cadastrar(req, res) {
@@ -136,11 +126,34 @@ function editarSenha(req, res) {
         );
 
 }
+function verificarEmail(req, res) {
+    var email = req.body.emailServer;
+
+    if (email == undefined) {
+        res.status(400).send("O e-mail está undefined!");
+    } else {
+        usuarioModel.verificarEmail(email)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    
+                    res.status(409).send("E-mail já existe.");
+                } else {
+                    
+                    res.status(200).send("E-mail disponível.");
+                }
+            })
+            .catch(function (erro) {
+                console.log(erro);
+                res.status(500).json(erro.sqlMessage);
+            });
+    }
+}
 
 module.exports = {
     autenticar,
     cadastrar,
     deletar,
     editar,
-    editarSenha
+    editarSenha,
+    verificarEmail
 }
