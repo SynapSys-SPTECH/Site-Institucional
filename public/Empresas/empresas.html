@@ -308,7 +308,7 @@
 
     function adicionarNovaEmpresaTabela() {
         const table = $('#tabela_empresas').DataTable();
-        table.row
+        const newRow = table.row
             .add([
                 localStorage.nomeFantasia,
                 localStorage.cidade,
@@ -317,8 +317,13 @@
                 localStorage.status,
                 `<button id="btn-${counter}" onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
             ])
-            .draw(false);
+            .draw(false)
+            .node();
 
+        if (localStorage.status == "Inativo") {
+            $(newRow).css('background-color', 'lightgray'); // Aplica cor cinza
+            $(newRow).addClass('linha-desativada'); // Adiciona uma classe opcional para estilo
+        }
         counter++;
     }
 

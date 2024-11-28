@@ -149,6 +149,7 @@ function buscarPropriedade() {
           localStorage.setItem("status", json[i].status)
           localStorage.setItem("tamanho", json[i].tamanho)
           localStorage.setItem("idPropriedade", json[i].idPropriedade)
+          localStorage.setItem("statusPropriedade",json[i].statusPropriedade)
           adicionarNovaPropriedadeTabela();
         }
         console.log(JSON.stringify(json));
@@ -157,6 +158,25 @@ function buscarPropriedade() {
       return false;
     }
   });
+}
+
+function buscarStatusEmpresa(){
+const idEmpresa = 1;
+
+  fetch(`empresas/buscarStatus/${idEmpresa}`,{
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      window.alert("status da empresa " + resposta.json().resultadoEmpresa);
+    } else if (resposta.status == 404) {
+      window.alert("Deu 404!");
+    } else {
+      throw ("Houve um erro ao tentar realizar query status! Código da resposta: " + resposta.status);
+    }
+  })
 }
 
 function editarPropriedade(){
@@ -172,10 +192,14 @@ function editarPropriedade(){
   const checkbox = document.getElementById("ckbox_status_propriedade");
   let statusVar = ''
 
-  if (checkbox.checked){
-    statusVar = "Ativo"
-  }else{
-    statusVar = "Inativo"
+  if (localStorage.statusUpdate == "Inativo"){
+    window.alert("Status não pode ser alterado quando empresa estiver inativa")
+  }else {
+    if (checkbox.checked) {
+      statusVar = "Ativo"
+    } else {
+      statusVar = "Inativo"
+    }
   }
 
   fetch(`/propriedades/editar`, {
@@ -207,4 +231,4 @@ function editarPropriedade(){
   });
 }
 
-export { cadastrar, buscarPropriedade, editarPropriedade };
+export { cadastrar, buscarPropriedade, editarPropriedade, buscarStatusEmpresa };

@@ -24,4 +24,8 @@ router.put("/editar/:cnpj", function (req, res) {
     empresaController.editar(req, res);
 });
 
+router.get("/buscarStatus/:idUserVar", function (req, res) {
+    empresaController.buscarStatus(req, res);
+});
+
 module.exports = router;

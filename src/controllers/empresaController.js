@@ -131,6 +131,24 @@ async function editar(req, res) {
   }
 }
 
+async function buscarStatus(req,res){
+try {
+  const idEmpresa = req.body.idEmpresa;
+
+  const resultadoEmpresa = await empresaModel.buscarStatusEmpresa(idEmpresa)
+  if (!resultadoEmpresa || resultadoEmpresa.length === 0) {
+    console.log(resultadoEmpresa)
+    return res.status(404).json({ message: "Empresa não encontrada" });
+  }
+
+  res.status(200).json({
+    message: "Status da empresa é igual a:",
+    resultadoEmpresa: resultadoEmpresa[0].status,
+  });
+}catch(err){
+  res.status(500).json({message: "Erro ao buscar", error: err.sqlMessage});
+}
+}
 
 module.exports = {
   buscarPorCnpj,
@@ -138,4 +156,5 @@ module.exports = {
   cadastrar,
   editar,
   listar,
+  buscarStatus
 };

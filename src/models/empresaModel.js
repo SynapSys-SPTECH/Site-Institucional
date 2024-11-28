@@ -42,4 +42,11 @@ function editarEmpresa(idEmpresa, razaoSocial, nomeFantasia , status) {
   return database.executar(instrucaoEmpresa);
 }
 
-module.exports = { buscarPorCnpj, buscar, cadastrar, listar, editarEmpresa };
+function buscarStatusEmpresa(idEmpresa){
+  const instrucaoSQL = `
+  SELECT status FROM empresa where idEmpresa = ${idEmpresa}`
+
+  return database.executar(instrucaoSQL);
+}
+
+module.exports = { buscarPorCnpj, buscar, cadastrar, listar, editarEmpresa, buscarStatusEmpresa };

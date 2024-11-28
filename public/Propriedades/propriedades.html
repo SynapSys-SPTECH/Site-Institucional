@@ -304,27 +304,23 @@
 
     function adicionarNovaPropriedadeTabela() {
         const table = $('#tabela_propriedades').DataTable();
-
-
         const newRow = table.row
             .add([
                 localStorage.nomeFantasia,
                 localStorage.cidade,
                 localStorage.cep,
                 localStorage.logradouro,
-                `<span id="cnpj">${localStorage.cnpj}</span>`,
+                localStorage.cnpj,
                 localStorage.tamanho + "m²",
                 localStorage.status,
-                `<button onclick="toggleDrawerEdit(this)" value="${localStorage.idPropriedade}" class="edit_btn">Editar</button>`
+                `<button onclick="toggleDrawerEdit(this)" value="${localStorage.idPropriedade}" name="${localStorage.statusPropriedade}" class="edit_btn">Editar</button>`
             ])
             .draw(false)
             .node();
-
         if (localStorage.status == "Inativo") {
             $(newRow).css('background-color', 'lightgray'); // Aplica cor cinza
             $(newRow).addClass('linha-desativada'); // Adiciona uma classe opcional para estilo
         }
-
         counter++;
     }
 
@@ -376,6 +372,7 @@
             divEdit.style.display = "none";
         }
         localStorage.setItem("idPropriedadeUpdate" , button.value)
+        localStorage.setItem("statusUpdate", button.name)
     }
 
 
