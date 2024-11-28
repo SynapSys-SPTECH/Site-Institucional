@@ -1,4 +1,4 @@
-export function atualizarMapa() {
+function atualizarMapa() {
     // Obtém a nova latitude e longitude
     latitude = parseFloat(sessionStorage.getItem("latitudeEmpresa"));
     longitude = parseFloat(sessionStorage.getItem("longitudeEmpresa"));
@@ -10,6 +10,28 @@ export function atualizarMapa() {
     }
 }
 
+function buscarPontosComPotencialDeExpansao() {
+    const velocidadeMedia = 4.5;
+    const tempoParaBuscaEmMeses = 5;
+    
+    fetch(`/dashboard/buscarPontosComPotencialDeExpansao/${velocidadeMedia}/${tempoParaBuscaEmMeses}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+        console.log("FOI BUSCAR PONTOS EXPANSAO");
+        resposta.json().then((json) => {
+          console.log("RESPOSTA PONTOS EXPANSAO -> ", json);
+          console.log(JSON.stringify(json));
+        });
+      } else {
+        return false;
+      }
+    });
+}
 
 async function buscarEmpresaPorCidade(idEmpresaSelect) {
   let idEmpresa = idEmpresaSelect;
@@ -38,7 +60,6 @@ async function buscarEmpresaPorCidade(idEmpresaSelect) {
 
 async function buscarLongitudeLatitude(cidadeEmpresa) {
     const cidadeCodificada = encodeURIComponent(cidadeEmpresa);
-    console.log(cidadeCodificada)
     fetch(`/dashboard/buscarLongitudeLatitude/${cidadeCodificada}`, {
     method: "GET",
     headers: {
@@ -61,4 +82,4 @@ async function buscarLongitudeLatitude(cidadeEmpresa) {
   });
 }
 
-export { buscarLongitudeLatitude, buscarEmpresaPorCidade };
+export { buscarLongitudeLatitude, buscarEmpresaPorCidade, buscarPontosComPotencialDeExpansao, atualizarMapa };

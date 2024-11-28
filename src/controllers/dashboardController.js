@@ -8,9 +8,17 @@ async function buscarLongitudeLatitude(req, res) {
       });
 }
 
+async function buscarPontosComPotencialDeExpansao(req, res){
+    var velocidadeMedia = req.params.velocidadeMedia;
+    var tempoParaBuscaEmMeses = req.params.tempoParaBuscaEmMeses;
 
+    const respostaPotencialExpansao = await dashboardModel.buscarPontosComPotencialDeExpansao(velocidadeMedia, tempoParaBuscaEmMeses).then((respostaPotencialExpansao) => {
+        res.status(200).json(respostaPotencialExpansao);
+    })
+}
 
 
 module.exports = {
     buscarLongitudeLatitude,
+    buscarPontosComPotencialDeExpansao,
 }

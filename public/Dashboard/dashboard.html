@@ -293,15 +293,16 @@
 <script type="module">
     import { buscarPropriedade } from '../crudPropriedade.js';
     import { buscarEmpresaPorCidade } from './fetchDashboard.js';
+    import { buscarPontosComPotencialDeExpansao } from "./fetchDashboard.js"
 
     buscarPropriedade()
-
+    buscarPontosComPotencialDeExpansao(); 
 
     document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('select_empresa').addEventListener('change', ()=> {
     sessionStorage.setItem("valorSelectEmpresaDashboard", select_empresa.value)
     buscarEmpresaPorCidade(sessionStorage.valorSelectEmpresaDashboard).then(() => {
-                atualizarMapa();  // Atualiza o mapa após a busca da nova empresa
+                atualizarMapa();
             });
   });
 });
