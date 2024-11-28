@@ -62,7 +62,7 @@ function atualizarMapa() {
 }
 
 function buscarPontosComPotencialDeExpansao() {
-  const velocidadeMedia = 4;
+  const velocidadeMedia = 0.5;
   const tempoParaBuscaEmMeses = 8;
   
   fetch(`/dashboard/buscarPontosComPotencialDeExpansao/${velocidadeMedia}/${tempoParaBuscaEmMeses}`, {
@@ -85,17 +85,21 @@ function buscarPontosComPotencialDeExpansao() {
 }
 
 async function montarPerimetroPontosDeExpansao(json){
-    const PontosDeExpansao = json.map(
+    const pontosDeExpansao = json.map(
       (data) => new Perimetro(data.latitude, data.longitude)
     );
     
     const mapa = window.myMap;
 
-    console.log("Pontos de Expansao json.map ->", PontosDeExpansao)
-
-    PontosDeExpansao.forEach(perimetro => {
+    pontosDeExpansao.forEach(perimetro => {
         perimetro.aparecerCirculoNoMapa(mapa);
     });
+    quantidadePontosDeExpansao(pontosDeExpansao);
 }
 
-export { buscarLongitudeLatitude, buscarEmpresaPorCidade, buscarPontosComPotencialDeExpansao, atualizarMapa };
+async function quantidadePontosDeExpansao(pontosDeExpansao) {
+    const qtdPontosExpansao = pontosDeExpansao.length
+    document.getElementById('qtdPontosPotencialExpansao').innerHTML = qtdPontosExpansao;
+}
+
+export { buscarLongitudeLatitude, buscarEmpresaPorCidade, buscarPontosComPotencialDeExpansao, atualizarMapa, quantidadePontosDeExpansao };
