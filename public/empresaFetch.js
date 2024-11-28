@@ -191,7 +191,7 @@ function buscarEmpresas() {
           localStorage.setItem("cidade", json[i].cidade);
           localStorage.setItem("cep", json[i].cep);
           localStorage.setItem("cnpj", json[i].cnpj);
-          localStorage.setItem("status", json[i].idEmpresa);
+          localStorage.setItem("status", json[i].status);
 
           if (janelaAtual == "/Empresas/empresas.html") {
             adicionarNovaEmpresaTabela();
@@ -224,9 +224,9 @@ function editarEmpresa(){
   let statusVar = ''
 
   if (checkbox.checked){
-    statusVar = "habilitado"
+    statusVar = "Ativo"
   }else{
-    statusVar = "desabilitado"
+    statusVar = "Inativo"
   }
 
     fetch(`/empresas/editar/${cnpjVar}`, {

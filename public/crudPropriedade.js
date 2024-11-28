@@ -146,7 +146,7 @@ function buscarPropriedade() {
           localStorage.setItem("cep", json[i].cep)
           localStorage.setItem("logradouro", json[i].logradouro)
           localStorage.setItem("cnpj", json[i].cnpj)
-          localStorage.setItem("status", json[i].idEmpresa)
+          localStorage.setItem("status", json[i].status)
           localStorage.setItem("tamanho", json[i].tamanho)
           localStorage.setItem("idPropriedade", json[i].idPropriedade)
           adicionarNovaPropriedadeTabela();
@@ -173,9 +173,9 @@ function editarPropriedade(){
   let statusVar = ''
 
   if (checkbox.checked){
-    statusVar = "habilitado"
+    statusVar = "Ativo"
   }else{
-    statusVar = "desabilitado"
+    statusVar = "Inativo"
   }
 
   fetch(`/propriedades/editar`, {

@@ -8,7 +8,8 @@ function buscar(id) {
     empresa.cnpj, 
     empresa.nomeFantasia, 
     propriedade.tamanho,
-    propriedade.idPropriedade
+    propriedade.idPropriedade,
+    propriedade.status
 FROM 
     Synapsys.usuario AS usuario
 INNER JOIN 

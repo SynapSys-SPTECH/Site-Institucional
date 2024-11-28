@@ -304,18 +304,26 @@
 
     function adicionarNovaPropriedadeTabela() {
         const table = $('#tabela_propriedades').DataTable();
-        table.row
+
+
+        const newRow = table.row
             .add([
                 localStorage.nomeFantasia,
                 localStorage.cidade,
                 localStorage.cep,
                 localStorage.logradouro,
-                localStorage.cnpj,
+                `<span id="cnpj">${localStorage.cnpj}</span>`,
                 localStorage.tamanho + "m²",
-                "Ativo",
+                localStorage.status,
                 `<button onclick="toggleDrawerEdit(this)" value="${localStorage.idPropriedade}" class="edit_btn">Editar</button>`
             ])
-            .draw(false);
+            .draw(false)
+            .node();
+
+        if (localStorage.status == "Inativo") {
+            $(newRow).css('background-color', 'lightgray'); // Aplica cor cinza
+            $(newRow).addClass('linha-desativada'); // Adiciona uma classe opcional para estilo
+        }
 
         counter++;
     }
@@ -407,6 +415,7 @@
     $(document).ready(function () {
         $('#input_edit_cep').mask('00000-000');
         $('#input_add_cep').mask('00000-000');
+        $('#cnpj').mask('00.000.000/0000-00');
     });
 
 </script>
