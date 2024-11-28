@@ -204,23 +204,6 @@
     
     var marker = L.marker([latitude, longitude]).addTo(map);
 
-    const areasPotenciais = [
-        { latitude: -11.50, longitude: -43.11, color: 'red', fillColor: '#f03', radius: 80000 },
-        { latitude: -12.97, longitude: -40.47, color: 'red', fillColor: '#f03', radius: 80000 },
-        { latitude: -9.90, longitude: -40.20, color: 'red', fillColor: '#f03', radius: 80000 },
-        { latitude: -14.50, longitude: -41.50, color: 'red', fillColor: '#f03', radius: 80000 },
-        { latitude: -11.50, longitude: -42.11, color: 'red', fillColor: '#f03', radius: 80000 }
-    ];
-
-    areasPotenciais.forEach(areaPotencial => {
-        L.circle([areaPotencial.latitude, areaPotencial.longitude], {
-            color: areaPotencial.color,
-            fillColor: areaPotencial.fillColor,
-            fillOpacity: 0.5,
-            radius: areaPotencial.radius
-        }).addTo(map);
-    });
-
     var theTrail = L.geoJSON(trail, {
         color: '#999999999',
         weight: 3,
@@ -228,36 +211,7 @@
     });
     theTrail.addTo(map);
 
-    // Carregar os limites dos municípios de São Paulo usando o GeoJSON
-    // fetch('./Mapas/geojs-29-mun.json')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         L.geoJSON(data, {
-    //             style: function (feature) {
-    //                 var casosDengue = randomNumber(0, 3000); // Gerar casos de dengue aleatórios
-    //                 if (casosDengue >= 2000) {
-    //                     return { fillColor: 'red', color: 'blue', weight: 1, fillOpacity: 0.7 };
-    //                 } else if (casosDengue >= 1000) {
-    //                     return { fillColor: 'orange', color: 'blue', weight: 1, fillOpacity: 0.7 };
-    //                 } else if (casosDengue >= 100) {
-    //                     return { fillColor: 'yellow', color: 'blue', weight: 1, fillOpacity: 0.7 };
-    //                 } else {
-    //                     return { fillColor: 'green', color: 'blue', weight: 1, fillOpacity: 0.7 };
-    //                 }
-    //             },
-    //             onEachFeature: function (feature, layer) {
-    //                 layer.on({
-    //                     mouseover: function (e) {
-    //                         var layer = e.target;
-    //                         var popupContent = "<b>" + feature.properties.NM_MUN + "</b><br>Casos: " + getCountByColor(layer.options.fillColor);
-    //                         layer.bindPopup(popupContent).openPopup();
-    //                     }
-    //                 });
-    //             }
-    //         }).addTo(map);
-    //     });
-
-    // Função para obter a quantidade de casos com base na cor
+    
     function getCountByColor(color) {
         if (color === 'red') {
             return randomNumber(2000, 3000);
@@ -275,6 +229,7 @@
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
+    window.myMap = map;
 </script>
 
 

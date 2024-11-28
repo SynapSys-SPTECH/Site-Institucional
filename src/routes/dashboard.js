@@ -7,7 +7,7 @@ router.get("/buscarLongitudeLatitude/:cidadeEmpresa", function (req, res) {
     dashboardController.buscarLongitudeLatitude(req, res);
 });
 
-router.get("/buscarPontosComPotencialDeExpansao/velocidadeMedia/tempoParaBuscaEmMeses", function (req, res) {
+router.get("/buscarPontosComPotencialDeExpansao/:velocidadeMedia/:tempoParaBuscaEmMeses", function (req, res) {
     dashboardController.buscarPontosComPotencialDeExpansao(req, res);
 });
 
