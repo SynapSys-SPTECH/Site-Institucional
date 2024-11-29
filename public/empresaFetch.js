@@ -168,8 +168,8 @@ function buscarEmpresas() {
             // Adicionar opções para cada empresa na lista
             json.forEach((empresa) => {
               const option = document.createElement("option");
-              option.value = empresa.idEmpresa; // Valor do ID da empresa
-              option.textContent = empresa.nomeFantasia; // Nome da empresa
+              option.value = empresa.idEmpresa; 
+              option.textContent = empresa.nomeFantasia; 
               selectElement.appendChild(option);
             });
           } else {
@@ -177,15 +177,14 @@ function buscarEmpresas() {
           }
         }
 
-        // IDs dos selects onde as empresas devem aparecer
+
         const selectIds = ["select_empresa1", "select_empresa"];
 
-        // Preencher ambos os selects
         selectIds.forEach((id) => {
           criarOpcoesSelect(json, id);
         });
 
-        // Atualizar localStorage para cada empresa
+
         for (let i = 0; i < json.length; i++) {
           localStorage.setItem("nomeFantasia", json[i].nomeFantasia);
           localStorage.setItem("cidade", json[i].cidade);
@@ -204,8 +203,8 @@ function buscarEmpresas() {
     }
   });
 }
-
 function editarEmpresa() {
+  
   let idUserVar = sessionStorage.ID_USUARIO;
   let idEmpresa = " ";
   let idEndereco = " ";
@@ -221,29 +220,28 @@ function editarEmpresa() {
   let complementoVar = document.getElementById("input_edit_complemento").value.trim();
   const checkbox = document.getElementById("ckbox_status_empresa");
 
-  // Determinando o status atual do checkbox
-  const statusVar = checkbox.checked ? "Ativo" : "Inativo";
 
-  // Pegando o status original armazenado
-  const statusOriginal = localStorage.getItem("statusEmpresa") || "Ativo"; // Valor padrão se não encontrado no localStorage
+  const statusAtual = checkbox.checked ? "Ativo" : "Inativo";
 
-  // Verificar se algum campo foi alterado
-  const algumCampoPreenchido = 
-    nomeFantasiaVar !== "" || 
-    cidadeVar !== "" || 
-    ufVar !== "" || 
-    cepVar !== "" || 
-    numeroVar !== "" || 
-    bairroVar !== "" || 
-    razaoSocialVar !== "" || 
-    logradouroVar !== "" || 
+
+  const statusOriginal = localStorage.getItem("statusEmpresa") || "Ativo"; // Valor padrão se não encontrado
+
+  const algumCampoPreenchido =
+    nomeFantasiaVar !== "" ||
+    cidadeVar !== "" ||
+    ufVar !== "" ||
+    cepVar !== "" ||
+    numeroVar !== "" ||
+    bairroVar !== "" ||
+    razaoSocialVar !== "" ||
+    logradouroVar !== "" ||
     complementoVar !== "";
 
-  // Verificar se o status foi alterado ou clicado
-  const statusAlterado = statusVar !== statusOriginal;
 
-  // Verificar se deve exibir SweetAlert
-  if (!algumCampoPreenchido && statusAlterado) {
+  const statusAlterado = statusAtual !== statusOriginal;
+
+
+  if (!algumCampoPreenchido && !statusAlterado) {
     Swal.fire({
       icon: "error",
       title: "Opa...",
@@ -254,7 +252,7 @@ function editarEmpresa() {
     return;
   }
 
-  // Caso ao menos um campo esteja preenchido ou o status alterado, prossiga com a edição
+
   fetch(`/empresas/editar/${cnpjVar}`, {
     method: "PUT",
     headers: {
@@ -274,7 +272,7 @@ function editarEmpresa() {
       idServer: idUserVar,
       idEmpresaServer: idEmpresa,
       idEnderecoServer: idEndereco,
-      statusServer: statusVar,
+      statusServer: statusAtual,
     }),
   })
     .then(function (resposta) {
@@ -286,6 +284,7 @@ function editarEmpresa() {
           showConfirmButton: true,
           confirmButtonText: "Ufa!",
         }).then(() => {
+          localStorage.setItem("statusEmpresa", statusAtual);
           window.location.reload();
         });
       } else if (resposta.status === 404) {

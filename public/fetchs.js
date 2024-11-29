@@ -8,6 +8,7 @@ function abrirLogon() {
   window.location = "../Login/login.html";
 };
 
+
 function entrar() {
   var emailVar = emailLogin.value;
   let senhaVar = senhaLogin.value;
