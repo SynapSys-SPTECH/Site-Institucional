@@ -11,4 +11,12 @@ router.get("/buscarPontosComPotencialDeExpansao/:velocidadeMedia/:tempoParaBusca
     dashboardController.buscarPontosComPotencialDeExpansao(req, res);
 });
 
+router.get("/buscarMesesComMaisDiasFavoraveis/", function (req, res) {
+    dashboardController.buscarMesesComMaisDiasFavoraveis(req, res);
+});
+
+router.get("/diasComVentosAcimaDoLimite/", function (req, res) {
+    dashboardController.diasComVentosAcimaDoLimite(req, res);
+});
+
 module.exports = router;

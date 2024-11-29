@@ -10,14 +10,9 @@ async function buscarEmpresaPorCidade(idEmpresaSelect) {
     },
   }).then(function (resposta) {
     if (resposta.ok) {
-      console.log("Buscar Empresa Por Cidade ->",resposta);
-      console.log("FOI BUSCAR EMPRESA ID");
       resposta.json().then((json) => {
-        console.log("RESPOSTA ID EMPRESA -> ", json);
-        console.log(JSON.stringify(json));
-        console.log("Cidade:", json[0].cidade);
         const cidadeEmpresa = json[0].cidade;
-        buscarLongitudeLatitude(cidadeEmpresa)
+        buscarLongitudeLatitude(cidadeEmpresa);
       });
     } else {
       return false;
@@ -26,21 +21,21 @@ async function buscarEmpresaPorCidade(idEmpresaSelect) {
 }
 
 async function buscarLongitudeLatitude(cidadeEmpresa) {
-    const cidadeCodificada = encodeURIComponent(cidadeEmpresa);
-    fetch(`/dashboard/buscarLongitudeLatitude/${cidadeCodificada}`, {
+  const cidadeCodificada = encodeURIComponent(cidadeEmpresa);
+  fetch(`/dashboard/buscarLongitudeLatitude/${cidadeCodificada}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   }).then(function (resposta) {
     if (resposta.ok) {
-      console.log(resposta);
-      console.log("FOI BUSCAR LONGITUDE LATITUDE");
       resposta.json().then((json) => {
-        console.log("RESPOSTA LONG LAT -> ", json);
         console.log(JSON.stringify(json));
-        sessionStorage.setItem("latitudeEmpresa", json[0].latitude.toFixed(2))
-        sessionStorage.setItem("longitudeEmpresa", json[0].longitude.toFixed(2))
+        sessionStorage.setItem("latitudeEmpresa", json[0].latitude.toFixed(2));
+        sessionStorage.setItem(
+          "longitudeEmpresa",
+          json[0].longitude.toFixed(2)
+        );
         atualizarMapa();
       });
     } else {
@@ -56,27 +51,30 @@ function atualizarMapa() {
 
   // Se a latitude e longitude forem válidas, atualiza o marcador
   if (!isNaN(latitude) && !isNaN(longitude)) {
-      marker.setLatLng([latitude, longitude]);  // Atualiza a posição do marcador
-      map.setView([latitude, longitude], map.getZoom());  // Centraliza o mapa na nova posição
+    marker.setLatLng([latitude, longitude]); // Atualiza a posição do marcador
+  } else {
+    marker.setLatLng([0, 0]);
   }
 }
 
 function buscarPontosComPotencialDeExpansao() {
-  const velocidadeMedia = 0.5;
-  const tempoParaBuscaEmMeses = 8;
-  
-  fetch(`/dashboard/buscarPontosComPotencialDeExpansao/${velocidadeMedia}/${tempoParaBuscaEmMeses}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then(function (resposta) {
+  const velocidadeMedia = 4;
+  const tempoParaBuscaEmMeses = 12;
+
+  fetch(
+    `/dashboard/buscarPontosComPotencialDeExpansao/${velocidadeMedia}/${tempoParaBuscaEmMeses}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  ).then(function (resposta) {
     if (resposta.ok) {
       console.log(resposta);
-      console.log("FOI BUSCAR PONTOS EXPANSAO");
       resposta.json().then((json) => {
-        console.log("RESPOSTA PONTOS EXPANSAO -> ", json);
-        montarPerimetroPontosDeExpansao(json)
+        montarPerimetroPontosDeExpansao(json);
+        mesesComMaisDiasFavoraveis();
       });
     } else {
       return false;
@@ -84,22 +82,74 @@ function buscarPontosComPotencialDeExpansao() {
   });
 }
 
-async function montarPerimetroPontosDeExpansao(json){
-    const pontosDeExpansao = json.map(
-      (data) => new Perimetro(data.latitude, data.longitude)
-    );
-    
-    const mapa = window.myMap;
+async function montarPerimetroPontosDeExpansao(json) {
+  const pontosDeExpansao = json.map(
+    (data) => new Perimetro(data.latitude, data.longitude)
+  );
 
-    pontosDeExpansao.forEach(perimetro => {
-        perimetro.aparecerCirculoNoMapa(mapa);
-    });
-    quantidadePontosDeExpansao(pontosDeExpansao);
+  const mapa = window.myMap;
+
+  pontosDeExpansao.forEach((perimetro) => {
+    perimetro.aparecerCirculoNoMapa(mapa);
+  });
+  quantidadePontosDeExpansao(pontosDeExpansao);
 }
 
 async function quantidadePontosDeExpansao(pontosDeExpansao) {
-    const qtdPontosExpansao = pontosDeExpansao.length
-    document.getElementById('qtdPontosPotencialExpansao').innerHTML = qtdPontosExpansao;
+  const qtdPontosExpansao = pontosDeExpansao.length;
+  document.getElementById("qtdPontosPotencialExpansao").innerHTML =
+    qtdPontosExpansao;
 }
 
-export { buscarLongitudeLatitude, buscarEmpresaPorCidade, buscarPontosComPotencialDeExpansao, atualizarMapa, quantidadePontosDeExpansao };
+function mesesComMaisDiasFavoraveis() {
+  fetch(`/dashboard/buscarMesesComMaisDiasFavoraveis`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        let dados = [];
+        console.log("MESES COM MAIS DIAS ->", json);
+        for (var i = 0; i < json.length; i++) {
+          dados.push(`${json[i].municipio}: ${json[i].ano_mes}`);
+          dados.push(json[i].total);
+        }
+        drawChart(dados);
+      });
+    } else {
+      return false;
+    }
+  });
+}
+
+function diasComVentosAcimaDoLimite() {
+  fetch(`/dashboard/diasComVentosAcimaDoLimite`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        const qtdDiasComVentoAcima = json.length;
+        document.getElementById("diasVentosAcimaDoLimite").innerHTML =
+          qtdDiasComVentoAcima;
+      });
+    } else {
+      return false;
+    }
+  });
+}
+
+export {
+  buscarLongitudeLatitude,
+  buscarEmpresaPorCidade,
+  buscarPontosComPotencialDeExpansao,
+  atualizarMapa,
+  quantidadePontosDeExpansao,
+  diasComVentosAcimaDoLimite,
+};

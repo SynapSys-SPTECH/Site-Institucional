@@ -17,8 +17,21 @@ async function buscarPontosComPotencialDeExpansao(req, res){
     })
 }
 
+async function buscarMesesComMaisDiasFavoraveis(req, res) {
+    const respostaDiasFavoraveis = await dashboardModel.buscarMesesComMaisDiasFavoraveis().then((respostaDiasFavoraveis) => {
+        res.status(200).json(respostaDiasFavoraveis);
+    })
+}
+
+async function diasComVentosAcimaDoLimite(req, res){
+    const respostaDiasComVentosAcima = await dashboardModel.diasComVentosAcimaDoLimite().then((respostaDiasComVentosAcima) => {
+        res.status(200).json(respostaDiasComVentosAcima);
+    })
+}
 
 module.exports = {
     buscarLongitudeLatitude,
     buscarPontosComPotencialDeExpansao,
+    buscarMesesComMaisDiasFavoraveis,
+    diasComVentosAcimaDoLimite
 }

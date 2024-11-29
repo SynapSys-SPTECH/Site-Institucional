@@ -104,7 +104,7 @@
                     </div>
                     <div class="kpi">
                         <h1>Dias com Ventos Acima dos Limites</h1>
-                        <span id="diasVentosAcimaDoLimite">10</span>
+                        <span id="diasVentosAcimaDoLimite"></span>
                     </div>
                 </div>
                 <div class="graficos">
@@ -141,29 +141,29 @@
     google.charts.load('current', { packages: ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
+    function drawChart(dados) {
 
 
         const data = google.visualization.arrayToDataTable([
-            ['Dias', 'Mhl'],
-            ['Segunda-Feira', 55],
-            ['Terça-Feira', 49],
-            ['Quarta-Feira', 44],
-            ['Quinta-Feira', 24],
-            ['Sexta-Feira', 15]
+            ['Data', 'Mhl'],
+            [dados[0], dados[1]],
+            [dados[2], dados[3]],
+            [dados[4], dados[5]],
+            [dados[6], dados[7]],
+            [dados[8], dados[9]]
         ]);
 
 
         const options = {
-            title: 'VELOCIDADES MÁXIMAS DOS VENTOS NA SEMANA (m/s)',
+            title: 'MESES COM MAIS QUANTIDADE DE CAPTURAS FAVORAVEIS',
             titleTextStyle: {
-                fontSize: 16 // tamanho da fonte do título
+                fontSize: 14 // tamanho da fonte do título
             },
             hAxis: { title: 'Velocidade' },
-            vAxis: { title: 'Dias' },
+            vAxis: { title: 'Meses' },
             legend: 'none',
             colors: ['#1b9e77', '#d95f02'],
-            size: '20px'
+            size: '60px'
         };
 
 
@@ -246,10 +246,12 @@
     import { buscarEmpresaPorCidade } from './fetchDashboard.js';
     import { buscarPontosComPotencialDeExpansao } from "./fetchDashboard.js";
     import { quantidadePontosDeExpansao } from "./fetchDashboard.js";
+    import { diasComVentosAcimaDoLimite } from "./fetchDashboard.js";
 
     buscarPropriedade()
     buscarPontosComPotencialDeExpansao(); 
-
+    diasComVentosAcimaDoLimite();
+    
     document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('select_empresa').addEventListener('change', ()=> {
     sessionStorage.setItem("valorSelectEmpresaDashboard", select_empresa.value)
