@@ -193,7 +193,13 @@ function editarPropriedade(){
   let statusVar = ''
 
   if (localStorage.statusUpdate == "Inativo"){
-    window.alert("Status não pode ser alterado quando empresa estiver inativa")
+    Swal.fire({
+      icon: "error",
+      title: "Ops!",
+      text: 'Status não pode ser alterado enquanto a empresa estiver inativa',
+      showConfirmButton: true,
+      confirmButtonText: "Ufa!"
+    })
   }else {
     if (checkbox.checked) {
       statusVar = "Ativo"
@@ -219,12 +225,23 @@ function editarPropriedade(){
   }).then(function (resposta){
 
     if (resposta.ok) {
-      window.alert("Propriedade Atualizada com sucesso pelo usuario " + sessionStorage.getItem("NOME_USUARIO") + " de email:" + sessionStorage.getItem("EMAIL_USUARIO") +"!");
-      window.location = "/Propriedades/propriedades.html";
+    Swal.fire({
+      icon: "sucess",
+      title: "Isso!",
+      text: 'Propriedade atualizada com sucesso!',
+      showConfirmButton: true,
+      confirmButtonText: "Ufa!"
+    })
     } else if (resposta.status == 404) {
       window.alert("Deu 404!");
     } else {
-      throw ("Houve um erro ao tentar realizar edição! Código da resposta: " + resposta.status);
+      Swal.fire({
+        icon: "error",
+        title: "Ops!",
+        text: 'Houve um erro ao tentar realizar a edição',
+        showConfirmButton: true,
+        confirmButtonText: "Tentar Novamente!"
+      })
     }
   }).catch(function (resposta) {
     console.log(`#ERRO: ${resposta}`);

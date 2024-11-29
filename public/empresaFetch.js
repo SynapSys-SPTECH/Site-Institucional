@@ -205,65 +205,117 @@ function buscarEmpresas() {
   });
 }
 
-function editarEmpresa(){
-
+function editarEmpresa() {
   let idUserVar = sessionStorage.ID_USUARIO;
-  let idEmpresa = " "
-  let idEndereco = " "
-  let cnpjVar = localStorage.getItem('UpdateCnpj');
-  let nomeFantasiaVar = document.getElementById("input_edit_nomeFantasia").value;
-  let cidadeVar = document.getElementById("input_edit_cidade").value;
-  let ufVar = document.getElementById("input_edit_uf").value;
-  let cepVar = document.getElementById("input_edit_cep").value.replace(/-/g, "");
-  let numeroVar = Number(document.getElementById("input_edit_numero").value);
-  let bairroVar = document.getElementById("input_edit_bairro").value;
-  let razaoSocialVar = document.getElementById("input_edit_razaoSocial").value;
-  let logradouroVar = document.getElementById("input_edit_logradouro").value;
-  let complementoVar = document.getElementById("input_edit_complemento").value;
+  let idEmpresa = " ";
+  let idEndereco = " ";
+  let cnpjVar = localStorage.getItem("UpdateCnpj");
+  let nomeFantasiaVar = document.getElementById("input_edit_nomeFantasia").value.trim();
+  let cidadeVar = document.getElementById("input_edit_cidade").value.trim();
+  let ufVar = document.getElementById("input_edit_uf").value.trim();
+  let cepVar = document.getElementById("input_edit_cep").value.replace(/-/g, "").trim();
+  let numeroVar = document.getElementById("input_edit_numero").value.trim();
+  let bairroVar = document.getElementById("input_edit_bairro").value.trim();
+  let razaoSocialVar = document.getElementById("input_edit_razaoSocial").value.trim();
+  let logradouroVar = document.getElementById("input_edit_logradouro").value.trim();
+  let complementoVar = document.getElementById("input_edit_complemento").value.trim();
   const checkbox = document.getElementById("ckbox_status_empresa");
-  let statusVar = ''
 
-  if (checkbox.checked){
-    statusVar = "Ativo"
-  }else{
-    statusVar = "Inativo"
+  // Determinando o status atual do checkbox
+  const statusVar = checkbox.checked ? "Ativo" : "Inativo";
+
+  // Pegando o status original armazenado
+  const statusOriginal = localStorage.getItem("statusEmpresa") || "Ativo"; // Valor padrão se não encontrado no localStorage
+
+  // Verificar se algum campo foi alterado
+  const algumCampoPreenchido = 
+    nomeFantasiaVar !== "" || 
+    cidadeVar !== "" || 
+    ufVar !== "" || 
+    cepVar !== "" || 
+    numeroVar !== "" || 
+    bairroVar !== "" || 
+    razaoSocialVar !== "" || 
+    logradouroVar !== "" || 
+    complementoVar !== "";
+
+  // Verificar se o status foi alterado ou clicado
+  const statusAlterado = statusVar !== statusOriginal;
+
+  // Verificar se deve exibir SweetAlert
+  if (!algumCampoPreenchido && statusAlterado) {
+    Swal.fire({
+      icon: "error",
+      title: "Opa...",
+      text: "Você deve editar pelo menos um campo ou alterar o status antes de salvar.",
+      showConfirmButton: true,
+      confirmButtonText: "Entendido!",
+    });
+    return;
   }
 
-    fetch(`/empresas/editar/${cnpjVar}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        nomeFantasiaServer: nomeFantasiaVar,
-        cidadeServer: cidadeVar,
-        ufServer: ufVar,
-        cepServer: cepVar,
-        numeroServer: numeroVar,
-        bairroServer: bairroVar,
-        razaoSocialServer: razaoSocialVar,
-        logradouroServer: logradouroVar,
-        complementoServer: complementoVar,
-        cnpjServer: cnpjVar,
-        idServer: idUserVar,
-        idEmpresaServer: idEmpresa,
-        idEnderecoServer: idEndereco,
-        statusServer: statusVar
-      })
-    }).then(function (resposta) {
-
+  // Caso ao menos um campo esteja preenchido ou o status alterado, prossiga com a edição
+  fetch(`/empresas/editar/${cnpjVar}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      nomeFantasiaServer: nomeFantasiaVar,
+      cidadeServer: cidadeVar,
+      ufServer: ufVar,
+      cepServer: cepVar,
+      numeroServer: numeroVar,
+      bairroServer: bairroVar,
+      razaoSocialServer: razaoSocialVar,
+      logradouroServer: logradouroVar,
+      complementoServer: complementoVar,
+      cnpjServer: cnpjVar,
+      idServer: idUserVar,
+      idEmpresaServer: idEmpresa,
+      idEnderecoServer: idEndereco,
+      statusServer: statusVar,
+    }),
+  })
+    .then(function (resposta) {
       if (resposta.ok) {
-        window.alert("Empresa Atualizada com sucesso pelo usuario " + sessionStorage.getItem("NOME_USUARIO") + " de email:" + sessionStorage.getItem("EMAIL_USUARIO") +"!");
-        window.location = "/Empresas/empresas.html";
-      } else if (resposta.status == 404) {
-        window.alert("Deu 404!");
+        Swal.fire({
+          icon: "success",
+          title: "Sucesso!",
+          text: "Empresa editada com sucesso!",
+          showConfirmButton: true,
+          confirmButtonText: "Ufa!",
+        }).then(() => {
+          window.location.reload();
+        });
+      } else if (resposta.status === 404) {
+        Swal.fire({
+          icon: "error",
+          title: "Erro 404",
+          text: "Empresa não encontrada. Verifique os dados e tente novamente.",
+          showConfirmButton: true,
+          confirmButtonText: "Tentar novamente",
+        });
       } else {
-        throw ("Houve um erro ao tentar realizar edição! Código da resposta: " + resposta.status);
+        Swal.fire({
+          icon: "error",
+          title: "Ops!",
+          text: "Houve um erro ao editar a empresa. Tente novamente.",
+          showConfirmButton: true,
+          confirmButtonText: "Tentar novamente",
+        });
       }
-    }).catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
+    })
+    .catch(function (resposta) {
+      console.error(`#ERRO: ${resposta}`);
+      Swal.fire({
+        icon: "error",
+        title: "Erro inesperado",
+        text: "Ocorreu um erro ao tentar editar a empresa. Por favor, tente novamente mais tarde.",
+        showConfirmButton: true,
+        confirmButtonText: "Ok",
+      });
     });
 }
-
 
 export { cadastrarEmpresa, buscarEmpresas, editarEmpresa };
