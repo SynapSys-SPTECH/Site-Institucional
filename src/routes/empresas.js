@@ -28,4 +28,8 @@ router.get("/buscarStatus/:idUserVar", function (req, res) {
     empresaController.buscarStatus(req, res);
 });
 
+router.get("/buscarIdEmpresa/:idEmpresa", function (req, res){
+  empresaController.buscarIdEmpresa(req,res);
+})
+
 module.exports = router;

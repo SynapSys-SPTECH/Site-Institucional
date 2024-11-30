@@ -150,6 +150,14 @@ try {
 }
 }
 
+async function buscarIdEmpresa(req, res){
+    var idEmpresa = req.params.idEmpresa
+
+    const respostaIdEmpresa = await empresaModel.buscarIdEmpresa(idEmpresa).then((respostaIdEmpresa) => {
+      res.status(200).json(respostaIdEmpresa);
+    });
+}
+
 module.exports = {
   buscarPorCnpj,
   buscar,
@@ -157,4 +165,5 @@ module.exports = {
   editar,
   listar,
   buscarStatus
+  buscarIdEmpresa,
 };

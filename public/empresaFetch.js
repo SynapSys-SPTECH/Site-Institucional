@@ -147,7 +147,7 @@ function buscarEmpresas() {
   }).then(function (resposta) {
     if (resposta.ok) {
       console.log(resposta);
-      console.log("FOI BUSCAR");
+      console.log("FOI BUSCAR EM EMPRESA");
       resposta.json().then((json) => {
         console.log(json);
         localStorage.setItem("qtdEmpresas", json.length);
