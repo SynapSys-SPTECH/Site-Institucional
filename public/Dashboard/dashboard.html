@@ -255,9 +255,8 @@
     
     document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('select_empresa').addEventListener('change', ()=> {
-    let empresaSelecionada = select_empresa.value;
     sessionStorage.setItem("valorSelectEmpresaDashboard", select_empresa.value)
-    buscarEmpresaPorCidade(empresaSelecionada).then(() => {
+    buscarEmpresaPorCidade(sessionStorage.valorSelectEmpresaDashboard).then(() => {
                 atualizarMapa();
             });
   });
