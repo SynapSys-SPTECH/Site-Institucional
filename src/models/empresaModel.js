@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function buscar(id) {
-  var instrucaoSql = `SELECT empresa.idEmpresa, endereco.cep, endereco.cidade, empresa.nomeFantasia, empresa.cnpj, empresa.status FROM endereco inner join empresa on endereco.idEndereco = empresa.fk_endereco where empresa.fk_usuario = '${id}'` ;
+  var instrucaoSql = `SELECT empresa.idEmpresa, endereco.cep, endereco.cidade, empresa.nomeFantasia, empresa.cnpj, empresa.status FROM endereco inner join empresa on endereco.idEndereco = empresa.fk_endereco where empresa.fk_usuario = '${id}' and empresa.status = "Ativo"` ;
 
   return database.executar(instrucaoSql);
 }
