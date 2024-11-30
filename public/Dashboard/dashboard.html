@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +24,7 @@
 
     <!-- Validação de Sessão -->
     <script src="../Javascript/sessao.js"></script>
+    <script src="../crudPropriedade.js"></script>
 
     <!-- Sweet Alerts 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -167,11 +170,7 @@
 
 </html>
 
-<script type="module">
-    import { cadastrarEmpresa } from '../empresaFetch.js';
 
-    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
-</script>
 
 <script>
     google.charts.load('current', { packages: ['corechart'] });
@@ -318,8 +317,11 @@
     document.getElementById('username').textContent = usernameValue;
 </script>
 
-
 <script type="module">
+    import { cadastrar } from '../crudPropriedade.js';
     import { buscarPropriedade } from '../crudPropriedade.js';
+
+
     buscarPropriedade()
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
 </script>

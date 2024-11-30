@@ -52,9 +52,109 @@ async function cadastrar(req, res) {
     
 }
 
+async function editar(req, res) {
+  try {
+    const {
+      idEmpresaServer: idEmpresa,
+      idEnderecoServer: idEndereco,
+      cnpjServer: cnpj,
+      razaoSocialServer: razaoSocial,
+      nomeFantasiaServer: nomeFantasia,
+      cidadeServer: cidade,
+      ufServer: uf,
+      cepServer: cep,
+      numeroServer: numero,
+      bairroServer: bairro,
+      logradouroServer: logradouro,
+      complementoServer: complemento,
+      statusServer: status
+    } = req.body;
+
+    // Buscar dados existentes
+    const resultadoEmpresa = await empresaModel.buscarPorCnpj(cnpj);
+    if (!resultadoEmpresa || resultadoEmpresa.length === 0) {
+      console.log(resultadoEmpresa)
+      return res.status(404).json({ message: "Empresa não encontrada" });
+    }
+    const IdEmpresa = resultadoEmpresa[0].idEmpresa;
+    const fk_Endereco = resultadoEmpresa[0].fk_endereco;
+
+    const resultadoEndereco = await enderecoModel.listarEndereco(fk_Endereco);
+    if (!resultadoEndereco || resultadoEndereco.length === 0) {
+      console.log(resultadoEndereco)
+      return res.status(404).json({ message: "Endereço não encontrado" });
+    }
+
+    // Atualizar informações
+    const resultadoEdicao = await empresaModel.editarEmpresa(
+        IdEmpresa,
+        razaoSocial || resultadoEmpresa[0].razaoSocial, // Usar valor existente caso vazio
+        nomeFantasia || resultadoEmpresa[0].nomeFantasia,
+        status || resultadoEmpresa[0].status,
+    );
+
+    const resultadoEdicao2 = await enderecoModel.editarEndereco(
+        fk_Endereco,
+        cidade || resultadoEndereco[0].cidade,
+        cep || resultadoEndereco[0].cep,
+        uf || resultadoEndereco[0].uf,
+        numero || resultadoEndereco[0].numero,
+        bairro || resultadoEndereco[0].bairro,
+        logradouro || resultadoEndereco[0].logradouro,
+        complemento || resultadoEndereco[0].complemento
+    )
+
+    // Consolidar resposta final
+    res.status(200).json({
+      message: "Atualização concluída com sucesso",
+      empresa: {
+        ...resultadoEmpresa[0],
+        razaoSocial: razaoSocial || resultadoEmpresa[0].razaoSocial,
+        nomeFantasia: nomeFantasia || resultadoEmpresa[0].nomeFantasia,
+        status: status || resultadoEmpresa[0].status
+      },
+      endereco: {
+        cidade: cidade || resultadoEndereco[0].cidade,
+        cep: cep || resultadoEndereco[0].cep,
+        logradouro: logradouro || resultadoEndereco[0].logradouro,
+        bairro: bairro || resultadoEndereco[0].bairro,
+        numero: numero || resultadoEndereco[0].numero,
+        complemento: complemento || resultadoEndereco[0].complemento,
+        uf: uf || resultadoEndereco[0].uf
+      },
+      resultadoEdicao,
+      resultadoEdicao2
+    });
+  } catch (error) {
+    console.error("Erro ao editar:", error);
+    res.status(500).json({ message: "Erro ao processar a solicitação", error: error.sqlMessage });
+  }
+}
+
+async function buscarStatus(req,res){
+try {
+  const idEmpresa = req.body.idEmpresa;
+
+  const resultadoEmpresa = await empresaModel.buscarStatusEmpresa(idEmpresa)
+  if (!resultadoEmpresa || resultadoEmpresa.length === 0) {
+    console.log(resultadoEmpresa)
+    return res.status(404).json({ message: "Empresa não encontrada" });
+  }
+
+  res.status(200).json({
+    message: "Status da empresa é igual a:",
+    resultadoEmpresa: resultadoEmpresa[0].status,
+  });
+}catch(err){
+  res.status(500).json({message: "Erro ao buscar", error: err.sqlMessage});
+}
+}
+
 module.exports = {
   buscarPorCnpj,
   buscar,
   cadastrar,
+  editar,
   listar,
+  buscarStatus
 };
