@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-
-
-<head onload="window.reload()">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
@@ -22,26 +20,10 @@
     <link rel="stylesheet" href="../Componentes/MenuSuspenso/submenu.css">
     <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
 
-    <!-- Validação de Sessão -->
-    <script src="../Javascript/sessao.js"></script>
-    <script src="../crudPropriedade.js"></script>
-
-    <!-- Sweet Alerts 2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <title>Dashboard</title>
     <!-- <script src="../fetchs.js"></script> -->
 
 </head>
-
-<script>
-    window.onload = function () {
-        validarSessao(),
-            verificarPossuiEmpresa()
-    }
-
-
-</script>
 
 <body>
     <!-- INICIO Navbar -->
@@ -76,7 +58,7 @@
                     </div>
 
                     <select class="selectNavbar" name="Propriedade" id="select_empresa">Escolha a Empresas
-
+                        
                     </select>
                 </div>
 
@@ -100,7 +82,7 @@
                                 <span> > </span>
                             </a>
 
-                            <a href="../index.html" onclick="limparSessao()" class="submenu-option">
+                            <a href="../index.html" onclick="sairDaConta()" class="submenu-option">
                                 <i class="fa-solid fa-door-open icon-modify"></i>
                                 <p>Sair</p>
                                 <span> > </span>
@@ -140,23 +122,6 @@
         </section>
     </div>
 
-
-
-
-
-
-
-
-    <!-- ALERTS PARA A PÁGINA -->
-
-    <!-- Alert caso não possua empresa. -->
-    <script src="../Componentes/Alerts/possuiEmpresa.js"></script>
-
-
-
-
-
-
 </body>
 
 <script src="../fetchs.js">
@@ -166,7 +131,11 @@
 
 </html>
 
+<script type="module">
+    import { cadastrarEmpresa } from '../empresaFetch.js';
 
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+</script>
 
 <script>
     google.charts.load('current', { packages: ['corechart'] });
@@ -271,23 +240,24 @@
     document.getElementById('username').textContent = usernameValue;
 </script>
 
+
 <script type="module">
-    import { cadastrar } from '../crudPropriedade.js';
     import { buscarPropriedade } from '../crudPropriedade.js';
     import { buscarEmpresaPorCidade } from './fetchDashboard.js';
     import { buscarPontosComPotencialDeExpansao } from "./fetchDashboard.js";
     import { quantidadePontosDeExpansao } from "./fetchDashboard.js";
     import { diasComVentosAcimaDoLimite } from "./fetchDashboard.js";
+    import { atualizarMapa } from "./fetchDashboard.js";
 
     buscarPropriedade()
-    document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
     buscarPontosComPotencialDeExpansao(); 
     diasComVentosAcimaDoLimite();
     
     document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('select_empresa').addEventListener('change', ()=> {
+    let empresaSelecionada = select_empresa.value;
     sessionStorage.setItem("valorSelectEmpresaDashboard", select_empresa.value)
-    buscarEmpresaPorCidade(sessionStorage.valorSelectEmpresaDashboard).then(() => {
+    buscarEmpresaPorCidade(empresaSelecionada).then(() => {
                 atualizarMapa();
             });
   });
