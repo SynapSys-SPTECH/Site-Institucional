@@ -1,47 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-
-
-<head onload="window.reload()">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/Icon-SynapSysBranco.svg" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../Componentes/MenuLateral/MenuLateral.css">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <script src="Mapas/geojs-29-mun.json"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!-- Plugin de Máscara -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@2.10.2/dist/leaflet.pm.css" />
-
-
-    <!-- Config menu suspenso -->
-    <link rel="stylesheet" href="../Componentes/MenuSuspenso/submenu.css">
+    <!-- Config para menu suspenso -->
     <script src="https://kit.fontawesome.com/80ec270284.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../Componentes/MenuSuspenso/submenu.css">
+
+    <!-- Importando o Data Tables aqui!! -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
 
     <!-- Validação de Sessão -->
     <script src="../Javascript/sessao.js"></script>
-    <script src="../crudPropriedade.js"></script>
 
     <!-- Sweet Alerts 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <title>Dashboard</title>
-    <!-- <script src="../fetchs.js"></script> -->
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script type="module" src="../empresaFetch.js"></script>
+    <title>Empresas</title>
 
 </head>
-
-<script>
-    window.onload = function () {
-        validarSessao(),
-            verificarPossuiEmpresa()
-    }
-
-
-</script>
 
 <body>
     <!-- INICIO Navbar -->
@@ -76,7 +66,7 @@
                     </div>
 
                     <select class="selectNavbar" name="Propriedade" id="select_empresa">Escolha a Empresas
-
+                        
                     </select>
                 </div>
 
@@ -100,7 +90,7 @@
                                 <span> > </span>
                             </a>
 
-                            <a href="../index.html" onclick="limparSessao()" class="submenu-option">
+                            <a href="../index.html" onclick="sairDaConta()" class="submenu-option">
                                 <i class="fa-solid fa-door-open icon-modify"></i>
                                 <p>Sair</p>
                                 <span> > </span>
@@ -140,23 +130,6 @@
         </section>
     </div>
 
-
-
-
-
-
-
-
-    <!-- ALERTS PARA A PÁGINA -->
-
-    <!-- Alert caso não possua empresa. -->
-    <script src="../Componentes/Alerts/possuiEmpresa.js"></script>
-
-
-
-
-
-
 </body>
 
 <script src="../fetchs.js">
@@ -166,7 +139,11 @@
 
 </html>
 
+<script type="module">
+    import { cadastrarEmpresa } from '../empresaFetch.js';
 
+    document.getElementById('cadastrarBtn').addEventListener('click', cadastrarEmpresa);
+</script>
 
 <script>
     google.charts.load('current', { packages: ['corechart'] });
@@ -271,16 +248,16 @@
     document.getElementById('username').textContent = usernameValue;
 </script>
 
+
 <script type="module">
-    import { cadastrar } from '../crudPropriedade.js';
     import { buscarPropriedade } from '../crudPropriedade.js';
     import { buscarEmpresaPorCidade } from './fetchDashboard.js';
     import { buscarPontosComPotencialDeExpansao } from "./fetchDashboard.js";
     import { quantidadePontosDeExpansao } from "./fetchDashboard.js";
     import { diasComVentosAcimaDoLimite } from "./fetchDashboard.js";
+    import { atualizarMapa } from "./fetchDashboard.js";
 
     buscarPropriedade()
-    document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
     buscarPontosComPotencialDeExpansao(); 
     diasComVentosAcimaDoLimite();
     
@@ -297,5 +274,14 @@
 <script type="module">
     import { buscarLongitudeLatitude } from './fetchDashboard.js';
     buscarLongitudeLatitude()
+</script>
+
+<script src="../Componentes/Alerts/possuiEmpresa.js"></script>
+
+<script>
+    window.onload = function () {
+        validarSessao()
+    }
+    
 </script>
 
