@@ -94,7 +94,7 @@ function entrar() {
         sessionStorage.setItem("EMAIL_USUARIO", json.email);
         sessionStorage.setItem("TIPO_USUARIO", json.fktipo);
         sessionStorage.setItem("NOME_USUARIO", json.nome);
-        window.location.href = "http://localhost:3333/Dashboard/dashboard.html";
+        irDash()
       });
     } else {
       resposta.text().then(texto => {
