@@ -90,7 +90,6 @@ section {
     height: 70vh;
     width: 100%;
     overflow-y: scroll;
-    text-transform: uppercase;
 }
 
 
@@ -141,7 +140,6 @@ section {
 #edit_empresa h1 {
     color: var(--darkBlueSynapsys);
     font-size: larger;
-    
     opacity: 1;
 }
 
