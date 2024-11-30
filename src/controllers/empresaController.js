@@ -164,6 +164,6 @@ module.exports = {
   cadastrar,
   editar,
   listar,
-  buscarStatus
-  buscarIdEmpresa,
+  buscarStatus,
+  buscarIdEmpresa
 };
