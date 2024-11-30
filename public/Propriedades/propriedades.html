@@ -207,7 +207,7 @@
                 <div class="inputs_cadastrar_propriedade">
                     <div class="div_checkbox-status">
                         <input type="checkbox" name="" id="ckbox_status_propriedade">
-                        <label for="ckbox_status_propriedade">Ativar Propriedade</label>
+                        <label for="ckbox_status_propriedade">Deseja Ativar a Propriedade?</label>
                     </div>
                     <div>
                         <label for="input_logradouro">Altere o Logradouro:</label>
@@ -304,7 +304,7 @@
 
     function adicionarNovaPropriedadeTabela() {
         const table = $('#tabela_propriedades').DataTable();
-        table.row
+        const newRow = table.row
             .add([
                 localStorage.nomeFantasia,
                 localStorage.cidade,
@@ -312,11 +312,15 @@
                 localStorage.logradouro,
                 localStorage.cnpj,
                 localStorage.tamanho + "m²",
-                "Ativo",
-                `<button onclick="toggleDrawerEdit(this)" class="edit_btn">Editar</button>`
+                localStorage.status,
+                `<button onclick="toggleDrawerEdit(this)" value="${localStorage.idPropriedade}" name="${localStorage.statusPropriedade}" class="edit_btn">Editar</button>`
             ])
-            .draw(false);
-
+            .draw(false)
+            .node();
+        if (localStorage.status == "Inativo") {
+            $(newRow).css('background-color', 'lightgray'); // Aplica cor cinza
+            $(newRow).addClass('linha-desativada'); // Adiciona uma classe opcional para estilo
+        }
         counter++;
     }
 
@@ -344,7 +348,6 @@
     });
 
     function toggleDrawerEdit(button) {
-
         alert("Editar empresa: " + button.closest('tr').cells[0].textContent);
     }
 
@@ -361,13 +364,15 @@
         }
     }
 
-    function toggleDrawerEdit() {
+    function toggleDrawerEdit(button) {
         const divEdit = document.getElementById("editar_propriedade");
         if (divEdit.style.display === "none") {
             divEdit.style.display = "flex";
         } else {
             divEdit.style.display = "none";
         }
+        localStorage.setItem("idPropriedadeUpdate" , button.value)
+        localStorage.setItem("statusUpdate", button.name)
     }
 
 
@@ -393,11 +398,13 @@
 
 <script type="module">
     import { cadastrar } from '../crudPropriedade.js';
+    import { editarPropriedade} from "../crudPropriedade.js";
     import { buscarPropriedade } from '../crudPropriedade.js';
 
 
     buscarPropriedade()
     document.getElementById('cadastrarBtn').addEventListener('click', cadastrar);
+    document.getElementById('editarBtn').addEventListener('click', editarPropriedade);
 </script>
 
 <script>
@@ -405,6 +412,7 @@
     $(document).ready(function () {
         $('#input_edit_cep').mask('00000-000');
         $('#input_add_cep').mask('00000-000');
+        $('#cnpj').mask('00.000.000/0000-00');
     });
 
 </script>

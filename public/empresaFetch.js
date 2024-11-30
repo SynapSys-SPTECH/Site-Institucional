@@ -147,7 +147,7 @@ function buscarEmpresas() {
   }).then(function (resposta) {
     if (resposta.ok) {
       console.log(resposta);
-      console.log("FOI BUSCAR");
+      console.log("FOI BUSCAR EM EMPRESA");
       resposta.json().then((json) => {
         console.log(json);
         localStorage.setItem("qtdEmpresas", json.length);
@@ -168,8 +168,8 @@ function buscarEmpresas() {
             // Adicionar opções para cada empresa na lista
             json.forEach((empresa) => {
               const option = document.createElement("option");
-              option.value = empresa.idEmpresa; // Valor do ID da empresa
-              option.textContent = empresa.nomeFantasia; // Nome da empresa
+              option.value = empresa.idEmpresa; 
+              option.textContent = empresa.nomeFantasia; 
               selectElement.appendChild(option);
             });
           } else {
@@ -177,21 +177,20 @@ function buscarEmpresas() {
           }
         }
 
-        // IDs dos selects onde as empresas devem aparecer
+
         const selectIds = ["select_empresa1", "select_empresa"];
 
-        // Preencher ambos os selects
         selectIds.forEach((id) => {
           criarOpcoesSelect(json, id);
         });
 
-        // Atualizar localStorage para cada empresa
+
         for (let i = 0; i < json.length; i++) {
           localStorage.setItem("nomeFantasia", json[i].nomeFantasia);
           localStorage.setItem("cidade", json[i].cidade);
           localStorage.setItem("cep", json[i].cep);
           localStorage.setItem("cnpj", json[i].cnpj);
-          localStorage.setItem("status", json[i].idEmpresa);
+          localStorage.setItem("status", json[i].status);
 
           if (janelaAtual == "/Empresas/empresas.html") {
             adicionarNovaEmpresaTabela();
@@ -204,6 +203,118 @@ function buscarEmpresas() {
     }
   });
 }
+function editarEmpresa() {
+  
+  let idUserVar = sessionStorage.ID_USUARIO;
+  let idEmpresa = " ";
+  let idEndereco = " ";
+  let cnpjVar = localStorage.getItem("UpdateCnpj");
+  let nomeFantasiaVar = document.getElementById("input_edit_nomeFantasia").value.trim();
+  let cidadeVar = document.getElementById("input_edit_cidade").value.trim();
+  let ufVar = document.getElementById("input_edit_uf").value.trim();
+  let cepVar = document.getElementById("input_edit_cep").value.replace(/-/g, "").trim();
+  let numeroVar = document.getElementById("input_edit_numero").value.trim();
+  let bairroVar = document.getElementById("input_edit_bairro").value.trim();
+  let razaoSocialVar = document.getElementById("input_edit_razaoSocial").value.trim();
+  let logradouroVar = document.getElementById("input_edit_logradouro").value.trim();
+  let complementoVar = document.getElementById("input_edit_complemento").value.trim();
+  const checkbox = document.getElementById("ckbox_status_empresa");
 
 
-export { cadastrarEmpresa, buscarEmpresas };
+  const statusAtual = checkbox.checked ? "Ativo" : "Inativo";
+
+
+  const statusOriginal = localStorage.getItem("statusEmpresa") || "Ativo"; // Valor padrão se não encontrado
+
+  const algumCampoPreenchido =
+    nomeFantasiaVar !== "" ||
+    cidadeVar !== "" ||
+    ufVar !== "" ||
+    cepVar !== "" ||
+    numeroVar !== "" ||
+    bairroVar !== "" ||
+    razaoSocialVar !== "" ||
+    logradouroVar !== "" ||
+    complementoVar !== "";
+
+
+  const statusAlterado = statusAtual !== statusOriginal;
+
+
+  if (!algumCampoPreenchido && !statusAlterado) {
+    Swal.fire({
+      icon: "error",
+      title: "Opa...",
+      text: "Você deve editar pelo menos um campo ou alterar o status antes de salvar.",
+      showConfirmButton: true,
+      confirmButtonText: "Entendido!",
+    });
+    return;
+  }
+
+
+  fetch(`/empresas/editar/${cnpjVar}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      nomeFantasiaServer: nomeFantasiaVar,
+      cidadeServer: cidadeVar,
+      ufServer: ufVar,
+      cepServer: cepVar,
+      numeroServer: numeroVar,
+      bairroServer: bairroVar,
+      razaoSocialServer: razaoSocialVar,
+      logradouroServer: logradouroVar,
+      complementoServer: complementoVar,
+      cnpjServer: cnpjVar,
+      idServer: idUserVar,
+      idEmpresaServer: idEmpresa,
+      idEnderecoServer: idEndereco,
+      statusServer: statusAtual,
+    }),
+  })
+    .then(function (resposta) {
+      if (resposta.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Sucesso!",
+          text: "Empresa editada com sucesso!",
+          showConfirmButton: true,
+          confirmButtonText: "Ufa!",
+        }).then(() => {
+          localStorage.setItem("statusEmpresa", statusAtual);
+          window.location.reload();
+        });
+      } else if (resposta.status === 404) {
+        Swal.fire({
+          icon: "error",
+          title: "Erro 404",
+          text: "Empresa não encontrada. Verifique os dados e tente novamente.",
+          showConfirmButton: true,
+          confirmButtonText: "Tentar novamente",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Ops!",
+          text: "Houve um erro ao editar a empresa. Tente novamente.",
+          showConfirmButton: true,
+          confirmButtonText: "Tentar novamente",
+        });
+      }
+    })
+    .catch(function (resposta) {
+      console.error(`#ERRO: ${resposta}`);
+      Swal.fire({
+        icon: "error",
+        title: "Erro inesperado",
+        text: "Ocorreu um erro ao tentar editar a empresa. Por favor, tente novamente mais tarde.",
+        showConfirmButton: true,
+        confirmButtonText: "Ok",
+      });
+    });
+}
+
+export { cadastrarEmpresa, buscarEmpresas, editarEmpresa };

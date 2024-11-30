@@ -146,8 +146,10 @@ function buscarPropriedade() {
           localStorage.setItem("cep", json[i].cep)
           localStorage.setItem("logradouro", json[i].logradouro)
           localStorage.setItem("cnpj", json[i].cnpj)
-          localStorage.setItem("status", json[i].idEmpresa)
+          localStorage.setItem("status", json[i].status)
           localStorage.setItem("tamanho", json[i].tamanho)
+          localStorage.setItem("idPropriedade", json[i].idPropriedade)
+          localStorage.setItem("statusPropriedade",json[i].statusPropriedade)
           adicionarNovaPropriedadeTabela();
         }
         console.log(JSON.stringify(json));
@@ -158,4 +160,328 @@ function buscarPropriedade() {
   });
 }
 
-export { cadastrar, buscarPropriedade };
+function buscarStatusEmpresa(){
+const idEmpresa = 1;
+
+  fetch(`empresas/buscarStatus/${idEmpresa}`,{
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      window.alert("status da empresa " + resposta.json().resultadoEmpresa);
+    } else if (resposta.status == 404) {
+      window.alert("Deu 404!");
+    } else {
+      throw ("Houve um erro ao tentar realizar query status! Código da resposta: " + resposta.status);
+    }
+  })
+}
+// function editarPropriedade() {
+//   let idUserVar = sessionStorage.ID_USUARIO;
+//   let idPropriedadeVar = localStorage.idPropriedadeUpdate;
+//   let cidadeVar = document.getElementById("input_edit_cidade").value.trim();
+//   let logradouroVar = document.getElementById("input_edit_logradouro").value.trim();
+//   let cepVar = document.getElementById("input_edit_cep").value.replace(/-/g, "").trim();
+//   let tamanhoVar = document.getElementById("input_edit_tamanho").value.trim();
+//   let ufVar = document.getElementById("input_edit_uf").value.trim();
+
+//   const checkbox = document.getElementById("ckbox_status_propriedade");
+
+
+//   const statusVar = checkbox.checked ? "Ativo" : "Inativo";
+
+
+//   const algumCampoPreenchido =
+//     cidadeVar !== "" ||
+//     logradouroVar !== "" ||
+//     cepVar !== "" ||
+//     tamanhoVar !== "" ||
+//     ufVar !== "";
+
+
+//   if (!algumCampoPreenchido && statusVar === "Inativo" && localStorage.statusUpdate === "Ativo") {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Opa...",
+//       text: "Você deve editar pelo menos um campo ou alterar o status antes de salvar.",
+//       showConfirmButton: true,
+//       confirmButtonText: "Entendido!",
+//     });
+//     return;
+//   }
+  
+
+
+//   fetch(`/propriedades/editar`, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       tamanhoServer: tamanhoVar,
+//       cidadeServer: cidadeVar,
+//       ufServer: ufVar,
+//       cepServer: cepVar,
+//       logradouroServer: logradouroVar,
+//       idPropriedadeServer: idPropriedadeVar,
+//       statusServer: statusVar,  
+//     }),
+//   })
+//     .then(function (resposta) {
+//       if (resposta.ok) {
+//         Swal.fire({
+//           icon: "success",
+//           title: "Sucesso!",
+//           text: "Propriedade editada com sucesso!",
+//           showConfirmButton: true,
+//           confirmButtonText: "Ufa!",
+//         }).then(() => {
+//           localStorage.setItem("statusPropriedade", statusVar); 
+//           window.location.reload();
+//         });
+//       } else if (resposta.status === 404) {
+//         Swal.fire({
+//           icon: "error",
+//           title: "Erro 404",
+//           text: "Propriedade não encontrada. Verifique os dados e tente novamente.",
+//           showConfirmButton: true,
+//           confirmButtonText: "Tentar novamente",
+//         });
+//       } else {
+//         Swal.fire({
+//           icon: "error",
+//           title: "Ops!",
+//           text: "Houve um erro ao editar a propriedade. Tente novamente.",
+//           showConfirmButton: true,
+//           confirmButtonText: "Tentar novamente",
+//         });
+//       }
+//     })
+//     .catch(function (resposta) {
+//       console.error(`#ERRO: ${resposta}`);
+//       Swal.fire({
+//         icon: "error",
+//         title: "Erro inesperado",
+//         text: "Ocorreu um erro ao tentar editar a propriedade. Por favor, tente novamente mais tarde.",
+//         showConfirmButton: true,
+//         confirmButtonText: "Ok",
+//       });
+//     });
+// }
+
+// function editarPropriedade() {
+//   let idUserVar = sessionStorage.ID_USUARIO;
+//   let idPropriedadeVar = localStorage.idPropriedadeUpdate;
+//   let cidadeVar = document.getElementById("input_edit_cidade").value.trim();
+//   let logradouroVar = document.getElementById("input_edit_logradouro").value.trim();
+//   let cepVar = document.getElementById("input_edit_cep").value.replace(/-/g, "").trim();
+//   let tamanhoVar = document.getElementById("input_edit_tamanho").value.trim();
+//   let ufVar = document.getElementById("input_edit_uf").value.trim();
+
+//   const checkbox = document.getElementById("ckbox_status_propriedade");
+
+//   // Status original da propriedade
+//   const statusOriginal = localStorage.getItem("statusPropriedade") || "Ativo";  // "Ativo" é o padrão
+//   const statusAtual = checkbox.checked ? "Ativo" : "Inativo";  // Status atual, de acordo com o checkbox
+
+//   // Verificando se pelo menos um campo foi alterado
+//   const algumCampoPreenchido =
+//     cidadeVar !== "" ||
+//     logradouroVar !== "" ||
+//     cepVar !== "" ||
+//     tamanhoVar !== "" ||
+//     ufVar !== "";
+
+//   // Se a propriedade está ativa, mas nenhum campo foi alterado, não permitir desmarcar o checkbox (deixar como "Inativo")
+//   if (statusOriginal === "Ativo" && !algumCampoPreenchido && !checkbox.checked) {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Opa...",
+//       text: "Você não pode deixar a propriedade inativa sem alterar algum campo.",
+//       showConfirmButton: true,
+//       confirmButtonText: "Entendido!",
+//     });
+//     return;
+//   }
+
+//   // Se a propriedade estava inativa, o checkbox foi marcado para ativo, mas nenhum campo foi alterado
+//   if (statusOriginal === "Inativo" && statusAtual === "Ativo" && !algumCampoPreenchido) {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Opa...",
+//       text: "Você precisa alterar pelo menos um campo para mudar o status para Ativo.",
+//       showConfirmButton: true,
+//       confirmButtonText: "Entendido!",
+//     });
+//     return;
+//   }
+
+//   // O status será alterado se algum campo for alterado ou se o checkbox foi alterado
+//   const statusFinal = algumCampoPreenchido || statusAtual !== statusOriginal ? statusAtual : statusOriginal;
+
+//   // Envio da requisição para editar a propriedade
+//   fetch(`/propriedades/editar`, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       tamanhoServer: tamanhoVar,
+//       cidadeServer: cidadeVar,
+//       ufServer: ufVar,
+//       cepServer: cepVar,
+//       logradouroServer: logradouroVar,
+//       idPropriedadeServer: idPropriedadeVar,
+//       statusServer: statusFinal,  // Status final que será enviado ao servidor
+//     }),
+//   })
+//     .then(function (resposta) {
+//       if (resposta.ok) {
+//         Swal.fire({
+//           icon: "success",
+//           title: "Sucesso!",
+//           text: "Propriedade editada com sucesso!",
+//           showConfirmButton: true,
+//           confirmButtonText: "Ufa!",
+//         }).then(() => {
+//           localStorage.setItem("statusPropriedade", statusFinal); // Atualiza o status no localStorage
+//           window.location.reload();
+//         });
+//       } else if (resposta.status === 404) {
+//         Swal.fire({
+//           icon: "error",
+//           title: "Erro 404",
+//           text: "Propriedade não encontrada. Verifique os dados e tente novamente.",
+//           showConfirmButton: true,
+//           confirmButtonText: "Tentar novamente",
+//         });
+//       } else {
+//         Swal.fire({
+//           icon: "error",
+//           title: "Ops!",
+//           text: "Houve um erro ao editar a propriedade. Tente novamente.",
+//           showConfirmButton: true,
+//           confirmButtonText: "Tentar novamente",
+//         });
+//       }
+//     })
+//     .catch(function (resposta) {
+//       console.error(`#ERRO: ${resposta}`);
+//       Swal.fire({
+//         icon: "error",
+//         title: "Erro inesperado",
+//         text: "Ocorreu um erro ao tentar editar a propriedade. Por favor, tente novamente mais tarde.",
+//         showConfirmButton: true,
+//         confirmButtonText: "Ok",
+//       });
+//     });
+// }
+function editarPropriedade() {
+  let idUserVar = sessionStorage.ID_USUARIO;
+  let idPropriedadeVar = localStorage.idPropriedadeUpdate;
+  let cidadeVar = document.getElementById("input_edit_cidade").value.trim();
+  let logradouroVar = document.getElementById("input_edit_logradouro").value.trim();
+  let cepVar = document.getElementById("input_edit_cep").value.replace(/-/g, "").trim();
+  let tamanhoVar = document.getElementById("input_edit_tamanho").value.trim();
+  let ufVar = document.getElementById("input_edit_uf").value.trim();
+
+  const checkbox = document.getElementById("ckbox_status_propriedade");
+
+
+  const statusOriginal = localStorage.getItem("statusPropriedade") || "Ativo";  
+  const statusAtual = checkbox.checked ? "Ativo" : "Inativo"; 
+
+
+  const algumCampoPreenchido =
+    cidadeVar !== "" ||
+    logradouroVar !== "" ||
+    cepVar !== "" ||
+    tamanhoVar !== "" ||
+    ufVar !== "";
+
+
+  if (statusOriginal === "Ativo" && !checkbox.checked && !algumCampoPreenchido) {
+    Swal.fire({
+      icon: "success",
+      title: "Propriedade agora está Inativa!",
+      text: "Você deixou a propriedade inativa com sucesso.",
+      showConfirmButton: true,
+      confirmButtonText: "Ok",
+    });
+  }
+
+
+  if (statusOriginal === "Inativo" && statusAtual === "Ativo" && !algumCampoPreenchido) {
+    Swal.fire({
+      icon: "error",
+      title: "Opa...",
+      text: "Você precisa alterar pelo menos um campo para mudar o status para Ativo.",
+      showConfirmButton: true,
+      confirmButtonText: "Entendido!",
+    });
+    return;
+  }
+
+
+  const statusFinal = algumCampoPreenchido || statusAtual !== statusOriginal ? statusAtual : statusOriginal;
+
+  fetch(`/propriedades/editar`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      tamanhoServer: tamanhoVar,
+      cidadeServer: cidadeVar,
+      ufServer: ufVar,
+      cepServer: cepVar,
+      logradouroServer: logradouroVar,
+      idPropriedadeServer: idPropriedadeVar,
+      statusServer: statusFinal,  
+    }),
+  })
+    .then(function (resposta) {
+      if (resposta.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Sucesso!",
+          text: "Propriedade editada com sucesso!",
+          showConfirmButton: true,
+          confirmButtonText: "Ufa!",
+        }).then(() => {
+          localStorage.setItem("statusPropriedade", statusFinal); 
+          window.location.reload();
+        });
+      } else if (resposta.status === 404) {
+        Swal.fire({
+          icon: "error",
+          title: "Erro 404",
+          text: "Propriedade não encontrada. Verifique os dados e tente novamente.",
+          showConfirmButton: true,
+          confirmButtonText: "Tentar novamente",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Ops!",
+          text: "Houve um erro ao editar a propriedade. Tente novamente.",
+          showConfirmButton: true,
+          confirmButtonText: "Tentar novamente",
+        });
+      }
+    })
+    .catch(function (resposta) {
+      console.error(`#ERRO: ${resposta}`);
+      Swal.fire({
+        icon: "error",
+        title: "Erro inesperado",
+        text: "Ocorreu um erro ao tentar editar a propriedade. Por favor, tente novamente mais tarde.",
+        showConfirmButton: true,
+        confirmButtonText: "Ok",
+      });
+    });
+}
+
+export { cadastrar, buscarPropriedade, editarPropriedade, buscarStatusEmpresa };

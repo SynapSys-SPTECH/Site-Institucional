@@ -20,4 +20,16 @@ router.get("/listar", function (req, res) {
   empresaController.listar(req, res);
 });
 
+router.put("/editar/:cnpj", function (req, res) {
+    empresaController.editar(req, res);
+});
+
+router.get("/buscarStatus/:idUserVar", function (req, res) {
+    empresaController.buscarStatus(req, res);
+});
+
+router.get("/buscarIdEmpresa/:idEmpresa", function (req, res){
+  empresaController.buscarIdEmpresa(req,res);
+})
+
 module.exports = router;
