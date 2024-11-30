@@ -141,7 +141,7 @@ section {
 #edit_empresa h1 {
     color: var(--darkBlueSynapsys);
     font-size: larger;
-    text-transform: uppercase;
+    
     opacity: 1;
 }
 
