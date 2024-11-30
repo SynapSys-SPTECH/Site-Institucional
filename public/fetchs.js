@@ -134,11 +134,11 @@ function entrar() {
 
 function cadastrar() {
   let nomeVar = nomeCadastro.value;
-  let telefoneVar = telefoneCadastro.value;
+  let telefoneVar = telefoneCadastro.value.replace(/[()\-\s]/g, "");
   let emailVar = emailCadastro.value;
   let senhaVar = senhaCadastro.value;
   let confirmacaoSenhaVar = confirmacaoCadastro.value;
-  let tipoVar = tipoUserCadastro.value;
+  let tipoVar = 1;
   if (
     emailVar == "" ||
     senhaVar == "" ||

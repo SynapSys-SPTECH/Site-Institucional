@@ -413,16 +413,16 @@ function editarPropriedade() {
   }
 
 
-  if (statusOriginal === "Inativo" && statusAtual === "Ativo" && !algumCampoPreenchido) {
-    Swal.fire({
-      icon: "error",
-      title: "Opa...",
-      text: "Você precisa alterar pelo menos um campo para mudar o status para Ativo.",
-      showConfirmButton: true,
-      confirmButtonText: "Entendido!",
-    });
-    return;
-  }
+  // if (statusOriginal === "Inativo" && checkbox.checked) {
+  //   Swal.fire({
+  //     icon: "error",
+  //     title: "Opa...",
+  //     text: "Você precisa alterar pelo menos um campo para mudar o status para Ativo.",
+  //     showConfirmButton: true,
+  //     confirmButtonText: "Entendido!",
+  //   });
+  //   return;
+  // }
 
 
   const statusFinal = algumCampoPreenchido || statusAtual !== statusOriginal ? statusAtual : statusOriginal;

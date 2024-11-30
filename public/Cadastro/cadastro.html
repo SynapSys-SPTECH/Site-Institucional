@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="cadastro.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../fetchs.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 
 <body>
@@ -44,14 +47,6 @@
           <label for="confirmacaoCadastro">Confirmar Senha</label>
           <input type="password" id="confirmacaoCadastro">
         </div>
-        <div class="inputs">
-          <label for="tipoUserCadastro">Tipo de Usuário</label>
-          <select id="tipoUserCadastro">
-            <option value="/">Selecione o Usuario</option>
-            <option value="1">Dono de Empresa</option>
-            <option value="2">Investidor</option>
-          </select>
-        </div>
         <div class="actions">
           <button id="entrarLogin" onclick="cadastrar()">Cadastrar</button>
           <p class="link" id="abrirCadastro">Já possui conta?<a class="link" href="../Login/login.html"> Entrar</a></p>
@@ -64,3 +59,11 @@
 </body>
 
 </html>
+
+<script>
+
+$(document).ready(function () {
+        $('#telefoneCadastro').mask('(00) 00000-0000');
+    });
+   
+</script>
