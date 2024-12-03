@@ -16,22 +16,6 @@ function limparSessao() {
     window.location = "../index.html";
 }
 
-function verificarPossuiEmpresa(){
-    qtdEmpresas = localStorage.qtdEmpresas;
-
-    if(qtdEmpresas == 0){
-        // alert("O Usuário não possui empresas, Redirecionando para Tela de Empresas!")
-        swal.fire("Olá, deu erro aí")
-        // Aqui temos que substituir pelo sweet alert
-        
-
-        window.location = "../Empresas/empresas.html"
-    } else{
-        console.log("O Usuário possui "+ qtdEmpresas +" empresas!")
-    }
-
-}
-
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");
