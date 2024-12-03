@@ -13,6 +13,7 @@ function validarSessao() {
 
 function limparSessao() {
     sessionStorage.clear();
+    localStorage.clear();
     window.location = "../index.html";
 }
 
